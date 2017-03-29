@@ -1,0 +1,11 @@
+[conflict 예방]
+
+새로운 이슈들을 처리하기 전에 pull을 해서 작업을 시작할 것 
+
+순서: PULL -> WORK -> COMMIT -> PULL -> PUSH
+
+
+
+* conflict 책임은 나중에 push한 사람한테 간다.
+
+* confilict 예방: 원격저장소와 자주 동기화를 해야한다.
