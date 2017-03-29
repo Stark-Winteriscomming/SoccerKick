@@ -36,7 +36,7 @@
 			<img src="../resources/img/team/formation.jpg">
 		 </div>
 		 <div align="center">
-		 <div class="panel panel-primary" style="width: 691px"> 
+		 <div class="panel panel-success" style="width: 691px"> 
 		      <div class="panel-heading">
 		        <h3 class="panel-title" id="panel-title">팀 소개<a class="anchorjs-link" href="#panel-title"><span class="anchorjs-icon"></span></a></h3>
 		      </div>
@@ -44,10 +44,10 @@
 		        생략
 		      </div>
 	     </div>
-	     </div>
-		 <br>
+	     </div>     
+		 <br>  
 		 <div align="center"> 
-		 	<button class="btn btn-primary btn-lg" style="width: 300px; height:70px">신청 하기</button>
+		 	<button class="btn btn-success btn-lg" style="width: 300px; height:70px">신청 하기</button>
 		 </div>
 		 
 	</div>

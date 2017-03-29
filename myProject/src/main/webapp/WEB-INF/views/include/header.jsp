@@ -41,10 +41,12 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="nav navbar-nav navbar-right"> 
                     <div class="btn-group" style="margin-top: 2px">  
-					  <button type="button" class="btn btn-success btn-lg">입단 하기</button>
+					  <button type="button" class="btn btn-success btn-lg">입단 하기</button> 
 					  <button type="button" class="btn btn-success btn-lg">팀 만들기</button> 
-					  <button type="button" class="btn btn-success btn-lg">마이페이지</button>
-					</div>
+					  <button type="button" class="btn btn-success btn-lg">마이페이지</button>  
+					  
+					</div>  
+					<a href="/login/login"><button type="button" class="btn btn-success btn-md"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 로그인</button></a>
                 </div>
             </div>
         </div>
@@ -52,9 +54,9 @@
 
     <header>
         <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">It's time to run</div> 
-                <div class="intro-heading">Soccer Kick!</div> 
+            <div class="intro-text" style="padding-top: 150px"> 
+                <div class="intro-lead-in">It's time to run.</div> 
+                <div class="intro-heading">Soccer Kick !</div> 
             </div>
         </div>
     </header>
