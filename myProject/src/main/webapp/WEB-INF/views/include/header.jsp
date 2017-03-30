@@ -16,8 +16,8 @@
 
     <title>SoccerKick</title>
 
-    <link href="<c:url value="/resources/vendor/bootstrap/css/bootstrap.min.css"/> rel="stylesheet">
-    <link href="<c:url value="/resources/vendor/font-awesome/css/font-a	wesome.min.css"/> rel="stylesheet" type="text/css">
+    <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/vendor/font-awesome/css/font-a	wesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
