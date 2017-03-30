@@ -1,5 +1,6 @@
 <!-- 가나다라마바사아자차카타 -->
-<!-- 이창호 코드 -->
+<!-- 1234 -->
+
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
