@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod; 
 
 @Controller
-@RequestMapping("/login/*")
-public class loginController {
+@RequestMapping("/memberSelect/*")
+public class memberSelect {
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/memberSelectForm", method = RequestMethod.GET)
 	public void readGet(Locale locale, Model model) {
 	}
 	
