@@ -1,0 +1,191 @@
+.content{
+	width:1000px;
+	height:800px;
+	margin: 0 auto;
+}
+.innerborder{
+	overflow:hidden;
+	width:100%;
+	height:100%;
+	
+}
+.core{
+	width:100%;
+	height:300px;
+	border:1px solid lightgray;
+	border-radius:5px;
+	border-style:outset;
+	padding:10px;
+}
+.core2{
+	width:100%;
+	height:200px;
+	border:1px solid lightgray;
+	border-radius:5px;
+	border-style:outset;
+	padding:20px;
+	margin-top: 20px;
+}
+.profile{
+	width:205px;
+	height:280px;
+	float: left;
+	background-color: #E0FF8B;
+	
+}
+.profileimg{
+	width:170px;
+	height:170px;
+	border: 5px solid #ABF200;
+	border-style:inset;
+	margin:0 auto;
+	margin-top: 15px;
+}
+.btn_img{
+	width:170px;
+	height:25px;
+	margin:0 auto;
+	margin-top: 15px;
+}
+.list{     
+	width:768px;
+	height:280px;
+	padding-top:10px;
+	padding-left:20px;
+	padding-right:20px;
+	float: left;
+	
+}
+.account{
+	height:40px;
+	
+}
+.innercore{
+	padding:10px;
+	height:200px;
+	border:1px solid lightgray;
+	border-radius:10px;
+	border-style: inset;
+	border-style: outset;
+	background-color: #E4F7BA;
+}
+.member_list{
+	width:250px;
+	padding-left:0px;
+	list-style: none;
+	border-right: 1px solid gray;
+	float:left;
+}
+ul li{
+	margin-top: 5px;
+}
+label{
+	width:50px;
+}
+.member_span{
+	display:inline-block;
+	background-color:#4486c0;
+	color:white;
+	width:50px;
+	border:1px solid black;
+	border-radius:3px;
+	text-align: center;
+	font-size: 0.8em;
+}
+}
+.inlineBlock{
+	border:none;
+	background-color: #e6efd1;
+	color:black;
+	width: 153px;
+	text-align: left;
+	margin-left: 5px;
+	font-size: 0.7em;
+}
+.inlineBlock input{
+	height:21px;
+	font-size: 0.8em;
+}
+.introduce{
+	float:left;
+	width:454px;
+	height:100%;
+	padding-left: 15px;
+}
+.introduce_content{
+	width:436px;
+	height:141px;
+	resize:none;
+}
+.team_info, .guestbook{
+	float:left;
+	width: 460px;
+	height:100%;
+	
+}
+.guestbook{
+	float:right;
+}
+.team_info h4, .guestbook h4{
+	width:460px;
+	height:35px;
+	color:#3772a6;
+	border:3px solid #3772a6;
+	padding-top: 5px;
+	padding-left:15px;
+	margin:0 auto;
+}
+.gusetbookadd{
+	padding-top:20px;
+	padding-bottom:20px;
+	height:90px;
+	border-bottom: 1px thin lightgray;
+}
+.guestbookimg{
+	width:50px;
+	height:50px;
+	float: left;
+	border:1px solid lightgray;
+}
+.guestbook_content{
+	float:left;
+	width:318px;
+	height:50px;
+	margin-left: 10px;
+}
+.guestbook_submit{
+	float:left;
+	margin-left: 10px;
+	height:50px;
+	font-weight: bold;
+	
+}
+center{
+	margin-top:40px;
+}
+.btn_modify, .btn_cancel {
+    width:128px;
+    height:52px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:4px;
+}
+.btn_modify:HOVER{
+	opacity:0.9;
+}
+.btn_cancel:HOVER{
+	opacity:0.8;
+}
+.btn_modify{
+	background-color: #4294f2;
+}
+.btn_cancel{
+	background-color:#999999;
+}
