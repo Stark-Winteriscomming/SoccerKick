@@ -25,4 +25,8 @@ public class gBoardController{
 	public void teamOpen(Model model) throws Exception {
 	}
 	
+	@RequestMapping(value = "/make", method = RequestMethod.GET)
+	public void make(Model model) throws Exception {
+	}
+	
 }
