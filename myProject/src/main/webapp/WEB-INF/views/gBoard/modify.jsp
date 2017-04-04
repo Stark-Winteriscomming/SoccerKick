@@ -2,32 +2,9 @@
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
- 
-<head>
+  
+<%@include file="../include/header.jsp" %>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SoccerKick</title>
-    <link href="../css/mypage.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript">
-		$(document).ready(function(){
-			$(".btn1").click(function(){
-				modifyform.submit();
-			});
-		});
-	</script>
-</head>
-
-<body id="page-top" class="index">
-	<%@include file="../include/header.jsp" %>
-    <!-- Portfolio Grid Section -->
     <section id="portfolio" class="bg-light-gray" style="height:1000px;">
     	<div class="content">
     		<div class="innerborder">
@@ -117,17 +94,13 @@
     					</form>
     				</div>
     			</div>
-    			<center>
+    			<div align="center">
     				<button type="button" class="btn_modify">수정완료</button>
     				<button type="button" class="btn_cancel">취소</button>
-    			</center>
+    			</div>
     		</div>
     	</div>
     	
     </section>
 
-
-    <%@include file="../include/footer.jsp" %>
-</body>
-
-</html>
+<%@include file="../include/footer.jsp" %>
