@@ -52,10 +52,9 @@
 					  <div class="btn-group">
 				      <button type="button" class="btn btn-success btn-lg" data-toggle="dropdown">모집 게시판<span class="caret"></span></button>
 					      <ul class="dropdown-menu" role="menu">
-					        <li><a href="/gBoard/join_form">create</a></li>
 					        <li><a href="/gBoard/modify">modify</a></li>
 					        <li><a href="/gBoard/read">read</a></li>
-					        <li><a href="/gBoard/team_open">open</a></li>
+					        <li><a href="/gBoard/team_open">팀생성</a></li>
 					      </ul>
 				      </div>
 					</div>  
