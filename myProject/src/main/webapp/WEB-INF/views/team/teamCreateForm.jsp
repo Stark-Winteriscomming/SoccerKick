@@ -105,13 +105,10 @@
 				<li>
 							<!--  start of image carousel -->
 		<label>포메이션</label>
-<<<<<<< HEAD
-		<section>
+
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 540px;">
-=======
 		
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
->>>>>>> a988f4e110f27cc2fa7d13aaf2a5414f0a6e4987
 		    <!-- Indicators -->
 		    <ol class="carousel-indicators">
 		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -124,11 +121,7 @@
 		    <div class="carousel-inner" role="listbox">
 		
 		      <div class="item active">
-<<<<<<< HEAD
 		        <img src="../../../resources/img/for1.jpg">
-=======
-		        <img src="img/for1.jpg" width="20%" height="100">
->>>>>>> a988f4e110f27cc2fa7d13aaf2a5414f0a6e4987
 		        <div class="carousel-caption">
 		          <h3>포메이션1</h3>
 		          <p>...</p>
@@ -136,11 +129,8 @@
 		      </div>
 		
 		      <div class="item">
-<<<<<<< HEAD
+
 		        <img src="../../../resources/img/for2.jpg">
-=======
-		        <img src="img/for2.jpg"  width="20%" height="100">
->>>>>>> a988f4e110f27cc2fa7d13aaf2a5414f0a6e4987
 		        <div class="carousel-caption">
 		          <h3>포메이션2</h3>
 		          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
@@ -148,19 +138,15 @@
 		      </div>
 		    
 		      <div class="item">
-<<<<<<< HEAD
 		        <img src="../../../resources/img/for3.jpg">
-=======
-		        <img src="img/for3.jpg"  width="20%" height="100">
->>>>>>> a988f4e110f27cc2fa7d13aaf2a5414f0a6e4987
 		        <div class="carousel-caption">
 		          <h3>포메이션3</h3>
 		          <p>Beatiful flowers in Kolymbari, Crete.</p>
 		        </div>
 		      </div>
 		
-		 
 		  
+		   
 		    </div>
 		
 		    <!-- Left and right controls -->
