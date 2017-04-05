@@ -20,7 +20,7 @@
 							<!--  start of image carousel -->
 		<label>포메이션</label>
 		<section>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 540px;">
 		    <!-- Indicators -->
 		    <ol class="carousel-indicators">
 		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -33,7 +33,7 @@
 		    <div class="carousel-inner" role="listbox">
 		
 		      <div class="item active">
-		        <img src="../../../resources/img/for1.jpg" width="20%" height="100">
+		        <img src="../../../resources/img/for1.jpg">
 		        <div class="carousel-caption">
 		          <h3>포메이션1</h3>
 		          <p>...</p>
@@ -41,7 +41,7 @@
 		      </div>
 		
 		      <div class="item">
-		        <img src="../../../resources/img/for2.jpg"  width="20%" height="100">
+		        <img src="../../../resources/img/for2.jpg">
 		        <div class="carousel-caption">
 		          <h3>포메이션2</h3>
 		          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
@@ -49,7 +49,7 @@
 		      </div>
 		    
 		      <div class="item">
-		        <img src="../../../resources/img/for3.jpg"  width="20%" height="100">
+		        <img src="../../../resources/img/for3.jpg">
 		        <div class="carousel-caption">
 		          <h3>포메이션3</h3>
 		          <p>Beatiful flowers in Kolymbari, Crete.</p>
