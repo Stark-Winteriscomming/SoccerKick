@@ -50,7 +50,7 @@ table {
     border-spacing: 2px;
     border-color: grey;
 }
-
+h1.title{text-align:left;}
      
 th{
 width:60%
@@ -62,6 +62,7 @@ text-align:center;
 .even{ background: #FF9;}
 .bg-light-gray {
     background-color: rgba(155, 189, 70, 0.25);
+    text-align:center;
 }
 
         sortable paginated.span{}
@@ -70,7 +71,7 @@ text-align:center;
 
 
 <section id="portfolio" class="bg-light-gray">
- <h1>셀렉트 페이지</h1>
+ <h1 class="title">셀렉트 페이지</h1>
       <table class="sortable paginated">
         <span id="cselect">선택</span>
         <span><a href="">메인 페이지</a></span>
