@@ -4,7 +4,7 @@
   pageEncoding="UTF-8"%>
   
 <%@include file="../include/header.jsp" %>
-
+<link href="/resources/css/mypage.css" rel="stylesheet">
     <section id="portfolio" class="bg-light-gray" style="height:1000px;">
     	<div class="content">
     		<div class="innerborder">
@@ -87,7 +87,7 @@
     					<h4>방명록</h4>
     					<form class="gusetbookadd" action="1.html">
     						<div class="guestbookimg">
-    							<img src="../img/guestbook.PNG" width="48" height="48"/>
+    							<img src="/resources/img/guestbook.PNG" width="48" height="48"/>
     						</div>
     						<textarea class="guestbook_content"></textarea>
     						<input type="submit" class="guestbook_submit" value="내용입력">

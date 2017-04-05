@@ -2,8 +2,10 @@
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+  
 
 <%@include file="../include/header.jsp" %>
+<link href="/resources/css/joinform.css" rel="stylesheet">
 
     <!-- Portfolio Grid Section -->
     <section id="portfolio" class="bg-light-gray" style="height:100%;">

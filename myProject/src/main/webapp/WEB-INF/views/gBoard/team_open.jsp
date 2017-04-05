@@ -10,6 +10,7 @@
 <title>SoccerKick</title>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
@@ -42,6 +43,7 @@
 
 <body id="page-top" class="index">
 	<%@include file="../include/header.jsp" %>
+	<link href="/resources/css/team_open.css" rel="stylesheet">
 	<section id="portfolio" class="bg-light-gray">
 		<div class="content">
 			<div class="pageTitle">
@@ -189,22 +191,22 @@
 							<div class="carousel-inner" role="listbox">
 
 								<div class="item active">
-									<img src="img/1.jpg" alt="Chania">
+									<img src="/resources/img/1.jpg" alt="Chania">
 
 								</div>
 
 								<div class="item">
-									<img src="img/1.jpg" alt="Chania">
+									<img src="/resources/img/1.jpg" alt="Chania">
 
 								</div>
 
 								<div class="item">
-									<img src="img/1.jpg" alt="Flower">
+									<img src="/resources/img/1.jpg" alt="Flower">
 
 								</div>
 
 								<div class="item">
-									<img src="img/1.jpg" alt="Flower">
+									<img src="/resources/img/1.jpg" alt="Flower">
 
 								</div>
 
