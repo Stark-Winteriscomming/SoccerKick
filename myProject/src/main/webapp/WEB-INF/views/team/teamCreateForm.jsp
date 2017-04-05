@@ -5,22 +5,113 @@
   
   
 <%@include file="../include/header.jsp" %>
+<style>
+  		div.team_create {
+			width:68%;
+			margin:auto;  		
+		}
+		div.teamcreateform {
+			width:90%;
+			height:500px;
+			margin:auto;			
+		}
+		h1.boardtitle {			
+			border-bottom:1px solid gray;
+		}		
+		ul {
+			display:block;
+			width:95%;		
+			
+		}
+		li {
+			display:block;
+			width:100%;
+			list-style-type:none;
+			margin-bottom:13px;
+		}
+		label {
+			display:block;
+			width:17%;		
+			text-align:center;
+			background:gray;
+			color:white;	
+			padding:4px 10px;
+			float:left;
+			margin-right:10px;
+			
+		}
+		input[type='file'] {
+			display:block;
+			width:68%;
+			padding:4px 10px;			
+		}
+		li.agree{
+		overflow:hidden;
+		}
+		
+	  	span.create_agree {
+	  		display:inline-block;
+	  		width:40%;
+	  		/*padding:8px 8px;*/
+	  		/*border:1px solid red;*/
+	  	}
+	  	span.btn1, span.btn2 {
+  		display:inline-block;
+  		width:100px;  		
+  		padding:10px 15px 20px 15px;
+  		color:white;
+  		font-weight:bold;
+  		border-radius:5px;
+  		text-align:center;
+  	}
+  	span.btn1 {	background:rgb(155, 189, 70);	}
+  	span.btn2 { background:gray; 	}
+	  	
+		 .upload-file {
+			display:block;
+			width:40%;
+			padding:4px 10px;
+			margin-right:5px;	
+			float:left;		
+		}
+		label.upload-text {
+			display: inline-block;
+			width:10%;
+			color: white;
+			padding:5px 10px;
+			border-radius: 4px;
+			background-color:#5A78AF;
+			position: absolute;
+		}
+		.upload-hidden{
+			display: inline-block;
+			width:20%;
+			opacity:0;
+			position: relative;
+		}
+  	</style>	
 <section id="portfolio" class="bg-light-gray">
-   <div class="team_create">
-		<h1>팀 생성하기</h1>
+
+<div class="team_create">
+		<h1 class="boardtitle">팀 생성하기</h1>
 		<hr>
 		<div class="team_create_form">
 		<form name="teamcreateform" action="" method="post" >
 			<ul>
 				<li>
-					<label>팀명</label><br>
+					<label>팀명</label>
 					<input type="text" name="teamName" id="teamName" placeholder="팀이름">					
 				</li>
 				<li>
 							<!--  start of image carousel -->
 		<label>포메이션</label>
+<<<<<<< HEAD
 		<section>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 540px;">
+=======
+		
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+>>>>>>> a988f4e110f27cc2fa7d13aaf2a5414f0a6e4987
 		    <!-- Indicators -->
 		    <ol class="carousel-indicators">
 		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -33,7 +124,11 @@
 		    <div class="carousel-inner" role="listbox">
 		
 		      <div class="item active">
-		        <img src="../../../resources/img/for1.jpg" width="20%" height="100">
+<<<<<<< HEAD
+		        <img src="../../../resources/img/for1.jpg">
+=======
+		        <img src="img/for1.jpg" width="20%" height="100">
+>>>>>>> a988f4e110f27cc2fa7d13aaf2a5414f0a6e4987
 		        <div class="carousel-caption">
 		          <h3>포메이션1</h3>
 		          <p>...</p>
@@ -41,7 +136,11 @@
 		      </div>
 		
 		      <div class="item">
-		        <img src="../../../resources/img/for2.jpg"  width="20%" height="100">
+<<<<<<< HEAD
+		        <img src="../../../resources/img/for2.jpg">
+=======
+		        <img src="img/for2.jpg"  width="20%" height="100">
+>>>>>>> a988f4e110f27cc2fa7d13aaf2a5414f0a6e4987
 		        <div class="carousel-caption">
 		          <h3>포메이션2</h3>
 		          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
@@ -49,7 +148,11 @@
 		      </div>
 		    
 		      <div class="item">
-		        <img src="../../../resources/img/for3.jpg"  width="20%" height="100">
+<<<<<<< HEAD
+		        <img src="../../../resources/img/for3.jpg">
+=======
+		        <img src="img/for3.jpg"  width="20%" height="100">
+>>>>>>> a988f4e110f27cc2fa7d13aaf2a5414f0a6e4987
 		        <div class="carousel-caption">
 		          <h3>포메이션3</h3>
 		          <p>Beatiful flowers in Kolymbari, Crete.</p>
@@ -70,7 +173,7 @@
 		      <span class="sr-only">Next</span>
 		    </a>
 		  </div>		
-		</section>
+		
 		<!--  end of image carousel -->
 				</li>
 				<li>
@@ -84,7 +187,7 @@
 						<input type="file" name="uploadFile" class="upload-hidden">
 				</li>
 				<li>
-					<label>지역</label><br>
+					<label>지역</label>
 						<select name="selBox">
                            <option value="1">서울</option>   
                            <option value="2">부산</option>    
@@ -96,26 +199,22 @@
                        </select>
 				</li>
 	
-				<li>
-					<label>약관 동의</label><br>
-					
+				<li class="agree">
+					<label>약관 동의</label>
 					<input type="checkbox" name="agree" id="agree">
+					<span class="create_agree"> 약관에 동의합니다.</span>
 							<!-- <img src="../css/image/tick.png"> -->
-					<span class="notice2">약관에 동의합니다.</span>
+					
 				</li>
 				<li class="sending">
-					<span class="btn1" id= "joinCheck" >팀 생성 &nbsp;<!-- <img src="../css/image/tick.png"> --></span>&nbsp;&nbsp;
-					<span class="btn2" id= "joinCancle">취소 &nbsp;<!-- <img src="../css/image/cross.png">--></span>
+					<span class="btn1" id= "createCheck" >팀 생성 &nbsp;<!-- <img src="../css/image/tick.png"> --></span>&nbsp;&nbsp;
+					<span class="btn2" id= "createCancle">취소 &nbsp;<!-- <img src="../css/image/cross.png">--></span>
 				</li>
 			</ul>
 		</form>
 		</div>
 	</div>
-
-
-
-
-
-
+            
 </section>
+  
 <%@include file="../include/footer.jsp" %>
