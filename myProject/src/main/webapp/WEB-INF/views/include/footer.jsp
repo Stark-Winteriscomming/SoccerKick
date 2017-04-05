@@ -43,10 +43,12 @@
     <!-- Contact Form JavaScript -->
     <script src="/resources/js/jqBootstrapValidation.js"></script>
     <script src="/resources/js/contact_me.js"></script>
-
+	
     <!-- Theme JavaScript -->
     <script src="/resources/js/agency.min.js"></script>
-
+    
+    <script type="text/javascript" src="/resources/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/resources/js/join_validation.js"></script>
 </body>
 
 </html>

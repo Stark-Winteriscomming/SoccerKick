@@ -16,36 +16,36 @@
 	          <form role="form">
 	            <div class="form-group">
 	              <label for="InputEmail">아이디</label>
-	              <input type="text" class="form-control" id="InputEmail" placeholder="아이디를 입력해 주세요">
+	              <input type="text" class="form-control" id="id" placeholder="아이디를 입력해 주세요">
 	            </div>
 	            <div class="form-group">
 	              <label for="InputEmail">닉네임</label>
-	              <input type="text" class="nickname" id="usernickname" placeholder="닉네임을 입력해 주세요">
+	              <input type="text" class="nickname" id="nickname" placeholder="닉네임을 입력해 주세요">
 	            </div>
 	            <div class="form-group">
 	              <label for="InputPassword1">비밀번호</label>
-	              <input type="password" class="form-control" id="InputPassword1" placeholder="비밀번호를 입력해 주세요">
+	              <input type="password" class="form-control" id="pass" placeholder="비밀번호를 입력해 주세요">
 	            </div>
 	            <div class="form-group">
 	              <label for="InputPassword2">비밀번호 확인</label>
-	              <input type="password" class="form-control" id="InputPassword2" placeholder="비밀번호 확인을 입력해 주세요">
+	              <input type="password" class="form-control" id="cpass" placeholder="비밀번호 확인을 입력해 주세요">
 	              <p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
 	            </div>
 	            <div class="form-group">
 	              <label for="username">이름</label>
-	              <input type="text" class="form-control" id="username" placeholder="이름을 입력해 주세요">
+	              <input type="text" class="form-control" id="name" placeholder="이름을 입력해 주세요">
 	            </div>
 	             <div class="form-group">
 	              <label for="username">생년월일</label>
 	              <div class="input-group">
-	                <input type="tel" class="birth" id="userbirth" placeholder="- 없이 입력해 주세요">
+	                <input type="tel" class="birth" id="birth" placeholder="- 없이 입력해 주세요">
 	               
 	              </div>
 	            </div>
 	            <div class="form-group">
 	              <label for="username">휴대폰</label>
 	              <div class="input-group">
-	                <input type="tel" class="form-control" id="username" placeholder="- 없이 입력해 주세요">
+	                <input type="tel" class="form-control" id="cphone" placeholder="- 없이 입력해 주세요">
 	                <span class="input-group-btn">
 	                  <button class="btn btn-success">인증번호 전송<i class="fa fa-mail-forward spaceLeft"></i></button>
 	                </span>
@@ -54,7 +54,7 @@
 	            <div class="form-group">
 	              <label for="username">지역</label>
 	              <div class="input-group">
-	              	<input type="text" class="region" id="username" placeholder="지역을 입력해 주세요">
+	              	<input type="text" class="region" id="region" placeholder="지역을 입력해 주세요">
 	              </div>
 	            </div>
 	            <div class="form-group">
@@ -66,7 +66,7 @@
 	            <div class="form-group">
 	              <label for="username">소개</label>
 	              <div class="input-group">
-	              	<textarea rows="" cols="" class="history" placeholder="소개를 입력해 주세요"></textarea>
+	              	<textarea rows="" cols="" class="history" id="history" placeholder="소개를 입력해 주세요"></textarea>
 	              </div>
 	            </div>
 	            <div class="form-group">
