@@ -89,7 +89,6 @@ text-align:center;
               <th >프로필보기</th>
               </tr>
             </thead>
-               <tbody>
                  <tr>
                    <td><input type="checkbox" name="scheck" id="scheck" value="" ></td>
                    <td><img src="http://sstatic.naver.net/people/91/201405301047405271.jpg" /></td>
