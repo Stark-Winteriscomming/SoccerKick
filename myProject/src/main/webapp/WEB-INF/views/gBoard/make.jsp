@@ -11,12 +11,11 @@
 
 <%@include file="../include/header.jsp"%>
 <section id="gatheringFrom" class="bg-light-gray">
-	<div style="margin: 0 auto; width: 100px;">
-		<p>
-			모임 명 <input type="text" name="gatheringName" value=""
-				id="gatheringName">
-		<p>
-			지역 <input type="text" name="region" value=""><br>
+<div align="center"> 
+	<div>  
+			모임 명<br><input type="text" name="gatheringName" value=""
+				id="gatheringName"><br> 
+			지역<br><input type="text" name="region" value=""><br>
 		<p>날짜</p>
 		<select>
 			<%
@@ -38,15 +37,16 @@
 		</select> 
 	</div>
 
-	<div class="" style="margin: 0 auto; width: 100px;">
+	<div>
 		<img src="../resources/img/team/formation.jpg" alt="">
 	</div>
 
-	<div class="" style="margin: 0 auto; width: 100px;">
+	<div class="">
 		<p>모임설명</p>
 		<textarea name="name" rows="8" cols="80"></textarea>
-		<button class="btn btn-success btn-lg"
-			style="width: 300px; height: 70px">모임 생성</button>
 	</div>
-</section>
+	<button class="btn btn-success btn-lg"
+			style="width: 300px; height: 70px">모임 생성</button>
+</div>  
+</section> 
 <%@include file="../include/footer.jsp"%>
