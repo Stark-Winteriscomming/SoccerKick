@@ -1,170 +1,128 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+    pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="EUC-KR">
-	<title>Moving > board</title>	
+	<meta charset="utf-8">
+	<title>Moving > board</title>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<style>
   		div.content div.board {
 			width:68%;
-			margin:auto;  		
+			margin:auto;
 		}
 		div.content div.board div.board_form {
 			width:85%;
-			margin:auto;	
+			margin:auto;
 		}
-		h1.boardtitle {			
+		h1.boardtitle {
 			border-bottom:1px solid gray;
 		}
 		table{
 			width:100%;
 			border:1px solid gray;
 			margin-bottom:20px;
-			
+
 		}
 		th, td {
 			border:1px solid gray;
 			padding:7px 0px;
-			text-align:center;			
+			text-align:center;
 		}
-		th { 
-			background:#A6A6A6;			
+		th {
+			background:#A6A6A6;
 		}
 		.tno {	width:10%;	}
-		td.ttile { 
-			width:60%; 
+		td.ttile {
+			width:60%;
 			text-align:left;
 			text-indent:10px;}
 		.tdate { width:20%; }
-		.thit { width:10%; }		
-		img { 			
+		.thit { width:10%; }
+		img {
 			margin-left:60px;
 		}
 		span.board_write {
 	  		display:inline-block;
-	  		width:20%; 		
+	  		width:20%;
 	  		background:#1C1C1C;
 	  		padding:5px 8px;
 	  		color:white;
-	  		font-weight:bold;	  		
+	  		font-weight:bold;
 	  		border-radius:4px;
 	  		border:2px double white;
 	  		text-align:center;
-	  		float:right; 
+	  		float:right;
 	  		margin-bottom:10px;
-	  			
-	  	}	  	
-  	</style>		
+
+	  	}
+  	</style>
 </head>
 <body>
 	<!-- ########## start of header ################## -->
 <!--  	<iframe width="100%" height="200" src="http://localhost:8000/Moving/header.jsp" -->
 <!--  		frameborder=0 scrolling="no"></iframe> -->
  	<!-- ########## end of header ################## -->
- 	
- 	
+
+
  	<!--  start of Content  -->
 	<div class="content">
 		<div class="board">
-		<h1 class="boardtitle">´ëÈ­¹æ ¸ñ·Ï</h1>
+		<h1 class="boardtitle">ëŒ€í™”ë°©</h1>
 		<hr>
 		<div class="board_form">
 <!-- 			<a href="http://localhost:8000/Moving/board/board_form.jsp"> -->
-				<span class="board_write">¹æ »ı¼º</span>
+				<span class="board_write">ë°© ìƒì„±</span>
 <!-- 			</a> -->
 			<table>
-				<tr>
-					<th class="tno">¹øÈ£</th>
-					<th class="ttile">Á¦¸ñ</th>
-					<th class="tdate">µî·ÏÀÏ</th>
-					<th class="thit">Âü¿© ÀÎ¿ø</th>
-				</tr>
+				<!-- <tr> -->
+					<!-- <th class="tno">ë²ˆí˜¸</th> -->
+					<!-- <th class="ttile">å ì™ì˜™å ì™ì˜™</th>
+					<th class="tdate">å ì™ì˜™å ì™ì˜™å ì™ì˜™</th>
+					<th class="thit">å ì™ì˜™å ì™ì˜™ å ì‹¸ìš¸ì˜™</th> -->
+				<!-- </tr> -->
 				<tr>
 					<td class="tno">1</td>
-					<td class="ttile">					
+					<td class="ttile">
 						<a href="http://localhost:8000/Moving/board/board_content.jsp">
-						¾çÆò FC ÅäÅ©¹æ</a>
+						ì–‘í‰ FC í† í¬ë°©</a>
 					</td>
 					<td>2016-02-16</td>
-					<td>20</td>
+					<!-- <td>20</td> -->
 				</tr>
-				<tr>
+        <tr>
 					<td class="tno">2</td>
-					<td class="ttile">¼Öµ¥½ºÅ© FC ÅäÅ©¹æ<½Ì±Û¶óÀÌ´õ></td>
-					<td></td>
-					<td></td>
+					<td class="ttile">
+						<a href="http://localhost:8000/Moving/board/board_content.jsp">
+						ì†”ë°ìŠ¤í¬ FC í† í¬ë°©</a>
+					</td>
+					<td>2016-02-16</td>
+					<!-- <td>20</td> -->
 				</tr>
-				<tr>
+        <tr>
 					<td class="tno">3</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>7</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>8</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>9</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>10</td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td class="ttile">
+						<a href="http://localhost:8000/Moving/board/board_content.jsp">
+						ì¢…ë¡œ FC í† í¬ë°©</a>
+					</td>
+					<td>2016-02-16</td>
+					<!-- <td>20</td> -->
 				</tr>
 			</table>
 <!-- 			<img src="http://localhost:8000/Moving/image/nav_bar.png"></img> -->
 		</div>
 	</div>
-	</div>	
+	</div>
 	<!--  end of Content  -->
-	
-	
-	
-	<!-- ########## start of footer ################## -->	
+
+
+
+	<!-- ########## start of footer ################## -->
 <!-- 	<iframe width="100%" height="280" src="http://localhost:8000/Moving/footer.jsp" -->
 <!-- 			frameborder=0 scrolling="no"></iframe>			 -->
-	<!-- ########## end of footer ################## -->			
+	<!-- ########## end of footer ################## -->
 
 </body>
 </html>
-
-
-
-
-
-

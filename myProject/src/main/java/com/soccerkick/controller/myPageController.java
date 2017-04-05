@@ -1,0 +1,20 @@
+package com.soccerkick.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+@RequestMapping("/myPage/*")
+public class myPageController {
+	
+	@RequestMapping(value = "/messageBoardList", method = RequestMethod.GET)
+	public void messageBoardList(Model model) throws Exception {
+	}
+	
+	@RequestMapping(value = "/memberSelectForm", method = RequestMethod.GET)
+	public void memberSelectForm(Model model) throws Exception {
+	}
+	
+}
