@@ -56,9 +56,8 @@
 				      <button type="button" class="btn btn-success btn-lg" data-toggle="dropdown">모집 게시판<span class="caret"></span></button>
 					      <ul class="dropdown-menu" role="menu">
 					      	<!-- 모임 생성 추가 -->
-					      	<li><a href="/gBoard/make">모임 생성</a></li>
-					        <li><a href="/gBoard/read">read</a></li>
-					        <li><a href="/gBoard/team_open">팀생성</a></li>
+					      	<li><a href="/gBoard/team_open">모임 생성</a></li>
+					        <li><a href="/gBoard/read">read</a></li>  
 					      </ul>
 				      </div>
 					</div>  
