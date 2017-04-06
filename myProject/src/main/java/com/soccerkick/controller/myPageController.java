@@ -17,4 +17,9 @@ public class myPageController {
 	public void memberSelectForm(Model model) throws Exception {
 	}
 	
+	@RequestMapping(value = "/message/chatRoom", method = RequestMethod.GET)
+	public String chatRoom(Model model) throws Exception {
+		return "myPage/chatRoom";
+	}
+	
 }
