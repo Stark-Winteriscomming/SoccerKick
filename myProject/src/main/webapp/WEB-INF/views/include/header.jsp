@@ -48,7 +48,6 @@
 					      <ul class="dropdown-menu" role="menu">
 					        <li><a href="/myPage/messageBoardList">메세지 리스트</a></li>
 					        <li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
-					        <li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
 					        <li><a href="/myPage/modify">수정</a></li>
 					      </ul>
 				      </div>

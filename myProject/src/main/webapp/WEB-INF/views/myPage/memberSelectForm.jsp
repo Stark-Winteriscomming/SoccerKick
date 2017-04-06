@@ -37,7 +37,7 @@
 	});
 
 </script>
-    <style type="text/css">
+<!--     <style type="text/css">
 
     .clickable {cursor: pointer;}
 .hover {text-decoration: underline;}
@@ -66,17 +66,18 @@ text-align:center;
 }
 
         sortable paginated.span{}
-     </style>
-</head>
-
+     </style> -->
+</head>   
+  
 
 <section id="portfolio" class="bg-light-gray">
- <h1 class="title">셀렉트 페이지</h1>
-      <table class="sortable paginated">
-        <span id="cselect">선택</span>
-        <span><a href="">메인 페이지</a></span>
+<div align="center">
+<div class="alert alert-success" style="width:800px;">
+ <h1 class="title" align="center">선수 선발</h1>  
+ <br>  
+      <table class="table table-striped">
            <form name="selectForm" action="" method="get">
-             <thead>
+             <thead>    
               <tr>
               <th><input type="checkbox" name="tcheck" id="tcheck"></th>
               <th>이미지</th>
@@ -98,7 +99,7 @@ text-align:center;
                    <td>스페인</td>
                    <td>공격수</td>
                    <td>공격수</td>
-                   <td><button>프로필보기</button></td>
+                   <td><button class="btn btn-default">프로필보기</button></td>
                  </tr>
       <tr>
       <td><input type="checkbox" name="scheck" id="scheck" value="" ></td>
@@ -109,7 +110,7 @@ text-align:center;
        <td>서울</td>
        <td>공격수</td>
        <td>미드필더</td>
-       <td><button>프로필보기</button></td>
+       <td><button class="btn btn-default">프로필보기</button></td>
       </tr>
       <tr>
       <td><input type="checkbox" name="scheck" id="scheck" value="" ></td>
@@ -120,8 +121,8 @@ text-align:center;
        <td>서울</td>
        <td>미드필더</td>
        <td>수비수</td>
-       <td><button>프로필보기</button></td>
-      </tr>
+       <td><button class="btn btn-default">프로필 보기</button></td>    
+      </tr>    
       <tr>
       <td><input type="checkbox" name="scheck" id="scheck" value="" ></td>
       <td><img src="http://sstatic.naver.net/people/17/201403271921402431.jpg" /></td>
@@ -131,20 +132,23 @@ text-align:center;
        <td>독일</td>
        <td>수비수</td>
        <td>골키퍼</td>
-       <td><button>프로필보기</button></td>
+       <td><button class="btn btn-default">프로필보기</button></td>
       </tr>
       <tr>
        <td><input type="checkbox" name="scheck" id="scheck" value="" ></td>
        <td><img src="http://sstatic.naver.net/people/3/201607071816066361.jpg" /></td>
        <td>5</td>
-       <td>메시</td>
-       <td>29</td>
-       <td>아르헨티나</td>
+       <td>메시</td>    
+       <td>29</td>          
+       <td>아르헨티나</td>      
        <td>공격수</td>
        <td>미드필더</td>
-       <td><button>프로필보기</button></td>
+       <td><button class="btn btn-default">프로필 보기</button></td>
       </tr>
     </tbody>
   </table>
+  <button class="btn btn-success btn-lg" style="width: 280px; height: 80px;">선발 완료</button>                   
+  </div>
+  </div>
 </section>
 <%@include file="../include/footer.jsp" %>
