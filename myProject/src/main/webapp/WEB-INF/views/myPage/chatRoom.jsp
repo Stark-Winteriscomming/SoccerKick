@@ -1,30 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>chat room</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<%@include file="../include/header.jsp"%>
+<!--  start of Content  -->
+<section>
+	<span id="rno" style="display: none;">${rno}</span>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-</head>
-<body>
-	<span id="rno" style="display : none;">${rno}</span>
-	
 	<div id="chatSpace"
-		style="margin: 5% auto; border: 1px solid gray; width: 430px">
+		style="margin: 0 auto; border: 1px solid gray; width: 430px">
 		<span class="label label-info">왕좌의 게임 단체방</span>
 		<hr style="border-top: 1px solid #BDBDBD;">
 		<dl class="dl-horizontal">
@@ -113,5 +95,7 @@
 // 			webSocket.close();
 // 		}
 	</script>
-</body>
-</html>
+</section>
+<!-- ########## start of footer ################## -->
+<%@include file="../include/footer.jsp"%>
+<!-- ########## end of footer ################## -->
