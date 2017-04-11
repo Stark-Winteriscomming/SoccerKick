@@ -22,25 +22,26 @@
 
 <!-- </head> -->
 
-<!-- <body> -->
+<!-- <body> -->  
 <%@include file="../include/header.jsp"%>
 <!--  start of Content  -->
-<section>
+<section id="portfolio" class="bg-light-gray">
 <div class="content" style="margin : 0 auto; width:700px">
-	<div class="board">
-		<h1 class="boardtitle">대화방</h1>
-		<hr>
+	<div class="board alert alert-success">
+		<h1 class="boardtitle" align="center">대화방</h1>   
+		<hr>  
 		<div class="board_form">
 			<!-- 			<a href="http://localhost:8000/Moving/board/board_form.jsp"> -->
-			<p>
-				<button type="button" class="btn btn-warning">방생성</button>
-			</p>
+			<div align="right">
+				<button type="button" class="btn btn-success">방생성</button>  
+			</div>   
 			<!-- 			</a> -->
-			<table class="table">
+			<br>
+			<table class="table table-hover table-striped">
 				<tr>
 					<td class="tno">1</td>
 					<td class="ttile"><a
-						href="http://localhost:8088/myPage/message/chatRoom"> 양평 FC
+						href="/myPage/message/chatRoom"> 양평 FC
 							토크방</a></td>
 					<td>2016-02-16</td>
 					<!-- <td>20</td> -->
@@ -48,7 +49,7 @@
 				<tr>
 					<td class="tno">2</td>
 					<td class="ttile"><a
-						href="http://localhost:8088/myPage/message/chatRoom"> 왕좌의 게임
+						href="/myPage/message/chatRoom"> 왕좌의 게임
 							단체방</a></td>
 					<td>2016-02-16</td>
 					<!-- <td>20</td> -->
@@ -56,7 +57,15 @@
 				<tr>
 					<td class="tno">3</td>
 					<td class="ttile"><a
-						href="http://localhost:8088/myPage/message/chatRoom"> 종로 FC
+						href="/myPage/message/chatRoom"> 종로 FC
+							토크방</a></td>
+					<td>2016-02-16</td>
+					<!-- <td>20</td> -->
+				</tr>    
+				<tr>
+					<td class="tno">4</td>
+					<td class="ttile"><a
+						href="/myPage/message/chatRoom"> 종로 FC
 							토크방</a></td>
 					<td>2016-02-16</td>
 					<!-- <td>20</td> -->

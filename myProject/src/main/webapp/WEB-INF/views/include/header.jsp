@@ -61,6 +61,7 @@
 					      <ul class="dropdown-menu" role="menu">
 					        <li><a href="/myPage/messageBoardList">메세지 리스트</a></li>
 					        <li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
+					        <li><a href="/myPage/modify">수정</a></li>
 					      </ul>
 				      </div>
 				      <a href="/team/teamCreateForm"><button type="button" class="btn btn-success btn-lg">팀 생성</button></a>
@@ -68,11 +69,8 @@
 				      <button type="button" class="btn btn-success btn-lg" data-toggle="dropdown">모집 게시판<span class="caret"></span></button>
 					      <ul class="dropdown-menu" role="menu">
 					      	<!-- 모임 생성 추가 -->
-					      	<li><a href="/gBoard/make">모임 생성</a></li>
-					      	
-					        <li><a href="/gBoard/modify">modify</a></li>
-					        <li><a href="/gBoard/read">read</a></li>
-					        <li><a href="/gBoard/team_open">팀생성</a></li>
+					      	<li><a href="/gBoard/team_open">모임 생성</a></li>
+					        <li><a href="/gBoard/read">read</a></li>  
 					      </ul>
 				      </div>
 					</div>  

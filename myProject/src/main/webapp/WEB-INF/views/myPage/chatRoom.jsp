@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp"%>
 <!--  start of Content  -->
-<section>
+<section id="portfolio" class="bg-light-gray">
 	<span id="rno" style="display: none;">${rno}</span>
-
+  
 	<div id="chatSpace"
 		style="margin: 0 auto; border: 1px solid gray; width: 430px">
 		<span class="label label-info">왕좌의 게임 단체방</span>
