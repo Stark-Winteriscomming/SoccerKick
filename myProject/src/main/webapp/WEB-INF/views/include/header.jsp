@@ -24,7 +24,20 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <link href="/resources/css/agency.css" rel="stylesheet">
     
-	
+    <!-- changho script -->
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<!-- 부가적인 테마 -->
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+	<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<!-- changho script -->
     
 </head>
 
@@ -48,8 +61,6 @@
 					      <ul class="dropdown-menu" role="menu">
 					        <li><a href="/myPage/messageBoardList">메세지 리스트</a></li>
 					        <li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
-					        <li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
-					        <li><a href="/myPage/modify">수정</a></li>
 					      </ul>
 				      </div>
 				      <a href="/team/teamCreateForm"><button type="button" class="btn btn-success btn-lg">팀 생성</button></a>
@@ -58,6 +69,8 @@
 					      <ul class="dropdown-menu" role="menu">
 					      	<!-- 모임 생성 추가 -->
 					      	<li><a href="/gBoard/make">모임 생성</a></li>
+					      	
+					        <li><a href="/gBoard/modify">modify</a></li>
 					        <li><a href="/gBoard/read">read</a></li>
 					        <li><a href="/gBoard/team_open">팀생성</a></li>
 					      </ul>
