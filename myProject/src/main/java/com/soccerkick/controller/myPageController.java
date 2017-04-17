@@ -17,7 +17,7 @@ public class myPageController {
 	public void memberSelectForm(Model model) throws Exception {
 	}
 	
-	@RequestMapping("myPage/ss" )
+	@RequestMapping(value ="/ss", method = RequestMethod.GET )
 	public void ss(Model model) throws Exception {
 	}
 	
