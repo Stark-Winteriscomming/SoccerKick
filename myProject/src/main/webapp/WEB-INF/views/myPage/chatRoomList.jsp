@@ -1,3 +1,5 @@
+<%@page import="com.soccerkick.vo.ChatRoomVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -24,6 +26,11 @@
 
 <!-- <body> -->  
 <%@include file="../include/header.jsp"%>
+
+<!-- jsp code -->
+<%
+	ArrayList<ChatRoomVO> list = (ArrayList<ChatRoomVO>)request.getAttribute("list");
+%>
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
 <div class="content" style="margin : 0 auto; width:700px">
@@ -38,38 +45,18 @@
 			<!-- 			</a> -->
 			<br>
 			<table class="table table-hover table-striped">
+				<% for(ChatRoomVO vo : list) { %>
 				<tr>
-					<td class="tno">1</td>
-					<td class="ttile"><a
-						href="/myPage/message/chatRoom"> 양평 FC
-							토크방</a></td>
-					<td>2016-02-16</td>
+					<td class="cno"><%= vo.getCno() %></td>
+					<td class="title"><a
+						href="/myPage/chat/chatRoom/<%=vo.getCno()%>">
+						<%= vo.getTitle() %>
+							</a></td>
+					<td><%= vo.getCount() %></td>
+					<td><%= vo.getReg_date() %></td>
 					<!-- <td>20</td> -->
 				</tr>
-				<tr>
-					<td class="tno">2</td>
-					<td class="ttile"><a
-						href="/myPage/message/chatRoom"> 왕좌의 게임
-							단체방</a></td>
-					<td>2016-02-16</td>
-					<!-- <td>20</td> -->
-				</tr>
-				<tr>
-					<td class="tno">3</td>
-					<td class="ttile"><a
-						href="/myPage/message/chatRoom"> 종로 FC
-							토크방</a></td>
-					<td>2016-02-16</td>
-					<!-- <td>20</td> -->
-				</tr>    
-				<tr>
-					<td class="tno">4</td>
-					<td class="ttile"><a
-						href="/myPage/message/chatRoom"> 종로 FC
-							토크방</a></td>
-					<td>2016-02-16</td>
-					<!-- <td>20</td> -->
-				</tr>
+				<% } %>
 			</table>
 			<!-- 			<img src="http://localhost:8000/Moving/image/nav_bar.png"></img> -->
 		</div>
