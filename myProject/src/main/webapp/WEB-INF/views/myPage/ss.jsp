@@ -3,8 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
   
-  
-<%@include file="../include/header.jsp" %>
+
 <head>
 <script src="/resources/js/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/table.js" type="text/javascript"></script>
@@ -37,93 +36,13 @@
 	});
 
 </script>
-
-<style>
-
-
-
-</style>
-
-
-</head>   
-  
+  </head>
 
 <section id="portfolio" class="bg-light-gray">
-
-<div class="alert alert-success" style="width:800px; float:left; margin-right:10px;">
 <div align="center">
- <!-- 포메이션 폼 -->
- <h1 class="ftitle" align="center" >포메이션</h1>
- <br>
- 
-
-<div style="position: absolute;">
-<div style="position: relative; top: 120px; left: 85px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;" onClick="javascript:window.open('http://localhost:9100/myPage/ss','popup','scrollbars=no, resizable=no, width=800,height=600')">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 120px; left: 390px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;" onClick="javascript:window.open('http://localhost:9100/myPage/ss','popup','scrollbars=no, resizable=no, width=800,height=600')" >
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 300px; left: 20px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 300px; left: 160px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 300px; left: 320px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 300px; left: 460px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-
-<div style="position: absolute;">
-<div style="position: relative; top: 550px; left: 20px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 550px; left: 160px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 550px; left: 320px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 550px; left: 460px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 700px; left: 240px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-
-<img src="../../../resources/img/formation.jpg"></img>
-</div>
-</div>
-
-
- <!-- 선수선발 -->
-
 <div class="alert alert-success" style="width:800px; float:left; ">
- <div align="center">
- <h1 class="title" align="center">선택 된 선수리스트</h1>  
+ 
+ <h1 class="title" align="center">공격수 신청 인원</h1>  
  <br>  
       <table class="table table-striped">
            <form name="selectForm" action="" method="get">
@@ -197,10 +116,11 @@
       </tr>
     </tbody>
   </table>
-  <button class="cselect" style="width: 280px; height: 80px;" align="center">선택 취소</button>  
-  <button class="cselect" style="width: 280px; height: 80px;" align="center">선택 완료</button>
+
+  <button class="cselect" style="width: 280px; height: 80px;" align="center">선발 완료</button>
   
   </div>
- </div>
+  </div>
 </section>
-<%@include file="../include/footer.jsp" %>
+
+
