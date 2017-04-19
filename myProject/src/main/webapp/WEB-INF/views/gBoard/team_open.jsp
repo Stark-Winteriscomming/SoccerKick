@@ -2,48 +2,16 @@
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SoccerKick</title>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-
-<link href="css/team_open.css" rel="stylesheet">
-<script>
-		$(function() {
-		  $( "#datepicker1, #datepicker2" ).datepicker({
-		    dateFormat: 'yy-mm-dd',
-		    prevText: '이전 달',
-		    nextText: '다음 달',
-		    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-		    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-		    dayNames: ['일','월','화','수','목','금','토'],
-		    dayNamesShort: ['일','월','화','수','목','금','토'],
-		    dayNamesMin: ['일','월','화','수','목','금','토'],
-		    showMonthAfterYear: true,
-		    changeMonth: true,
-		    changeYear: true,
-		    yearSuffix: '년'
-		  });
-		});
-	</script>
-<style>
-.carousel-inner>.item>img, .carousel-inner>.item>a>img {
-	width: 70%;
-	margin: auto;
-}
-</style>
-</head>
-
-<body id="page-top" class="index">
 	<%@include file="../include/header.jsp" %>
+	<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<link href="/resources/css/team_open.css" rel="stylesheet">
+	<style>
+		.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+			width: 70%;
+			margin: auto;
+		}
+	</style>
 	<section id="portfolio" class="bg-light-gray">
 		<div class="content">
 			<div class="pageTitle">
@@ -322,15 +290,33 @@
 						</div>
 					</div>
 					<div class="btn_group">
-						<input type="submit" class="open" value="개설하기"/>
-						<input type="submit" class="cancel"value="취소"/>
+						<input type="submit" class="btn_open" value="개설하기"/>
+						<input type="submit" class="btn_cancel"value="취소"/>
 					</div>
 				</div>
 			</form>
 		</div>
 	</section>
-
+	
+	
 	<%@include file="../include/footer.jsp" %>
-
-</body>
-</html>
+	
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	<script>
+		$(function() {
+		  $( "#datepicker1, #datepicker2" ).datepicker({
+		    dateFormat: 'yy-mm-dd',
+		    prevText: '이전 달',
+		    nextText: '다음 달',
+		    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		    dayNames: ['일','월','화','수','목','금','토'],
+		    dayNamesShort: ['일','월','화','수','목','금','토'],
+		    dayNamesMin: ['일','월','화','수','목','금','토'],
+		    showMonthAfterYear: true,
+		    changeMonth: true,
+		    changeYear: true,
+		    yearSuffix: '년'
+		  });
+		});
+	</script>
