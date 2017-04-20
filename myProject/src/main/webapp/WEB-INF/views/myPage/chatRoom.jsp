@@ -4,6 +4,7 @@
 <!-- jsp code -->
 <%
 	String cno = (String) request.getAttribute("cno");
+	String title = (String) request.getAttribute("title");
 %>
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
@@ -11,32 +12,29 @@
 
 	<div id="chatSpace"
 		style="margin: 0 auto; border: 1px solid gray; width: 430px">
-		<div id="chatHeader" style="width : 100%;">
-			<span class="label label-info">왕좌의 게임 단체방</span>
-			<button type="button" class="btn btn-warning" onclick="disconnect();location.href='http://172.16.13.19:8088/myPage/chatRoomList';" style="float : right;">나가기</button>
+		<div id="chatHeader" style="width: 100%;">
+			<span class="label label-info"><%=title %></span>
+			<button type="button" class="btn btn-warning"
+				onclick="disconnect();location.href='http://172.16.13.19:8088/myPage/chatRoomList';"
+				style="float: right;">나가기</button>
 		</div>
 		<hr style="border-top: 1px solid #BDBDBD;">
-		<dl class="dl-horizontal" id="contentWindow" style="overflow-y : scroll !important;width:420px;height:300px;overflow:hidden;">
+		<dl class="dl-horizontal" id="contentWindow"
+			style="overflow-y: scroll !important; width: 420px; height: 300px; overflow: hidden;">
 		</dl>
 		<hr style="border-top: 1px solid #BDBDBD;">
 		<div id="form" style="width: 100%">
 			<form>
-				<!-- adding id text -->
-				<!-- 			id : <input type="text" name="id" id="id" /> -->
 				<div class="input-group">
 					<input type="textMessage" class="form-control"
 						placeholder="message" aria-describedby="basic-addon2"
 						id="textMessage"> <span class="input-group-addon"
 						id="basic-addon2" onclick="sendMessage()">send</span>
 				</div>
-				<!-- 종료 버튼 -->
-				<!-- 				<input onclick="disconnect()" value="Disconnect" type="button"> -->
 		</div>
 		</form>
 	</div>
 	<br />
-	<!-- 결과 메시지 보여주는 창 -->
-	<!--     <textarea id="messageTextArea" rows="10" cols="50"></textarea> -->
 	</div>
 
 
@@ -61,16 +59,14 @@
 		// 		웹 소켓에서 메시지가 날라왔을 때 호출되는 이벤트
 		webSocket.onmessage = function(message) {
 			// 		            messageTextArea.value += "Recieve From Server => "+message.data+"\n";
-			var node = document.createElement("dt");                 // Create a <li> node
-			node.innerHTML = message.data;                              // Append the text to <li>
+			var node = document.createElement("dt"); // Create a <li> node
+			node.innerHTML = message.data; // Append the text to <li>
 			document.getElementById("contentWindow").appendChild(node);
-// 			var msg = message.data;
-// 			$("#contentWindow").append("<dt>" + msg + "</dt>");
 		};
 		//Send 버튼을 누르면 실행되는 함수
 		function sendMessage() {
-			
-// 			var id = document.getElementById("id");
+
+			// 			var id = document.getElementById("id");
 			var message = document.getElementById("textMessage").value;
 			// 			messageTextArea.value += "Send to Server => " + message.value
 			// 					+ "\n";

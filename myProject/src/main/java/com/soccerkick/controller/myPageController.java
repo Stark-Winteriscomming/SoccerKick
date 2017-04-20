@@ -30,11 +30,6 @@ public class myPageController {
 		ArrayList<ChatRoomVO> list = dao.execSelect();
 		mv.addObject("list", list);
 		mv.setViewName("/myPage/chatRoomList");
-		System.out.println("called");
-		for(ChatRoomVO vo : list){
-			System.out.println(""+vo.getCno());
-		}
-		
 		return mv;
 	}
 	
@@ -51,10 +46,12 @@ public class myPageController {
 	}
 //	/myPage/chat/chatRoom/
 	@RequestMapping(value = "/chat/chatRoom/{cno}", method = RequestMethod.GET)
-	public ModelAndView chatRoom(@PathVariable("cno") String cno) throws Exception {
+	public ModelAndView chatRoom(@PathVariable("cno") String cno, String title) throws Exception {
 		
-		ModelAndView mv = new ModelAndView(); 
+		ModelAndView mv = new ModelAndView();
+		System.out.println("t: "+title);
 		mv.addObject("cno", cno);
+		mv.addObject("title", title);
 		mv.setViewName("/myPage/chatRoom");
 		return mv;
 	}
@@ -67,5 +64,10 @@ public class myPageController {
 		ChatRoomDAO dao = sqlSession.getMapper(ChatRoomDAO.class);
 		dao.execInsert(vo.getTitle());
 		return "redirect:/myPage/chatRoomList";
+	}
+	// ÂÊÁö
+	@RequestMapping(value = "/notes", method = RequestMethod.GET)
+	public String notes(String userId) {
+		return "/myPage/noteList";
 	}
 }

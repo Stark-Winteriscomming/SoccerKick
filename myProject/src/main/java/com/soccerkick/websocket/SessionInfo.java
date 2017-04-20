@@ -72,9 +72,10 @@ public class SessionInfo {
 	public static void removeSession (String sessionId) {
 		System.out.println("remove session");
 		for (WSUserSession userSession : sessionList) {
-			if (userSession.getSession().getId().equals(sessionId))
+			if (userSession.getSession().getId().equals(sessionId)){
 				sessionList.remove(userSession);
 				break;
+			}
 		}
 	}
 
