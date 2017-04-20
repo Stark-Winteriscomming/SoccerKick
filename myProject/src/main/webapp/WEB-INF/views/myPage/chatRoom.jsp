@@ -11,11 +11,12 @@
 
 	<div id="chatSpace"
 		style="margin: 0 auto; border: 1px solid gray; width: 430px">
-		<span class="label label-info">왕좌의 게임 단체방</span>
+		<div id="chatHeader" style="width : 100%;">
+			<span class="label label-info">왕좌의 게임 단체방</span>
+			<button type="button" class="btn btn-warning" onclick="disconnect();location.href='http://172.16.13.19:8088/myPage/chatRoomList';" style="float : right;">나가기</button>
+		</div>
 		<hr style="border-top: 1px solid #BDBDBD;">
 		<dl class="dl-horizontal" id="contentWindow" style="overflow-y : scroll !important;width:420px;height:300px;overflow:hidden;">
-			<dt>아리아</dt>
-			<dd><%=cno%></dd>
 		</dl>
 		<hr style="border-top: 1px solid #BDBDBD;">
 		<div id="form" style="width: 100%">

@@ -40,14 +40,20 @@
 		<div class="board_form">
 			<!-- 			<a href="http://localhost:8000/Moving/board/board_form.jsp"> -->
 			<div align="right">
-				<button type="button" class="btn btn-success">방생성</button>  
+				<button type="button" class="btn btn-success" onclick="location.href='http://172.16.13.19:8088/myPage/chat/form';">방생성</button>  
 			</div>   
 			<!-- 			</a> -->
 			<br>
 			<table class="table table-hover table-striped">
+				<tr>
+					<th>방 번호</th>
+					<th>방 제목</th>
+					<th>방 인원수</th>
+					<th>생성 날짜</th>
+				</tr>
 				<% for(ChatRoomVO vo : list) { %>
 				<tr>
-					<td class="cno"><%= vo.getCno() %></td>
+					<td class="cno"><%= vo.getRno() %></td>
 					<td class="title"><a
 						href="/myPage/chat/chatRoom/<%=vo.getCno()%>">
 						<%= vo.getTitle() %>

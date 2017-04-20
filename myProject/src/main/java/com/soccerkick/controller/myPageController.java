@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.ChatRoomDAO;
@@ -20,10 +21,12 @@ public class myPageController {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	
+	
 	@RequestMapping(value = "/chatRoomList", method = RequestMethod.GET)
 	public ModelAndView chatRoomList() throws Exception {
-		ModelAndView mv = new ModelAndView();
 		ChatRoomDAO dao = sqlSession.getMapper(ChatRoomDAO.class);
+		ModelAndView mv = new ModelAndView();
 		ArrayList<ChatRoomVO> list = dao.execSelect();
 		mv.addObject("list", list);
 		mv.setViewName("/myPage/chatRoomList");
@@ -55,5 +58,14 @@ public class myPageController {
 		mv.setViewName("/myPage/chatRoom");
 		return mv;
 	}
-	
+	@RequestMapping(value = "/chat/form", method = RequestMethod.GET)
+	public String chatRoomForm() {
+		return "/myPage/chatRoomForm";
+	}
+	@RequestMapping(value = "/chat/make", method = RequestMethod.POST)
+	public String chatRoomMake(ChatRoomVO vo) {
+		ChatRoomDAO dao = sqlSession.getMapper(ChatRoomDAO.class);
+		dao.execInsert(vo.getTitle());
+		return "redirect:/myPage/chatRoomList";
+	}
 }
