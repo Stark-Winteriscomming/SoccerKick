@@ -6,4 +6,5 @@ import com.soccerkick.vo.ChatRoomVO;
 
 public interface ChatRoomDAO {
 	public ArrayList<ChatRoomVO> execSelect();
+	public void execInsert(String title);
 }

@@ -13,8 +13,6 @@ import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 //@ServerEndpoint(value="/room/{cno}", configurator = GetHttpSessionConfigurator.class)
@@ -74,8 +72,10 @@ public class Websocket {
      * 웹 소켓이 닫히면 호출되는 이벤트
      */
     @OnClose
-    public void handleClose(){
-        System.out.println("client is now disconnected...");
+    public void handleClose(Session session){
+        System.out.println("client is now disconnected...session id: " + session.getId());
+        SessionInfo.removeSession(session.getId());
+        SessionInfo.printUserSessionList();
     }
     /**
      * 웹 소켓이 에러가 나면 호출되는 이벤트

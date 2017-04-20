@@ -1,9 +1,15 @@
 package com.soccerkick.vo;
 
 public class ChatRoomVO {
-	private int cno, count; 
+	private int cno, count, rno; 
 	private String title, reg_date;
 	
+	public int getRno() {
+		return rno;
+	}
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
 	public int getCno() {
 		return cno;
 	}

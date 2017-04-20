@@ -58,22 +58,24 @@ public class SessionInfo {
 		if (sessionList == null) {
 			System.out.println("userSessionList is null");
 		} else {
-			System.out.println("print items");
+			System.out.println("print session elements");
+			System.out.println("--------------------------");
 			for (WSUserSession userSession : sessionList) {
 				System.out.println("user group id: " + userSession.getGroupId());
 				System.out.println("user session_id: " + userSession.getSession().getId());
 			}
+			System.out.println("--------------------------");
+			System.out.println("size: " + sessionList.size());
 		}
 	}
 
-	// get session by userid
-	// public static HttpSession getSessionById(String id){
-	// System.out.println("getSessionById func executed...");
-	// for(UserSession userSession : userSessionList){
-	// if(userSession.getUserId().equals(id))
-	// return userSession.getUserSession();
-	// }
-	// return null;
-	// }
+	public static void removeSession (String sessionId) {
+		System.out.println("remove session");
+		for (WSUserSession userSession : sessionList) {
+			if (userSession.getSession().getId().equals(sessionId))
+				sessionList.remove(userSession);
+				break;
+		}
+	}
 
 }

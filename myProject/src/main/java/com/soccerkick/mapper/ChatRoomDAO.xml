@@ -5,6 +5,10 @@
     
 <mapper namespace="com.soccerkick.dao.ChatRoomDAO">
 	<select id="execSelect" resultType = "com.soccerkick.vo.ChatRoomVO">
-		SELECT * FROM chat_room
+		select rownum as rno,cno,title,count,to_char(reg_date,'yyyy-mm-dd') reg_date from (
+			select * from chat_room order by reg_date desc)
 	</select>
+	<insert id="execInsert">
+		insert into chat_room values(chat_room_seq.nextval,#{title},0,sysdate)
+	</insert>
 </mapper>
