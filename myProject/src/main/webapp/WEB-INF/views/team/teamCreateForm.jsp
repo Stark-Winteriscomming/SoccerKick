@@ -2,8 +2,6 @@
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-  
-  
 <%@include file="../include/header.jsp" %>
 <style>
   		div.team_create {
@@ -18,18 +16,20 @@
 		h1.boardtitle {			
 			border-bottom:1px solid gray;
 		}		
-		ul {
+		.formation_ul {
 			display:block;
-			width:95%;		
-			
+			width:95%;
 		}
-		li {
+		.formation_ul li {
 			display:block;
 			width:100%;
 			list-style-type:none;
 			margin-bottom:13px;
 		}
-		label {
+		.team_comment{
+			margin-top: 40px;
+		}
+		.label2{
 			display:block;
 			width:17%;		
 			text-align:center;
@@ -38,7 +38,6 @@
 			padding:4px 10px;
 			float:left;
 			margin-right:10px;
-			
 		}
 		input[type='file'] {
 			display:block;
@@ -89,91 +88,226 @@
 			opacity:0;
 			position: relative;
 		}
+		 #myCarousel{
+  			width:650px;
+  			height:880px;
+  		}
+  		.formation_select{
+  			width:650px;
+  			margin-top:10px;
+  		}
+  		#formation_433{
+  			width:350px;
+  			margin:0 auto;
+  		}
+  		#formation_433 input{
+  			width:100%;
+  			height:40px;
+  			text-align: center;
+  			border: 1px solid #bcbcbc;
+  			border-radius:5px;
+  			background-color: lightgray;
+  			font-size: 1.5em;
+  		}
   	</style>	
-<section id="portfolio" class="bg-light-gray">
-
-<div class="team_create">
+  	<link href="/resources/css/4-3-3.css" rel="stylesheet">
+	<section id="portfolio" class="bg-light-gray">
+	<div class="team_create">
 		<h1 class="boardtitle">팀 생성하기</h1>
 		<hr>
 		<div class="team_create_form">
 		<form name="teamcreateform" action="" method="post" >
-			<ul>
+			<ul class="formation_ul">
 				<li>
-					<label>팀명</label>
+					<label class="label2">팀명</label>
 					<input type="text" name="teamName" id="teamName" placeholder="팀이름">					
 				</li>
 				<li>
-							<!--  start of image carousel -->
-		<label>포메이션</label>
-
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 540px;">
-		
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		    <!-- Indicators -->
-		    <ol class="carousel-indicators">
-		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		      <li data-target="#myCarousel" data-slide-to="1"></li>
-		      <li data-target="#myCarousel" data-slide-to="2"></li>
-		      <!--  <li data-target="#myCarousel" data-slide-to="3"></li> -->
-		    </ol>
-		
-		    <!-- Wrapper for slides -->
-		    <div class="carousel-inner" role="listbox">
-		
-		      <div class="item active">
-		        <img src="../../../resources/img/for1.jpg">
-		        <div class="carousel-caption">
-		          <h3>포메이션1</h3>
-		          <p>...</p>
-		        </div>
-		      </div>
-		
-		      <div class="item">
-
-		        <img src="../../../resources/img/for2.jpg">
-		        <div class="carousel-caption">
-		          <h3>포메이션2</h3>
-		          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-		        </div>
-		      </div>
-		    
-		      <div class="item">
-		        <img src="../../../resources/img/for3.jpg">
-		        <div class="carousel-caption">
-		          <h3>포메이션3</h3>
-		          <p>Beatiful flowers in Kolymbari, Crete.</p>
-		        </div>
-		      </div>
-		
-		  
-		   
-		    </div>
-		
-		    <!-- Left and right controls -->
-		    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-		      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-		      <span class="sr-only">Previous</span>
-		    </a>
-		    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-		      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-		      <span class="sr-only">Next</span>
-		    </a>
-		  </div>		
-		
-		<!--  end of image carousel -->
+					<!--  start of image carousel -->
+					<label class="label2">포메이션</label>
+					
+					<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+				    <!-- Indicators -->
+				    <!-- Wrapper for slides -->
+				    <div class="carousel-inner" role="listbox">
+				      <div class="item active">
+				        <div class="formation">
+				      	<div id="formation_433">
+				        	<input type="text" value="4-3-3">
+						</div>
+						<div class="checks">
+							<div class="positon_fw">
+								<div class="position_wrap">
+						  			<input type="checkbox" id="fw1" class="fw"> 
+						  			<label for="fw1"></label>
+						  			<label class="position_fw_txt">공격수</label>
+					  			</div>
+					  			<div class="position_wrap">
+						  			<input type="checkbox" id="fw2"> 
+								  	<label for="fw2"></label> 
+								  	<label class="position_fw_txt">공격수</label>
+							  	</div>
+							  	<div class="position_wrap">
+								  	<input type="checkbox" id="fw3"> 
+								  	<label for="fw3"></label>
+								  	<label class="position_fw_txt">공격수</label> 
+							  	</div>
+						  	</div>
+						  	
+						  	<div class="position_mid">
+							  	<div class="position_wrap">
+						  			<input type="checkbox" id="mid1" class="mid"> 
+						  			<label for="mid1"></label>
+						  			<label class="position_mid_txt">미드필더</label>
+					  			</div>
+					  			<div class="position_wrap">
+						  			<input type="checkbox" id="mid2" class="mid"> 
+								  	<label for="mid2"></label> 
+								  	<label class="position_mid_txt">미드필더</label>
+							  	</div>
+							  	<div class="position_wrap">
+								  	<input type="checkbox" id="mid3" class="mid"> 
+								  	<label for="mid3"></label>
+								  	<label class="position_mid_txt">미드필더</label> 
+							  	</div>
+						  	</div>
+						  	
+						  	<div class="position_df">
+							  	<div class="position_wrap">
+						  			<input type="checkbox" id="df1" class="mid"> 
+						  			<label for="df1"></label>
+						  			<label class="position_df_txt">수비수</label>
+					  			</div>
+					  			<div class="position_wrap">
+						  			<input type="checkbox" id="df2" class="mid"> 
+								  	<label for="df2"></label> 
+								  	<label class="position_df_txt">수비수</label>
+							  	</div>
+							  	<div class="position_wrap">
+								  	<input type="checkbox" id="df3" class="mid"> 
+								  	<label for="df3"></label>
+								  	<label class="position_df_txt">수비수</label> 
+							  	</div>
+							  	<div class="position_wrap">
+								  	<input type="checkbox" id="df4" class="mid"> 
+								  	<label for="df4"></label>
+								  	<label class="position_df_txt">수비수</label> 
+							  	</div>
+						  	</div>
+						  	
+						  	<div class="position_gk">
+						  		<div class="position_wrap">
+						  			<input type="checkbox" id="gk1" class="mid"> 
+						  			<label for="gk1"></label>
+						  			<label class="position_df_txt">골키퍼</label>
+					  			</div>
+						  	</div>
+						</div>
+						</div>
+						</div>
+						
+						<div class="item">
+				        <div class="formation">
+						<div class="checks">
+							<div class="positon_fw">
+								<div class="position_wrap">
+						  			<input type="checkbox" id="fw1" class="fw"> 
+						  			<label for="fw1"></label>
+						  			<label class="position_fw_txt">공격수</label>
+					  			</div>
+					  			<div class="position_wrap">
+						  			<input type="checkbox" id="fw2"> 
+								  	<label for="fw2"></label> 
+								  	<label class="position_fw_txt">공격수</label>
+							  	</div>
+							  	<div class="position_wrap">
+								  	<input type="checkbox" id="fw3"> 
+								  	<label for="fw3"></label>
+								  	<label class="position_fw_txt">공격수</label> 
+							  	</div>
+						  	</div>
+						  	
+						  	<div class="position_mid">
+							  	<div class="position_wrap">
+						  			<input type="checkbox" id="mid1" class="mid"> 
+						  			<label for="mid1"></label>
+						  			<label class="position_mid_txt">미드필더</label>
+					  			</div>
+					  			<div class="position_wrap">
+						  			<input type="checkbox" id="mid2" class="mid"> 
+								  	<label for="mid2"></label> 
+								  	<label class="position_mid_txt">미드필더</label>
+							  	</div>
+							  	<div class="position_wrap">
+								  	<input type="checkbox" id="mid3" class="mid"> 
+								  	<label for="mid3"></label>
+								  	<label class="position_mid_txt">미드필더</label> 
+							  	</div>
+						  	</div>
+						  	
+						  	<div class="position_df">
+							  	<div class="position_wrap">
+						  			<input type="checkbox" id="df1" class="mid"> 
+						  			<label for="df1"></label>
+						  			<label class="position_df_txt">수비수</label>
+					  			</div>
+					  			<div class="position_wrap">
+						  			<input type="checkbox" id="df2" class="mid"> 
+								  	<label for="df2"></label> 
+								  	<label class="position_df_txt">수비수</label>
+							  	</div>
+							  	<div class="position_wrap">
+								  	<input type="checkbox" id="df3" class="mid"> 
+								  	<label for="df3"></label>
+								  	<label class="position_df_txt">수비수</label> 
+							  	</div>
+							  	<div class="position_wrap">
+								  	<input type="checkbox" id="df4" class="mid"> 
+								  	<label for="df4"></label>
+								  	<label class="position_df_txt">수비수</label> 
+							  	</div>
+						  	</div>
+						  	
+						  	<div class="position_gk">
+						  		<div class="position_wrap">
+						  			<input type="checkbox" id="gk1" class="mid"> 
+						  			<label for="gk1"></label>
+						  			<label class="position_df_txt">골키퍼</label>
+					  			</div>
+						  	</div>
+						</div>
+						</div>
+						</div>
+						</div>
+						<!-- Left and right controls -->
+					    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+					      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					      <span class="sr-only">Previous</span>
+					    </a>
+					    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+					      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					      <span class="sr-only">Next</span>
+					    </a>
+				      </div>
+				  <button type="button" class="formation_select">선택</button>
+				  <p>
+				  	*동반인원이 있을경우 그 인원에 맞게 포지션에 체크해주세요.<br>
+				  	*동반인원이 없을시 원하는 포지션만 선택해주세요.
+				  </p>		
+				  <!--  end of image carousel -->
 				</li>
-				<li>
-						<label>팀설명</label>
+				<li class="team_comment">
+						<label class="label2">팀설명</label>
 						<textarea rows="10" cols="50" name="content" id="content"></textarea>						
 				</li>
 				<li class="filebox">
-						<label>팀로고 등록</label>
+						<label class="label2">팀로고 등록</label>
 						<input type="text" name="fname" id="fname" class="upload-file" placeholder="파일선택"> 
 						<label class="upload-text" id="btnUpload">업로드</label> 
 						<input type="file" name="uploadFile" class="upload-hidden">
 				</li>
 				<li>
-					<label>지역</label>
+					<label class="label2">지역</label>
 						<select name="selBox">
                            <option value="1">서울</option>   
                            <option value="2">부산</option>    
@@ -186,21 +320,21 @@
 				</li>
 	
 				<li class="agree">
-					<label>약관 동의</label>
+					<label class="label2">약관 동의</label>
 					<input type="checkbox" name="agree" id="agree">
 					<span class="create_agree"> 약관에 동의합니다.</span>
 							<!-- <img src="../css/image/tick.png"> -->
-					
 				</li>
 				<li class="sending">
 					<span class="btn1" id= "createCheck" >팀 생성 &nbsp;<!-- <img src="../css/image/tick.png"> --></span>&nbsp;&nbsp;
 					<span class="btn2" id= "createCancle">취소 &nbsp;<!-- <img src="../css/image/cross.png">--></span>
 				</li>
 			</ul>
+			
 		</form>
-		</div>
 	</div>
-            
 </section>
   
 <%@include file="../include/footer.jsp" %>
+<script type="text/javascript" src="/resources/js/formation_select.js"></script>
+
