@@ -7,6 +7,11 @@
 <%@include file="../include/header.jsp" %>
 <section id="portfolio" class="bg-light-gray">
 	<div class="container">
+	<div class="btn-group-vertical navbar-fixed-top"  role="group" aria-label="..." style="top: 550px; left: 30px;"> 
+		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 1</button>
+		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 2</button>
+		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 3</button>
+	</div>
 	<div align="center">
 	<h1>팀명 - 서울성북</h1>
 	</div>

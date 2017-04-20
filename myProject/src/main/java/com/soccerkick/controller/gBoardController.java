@@ -13,10 +13,6 @@ public class gBoardController{
 	public void joinForm(Model model) throws Exception {
 	}
 	
-	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public void modify(Model model) throws Exception {
-	}
-	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(Model model) throws Exception {
 	}
@@ -25,8 +21,12 @@ public class gBoardController{
 	public void teamOpen(Model model) throws Exception {
 	}
 	
-	@RequestMapping(value = "/make", method = RequestMethod.GET)
-	public void make(Model model) throws Exception {
+	@RequestMapping(value = "/place", method = RequestMethod.GET)
+	public void place(Model model) throws Exception {
+	}
+	
+	@RequestMapping(value = "/selectPlace", method = RequestMethod.GET)
+	public void selectPlace(Model model) throws Exception {
 	}
 	
 }
