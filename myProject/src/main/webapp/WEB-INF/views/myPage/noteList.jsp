@@ -1,4 +1,4 @@
-<%@page import="com.soccerkick.vo.ChatRoomVO"%>
+<%@page import="com.soccerkick.vo.NoteGroupVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -7,7 +7,7 @@
 
 <!-- jsp code -->
 <%
-	//ArrayList<ChatRoomVO> list = (ArrayList<ChatRoomVO>) request.getAttribute("list");
+	ArrayList<NoteGroupVO> list = (ArrayList<NoteGroupVO>) request.getAttribute("list");
 %>
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
@@ -16,15 +16,23 @@
 			<h1 class="boardtitle" align="center">쪽지 함</h1>
 			<hr>
 			<div class="board_form">
-				<form class="navbar-form navbar-left" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="search">
-					</div>
-					<button type="submit" class="btn btn-default">검색</button>
+				<div class="form-group">
+					<input type="text" class="form-control" list="items"
+						placeholder="search">
+					<datalist id="items">
+						<option value="Chrome">
+						<option value="Firefox">
+						<option value="Internet Explorer">
+						<option value="Opera">
+						<option value="Safari">
+						<option value="Microsoft Edge">
+					</datalist>
+				</div>
 				</form>
 				<div align="right">
 					<button type="button" class="btn btn-success"
-						onclick="location.href='http://172.16.13.19:8088/myPage/chat/form';">쪽지 함 생성</button>
+						onclick="location.href='http://172.16.13.19:8088/myPage/chat/form';">쪽지
+						함 생성</button>
 				</div>
 				<!-- 			</a> -->
 				<br>
@@ -33,18 +41,14 @@
 						<th>쪽지</th>
 					</tr>
 					<%
-						//for (ChatRoomVO vo : list) {
+						for (NoteGroupVO vo : list) {
 					%>
 					<tr>
-						<td class="cno"></td>
-						<td class="title"><a
-							href="/myPage/chat/chatRoom/?title="> 
-						</a></td>
-						<td></td>
-						<td></td>
+						<td class="group_id"><a
+							href="/myPage/note/content?groupId=<%=vo.getGroup_id()%>"><%=vo.getGroup_id()%></a></td>
 					</tr>
 					<%
-						//}
+						}
 					%>
 				</table>
 			</div>
