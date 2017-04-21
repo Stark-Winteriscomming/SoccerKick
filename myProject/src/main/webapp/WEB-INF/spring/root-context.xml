@@ -8,10 +8,10 @@
 	<!-- MyBatis -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
-		<property name="username" value="scott" />
+		<property name="url" value="jdbc:oracle:thin:@172.16.13.19:1521:XE" />
+		<property name="username" value="scott" />  
 		<property name="password" value="tiger" />
-	</bean>
+	</bean> 
 
 	<!-- sqlSessionFactoryBuilder & sqlSessionFactory 생성 -->
 
