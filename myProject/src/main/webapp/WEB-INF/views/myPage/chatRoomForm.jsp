@@ -5,20 +5,18 @@
 <%@include file="../include/header.jsp"%>
 <section id="portfolio" class="bg-light-gray">
 	<div class="content" style="margin: 0 auto; width: 700px;">
-		<form name="chatForm" class="form-horizontal" action="http://172.16.13.19:8088/myPage/chat/make" method="post">
-			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-2 control-label">방 이름</label>
-				<div class="col-sm-10">
-					<input type="email" class="form-control" id="inputEmail3" name="title"
-						placeholder="방 이름">
-				</div>
+		<form name="chatForm" class="form-horizontal"
+			action="http://172.16.13.19:8088/myPage/chat/make" method="post">
+			<div class="input-group">
+				<span class="input-group-addon" id="sizing-addon2">방제목</span> <input
+					type="text" name="title" class="form-control"
+					placeholder="room name" aria-describedby="sizing-addon2">
+
 			</div>
-			<div class="form-group">
-				<label for="inputPassword3" class="col-sm-2 control-label">제한인원</label>
-				<div class="col-sm-10">
-					<input type="password" class="form-control" id="inputPassword3" name=""
-						placeholder="제한인원">
-				</div>
+			<div class="input-group">
+				<span class="input-group-addon" id="sizing-addon2">제한인원</span> <input
+					type="text" name="" class="form-control" placeholder="제한인원"
+					aria-describedby="sizing-addon2">
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
