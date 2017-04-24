@@ -5,10 +5,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="../include/header.jsp"%>
 
-<!-- jsp code -->
-<%
-	ArrayList<NoteGroupVO> list = (ArrayList<NoteGroupVO>) request.getAttribute("list");
-%>
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
 	<div class="content" style="margin: 0 auto; width: 700px">
@@ -40,16 +36,12 @@
 					<tr>
 						<th>쪽지</th>
 					</tr>
-					<%
-						for (NoteGroupVO vo : list) {
-					%>
+					<c:forEach items="${list}" var="vo">
 					<tr>
 						<td class="group_id"><a
-							href="/myPage/note/content?groupId=<%=vo.getGroup_id()%>"><%=vo.getGroup_id()%></a></td>
+							href="/myPage/note/content?groupId=${vo.group_id}">${vo.group_id}</a></td>
 					</tr>
-					<%
-						}
-					%>
+					</c:forEach>
 				</table>
 			</div>
 		</div>

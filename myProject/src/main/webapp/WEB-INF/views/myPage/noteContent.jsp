@@ -3,11 +3,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@include file="../include/header.jsp"%>
-<!-- jsp code -->
-<%
-	ArrayList<NoteVO> list = (ArrayList<NoteVO>) request.getAttribute("list");
-%>
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
 	<span id="cno" style="display: none;"></span>
@@ -23,11 +20,11 @@
 		<hr style="border-top: 1px solid #BDBDBD;">
 		<dl class="dl-horizontal" id="contentWindow"
 			style="overflow-y: scroll !important; width: 420px; height: 300px; overflow: hidden;">
-			<% for(NoteVO vo : list) {%>
-			<dt><%= vo.getSend_id() %></dt>
-			<dd><%= vo.getContent() %></dd>
+			<c:forEach items="${list}" var="vo">
+			<dt>${vo.send_id}</dt>
+			<dd>${vo.content}</dd>
 			</br>		
-			<% } %>
+			</c:forEach>
 		</dl>
 		<hr style="border-top: 1px solid #BDBDBD;">
 	</div>

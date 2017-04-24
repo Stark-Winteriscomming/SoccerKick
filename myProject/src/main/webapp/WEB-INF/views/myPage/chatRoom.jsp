@@ -1,19 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp"%>
-<!-- jsp code -->
-<%
-	String cno = (String) request.getAttribute("cno");
-	String title = (String) request.getAttribute("title");
-%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
-	<span id="cno" style="display: none;"><%=cno%></span>
+	<span id="cno" style="display: none;">${cno}</span>
 
 	<div id="chatSpace"
 		style="margin: 0 auto; border: 1px solid gray; width: 430px">
 		<div id="chatHeader" style="width: 100%;">
-			<span class="label label-info"><%=title %></span>
+			<span class="label label-info">${title}</span>
 			<button type="button" class="btn btn-warning"
 				onclick="disconnect();location.href='http://172.16.13.19:8088/myPage/chatRoomList';"
 				style="float: right;">나가기</button>
@@ -66,7 +63,6 @@
 		//Send 버튼을 누르면 실행되는 함수
 		function sendMessage() {
 
-			// 			var id = document.getElementById("id");
 			var message = document.getElementById("textMessage").value;
 			// 			messageTextArea.value += "Send to Server => " + message.value
 			// 					+ "\n";
