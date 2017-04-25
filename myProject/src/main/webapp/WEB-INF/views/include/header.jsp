@@ -3,6 +3,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 
+<!-- jsp code -->
+<%	
+	String userId = (String)request.getSession().getAttribute("userId");
+
+%>
 <!DOCTYPE html>
 <html lang="utf-8">
  
@@ -24,7 +29,6 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <link href="/resources/css/agency.css" rel="stylesheet">
 
-    
 </head>
 
 <body id="page-top" class="index">
@@ -46,7 +50,7 @@
 				      <button type="button" class="btn btn-success btn-lg" data-toggle="dropdown">마이페이지<span class="caret"></span></button>
 					      <ul class="dropdown-menu" role="menu">
 					        <li><a href="/myPage/chatRoomList">메세지 리스트</a></li>
-					        <li><a href="/myPage/notes?user_id=changho">쪽지함</a></li>
+					        <li><a href="/myPage/notes?user_id=<%=userId %>"/>쪽지함</a></li>
 					        <li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
 					        <li><a href="/myPage/modify">수정</a></li>
 					      </ul>

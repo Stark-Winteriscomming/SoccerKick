@@ -28,10 +28,9 @@
 						id="textMessage"> <span class="input-group-addon"
 						id="basic-addon2" onclick="sendMessage()">send</span>
 				</div>
+			</form>
 		</div>
-		</form>
-	</div>
-	<br />
+		<br />
 	</div>
 
 
