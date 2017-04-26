@@ -8,7 +8,7 @@
 <head>
 <script src="/resources/js/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/table.js" type="text/javascript"></script>
-<script>
+<script> 
 	$(document).ready(function(){
 		
 		$("#cselect").click(function(){
@@ -47,7 +47,7 @@
 
 </head>   
   
-
+  
 <section id="portfolio" class="bg-light-gray">
 
 <div class="alert alert-success" style="width:800px; float:left; margin-right:10px;">
@@ -59,12 +59,12 @@
 
 <div style="position: absolute;">
 <div style="position: relative; top: 120px; left: 85px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;" onClick="javascript:window.open('http://localhost:9100/myPage/ss','popup','scrollbars=no, resizable=no, width=800,height=600')">
+<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;" onClick="javascript:window.open('/myPage/ss','popup','scrollbars=no, resizable=no, width=800,height=600')">
 </div>
 </div>
 <div style="position: absolute;">
 <div style="position: relative; top: 120px; left: 390px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;" onClick="javascript:window.open('http://localhost:9100/myPage/ss','popup','scrollbars=no, resizable=no, width=800,height=600')" >
+<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;" onClick="javascript:window.open('/myPage/ss','popup','scrollbars=no, resizable=no, width=800,height=600')" >
 </div>
 </div>
 <div style="position: absolute;">

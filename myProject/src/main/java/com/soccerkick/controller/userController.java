@@ -1,28 +1,51 @@
 package com.soccerkick.controller;
 
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.soccerkick.dao.userDAO;
+import com.soccerkick.vo.userVO;
 
 @Controller
 @RequestMapping("/user/*")
-@SessionAttributes("userId")
 public class userController {
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public void login(Model model) throws Exception {
-	}
+	@Inject
+	private userDAO dao;
 	
-	// login check
-	@RequestMapping(value = "/loginCheck", method = RequestMethod.GET)
-	public String loginCheck(String userId, HttpSession session){
-//		request.getSession().setAttribute("userId", userId);
-		session.setAttribute("userId", userId);
-		System.out.println("session: " + session.getAttribute("userId"));
-		return "redirect:/";
-	} 
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	  public String login(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute("login")!=null){  
+			return "/";  
+		} 
+		else 
+			return "/user/login";
+	  }
+	
+	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
+	  public String loginCheck(Model model, userVO vo, RedirectAttributes rttr, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		HttpSession session = request.getSession();
+		
+		int result = dao.userCheck(vo);
+		
+		if(result == 1){
+			session.setAttribute("login", vo);
+			return "redirect:/";
+		}
+		else
+			return "redirect:/user/login";
+	  }
 }
