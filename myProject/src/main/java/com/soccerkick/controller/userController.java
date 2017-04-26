@@ -20,20 +20,18 @@ public class userController {
 	
 	@Inject
 	private userDAO dao;
-	
+	  
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	  public String login(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
 		HttpSession session = request.getSession();
 		
-		if(session.getAttribute("login")!=null){  
-			return "/";  
-		} 
-		else 
-			return "redirect:/user/login";  
+		if(session.getAttribute("login")==null){
+			return "redirect:/";
+		}
 		
-			
+		return "redirect:/user/login";
+		
 	  }
 	
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
