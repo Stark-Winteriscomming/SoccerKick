@@ -25,13 +25,12 @@ public class userController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	  public String login(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
-		
-		if(session.getAttribute("login")==null){
-			return "redirect:/";
-		}
-		
-		return "redirect:/user/login";
-		
+
+		if(session.getAttribute("login")!=null){  
+			return "redirect:/"; 
+		} 
+		else 
+			return "/user/login";
 	  }
 	
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
@@ -47,7 +46,5 @@ public class userController {
 		}
 		else
 			return "redirect:/user/login";
-		
 	  }
-	
 }

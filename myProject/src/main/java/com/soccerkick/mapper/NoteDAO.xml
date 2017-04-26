@@ -7,7 +7,26 @@
 	<select id="execSelectNoteGroup" resultType = "com.soccerkick.vo.NoteGroupVO">
 		select * from note_group where user_id=#{user_id}
 	</select>
+	
 	<select id="execSelectNote" parameterType="int" resultType="com.soccerkick.vo.NoteVO">
-		select * from note where group_id=#{group_id}
+		select * from note where group_id=#{group_id} order by reg_date asc
 	</select>
+	
+	<select id="execSelectUserByGroupId" parameterType="int" resultType="com.soccerkick.vo.NoteGroupVO">
+		select * from note_group where group_id=#{group_id}
+	</select>
+	
+	<select id="execSelectLastNoteVO" resultType="com.soccerkick.vo.NoteVO">
+		SELECT * FROM (
+    		SELECT * FROM note ORDER BY  reg_date desc 
+		) WHERE ROWNUM = 1
+	</select>
+	
+	<insert id="insertNote" parameterType="com.soccerkick.vo.NoteVO">
+		insert into note values(note_seq.nextval,#{send_id},sysdate,#{content},#{group_id})
+	</insert>
+	
+	<insert id="insertNoteCheck" parameterType="com.soccerkick.vo.NoteCheckVO">
+		insert into note_check(ncno,user_id,nno) values(note_check_seq.nextval,#{user_id},#{nno})
+	</insert>
 </mapper>

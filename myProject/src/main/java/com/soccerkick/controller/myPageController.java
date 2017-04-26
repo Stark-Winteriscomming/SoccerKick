@@ -2,18 +2,25 @@ package com.soccerkick.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONObject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.ChatRoomDAO;
 import com.soccerkick.dao.NoteDAO;
+import com.soccerkick.util.JsonParsing;
 import com.soccerkick.vo.ChatRoomVO;
+import com.soccerkick.vo.NoteCheckVO;
 import com.soccerkick.vo.NoteGroupVO;
 import com.soccerkick.vo.NoteVO;
 
@@ -22,9 +29,7 @@ import com.soccerkick.vo.NoteVO;
 public class myPageController {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-	
-	
-	
+
 	@RequestMapping(value = "/chatRoomList", method = RequestMethod.GET)
 	public ModelAndView chatRoomList() throws Exception {
 		ChatRoomDAO dao = sqlSession.getMapper(ChatRoomDAO.class);
@@ -34,63 +39,96 @@ public class myPageController {
 		mv.setViewName("/myPage/chatRoomList");
 		return mv;
 	}
-	
+
 	@RequestMapping(value = "/memberSelectForm", method = RequestMethod.GET)
 	public void memberSelectForm(Model model) throws Exception {
 	}
-	
-	@RequestMapping(value ="/ss", method = RequestMethod.GET )
+
+	@RequestMapping(value = "/ss", method = RequestMethod.GET)
 	public void ss(Model model) throws Exception {
 	}
-	
+
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public void modify(Model model) throws Exception {
 	}
-//	/myPage/chat/chatRoom/
+
+	// /myPage/chat/chatRoom/
 	@RequestMapping(value = "/chat/chatRoom/{cno}", method = RequestMethod.GET)
 	public ModelAndView chatRoom(@PathVariable("cno") String cno, String title) throws Exception {
-		
+
 		ModelAndView mv = new ModelAndView();
-		System.out.println("t: "+title);
+		System.out.println("t: " + title);
 		mv.addObject("cno", cno);
 		mv.addObject("title", title);
 		mv.setViewName("/myPage/chatRoom");
 		return mv;
 	}
+
 	@RequestMapping(value = "/chat/form", method = RequestMethod.GET)
 	public String chatRoomForm() {
 		return "/myPage/chatRoomForm";
 	}
+
 	@RequestMapping(value = "/chat/make", method = RequestMethod.POST)
 	public String chatRoomMake(ChatRoomVO vo) {
 		ChatRoomDAO dao = sqlSession.getMapper(ChatRoomDAO.class);
 		dao.execInsert(vo.getTitle());
 		return "redirect:/myPage/chatRoomList";
 	}
+
 	// ÂÊÁö
 	@RequestMapping(value = "/notes", method = RequestMethod.GET)
-	public ModelAndView notes(String user_id) throws Exception{
-		System.out.println("userid: "+user_id);
+	public ModelAndView notes(String user_id) throws Exception {
+		System.out.println("userid: " + user_id);
 		NoteDAO dao = sqlSession.getMapper(NoteDAO.class);
 		ModelAndView mv = new ModelAndView();
 		ArrayList<NoteGroupVO> list = dao.execSelectNoteGroup(user_id);
 		mv.addObject("list", list);
 		System.out.println("g id");
-		for(NoteGroupVO vo : list){
+		for (NoteGroupVO vo : list) {
 			System.out.println(vo.getGroup_id());
 		}
 		mv.setViewName("/myPage/noteList");
 		return mv;
 	}
-	
+
 	@RequestMapping(value = "/note/content", method = RequestMethod.GET)
-	public ModelAndView noteContent(int groupId) throws Exception{
-		System.out.println("group id: "+groupId);
+	public ModelAndView noteContent(int groupId) throws Exception {
+		System.out.println("group id: " + groupId);
 		NoteDAO dao = sqlSession.getMapper(NoteDAO.class);
 		ModelAndView mv = new ModelAndView();
 		ArrayList<NoteVO> list = dao.execSelectNote(groupId);
 		mv.addObject("list", list);
+		mv.addObject("groupId", groupId);
 		mv.setViewName("/myPage/noteContent");
 		return mv;
+	}
+
+	// ajax url
+	@RequestMapping(value = "/note/insert", method = RequestMethod.POST)
+	@ResponseBody
+	public void noteInsert(@RequestBody String msg, HttpSession session) throws Exception{
+		NoteDAO dao = sqlSession.getMapper(NoteDAO.class);
+		NoteVO vo = new NoteVO();
+		JSONObject obj = JsonParsing.getObj(msg);
+		int groupId = Integer.parseInt((String)obj.get("groupId"));
+		String userId = (String)session.getAttribute("userId");
+		// insert into note
+		vo.setSend_id(userId);
+		vo.setContent((String)obj.get("content"));
+		vo.setGroup_id(groupId);
+		dao.insertNote(vo);
+		// insert into read_check_tb
+		ArrayList<NoteGroupVO> list = dao.execSelectUserByGroupId(groupId);
+		NoteVO nvo = dao.execSelectLastNoteVO(); 
+
+		for(NoteGroupVO gvo : list){
+			if(!(gvo.getUser_id().equals(userId))){
+				NoteCheckVO ncvo = new NoteCheckVO();
+				ncvo.setUser_id(gvo.getUser_id());
+				ncvo.setNno(nvo.getNno());
+				dao.insertNoteCheck(ncvo);
+			}
+		}
 	}
 }
