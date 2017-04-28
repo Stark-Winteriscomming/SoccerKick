@@ -73,13 +73,13 @@
 					</div>  
 					<a href="/user/login"><button type="button" class="btn btn-success btn-md"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 로그인</button></a>
                 </div>
-            </div>
+            </div>  
         </div>
     </nav> 
 
     <header>
         <div class="container">
-            <div class="intro-text" style="padding-top: 150px"> 
+            <div class="intro-text" style="padding-top: 100px"> 
                 <div class="intro-lead-in">It's time to run.</div> 
                 <div class="intro-heading">Soccer Kick !</div> 
             </div>

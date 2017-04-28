@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/gBoard/*")
 public class gBoardController{
 	
-	@RequestMapping(value = "/join_form", method = RequestMethod.GET)
-	public void joinForm(Model model) throws Exception {
-	}
+	
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(Model model) throws Exception {
