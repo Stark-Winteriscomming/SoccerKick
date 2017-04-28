@@ -51,7 +51,7 @@
                 <div class="nav navbar-nav navbar-right">  
                     <div class="btn-group" style="margin-top: 2px">  
                       <div class="btn-group">
-				      <button type="button" class="btn btn-success btn-lg" data-toggle="dropdown">마이페이지<span class="caret"></span></button>
+				      <button type="button" class="btn btn-default btn-lg" data-toggle="dropdown">마이페이지<span class="caret"></span></button>
 					      <ul class="dropdown-menu" role="menu">
 					        <li><a href="/myPage/chatRoomList">메세지 리스트</a></li>
 					        <li><a href="/myPage/notes?user_id=<%= userId %>"/>쪽지함</a></li>
@@ -60,22 +60,22 @@
 					        <li><a href="/myPage/modify">수정</a></li>
 					      </ul>
 				      </div>
-				      <a href="/team/teamCreateForm"><button type="button" class="btn btn-success btn-lg">팀 생성</button></a>
+				      <a href="/team/teamCreateForm"><button type="button" class="btn btn-default btn-lg">팀 생성</button></a>
 					  <div class="btn-group">
-				      <button type="button" class="btn btn-success btn-lg" data-toggle="dropdown">모집 게시판<span class="caret"></span></button>
+				      <button type="button" class="btn btn-default btn-lg" data-toggle="dropdown">모집 게시판<span class="caret"></span></button>
 					      <ul class="dropdown-menu" role="menu">
-					      	<!-- 모임 생성 추가 -->
+					      	<!-- 모임 생성 추가 -->   
 					      	<li><a href="/gBoard/team_open">모임 생성</a></li>
 					        <li><a href="/gBoard/read">read</a></li>
 					        <li><a href="/gBoard/place">장소 섭외</a></li>
-					      </ul>
+					      </ul>  
 				      </div>
 					</div>  
-					<a href="/user/login"><button type="button" class="btn btn-success btn-md"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 로그인</button></a>
+					<a href="/user/login"><button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 로그인</button></a>
                 </div>
-            </div>  
+            </div>    
         </div>
-    </nav> 
+    </nav>   
 
     <header>
         <div class="container">
