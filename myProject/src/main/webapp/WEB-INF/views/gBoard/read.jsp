@@ -5,7 +5,9 @@
   
   
 <%@include file="../include/header.jsp" %>
+<link href="/resources/css/4-3-3.css" rel="stylesheet">
 <section id="portfolio" class="bg-light-gray">
+ <form action="/gBoard/apply" method="post">
 	<div class="container">
 	<div class="btn-group-vertical navbar-fixed-top"  role="group" aria-label="..." style="top: 550px; left: 30px;"> 
 		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 1</button>
@@ -38,7 +40,55 @@
 	
 		
          <div align="center">
-			<img src="../resources/img/team/formation.jpg">
+          
+			<div class="formation">     
+						<div class="checks">
+							<div class="positon_fw">
+								<div class="a_apy_position_wrap">
+						  			<input type="radio" class="btn btn-danger" name="a_apy_position" value="lf" style=" width: 40px; height: 40px;">  
+					  			</div>
+					  			<div class="a_apy_position_wrap">
+						  			<input type="radio" class="btn btn-danger" name="a_apy_position" value="cf" style=" width: 40px; height: 40px;">
+							  	</div>  
+							  	<div class="a_apy_position_wrap">  
+								  	<input type="radio" class="btn btn-danger" name="a_apy_position" value="rf" style=" width: 40px; height: 40px;">
+							  	</div>
+						  	</div>
+						  	
+						  	<div class="a_apy_position_mid">    
+							  	<div class="a_apy_position_wrap">
+						  			<input type="radio" class="btn btn-danger" name="a_apy_position" value="lm" style=" width: 40px; height: 40px;">
+					  			</div>
+					  			<div class="a_apy_position_wrap">
+						  			<input type="radio" class="btn btn-danger" name="a_apy_position" value="cm" style=" width: 40px; height: 40px;">
+							  	</div>
+							  	<div class="a_apy_position_wrap">
+								  	<input type="radio" class="btn btn-danger" name="a_apy_position" value="rm" style=" width: 40px; height: 40px;">
+							  	</div>
+						  	</div>
+						  	
+						  	<div class="a_apy_position_df">
+							  	<div class="a_apy_position_wrap">
+									<input type="radio" class="btn btn-danger" name="a_apy_position" value="lb" style=" width: 40px; height: 40px;">						  			</div>
+					  			<div class="a_apy_position_wrap">
+						  			<input type="radio" class="btn btn-danger" name="a_apy_position" value="dc" style=" width: 40px; height: 40px;">
+							  	</div>
+							  	<div class="a_apy_position_wrap">
+								  	<input type="radio" class="btn btn-danger" name="a_apy_position" value="dc" style=" width: 40px; height: 40px;">
+							  	</div>
+							  	<div class="a_apy_position_wrap">
+								  	<input type="radio" class="btn btn-danger" name="a_apy_position" value="rb" style=" width: 40px; height: 40px;">
+							  	</div>
+						  	</div>  
+						  	  
+						  	<div class="a_apy_position_gk">
+						  		<div class="a_apy_position_wrap">
+						  			<input type="radio" class="btn btn-danger" name="a_apy_position" value="lf" style=" width: 40px; height: 40px;">
+					  			</div>
+						  	</div>
+						</div>
+						</div>
+				
 		 </div>
 		 <div align="center">
 		 <div class="panel panel-success" style="width: 691px"> 
@@ -54,7 +104,8 @@
 		 <div align="center"> 
 		 	<button class="btn btn-success btn-lg" style="width: 300px; height:70px">신청 하기</button>
 		 </div>
-		 
+	
 	</div>
+		</form>
 </section>
 <%@include file="../include/footer.jsp" %>
