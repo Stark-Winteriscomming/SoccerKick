@@ -40,6 +40,13 @@ public class userController {
 			return "/user/login";
 	  }
 	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session){
+		
+		session.invalidate(); 
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
 	  public String loginCheck(Model model, userVO vo, RedirectAttributes rttr, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
