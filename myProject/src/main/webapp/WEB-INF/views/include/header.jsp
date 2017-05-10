@@ -60,7 +60,8 @@
 					        <li><a href="/myPage/modify">수정</a></li>
 					      </ul>
 				      </div>
-				      <a href="/team/teamCreateForm"><button type="button" class="btn btn-default btn-lg">팀 생성</button></a>
+				      
+				      
 					  <div class="btn-group">
 				      <button type="button" class="btn btn-default btn-lg" data-toggle="dropdown">모집 게시판<span class="caret"></span></button>
 					      <ul class="dropdown-menu" role="menu">
@@ -70,6 +71,13 @@
 					        <li><a href="/gBoard/place">장소 섭외</a></li>
 					      </ul>  
 				      </div>
+				      
+				      <div class="btn-group">
+				      	<a href="/team/teamCreateForm"><button type="button" class="btn btn-default btn-lg">팀 생성</button></a>
+				      </div>  
+				      <div class="btn-group">
+				      	<a href="#"><button type="button" class="btn btn-default btn-lg">팀원 모집</button></a>
+				      </div>  
 					</div>
 						<c:choose>
 						 	<c:when test="${empty sessionScope.login }">
