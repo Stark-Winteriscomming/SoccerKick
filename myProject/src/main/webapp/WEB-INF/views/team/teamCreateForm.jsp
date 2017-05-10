@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-=======
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
->>>>>>> f6bdcb9860e7c340c2c5a9503022868584b9c678
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp"%>
-<style>
+<style>  
 div.team_create {
 	width: 68%;
 	margin: auto;
@@ -169,26 +164,26 @@ label.upload-text {
 								<li data-target="#myCarousel" data-slide-to="1"></li>
 								<li data-target="#myCarousel" data-slide-to="2"></li>
 								<li data-target="#myCarousel" data-slide-to="3"></li>
-							</ol>
+							</ol>  
 
 							<!-- Wrapper for slides -->
 							<div class="carousel-inner" role="listbox">
 								<div class="item active">
 									<div class="position_value">
-										<input type="text" value="4-3-3" name="team_formation" />
+										<input type="radio" value="4-3-3" name="team_formation" />
 									</div>
 								</div>
 								
 								<div class="item" style="background: url('/resources/img/4231.png'); background-size:500px;">
 									<div class="position_value">
-										<input type="text" value="4-2-3-1" name="team_formation" />
+										<input type="radio" value="4-2-3-1" name="team_formation" /> 
 									</div>
-									
+									   
 								</div>
 								
 								<div class="item" style="background: url('/resources/img/41212.png'); background-size:500px;">
 									<div class="position_value">
-										<input type="text" value="4-1-2-1-2" />
+										<input type="radio" value="4-1-2-1-2" name="team_formation"/>
 									</div>
 									
 								</div>
