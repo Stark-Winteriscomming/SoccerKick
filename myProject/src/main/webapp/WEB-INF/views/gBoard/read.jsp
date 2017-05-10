@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
   
@@ -8,12 +8,15 @@
 <link href="/resources/css/4-3-3.css" rel="stylesheet">
 <section id="portfolio" class="bg-light-gray">
  <form action="/gBoard/apply" method="post">
+ 
+ <input type="hidden" name="a_applicant" value="${sessionScope.login}">
+  
 	<div class="container">
-	<div class="btn-group-vertical navbar-fixed-top"  role="group" aria-label="..." style="top: 550px; left: 30px;"> 
+<!-- 	<div class="btn-group-vertical navbar-fixed-top"  role="group" aria-label="..." style="top: 550px; left: 30px;"> 
 		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 1</button>
 		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 2</button>
 		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 3</button>
-	</div>
+	</div> -->
 	<div align="center">
 	<h1>팀명 - 서울성북</h1>
 	</div>

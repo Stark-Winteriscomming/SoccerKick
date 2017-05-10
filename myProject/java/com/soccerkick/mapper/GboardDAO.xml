@@ -5,6 +5,6 @@
 
 <mapper namespace="com.soccerkick.dao.GboardDAO">
 	<insert id="insertApply">
-	insert into apply(a_apy_position) values(#{a_apy_position})
+	insert into apply(a_applicant, a_apy_position) values(#{a_applicant},#{a_apy_position})
 	</insert>
 </mapper>    
