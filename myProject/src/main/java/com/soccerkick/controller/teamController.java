@@ -29,14 +29,16 @@ public class teamController {
 	}
 	
 	@RequestMapping(value="/teamCreateForm_check" , method = RequestMethod.POST)
-	public ModelAndView teamCreateForm(TeamVO vo, HttpServletRequest request) throws IOException{		
+	public String teamCreateForm(TeamVO vo, HttpServletRequest request) throws IOException{		
 		ModelAndView mv = new ModelAndView();
+		
 		String fname = vo.getUploadfile().getOriginalFilename();
 		if(fname.equals("")){
 			vo.setTeam_logo_file_name(fname);
 		}
 		else{
 			String path = request.getSession().getServletContext().getRealPath("/upload");
+			/*System.out.println(path);*/  
 			String[] flist = new File(path).list();
 			for (int i = 0; i < flist.length; i++) {
 				if (fname.equals(flist[i])) {
@@ -64,10 +66,10 @@ public class teamController {
 		TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class);
 		int result = dao.execInsert(vo);
 		
-		if(result != 0){
+		if(result != 0){  
 			mv.setViewName("home");
 		}
-		return mv;
+		return "redirect:/";
 	}
 /*	TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class);
 	int result = dao.execInsert(vo);*/
