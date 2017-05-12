@@ -40,7 +40,7 @@
 		</c:forEach>
 		</div>
 
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-md-4 col-sm-6 portfolio-item">
 				<a href="gBoard/read" class="portfolio-link" data-toggle="modal">
 					<div class="portfolio-hover">
@@ -136,7 +136,7 @@
 					<p class="text-muted">팀 소개</p>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 	</div>
 </section>
