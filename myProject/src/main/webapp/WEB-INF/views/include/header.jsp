@@ -76,7 +76,7 @@
 				      	<a href="/team/teamCreateForm"><button type="button" class="btn btn-default btn-lg">팀 생성</button></a>
 				      </div>  
 				      <div class="btn-group">
-				      	<a href="#"><button type="button" class="btn btn-default btn-lg">팀원 모집</button></a>
+				      	<a href="/"><button type="button" class="btn btn-default btn-lg">팀원 모집</button></a>
 				      </div>  
 					</div>
 						<c:choose>
