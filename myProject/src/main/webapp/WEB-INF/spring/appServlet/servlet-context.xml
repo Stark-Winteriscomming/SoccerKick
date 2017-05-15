@@ -12,10 +12,15 @@
 	
 
 	<!-- Enables the Spring MVC @Controller programming model -->
+	<!-- 파일 업로드 -->
+	<beans:bean name="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >		
+	</beans:bean>
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/upload/**" location="/upload/" /> 
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

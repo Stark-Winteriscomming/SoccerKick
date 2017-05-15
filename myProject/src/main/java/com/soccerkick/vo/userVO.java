@@ -10,7 +10,16 @@ public class userVO {
 	private String client_history;
 	private String client_prifile_name;
 	private String client_phone;
+	private Integer pw;  
 	
+	
+	
+	public Integer getPw() {
+		return pw;
+	}
+	public void setPw(Integer pw) {
+		this.pw = pw;
+	}
 	public String getClient_id() {
 		return client_id;
 	}

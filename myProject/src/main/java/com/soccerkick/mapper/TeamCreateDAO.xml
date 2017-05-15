@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.soccerkick.dao.TeamCreateDAO">
+	<insert id="execInsert">
+		insert into team2 values(team_seq.nextval,#{team_name},#{team_region},
+		#{team_logo_file_name},#{team_history},#{team_formation},0,#{client_id},0)
+	</insert>
+</mapper>

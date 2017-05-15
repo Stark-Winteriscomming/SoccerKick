@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
   
@@ -15,18 +14,18 @@
 		  </div>
 	      <article class="container">
 	        <div class="col-md-6 col-md-offset-3">
-	          <form role="form">
+	          <form role="form" method="post" action="join.do">
 	            <div class="form-group">
 	              <label for="InputEmail">아이디</label>
-	              <input type="text" class="form-control" id="id" placeholder="아이디를 입력해 주세요">
+	              <input type="text" class="form-control" id="id" name="client_id" placeholder="아이디를 입력해 주세요">
 	            </div>
 	            <div class="form-group">
 	              <label for="InputEmail">닉네임</label>
 	              <input type="text" class="nickname" id="nickname" placeholder="닉네임을 입력해 주세요">
-	            </div>
+	            </div> 
 	            <div class="form-group">
 	              <label for="InputPassword1">비밀번호</label>
-	              <input type="password" class="form-control" id="pass" placeholder="비밀번호를 입력해 주세요">
+	              <input type="password" class="form-control" id="pass" name="pw" placeholder="비밀번호를 입력해 주세요">
 	            </div>
 	            <div class="form-group">
 	              <label for="InputPassword2">비밀번호 확인</label>
@@ -35,7 +34,7 @@
 	            </div>
 	            <div class="form-group">
 	              <label for="username">이름</label>
-	              <input type="text" class="form-control" id="name" placeholder="이름을 입력해 주세요">
+	              <input type="text" class="form-control" id="name" name="client_name" placeholder="이름을 입력해 주세요">
 	            </div>
 	             <div class="form-group">
 	              <label for="username">생년월일</label>
@@ -47,7 +46,7 @@
 	            <div class="form-group">
 	              <label for="username">휴대폰</label>
 	              <div class="input-group">
-	                <input type="tel" class="form-control" id="cphone" placeholder="- 없이 입력해 주세요">
+	                <input type="tel" class="form-control" id="cphone" name="client_phone" placeholder="- 없이 입력해 주세요">
 	                <span class="input-group-btn">
 	                  <button class="btn btn-success">인증번호 전송<i class="fa fa-mail-forward spaceLeft"></i></button>
 	                </span>

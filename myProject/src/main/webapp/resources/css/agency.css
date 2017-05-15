@@ -50,7 +50,7 @@ h6 {
   margin: 0 auto;
 }
 .bg-light-gray {
-  background-color: rgba(155, 189, 70, 0.52);  
+  background-color: #ffffff;  
 }
 .bg-darkest-gray {
   background-color: #222222;
@@ -218,15 +218,15 @@ fieldset[disabled] .btn-xl.active {
 }
 @media (min-width: 768px) {
   .navbar-custom.affix {
-    background-color: rgb(155, 189, 70);
+    background-color: rgb(43, 94, 152);
     padding: 10px 0;
   }
   .navbar-custom.affix .navbar-brand {
     font-size: 1.5em;
-  }
+  } 
 }
 header {
-  background-image: url('../img/1.jpg');
+  background-image: url('../img/12345.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -234,9 +234,9 @@ header {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  text-align: center;
+  text-align: center; 
   color: white;
-  height: 400px;  
+  height: 300px;  
 } 
 header .intro-text {
   padding-top: 100px;
@@ -347,7 +347,7 @@ section h3.section-subheading {
 #portfolio .portfolio-item .portfolio-caption {
   max-width: 400px;
   margin: 0 auto;
-  background-color:rgb(230, 230, 230);
+  background-color:rgba(0, 94, 243, 0.18);
   text-align: center;
   padding: 25px;
 }
@@ -613,7 +613,7 @@ section#contact .text-danger {
 footer {
   padding: 25px 0;
   text-align: center;
-  background-color: rgb(155, 189, 70);
+  background-color: rgb(43, 94, 152);
 }
 footer span.copyright {
   line-height: 40px;
