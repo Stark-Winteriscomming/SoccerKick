@@ -18,25 +18,33 @@ $(".sendedList > li > input").on("click", function(event) {
 })
 function check() {
 	console.log("check() start");
-	console.log(regListArray);
 	for (var i = 0; i < regListArray.length; i++) {
 		if (!(typeof regListArray[i] === 'undefined')){
-			console.log(regListArray[i]);
 			sendArray.push(regListArray[i]);
 		}
 	}
 }
 
 $("#add").on("click", function() {
+	// undefine 정제 작업
+	check();
+	var sendData = JSON.stringify(sendArray);
+	var obj = { "name":"John", "age":30, "city":"New York"};
+//	var jsonArray = JSON.parse(JSON.stringify(sendArray))
+	console.log(sendData);
 	$.ajax({
 		url : "/myPage/mail/regAddressList",
 		type : "POST",
-		data : "{data : value}",
-		success : function(data, textStatus, jqXHR) {
+		data : sendData,
+		dataType : "text",
+		contentType : "application/json; charset=UTF-8",
+		success : function(result) {
 			//data - response from server
+			console.log(result);
+			$("#result").text(result);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
-
+				
 		}
 	});
 });

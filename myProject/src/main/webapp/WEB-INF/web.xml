@@ -20,4 +20,10 @@
     <servlet-name>appServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  <!-- user listener adding -->
+  <listener>
+<listener-class>com.soccerkick.websocket.RequestListener</listener-class>
+</listener>
+
+
 </web-app>

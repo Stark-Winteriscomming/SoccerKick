@@ -1,10 +1,14 @@
 package com.soccerkick.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -129,8 +133,8 @@ public class myPageController {
 					recv_id = st.nextToken();
 					vo.setRecv_id(recv_id);
 					dao.execInsert(vo);
-					System.out.println(abDao.isMatched(recv_id));
-					recv_idList.add(recv_id);
+					if(abDao.isMatched(send_id, recv_id) == 0)
+						recv_idList.add(recv_id);
 				}
 				// 메일 보낸 아이디 리스트 
 				mv.addObject("list", recv_idList);
@@ -148,12 +152,38 @@ public class myPageController {
 	//주소록 등록
 	@RequestMapping(value = "/mail/regAddressList", method = RequestMethod.POST)
 	@ResponseBody
-	public void regAddressList(@RequestBody String msg) {
-		System.out.println("client data: " + msg);
+	public String regAddressList(@RequestBody String msg, HttpSession session) {
+		try {
+			String send_id = ((userVO)(session.getAttribute("login"))).getClient_id();
+			System.out.println("send_id is " + send_id);
+			AddressBookDAO abDao = sqlSession.getMapper(AddressBookDAO.class);
+			JSONParser jsonParser = new JSONParser();
+			JSONArray jsonArray = (JSONArray) jsonParser.parse(msg);
+			
+			for(int i=0; i<jsonArray.size(); i++){
+				abDao.execInsert(send_id, (String)jsonArray.get(i));
+			}
+			return "successed";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "fail";
+		}
 	}
 	// 주소록
 	@RequestMapping(value = "/mail/addressBook", method = RequestMethod.GET)
-	public String addressBook(MailVO vo, HttpSession session) {
-		return "/myPage/mail/addressBook";
+	public ModelAndView addressBook(MailVO vo, HttpSession session) {
+		String my_id = ((userVO)(session.getAttribute("login"))).getClient_id();
+		AddressBookDAO abDao = sqlSession.getMapper(AddressBookDAO.class);
+		List list = abDao.getAddress(my_id);
+		ArrayList<String> arrayList = new ArrayList<>();
+		ModelAndView mv = new ModelAndView();
+		for(int i=0; i< list.size(); i++){
+			HashMap map = (HashMap)list.get(i);
+			arrayList.add((String)map.get("list"));
+		}
+		mv.addObject("list", arrayList);
+		mv.setViewName("/myPage/mail/addressBook");
+		return mv;
 	}
 }

@@ -1,5 +1,3 @@
-<%@page import="com.soccerkick.vo.NoteVO"%>
-<%@page import="com.soccerkick.dao.NoteDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

@@ -44,10 +44,9 @@ p span {
 		style="width: 47%; height: 80%; border: 1px solid gray; float: left;">
 		<span>주소록</span>
 		<ul class="rList">
-			<li id="r1"><input type="checkbox">item1</li>
-			<li id="r2"><input type="checkbox">item2</li>
-			<li id="r3"><input type="checkbox">item3</li>
-			<li id="r4"><input type="checkbox">item4</li>
+			<c:forEach items="${list}" var="item">
+			<li id=${item}><input type="checkbox">${item}</li>
+			</c:forEach>
 		</ul>
 	</div>
 	<div class="arrow"

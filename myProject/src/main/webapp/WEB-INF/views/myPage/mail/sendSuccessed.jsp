@@ -18,6 +18,7 @@
 				</c:forEach>
 			</ul>
 		</div>
+		<span id="result"></span>
 		<div style="height: 15%; border: 1px solid gray; margin-top: 90%;">
 			<div class="layer">
 					<span
