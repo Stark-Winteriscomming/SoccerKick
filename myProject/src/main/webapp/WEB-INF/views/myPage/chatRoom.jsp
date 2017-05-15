@@ -77,11 +77,16 @@
 			$("#textMessage").val("");
 		}
 
-		//웹소켓 종료
+		//나가기 버튼, 웹소켓 종료
 		function disconnect() {
 			webSocket.close();
 		}
-
+		
+		//window 창 끄기 전 실행 event
+		window.onbeforeunload = function(){
+			webSocket.close();
+		}
+		
 		$("#textMessage").keypress(function(e) {
 			if (e.which == 13) {
 				sendMessage(); // 실행할 이벤트
