@@ -13,7 +13,7 @@
 	</select>
 	
 	<select id="execContent" resultType="com.soccerkick.vo.TeamVO">
-		select team_id, team_name, team_logo_file_name, team_formation, client_id from team2 where team_id=#{team_id}	
+		select * from team2 where team_id=#{team_id}	 
 	</select>
 	
 </mapper>     

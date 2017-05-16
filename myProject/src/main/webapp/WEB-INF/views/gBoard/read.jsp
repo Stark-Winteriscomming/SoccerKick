@@ -22,10 +22,11 @@
 	</div>
 	<br>
 	<div class="row">
-	<div class="col-md-offset-4 col-md-4">   
-			<img src="../resources/img/portfolio/1.png" class="img-circle" style="width: 350px; height: 350px;">  
+	<div class="col-md-offset-4 col-md-4">     
+			<img src="../upload/${vo.team_logo_file_name}" class="img-circle" style="width: 350px; height: 350px;">  
 		</div> 
 		<div class="team-member col-md-2" style="margin-top: 70px;">
+			감독- 
             <img src="../resources/img/team/1.jpg" class="img-responsive img-circle" alt="">
             <ul class="list-inline social-buttons">
             <li><a href="#"><i class="fa fa-twitter"></i></a>
@@ -119,9 +120,9 @@
 		 <div class="panel panel-success" style="width: 691px"> 
 		      <div class="panel-heading">
 		        <h3 class="panel-title" id="panel-title">팀 소개<a class="anchorjs-link" href="#panel-title"><span class="anchorjs-icon"></span></a></h3>
-		      </div>
+		      </div> 
 		      <div class="panel-body">
-		        생략
+		       ${vo.team_history }
 		      </div>
 	     </div>
 	     </div>     
