@@ -16,24 +16,25 @@
 				style="float: right;">나가기</button>
 		</div>
 		<hr style="border-top: 1px solid #BDBDBD;">
-		<dl class="dl-horizontal" id="contentWindow"
+		<ul class="dl-horizontal" id="contentWindow"
 			style="overflow-y: scroll !important; width: 420px; height: 300px; overflow: hidden;">
-		</dl>
+		</ul>
 		<hr style="border-top: 1px solid #BDBDBD;">
 		<div id="form" style="width: 100%">
-			<form>
-				<div class="input-group">
-					<input type="textMessage" class="form-control"
-						placeholder="message" aria-describedby="basic-addon2"
-						id="textMessage"> <span class="input-group-addon"
-						id="basic-addon2" onclick="sendMessage()">send</span>
-				</div>
-			</form>
+			<!-- 			<form> -->
+			<div class="input-group">
+				<input type="textMessage" class="form-control" placeholder="message"
+					aria-describedby="basic-addon2" id="textMessage"> <span
+					class="input-group-addon" id="basic-addon2" onclick="sendMessage()">send</span>
+			</div>
+			<!-- 			</form> -->
 		</div>
+		<button id="btn">btn</button>
 		<br />
 	</div>
 
-
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		//WebSocketEx는 프로젝트 이름
 		//websocket 클래스 이름
@@ -54,35 +55,49 @@
 		};
 		// 		웹 소켓에서 메시지가 날라왔을 때 호출되는 이벤트
 		webSocket.onmessage = function(message) {
-			// 		            messageTextArea.value += "Recieve From Server => "+message.data+"\n";
-			var node = document.createElement("dt"); // Create a <li> node
-			node.innerHTML = message.data; // Append the text to <li>
+			console.log(message.data);
+			var obj = JSON.parse(message.data);
+			var spanNode = document.createElement("span");
+			spanNode.innerHTML = obj.id;
+			var node = document.createElement("li"); // Create a <li> node
+			node.setAttribute("tabindex", "1");
+			node.appendChild(spanNode);
+			// 			message.data
+			node.innerHTML = node.innerHTML + ":" + "&nbsp&nbsp&nbsp" + obj.msg; // Append the text to <li>
 			document.getElementById("contentWindow").appendChild(node);
+			
 		};
 		//Send 버튼을 누르면 실행되는 함수
 		function sendMessage() {
 
 			var message = document.getElementById("textMessage").value;
-			// 			messageTextArea.value += "Send to Server => " + message.value
-			// 					+ "\n";
-
-			// 			var messageObj = {
-			// 				"id" : id.value,
-			// 				"text" : message.value
-			// 			};
-			// 			var jsonMessage = JSON.stringify(messageObj);
-			//웹소켓으로 textMessage객체의 값을 보낸다.
-			// 			webSocket.send(jsonMessage);
 			webSocket.send(message);
+
 			//textMessage객체의 값 초기화
-			// 			message.value = "";
+			$("#textMessage").val("");
 		}
 
-		//웹소켓 종료
+		//나가기 버튼, 웹소켓 종료
 		function disconnect() {
 			webSocket.close();
 		}
-	</script>
+		
+		//window 창 끄기 전 실행 event
+		window.onbeforeunload = function(){
+			webSocket.close();
+		}
+		
+		$("#textMessage").keypress(function(e) {
+			if (e.which == 13) {
+				sendMessage(); // 실행할 이벤트
+			}
+		});
+		$("#btn").click(function() {
+		    $("#contentWindow").animate({
+		        scrollTop: $("#contentWindow").offset().top
+		    }, 2000);
+		});
+		</script>
 </section>
 <!-- ########## start of footer ################## -->
 <%@include file="../include/footer.jsp"%>

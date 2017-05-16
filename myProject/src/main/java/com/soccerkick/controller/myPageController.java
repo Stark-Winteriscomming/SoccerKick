@@ -1,10 +1,14 @@
 package com.soccerkick.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,13 +20,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.soccerkick.dao.AddressBookDAO;
 import com.soccerkick.dao.ChatRoomDAO;
-import com.soccerkick.dao.NoteDAO;
-import com.soccerkick.util.JsonParsing;
+import com.soccerkick.dao.MailDAO;
 import com.soccerkick.vo.ChatRoomVO;
-import com.soccerkick.vo.NoteCheckVO;
-import com.soccerkick.vo.NoteGroupVO;
-import com.soccerkick.vo.NoteVO;
+import com.soccerkick.vo.MailVO;
+import com.soccerkick.vo.userVO;
 
 @Controller
 @RequestMapping("/myPage/*")
@@ -75,60 +78,112 @@ public class myPageController {
 		dao.execInsert(vo.getTitle());
 		return "redirect:/myPage/chatRoomList";
 	}
-
-	// 쪽지
-	@RequestMapping(value = "/notes", method = RequestMethod.GET)
-	public ModelAndView notes(String user_id) throws Exception {
+	
+	// 메일 리스트
+	@RequestMapping(value = "/mails", method = RequestMethod.GET)
+	public ModelAndView mails(String user_id, HttpSession session) throws Exception {
 		System.out.println("userid: " + user_id);
-		NoteDAO dao = sqlSession.getMapper(NoteDAO.class);
+		MailDAO dao = sqlSession.getMapper(MailDAO.class);
 		ModelAndView mv = new ModelAndView();
-		ArrayList<NoteGroupVO> list = dao.execSelectNoteGroup(user_id);
+		ArrayList<MailVO> list = dao.execSelectAll(user_id);
 		mv.addObject("list", list);
-		System.out.println("g id");
-		for (NoteGroupVO vo : list) {
-			System.out.println(vo.getGroup_id());
+		mv.setViewName("/myPage/mail/mailList");
+		return mv;
+	}
+	
+	// 메일 컨텐츠
+	@RequestMapping(value = "/mail/content/{mail_no}", method = RequestMethod.GET)
+	public ModelAndView mailContent(@PathVariable("mail_no") int mail_no) throws Exception {
+		MailDAO dao = sqlSession.getMapper(MailDAO.class);
+		MailVO vo = dao.execSelect(mail_no);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("vo", vo);
+		mv.setViewName("/myPage/mail/mailContent");
+		return mv;
+	}
+
+	// 메일 작성 폼
+	@RequestMapping(value = "/mail/form", method = RequestMethod.GET)
+	public String mailForm(){
+		return "/myPage/mail/mailForm";
+	}
+
+	// 메일 작성
+	@RequestMapping(value = "/mail/write", method = RequestMethod.POST)
+	public ModelAndView mailWrite(MailVO vo, HttpSession session) {		
+		String send_id = "";
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("login") == null){
+			System.out.println("session login == null ...");
+			// return login page
+			mv.setViewName("/myPage/mail/sendFailed");
+			return mv;
 		}
-		mv.setViewName("/myPage/noteList");
-		return mv;
-	}
-
-	@RequestMapping(value = "/note/content", method = RequestMethod.GET)
-	public ModelAndView noteContent(int groupId) throws Exception {
-		System.out.println("group id: " + groupId);
-		NoteDAO dao = sqlSession.getMapper(NoteDAO.class);
-		ModelAndView mv = new ModelAndView();
-		ArrayList<NoteVO> list = dao.execSelectNote(groupId);
-		mv.addObject("list", list);
-		mv.addObject("groupId", groupId);
-		mv.setViewName("/myPage/noteContent");
-		return mv;
-	}
-
-	// ajax url
-	@RequestMapping(value = "/note/insert", method = RequestMethod.POST)
-	@ResponseBody
-	public void noteInsert(@RequestBody String msg, HttpSession session) throws Exception{
-		NoteDAO dao = sqlSession.getMapper(NoteDAO.class);
-		NoteVO vo = new NoteVO();
-		JSONObject obj = JsonParsing.getObj(msg);
-		int groupId = Integer.parseInt((String)obj.get("groupId"));
-		String userId = (String)session.getAttribute("userId");
-		// insert into note
-		vo.setSend_id(userId);
-		vo.setContent((String)obj.get("content"));
-		vo.setGroup_id(groupId);
-		dao.insertNote(vo);
-		// insert into read_check_tb
-		ArrayList<NoteGroupVO> list = dao.execSelectUserByGroupId(groupId);
-		NoteVO nvo = dao.execSelectLastNoteVO(); 
-
-		for(NoteGroupVO gvo : list){
-			if(!(gvo.getUser_id().equals(userId))){
-				NoteCheckVO ncvo = new NoteCheckVO();
-				ncvo.setUser_id(gvo.getUser_id());
-				ncvo.setNno(nvo.getNno());
-				dao.insertNoteCheck(ncvo);
+		else{
+			String recv_id;
+			ArrayList<String> recv_idList = new ArrayList<>();
+			AddressBookDAO abDao = sqlSession.getMapper(AddressBookDAO.class);
+			send_id = ((userVO)(session.getAttribute("login"))).getClient_id();
+			vo.setSend_id(send_id);
+			MailDAO dao = sqlSession.getMapper(MailDAO.class);
+			try {
+				StringTokenizer st = new StringTokenizer(vo.getRecv_id(), ",");
+				System.out.println("recv_id is matched?");
+				while(st.hasMoreTokens()) { 
+					recv_id = st.nextToken();
+					vo.setRecv_id(recv_id);
+					dao.execInsert(vo);
+					if(abDao.isMatched(send_id, recv_id) == 0)
+						recv_idList.add(recv_id);
+				}
+				// 메일 보낸 아이디 리스트 
+				mv.addObject("list", recv_idList);
+				mv.setViewName("/myPage/mail/sendSuccessed");
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("db insert error");
+				e.printStackTrace();
+				mv.setViewName("/myPage/mail/sendFailed");
 			}
+			return mv;
 		}
+			
+	}
+	//주소록 등록
+	@RequestMapping(value = "/mail/regAddressList", method = RequestMethod.POST)
+	@ResponseBody
+	public String regAddressList(@RequestBody String msg, HttpSession session) {
+		try {
+			String send_id = ((userVO)(session.getAttribute("login"))).getClient_id();
+			System.out.println("send_id is " + send_id);
+			AddressBookDAO abDao = sqlSession.getMapper(AddressBookDAO.class);
+			JSONParser jsonParser = new JSONParser();
+			JSONArray jsonArray = (JSONArray) jsonParser.parse(msg);
+			
+			for(int i=0; i<jsonArray.size(); i++){
+				abDao.execInsert(send_id, (String)jsonArray.get(i));
+			}
+			return "successed";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "fail";
+		}
+	}
+	// 주소록
+	@RequestMapping(value = "/mail/addressBook", method = RequestMethod.GET)
+	public ModelAndView addressBook(MailVO vo, HttpSession session) {
+		String my_id = ((userVO)(session.getAttribute("login"))).getClient_id();
+		AddressBookDAO abDao = sqlSession.getMapper(AddressBookDAO.class);
+		List list = abDao.getAddress(my_id);
+		ArrayList<String> arrayList = new ArrayList<>();
+		ModelAndView mv = new ModelAndView();
+		for(int i=0; i< list.size(); i++){
+			HashMap map = (HashMap)list.get(i);
+			arrayList.add((String)map.get("list"));
+		}
+		mv.addObject("list", arrayList);
+		mv.setViewName("/myPage/mail/addressBook");
+		return mv;
 	}
 }
