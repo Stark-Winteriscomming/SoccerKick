@@ -7,4 +7,8 @@
 	<insert id="insertApply">
 	insert into apply(a_applicant, a_apy_position) values(#{a_applicant},#{a_apy_position})
 	</insert>
+	
+	<select id="execSelect"  resultType="com.soccerkick.vo.TeamVO">
+		select * from team2
+	</select>
 </mapper>    

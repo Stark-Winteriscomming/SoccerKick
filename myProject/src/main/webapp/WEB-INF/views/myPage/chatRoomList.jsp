@@ -8,7 +8,7 @@
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
 	<div class="content" style="margin: 0 auto; width: 700px">
-		<div class="board alert alert-success">
+		<div class="board alert alert-info">
 			<h1 class="boardtitle" align="center">대화방</h1>
 			<hr>
 			<div class="board_form">
@@ -20,7 +20,7 @@
 					<button type="submit" class="btn btn-default">검색</button>
 				</form>
 				<div align="right">
-					<button type="button" class="btn btn-success"
+					<button type="button" class="btn btn-info"
 						onclick="location.href='http://172.16.13.19:8088/myPage/chat/form';">방생성</button>
 				</div>
 				<!-- 			</a> -->

@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@include file="../include/header.jsp"%>
+<script src="/resources/bootstrap/js/bootstrap.js"></script>
 <section id="portfolio" class="bg-light-gray">
 	<div class="content" style="margin: 0 auto; width: 700px;">
 		<form name="chatForm" class="form-horizontal"

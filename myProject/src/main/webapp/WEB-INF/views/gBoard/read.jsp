@@ -9,7 +9,7 @@
 <section id="portfolio" class="bg-light-gray">
  <form action="/gBoard/apply" method="post">
  
- <input type="hidden" name="a_applicant" value="${sessionScope.login}">
+ <input type="hidden" name="a_applicant" value="${sessionScope.login.client_id}">
   
 	<div class="container">
 <!-- 	<div class="btn-group-vertical navbar-fixed-top"  role="group" aria-label="..." style="top: 550px; left: 30px;"> 

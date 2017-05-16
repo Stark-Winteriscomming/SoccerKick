@@ -53,9 +53,8 @@
                       <div class="btn-group">
 				      <button type="button" class="btn btn-default btn-lg" data-toggle="dropdown">마이페이지<span class="caret"></span></button>
 					      <ul class="dropdown-menu" role="menu">
-					        <li><a href="/myPage/chatRoomList">메세지 리스트</a></li>
-					        <li><a href="/myPage/notes?user_id=<%= userId %>"/>쪽지함</a></li>
-<!-- 					        <li><a href="/myPage/notes?user_id="/>쪽지함</a></li> -->
+					        <li><a href="/myPage/chatRoomList">실시간 채팅</a></li>
+					        <li><a href="/myPage/mails?user_id=<%= userId %>"/>메일함</a></li>
 					        <li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
 					        <li><a href="/myPage/modify">수정</a></li>
 					      </ul>
@@ -67,7 +66,6 @@
 					      <ul class="dropdown-menu" role="menu">
 					      	<!-- 모임 생성 추가 -->   
 					      	<li><a href="/gBoard/team_open">모임 생성</a></li>
-					        <li><a href="/gBoard/read">read</a></li>
 					        <li><a href="/gBoard/place">장소 섭외</a></li>
 					      </ul>  
 				      </div>
@@ -76,7 +74,7 @@
 				      	<a href="/team/teamCreateForm"><button type="button" class="btn btn-default btn-lg">팀 생성</button></a>
 				      </div>  
 				      <div class="btn-group">
-				      	<a href="#"><button type="button" class="btn btn-default btn-lg">팀원 모집</button></a>
+				      	<a href="/"><button type="button" class="btn btn-default btn-lg">팀원 모집</button></a>
 				      </div>  
 					</div>
 						<c:choose>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.soccerkick.dao.AddressBookDAO">
+    <resultMap id="addressBook" type="java.util.HashMap">
+        	<result javaType="java.lang.String" column="opposite_id" property="list"/>
+	</resultMap>
+	<select id="getAddress" resultMap="addressBook">
+		select opposite_id from addressbook where my_id=#{my_id}
+	</select>
+	<select id="isMatched" resultType = "int">
+		select count(my_id) from addressbook where opposite_id = #{opposite_id} and my_id=#{my_id}
+	</select>
+	<insert id="execInsert" parameterType="String">
+		insert into addressbook values(addressbook_seq.nextval,#{my_id},#{opposite_id})
+	</insert>
+</mapper>
