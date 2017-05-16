@@ -56,7 +56,7 @@ public class userController {
 		
 		if(result == 1){
 			session.setAttribute("login", vo);
-			return "redirect:/";
+			return "redirect:/"; 
 		}
 		else
 			return "redirect:/user/login";
