@@ -18,7 +18,7 @@
 		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 3</button>
 	</div> -->
 	<div align="center">
-	<h1>팀명 - 서울성북</h1>
+	<h1>팀명 - ${vo.team_name}</h1>
 	</div>
 	<br>
 	<div class="row">
@@ -26,7 +26,6 @@
 			<img src="../resources/img/portfolio/1.png" class="img-circle" style="width: 350px; height: 350px;">  
 		</div> 
 		<div class="team-member col-md-2" style="margin-top: 70px;">
-			감독-안상호
             <img src="../resources/img/team/1.jpg" class="img-responsive img-circle" alt="">
             <ul class="list-inline social-buttons">
             <li><a href="#"><i class="fa fa-twitter"></i></a>
