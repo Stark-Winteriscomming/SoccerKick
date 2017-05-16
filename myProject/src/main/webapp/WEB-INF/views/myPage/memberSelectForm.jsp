@@ -58,7 +58,7 @@
 
 <div style="position: absolute;">
 <div style="position: relative; top: 120px; left: 85px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;" onClick="javascript:window.open('/myPage/ss','popup','scrollbars=no, resizable=no, width=800,height=600')">
+<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;" onClick="javascript:window.open('/myPage/memberSelectPopup','popup','scrollbars=no, resizable=no, width=800,height=600')">
 </div>
 </div>
 <div style="position: absolute;">
@@ -134,7 +134,6 @@
               <th class="sorting">이름</th>
               <th class="sorting">나이</th>
               <th class="sorting">지역</th>
-              <th class="sorting">주포지션</th>
               <th class="sorting">신청포지션</th>
               <th >프로필보기</th>
               </tr>
@@ -147,53 +146,9 @@
                    <td>30</td>
                    <td>스페인</td>
                    <td>공격수</td>
-                   <td>공격수</td>
                    <td><button class="btn btn-default">프로필보기</button></td>
                  </tr>
-      <tr>
-      <td><input type="checkbox" name="scheck" id="scheck" value="" ></td>
-      <td><img src="http://sstatic.naver.net/people/38/201312311422378171.jpg" /></td>
-       <td>2</td>
-       <td>손흥민</td>
-       <td>25</td>
-       <td>서울</td>
-       <td>공격수</td>
-       <td>미드필더</td>
-       <td><button class="btn btn-default">프로필보기</button></td>
-      </tr>
-      <tr>
-      <td><input type="checkbox" name="scheck" id="scheck" value="" ></td>
-      <td><img src="http://sstatic.naver.net/people/12/201106291743205631.bmp" /></td>
-       <td>3</td>
-       <td>박지성</td>
-       <td>35</td>
-       <td>서울</td>
-       <td>미드필더</td>
-       <td>수비수</td>
-       <td><button class="btn btn-default">프로필 보기</button></td>    
-      </tr>    
-      <tr>
-      <td><input type="checkbox" name="scheck" id="scheck" value="" ></td>
-      <td><img src="http://sstatic.naver.net/people/17/201403271921402431.jpg" /></td>
-       <td>4</td>
-       <td>차두리</td>
-       <td>36</td>
-       <td>독일</td>
-       <td>수비수</td>
-       <td>골키퍼</td>
-       <td><button class="btn btn-default">프로필보기</button></td>
-      </tr>
-      <tr>
-       <td><input type="checkbox" name="scheck" id="scheck" value="" ></td>
-       <td><img src="http://sstatic.naver.net/people/3/201607071816066361.jpg" /></td>
-       <td>5</td>
-       <td>메시</td>    
-       <td>29</td>          
-       <td>아르헨티나</td>      
-       <td>공격수</td>
-       <td>미드필더</td>
-       <td><button class="btn btn-default">프로필 보기</button></td>
-      </tr>
+      
     </tbody>
   </table>
   <button class="cselect" style="width: 280px; height: 80px;" align="center">선택 취소</button>  
