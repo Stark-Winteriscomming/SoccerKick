@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.soccerkick.dao.MemberSelectDAO">
+	<!--  <insert id="execInsert">
+		insert into team2 values(team_seq.nextval,#{team_name},#{team_region},
+		#{team_logo_file_name},#{team_history},#{team_formation},0,#{client_id},0)
+	</insert> -->
+	
+	<!--<select id="execSelect" resultType="com.soccerkick.vo.MemberSelectVO">
+		select * from apply_select
+	</select> -->
+	
+	  <select id="execSelect" resultType="com.soccerkick.vo.MemberSelectVO">
+		select rownum as rno, no, apply_name, age, region, apply_position
+				 from 
+				 (select no, apply_name, age, region, apply_position 
+				 	from apply_select order by age)
+	</select> 
+	<insert id="execInsert">
+		insert into apply_select2 values(sequ_apply_select.nextval,
+					#{apply_name},#{age},#{region}, #{apply_position})
+	</insert>
+	
+</mapper>
