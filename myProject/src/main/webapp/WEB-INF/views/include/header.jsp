@@ -3,15 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 
-<!-- jsp code -->
-<%	
-	String userId = null;
-	if(request.getSession().getAttribute("login") != null){
-		userVO vo = (userVO)request.getSession().getAttribute("login");
-		userId = vo.getClient_id();
-	}
-%> 
-
 <!DOCTYPE html>
 <html lang="utf-8">
    
@@ -54,7 +45,7 @@
 				      <button type="button" class="btn btn-default btn-lg" data-toggle="dropdown">마이페이지<span class="caret"></span></button>
 					      <ul class="dropdown-menu" role="menu">
 					        <li><a href="/myPage/chatRoomList">실시간 채팅</a></li>
-					        <li><a href="/myPage/mails?user_id=<%= userId %>"/>메일함</a></li>
+					        <li><a href="/myPage/mails"/>메일함</a></li>
 					        <li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
 					        <li><a href="/myPage/modify">수정</a></li>
 					      </ul>

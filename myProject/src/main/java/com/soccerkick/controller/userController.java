@@ -56,7 +56,8 @@ public class userController {
 		
 		if(result == 1){
 			session.setAttribute("login", vo);
-			return "redirect:/";
+			String referer = request.getHeader("Referer");
+		    return "redirect:"+ referer;
 		}
 		else
 			return "redirect:/user/login";

@@ -41,7 +41,7 @@ $("#add").on("click", function() {
 		success : function(result) {
 			//data - response from server
 			console.log(result);
-			$("#result").text(result);
+			$("#addressList").text(result);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 				
