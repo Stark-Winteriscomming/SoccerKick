@@ -17,8 +17,14 @@
 		select rownum as rno, no, apply_name, age, region, apply_position
 				 from 
 				 (select no, apply_name, age, region, apply_position 
-				 	from apply_select order by age)
+				 	from apply_select order by age) 
 	</select> 
+	<select id="execSelectt" resultType="com.soccerkick.vo.MemberSelectVO">
+		select rownum as rno, no, apply_name, age, region, apply_position
+				 from 
+				 (select no, apply_name, age, region, apply_position 
+				 	from apply_select2 order by age)
+	</select>  
 	<insert id="execInsert">
 		insert into apply_select2 values(sequ_apply_select.nextval,
 					#{apply_name},#{age},#{region}, #{apply_position})

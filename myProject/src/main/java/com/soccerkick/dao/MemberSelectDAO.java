@@ -9,5 +9,7 @@ public interface MemberSelectDAO {
 	
 	public ArrayList<MemberSelectVO> execSelect();
 	
+	public ArrayList<MemberSelectVO> execSelectt();
+	
 	public int execInsert(MemberSelectVO vo);
 }

@@ -29,9 +29,17 @@ public class meberSelectController {
 	SqlSessionTemplate sqlSession;
 	
 	@RequestMapping("/memberSelectForm")
-	public String memberSelectForm(){
-		return "/myPage/memberSelectForm";
+	public ModelAndView memberSelectForm(){
+		ModelAndView mv = new ModelAndView();
+		MemberSelectDAO dao = sqlSession.getMapper(MemberSelectDAO.class);
+		ArrayList<MemberSelectVO> list = dao.execSelectt();
+		mv.addObject("list", list);
+		mv.setViewName("/myPage/memberSelectForm");
+		
+		return mv;
 	}
+	
+	
 	
 	@RequestMapping("/memberSelectPopup")
 	public ModelAndView memberSelectPopup(){
@@ -68,7 +76,7 @@ public class meberSelectController {
 	
 	
 	int result = dao.execInsert(vo);
-	return "redirect:/memberSelectForm";
+	return "redirect:/myPage/memberSelectForm";
 	
 	}
 }
