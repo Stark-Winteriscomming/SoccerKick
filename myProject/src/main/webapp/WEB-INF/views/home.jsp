@@ -24,8 +24,8 @@
 		<div class="row">
 		<c:forEach items="${list}" var="vo">
 				<div class="col-md-4 col-sm-6 portfolio-item">
-					<a href="gBoard/read" class="portfolio-link" data-toggle="modal">
-						<div class="portfolio-hover">
+					<a href="gBoard/read?team_id=${vo.team_id}" class="portfolio-link" data-toggle="modal"> 
+						<div class="portfolio-hover">  
 							<div class="portfolio-hover-content">
 								<i class="fa fa-plus fa-3x"></i>
 							</div>

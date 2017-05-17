@@ -9,36 +9,6 @@ public class SessionInfo {
 	// public static ArrayList<UserSession> userSessionList = null;
 	public static ArrayList<WSUserSession> sessionList = null;
 
-	// static public void add(String id, HttpSession objSession){
-	// if(userSessionList == null){
-	// System.out.println("construct the userSessionList");
-	// userSessionList = new ArrayList<UserSession>();
-	// }
-	// //userSessionList object id check
-	// System.out.println("userSesionList obj name: " +
-	// userSessionList.hashCode());
-	// //
-	// UserSession userSession = new UserSession();
-	// userSession.setUserId(id);
-	// userSession.setUserSession(objSession);
-	//
-	// userSessionList.add(userSession);
-	// }
-	//
-	// public static void printUserSessionList(){
-	// if(userSessionList == null){
-	// System.out.println("userSessionList is null");
-	// }
-	// else{
-	// System.out.println("print items");
-	// for(UserSession userSession : userSessionList){
-	// System.out.println("user id: " + userSession.getUserId());
-	// System.out.println("user session_id: " +
-	// userSession.getUserSession().getId());
-	// }
-	// }
-	// }
-	//
 	static public void add(String groupId, Session objSession) {
 
 		if (sessionList == null) {

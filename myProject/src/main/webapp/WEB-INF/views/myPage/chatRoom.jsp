@@ -29,7 +29,6 @@
 			</div>
 			<!-- 			</form> -->
 		</div>
-		<button id="btn">btn</button>
 		<br />
 	</div>
 

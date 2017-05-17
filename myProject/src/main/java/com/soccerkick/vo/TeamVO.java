@@ -5,7 +5,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 public class TeamVO {
 	String team_name, team_region, team_logo_file_name, team_history, team_formation;
 	String  client_id = "test";
-	int team_member_count,team_point;
+	int team_member_count,team_point, team_id;
 	CommonsMultipartFile uploadfile;
 	public String getTeam_name() {
 		return team_name;
@@ -61,6 +61,11 @@ public class TeamVO {
 	public void setUploadfile(CommonsMultipartFile uploadfile) {
 		this.uploadfile = uploadfile;
 	}
-	
-	
+	public int getTeam_id() {
+		return team_id;
+	}
+	public void setTeam_id(int team_id) {
+		this.team_id = team_id;
+	}
+
 }

@@ -7,7 +7,7 @@
 <section id="portfolio" class="bg-light-gray">
 	<div class="row">
 		<div class="col-md-offset-5 col-md-2">
-			<form class="form-signin" method="post" action="loginCheck">
+			<form class="form-signin" method="post" action="/user/loginCheck">
 				<input name="client_id" class="form-control" placeholder="로그인"
 					style="height: 50px;"> <input type="password"
 					class="form-control" placeholder="비밀번호" style="height: 50px;">

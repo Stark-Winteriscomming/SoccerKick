@@ -3,10 +3,10 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%-- <%@include file="../../include/header.jsp"%> --%>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/resources/js/bootstrap-tagsinput.min.js"></script>
+
+<!-- <script -->
+<!-- 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<!-- <script src="/resources/js/bootstrap-tagsinput.min.js"></script> -->
 <link href="/resources/css/bootstrap-tagsinput.css" rel="stylesheet">
 <link href="/resources/css/bootstrap.css" rel="stylesheet">
 <style>
@@ -14,6 +14,7 @@
 	width: 90% !important;
 }
 </style>
+<%@include file="../../include/header.jsp"%>
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
 	<div class="content"
@@ -24,12 +25,13 @@
 			<button type="button" onclick="popup('/myPage/mail/addressBook')"
 				style="float: right;">주소록</button>
 		</div>
-		<form id="transmit" action="/myPage/mail/write" method="post"
-			onsubmit="return false;">
-			<div class="form-group">
-				<label for="exampleInputEmail1">제목</label> <input type="text"
+					<div class="form-group">
+				<label for="exampleInputEmail1">제목</label> <input type="text" id="title"
 					name="title" class="form-control" placeholder="제목">
 			</div>
+		<form id="transmit" action="/myPage/mail/write" method="post"
+			onsubmit="return false;">
+
 			<div class="form-group">
 				<label for="exampleInputEmail1">내용</label>
 				<textarea class="form-control" name="content" rows="3"></textarea>
@@ -42,13 +44,19 @@
 		</form>
 	</div>
 </section>
-
+<%@include file="../../include/footer.jsp"%>
 <script>
 	$("#transmit").submit( function(eventObj) {
 	    $('<input />').attr('type', 'hidden')
 	        .attr('name', "recv_id")
 	        .attr('value', $("#recv_id").val())
 	        .appendTo('#transmit');
+	    
+	    $('<input />').attr('type', 'hidden')
+        .attr('name', "title")
+        .attr('value', $("#title").val())
+        .appendTo('#transmit');
+	    
 	    return true;
 	});
 	$("#submitBtn").on("click", function() {
