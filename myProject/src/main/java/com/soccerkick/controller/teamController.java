@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.TeamCreateDAO;
 import com.soccerkick.vo.TeamVO;
+import com.soccerkick.vo.userVO;
 
 @Controller
 @RequestMapping("/team/*")
@@ -24,25 +26,34 @@ public class teamController {
 	SqlSessionTemplate sqlSession;
 	
 	@RequestMapping("/teamCreateForm")
-	public String teamCreateForm(){
-		return "/team/teamCreateForm";
+	public String teamCreateForm(HttpSession session){
+		
+		if(session.getAttribute("login") == null){
+			return "/user/login";
+		}
+		else{
+			return "/team/teamCreateForm";
+		}
+		
 	}
 	
 	@RequestMapping(value="/teamCreateForm_check" , method = RequestMethod.POST)
-	public String teamCreateForm(TeamVO vo, HttpServletRequest request) throws IOException{		
+	public String teamCreateForm(TeamVO vo, HttpServletRequest request, HttpSession session) throws IOException{		
 		ModelAndView mv = new ModelAndView();
-		
+		String sid = ((userVO)session.getAttribute("login")).getClient_id();
+		vo.setClient_id(sid);
 		String fname = vo.getUploadfile().getOriginalFilename();
 		if(fname.equals("")){
 			vo.setTeam_logo_file_name(fname);
 		}
 		else{
 			String path = request.getSession().getServletContext().getRealPath("/upload");
-			System.out.println(path); 
+			/*System.out.println(path);*/  
 			String[] flist = new File(path).list();
 			for (int i = 0; i < flist.length; i++) {
+				System.out.println("ddd:"+flist[i]);
 				if (fname.equals(flist[i])) {
-					System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+					System.out.println("µ¿ÀÏÆÄÀÏ ÀÖÀ½");
 					int index = fname.lastIndexOf(".");
 					String tmpext = fname.substring(index);
 					String tmpname = fname.substring(0, index);
@@ -52,7 +63,7 @@ public class teamController {
 				}
 				else{
 					vo.setTeam_logo_file_name(fname);
-					System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+					System.out.println("µ¿ÀÏÆÄÀÏ ¾øÀ½");
 					i = flist.length;
 				}
 			}

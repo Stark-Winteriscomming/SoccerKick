@@ -1,15 +1,17 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp"%>
-<style>  
+<style>
 div.team_create {
 	width: 68%;
 	margin: auto;
 }
-div.team_create_Form{
+
+div.team_create_Form {
 	
 }
+
 div.teamcreateform {
 	width: 90%;
 	height: 500px;
@@ -53,7 +55,7 @@ input[type='file'] {
 	padding: 4px 10px;
 }
 
-span.btn1,span.btn2 {
+span.btn_create,span.btn_cancel {
 	display: inline-block;
 	width: 100px;
 	padding: 10px 15px 20px 15px;
@@ -63,11 +65,11 @@ span.btn1,span.btn2 {
 	text-align: center;
 }
 
-span.btn1 {
+span.btn_create {
 	background: rgb(155, 189, 70);
 }
 
-span.btn2 {
+span.btn_cancel {
 	background: gray;
 }
 
@@ -91,149 +93,84 @@ label.upload-text {
 
 .upload-hidden {
 	display: inline-block;
-	
 	opacity: 0;
 	position: relative;
 }
-
-#myCarousel {
-	width: 500px;
-	height: 650px;
-	margin-top: 20px;
+input[type=radio]:checked{
+	opacity:0;
 }
 
-.formation_select {
-	width: 650px;
-	margin-top: 10px;
-}
-
-#formation_433 {
-	width: 350px;
-	margin: 0 auto;
-}
-
-#formation_433 input {
-	width: 100%;
-	height: 40px;
-	text-align: center;
-	border: 1px solid #bcbcbc;
-	border-radius: 5px;
-	background-color: lightgray;
-	font-size: 1.5em;
-}
-.carousel-inner{
-	width: 500px;
-	height: 653px;
-}
-.item active, .item{
-	width: 500px;
-	height: 650px;
-	background: url("/resources/img/433.png");
-	background-size:500px; 
-}
-
-.position_value{
-	width:210px;
-	height:26px;
-	margin:0 auto;
-}
-.position_value input{
-	width:100%;
-	text-align: center;
-}
 </style>
 <link href="/resources/css/4-3-3.css" rel="stylesheet">
+<link href="/resources/css/formation_select.css" rel="stylesheet">
 <section id="portfolio" class="bg-light-gray">
 	<div class="team_create">
 		<h1 class="boardtitle">팀 생성하기</h1>
+		
 		<hr>
 		<div class="team_create_form">
-			<form name="teamcreateform" action="teamCreateForm_check" method="post" enctype="multipart/form-data">
+			<form name="teamcreateform" action="teamCreateForm_check"
+				method="post" enctype="multipart/form-data">
 				<ul class="formation_ul">
+					<li><label class="label2">팀명</label> <input type="text"
+						name="team_name" id="teamName" placeholder="팀이름"></li>
 					<li>
-						<label class="label2">팀명</label> <input type="text"
-						name="team_name" id="teamName" placeholder="팀이름">
-					</li>
-					<li>
-						<!--  start of image carousel --> <label class="label2">포메이션</label>
-						<br>
-						<div id="myCarousel" class="carousel slide" data-ride="carousel"  data-interval="false">
-							<!-- Indicators -->
-							<ol class="carousel-indicators">
-								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-								<li data-target="#myCarousel" data-slide-to="1"></li>
-								<li data-target="#myCarousel" data-slide-to="2"></li>
-								<li data-target="#myCarousel" data-slide-to="3"></li>
-							</ol>  
-
-							<!-- Wrapper for slides -->
-							<div class="carousel-inner" role="listbox">
-								<div class="item active">
-									<div class="position_value">
-										<input type="radio" value="4-3-3" name="team_formation" />
-									</div>
-								</div>
-								
-								<div class="item" style="background: url('/resources/img/4231.png'); background-size:500px;">
-									<div class="position_value">
-										<input type="radio" value="4-2-3-1" name="team_formation" /> 
-									</div>
-									   
-								</div>
-								
-								<div class="item" style="background: url('/resources/img/41212.png'); background-size:500px;">
-									<div class="position_value">
-										<input type="radio" value="4-1-2-1-2" name="team_formation"/>
-									</div>
-									
-								</div>
-
+						<label class="label2" id="#label2">포메이션</label><br><br>
+						<div id="wrap">
+							<div id="position1" style="background: url('/resources/img/433.png'); background-size: 500px;">
+								<input type="radio" name="team_formation"  value="433" id="chk1" checked="checked">
+								<a href="#label2" id="left" class="btn2" role="button"><span class="glyphicon glyphicon-chevron-left" style="vertical-align:middle;"></span></a>
+								<a href="#label2" id="right" class="btn2" role="button"><span class="glyphicon glyphicon-chevron-right"></span></a>
 							</div>
-
-							<!-- Left and right controls -->
-							<a class="left carousel-control" href="#myCarousel" role="button"
-								data-slide="prev"> <span
-								class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-								<span class="sr-only">Previous</span>
-							</a> <a class="right carousel-control" href="#myCarousel"
-								role="button" data-slide="next"> <span
-								class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-								<span class="sr-only">Next</span>
-							</a>
+							<div id="position2" style="background: url('/resources/img/4231.png'); background-size: 500px;">
+								<input type="radio" name="team_formation" value="4231" id="chk2">
+								<a href="#label2" id="left" class="btn2" role="button"><span class="glyphicon glyphicon-chevron-left"></span></a>
+								<a href="#label2" id="right" class="btn2" role="button"><span class="glyphicon glyphicon-chevron-right"></span></a>
+								
+							</div>
+							<div id="position3" style="background: url('/resources/img/41212.png'); background-size: 500px;">
+								<input type="radio" name="team_formation" value="41212" id="chk3">
+								<a id="left" class="btn2" href="#label2" role="button">
+									<span class="glyphicon glyphicon-chevron-left"></span>
+								</a>
+								<a id="right" class="btn2" href="#label2" role="button">
+									<span class="glyphicon glyphicon-chevron-right"></span>
+								</a>
+							</div>
 						</div>
 					</li>
 					<li class="team_comment"><label class="label2">팀설명</label> <textarea
 							rows="10" cols="50" name="team_history" id="content"></textarea></li>
 					<li class="filebox"><label class="label2">팀로고 등록</label> <input
-						type="text" name="team_logo_file_name" id="fname" class="upload-file"
-						placeholder="파일선택"> 
-						<label class="upload-text" id="btnUpload">업로드</label>
-						<input type="file" name="uploadfile"
-						class="upload-hidden">
-					</li>
-					<li><label class="label2">지역</label>
-				 	<select name="team_region">
-							<option value="1">서울</option>
-							<option value="2">부산</option>
-							<option value="3">제주</option>
-							<option value="4">대구</option>
-							<option value="5">대전</option>
-							<option value="6">전주</option>
-							<option value="7">광주</option>
+						type="text" name="team_logo_file_name" id="fname"
+						class="upload-file" placeholder="파일선택"> <label
+						class="upload-text" id="btnUpload">업로드</label> <input type="file"
+						name="uploadfile" class="upload-hidden"></li>
+					<li><label class="label2">지역</label> <select
+						name="team_region">
+							<option value="서울">서울</option>
+							<option value="부산">부산</option>
+							<option value="제주">제주</option>
+							<option value="대구">대구</option>
+							<option value="대전">대전</option>
+							<option value="전주">전주</option>
+							<option value="광주">광주</option>
 					</select></li>
 
 
-					<li class="sending"><span class="btn1" id="createCheck">팀
+					<li class="sending"><span class="btn_create" id="createCheck">팀
 							생성 &nbsp;<!-- <img src="../css/image/tick.png"> -->
-					</span>&nbsp;&nbsp; <span class="btn2" id="createCancle">취소 &nbsp;<!-- <img src="../css/image/cross.png">--></span>
+					</span>&nbsp;&nbsp; <span class="btn_cancel" id="createCancle">취소 &nbsp;<!-- <img src="../css/image/cross.png">--></span>
 					</li>
-					
-					<button>팀생성</button>
+
+					<button id="btn">팀생성</button>
 				</ul>
 
 			</form>
 		</div>
-		</div>
+	</div>
 </section>
 
 <%@include file="../include/footer.jsp"%>
+<script type="text/javascript" src="/resources/js/formation_select.js"></script>
+
