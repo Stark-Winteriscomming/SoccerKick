@@ -34,13 +34,22 @@ public class myPageController {
 	private SqlSessionTemplate sqlSession;
 
 	@RequestMapping(value = "/chatRoomList", method = RequestMethod.GET)
-	public ModelAndView chatRoomList() throws Exception {
-		ChatRoomDAO dao = sqlSession.getMapper(ChatRoomDAO.class);
+	public ModelAndView chatRoomList(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		ArrayList<ChatRoomVO> list = dao.execSelect();
-		mv.addObject("list", list);
-		mv.setViewName("/myPage/chatRoomList");
-		return mv;
+		if(session.getAttribute("login") == null){
+			System.out.println("session: login is null...");
+			
+			// return login page
+			mv.setViewName("/user/login");
+			return mv;
+		}
+		else {
+			ChatRoomDAO dao = sqlSession.getMapper(ChatRoomDAO.class);
+			ArrayList<ChatRoomVO> list = dao.execSelect();
+			mv.addObject("list", list);
+			mv.setViewName("/myPage/chatRoomList");
+			return mv;
+		}
 	}
 
 	@RequestMapping(value = "/memberSelectForm", method = RequestMethod.GET)
@@ -79,19 +88,27 @@ public class myPageController {
 		return "redirect:/myPage/chatRoomList";
 	}
 	
-	// ¸ÞÀÏ ¸®½ºÆ®
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	@RequestMapping(value = "/mails", method = RequestMethod.GET)
-	public ModelAndView mails(String user_id, HttpSession session) throws Exception {
-		System.out.println("userid: " + user_id);
-		MailDAO dao = sqlSession.getMapper(MailDAO.class);
+	public ModelAndView mails(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		ArrayList<MailVO> list = dao.execSelectAll(user_id);
+		Object sessionObj = session.getAttribute("login");
+		if(sessionObj == null){
+			System.out.println("session: login is null...");
+			
+			// return login page
+			mv.setViewName("/user/login");
+			return mv;
+		}
+		
+		MailDAO dao = sqlSession.getMapper(MailDAO.class);		
+		ArrayList<MailVO> list = dao.execSelectAll(((userVO)sessionObj).getClient_id());
 		mv.addObject("list", list);
 		mv.setViewName("/myPage/mail/mailList");
 		return mv;
 	}
 	
-	// ¸ÞÀÏ ÄÁÅÙÃ÷
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/mail/content/{mail_no}", method = RequestMethod.GET)
 	public ModelAndView mailContent(@PathVariable("mail_no") int mail_no) throws Exception {
 		MailDAO dao = sqlSession.getMapper(MailDAO.class);
@@ -102,13 +119,13 @@ public class myPageController {
 		return mv;
 	}
 
-	// ¸ÞÀÏ ÀÛ¼º Æû
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ ï¿½ï¿½
 	@RequestMapping(value = "/mail/form", method = RequestMethod.GET)
 	public String mailForm(){
 		return "/myPage/mail/mailForm";
 	}
 
-	// ¸ÞÀÏ ÀÛ¼º
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
 	@RequestMapping(value = "/mail/write", method = RequestMethod.POST)
 	public ModelAndView mailWrite(MailVO vo, HttpSession session) {		
 		String send_id = "";
@@ -136,7 +153,7 @@ public class myPageController {
 					if(abDao.isMatched(send_id, recv_id) == 0)
 						recv_idList.add(recv_id);
 				}
-				// ¸ÞÀÏ º¸³½ ¾ÆÀÌµð ¸®½ºÆ® 
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½Æ® 
 				mv.addObject("list", recv_idList);
 				mv.setViewName("/myPage/mail/sendSuccessed");
 			} catch (Exception e) {
@@ -149,7 +166,7 @@ public class myPageController {
 		}
 			
 	}
-	//ÁÖ¼Ò·Ï µî·Ï
+	//ï¿½Ö¼Ò·ï¿½ ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/mail/regAddressList", method = RequestMethod.POST)
 	@ResponseBody
 	public String regAddressList(@RequestBody String msg, HttpSession session) {
@@ -170,7 +187,7 @@ public class myPageController {
 			return "fail";
 		}
 	}
-	// ÁÖ¼Ò·Ï
+	// ï¿½Ö¼Ò·ï¿½
 	@RequestMapping(value = "/mail/addressBook", method = RequestMethod.GET)
 	public ModelAndView addressBook(MailVO vo, HttpSession session) {
 		String my_id = ((userVO)(session.getAttribute("login"))).getClient_id();
