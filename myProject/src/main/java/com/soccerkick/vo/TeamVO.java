@@ -3,8 +3,7 @@ package com.soccerkick.vo;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class TeamVO {
-	String team_name, team_region, team_logo_file_name, team_history, team_formation;
-	String  client_id = "test";
+	String team_name, team_region, team_logo_file_name, team_history, team_formation, client_id;
 	int team_member_count,team_point;
 	CommonsMultipartFile uploadfile;
 	public String getTeam_name() {
