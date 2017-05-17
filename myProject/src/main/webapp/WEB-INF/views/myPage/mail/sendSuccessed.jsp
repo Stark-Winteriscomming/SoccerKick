@@ -4,8 +4,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@include file="../../include/header.jsp"%>
-
-<%@include file="../../include/header.jsp"%>
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
 	<div class="content"
@@ -42,4 +40,4 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/resources/js/mail.js"></script>
-<%-- <%@include file="../../include/footer.jsp"%> --%>
+<%@include file="../../include/footer.jsp"%>
