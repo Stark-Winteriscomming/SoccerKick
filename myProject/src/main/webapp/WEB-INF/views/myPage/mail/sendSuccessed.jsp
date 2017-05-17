@@ -6,13 +6,23 @@
 <%@include file="../../include/header.jsp"%>
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
-	<div class="content"
-		style="margin: 0 auto; width: 500px; border: 1px solid gray">
-		<c:choose>
-			<c:when test="${empty list}">
-				no address for add...
-			</c:when>
-			<c:otherwise>
+
+	<c:choose>
+
+		<c:when test="${empty list}">
+			<div class="content" style="margin: 0 auto; width: 500px;">
+				<div style="text-align: center;">
+					no address for add.....
+					<div style="height: 15%; margin-top: 90%;">
+						<div class="layer"></div>
+					</div>
+				</div>
+			</div>
+		</c:when>
+
+		<c:otherwise>
+			<div class="content"
+				style="margin: 0 auto; width: 500px; border: 1px solid gray">
 				<span style="">주소록에 추가</span>
 				<div id="addressList" style="text-align: center;">
 
@@ -33,11 +43,12 @@
 						</span>
 					</div>
 				</div>
-			</c:otherwise>
-		</c:choose>
-	</div>
+			</div>
+		</c:otherwise>
+	</c:choose>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="/resources/js/mail.js"></script>
 </section>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/resources/js/mail.js"></script>
+
 <%@include file="../../include/footer.jsp"%>

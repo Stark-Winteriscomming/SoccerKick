@@ -8,7 +8,7 @@
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
 	<div class="content" style="margin: 0 auto; width: 700px">
-		<div class="board alert alert-success">
+		<div class="board alert alert-info">
 			<h1 class="boardtitle" align="center">메일함</h1>
 			<hr>
 			<div class="board_form">

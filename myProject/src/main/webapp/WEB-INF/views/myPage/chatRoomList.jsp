@@ -20,9 +20,10 @@
 					<button type="submit" class="btn btn-default">검색</button>
 				</form>
 				<div align="right">
-					<button type="button" class="btn btn-info"
+					<button type="button" 
 						onclick="location.href='http://172.16.13.19:8088/myPage/chat/form';">방생성</button>
 				</div>
+<!-- 				class="btn btn-info" -->
 				<!-- 			</a> -->
 				<br>
 				<table class="table table-hover table-striped">
