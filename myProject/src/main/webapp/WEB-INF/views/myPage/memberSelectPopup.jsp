@@ -45,7 +45,7 @@
  <h1 class="title" align="center">공격수 신청 인원</h1>  
  <br>  
       <table class="table table-striped">
-           <form name="selectForm" action="" >
+           <form name="selectForm" action="memberSelect_save.do" method="post" enctype="multipart/form-data">
              <thead>    
               <tr>
               <th><input type="checkbox" name="tcheck" id="tcheck"></th>
@@ -61,7 +61,7 @@
                 
                 <c:forEach items="${list}" var="vo">
                  <tr>
-                   <td><input type="checkbox" name="scheck" id="scheck"  ></td>
+                   <td><input type="checkbox" name="scheck" id="scheck" value=${vo.no }  ></td>
                    <td><img src="http://sstatic.naver.net/people/91/201405301047405271.jpg" /></td>
                    <td class="sorting_tno">${vo.rno }</td>
                    <td class="sorting_name">${vo.apply_name}</td>
@@ -71,11 +71,12 @@
                    <td><button class="btn btn-default">프로필보기</button></td>
                  </tr>
             </c:forEach>
+            <button class="cselect" style="width: 280px; height: 80px;" align="center">선발 완료</button>
     </form>
   </table>
-<form name="selectForm1" action="memberSelect_save.do" method="post" enctype="multipart/form-data" >
-  <button class="cselect" style="width: 280px; height: 80px;" align="center">선발 완료</button>
-  </form>
+
+  
+  
   </div>
   </div>
 </section>

@@ -8,9 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.vo.GboardVO;
+import com.soccerkick.vo.TeamVO;
 
 @Controller
 @RequestMapping("/gBoard/*")
@@ -19,9 +21,9 @@ public class gBoardController{
 	@Autowired
 	SqlSessionTemplate sqlSession;
 	
-	@RequestMapping(value = "/read", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(Model model) throws Exception {
-	}
+	}*/
 	
 	@RequestMapping(value="/apply", method=RequestMethod.POST)
 	public String apply(GboardVO vo) throws IOException{
@@ -41,6 +43,18 @@ public class gBoardController{
 	
 	@RequestMapping(value = "/selectPlace", method = RequestMethod.GET)
 	public void selectPlace(Model model) throws Exception {
+	}
+	
+	@RequestMapping("/read") 
+	public ModelAndView board_content(int team_id){
+		ModelAndView mv = new ModelAndView();
+		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
+		TeamVO vo = dao.execContent(team_id);
+ 
+		mv.addObject("vo", vo);	
+		mv.setViewName("/gBoard/read");
+		  
+		return mv;
 	}
 	
 }
