@@ -141,6 +141,14 @@
 	</div>
 </section>
 
+<script>
+ var result = '${msg}';
+ 
+ if(result == 'SUCCESS'){
+	 alert("신청이 완료되었습니다.")
+ }
+</script>
+
 <%@include file="include/footer.jsp"%>
 
 
