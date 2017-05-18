@@ -30,6 +30,7 @@ import com.soccerkick.vo.userVO;
 @Controller
 @RequestMapping("/myPage/*")
 public class myPageController {
+	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
@@ -67,7 +68,6 @@ public class myPageController {
 	// /myPage/chat/chatRoom/
 	@RequestMapping(value = "/chat/chatRoom/{cno}", method = RequestMethod.GET)
 	public ModelAndView chatRoom(@PathVariable("cno") String cno, String title) throws Exception {
-
 		ModelAndView mv = new ModelAndView();
 		System.out.println("t: " + title);
 		mv.addObject("cno", cno);
@@ -113,6 +113,9 @@ public class myPageController {
 	public ModelAndView mailContent(@PathVariable("mail_no") int mail_no) throws Exception {
 		MailDAO dao = sqlSession.getMapper(MailDAO.class);
 		MailVO vo = dao.execSelect(mail_no);
+		
+		// update isChecked
+		dao.updateRead(mail_no);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("vo", vo);
 		mv.setViewName("/myPage/mail/mailContent");
@@ -203,4 +206,22 @@ public class myPageController {
 		mv.setViewName("/myPage/mail/addressBook");
 		return mv;
 	}
+	
+	@RequestMapping(value = "/mail/readCount", method = RequestMethod.GET)
+	@ResponseBody
+	public String readCount(HttpSession session) {
+		try {
+			String id = ((userVO)(session.getAttribute("login"))).getClient_id();
+//			System.out.println("session id is " + id);
+			
+			MailDAO dao = sqlSession.getMapper(MailDAO.class);
+			int result = dao.getCount(id);
+			return "" + result;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "fail";
+		}
+	}
+	
 }

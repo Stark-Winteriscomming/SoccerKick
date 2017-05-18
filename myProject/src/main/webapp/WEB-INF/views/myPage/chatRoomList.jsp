@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.net.URLEncoder"%>
 
 <%@include file="../include/header.jsp"%>
 <!--  start of Content  -->
@@ -20,10 +21,10 @@
 					<button type="submit" class="btn btn-default">검색</button>
 				</form>
 				<div align="right">
-					<button type="button" 
+					<button type="button"
 						onclick="location.href='http://172.16.13.19:8088/myPage/chat/form';">방생성</button>
 				</div>
-<!-- 				class="btn btn-info" -->
+				<!-- 				class="btn btn-info" -->
 				<!-- 			</a> -->
 				<br>
 				<table class="table table-hover table-striped">
@@ -36,10 +37,15 @@
 					<c:forEach items="${list}" var="vo">
 						<tr>
 							<td class="cno">${vo.rno}</td>
+							<c:set var="title" value="${vo.title}" />
+							<%
+							    String title = (String)pageContext.getAttribute("title");   //No exception.
+							%>
+
 							<td class="title"><a
-								href="/myPage/chat/chatRoom/${vo.cno}?title=${vo.title}">
+								href="/myPage/chat/chatRoom/${vo.cno}?title=<%=URLEncoder.encode(title,"UTF-8")%>">
 									${vo.title} </a></td>
-							<td>${vo.count}</td>
+
 							<td>${vo.reg_date}</td>
 						</tr>
 					</c:forEach>
@@ -53,3 +59,4 @@
 <!-- ########## start of footer ################## -->
 <%@include file="../include/footer.jsp"%>
 <!-- ########## end of footer ################## -->
+

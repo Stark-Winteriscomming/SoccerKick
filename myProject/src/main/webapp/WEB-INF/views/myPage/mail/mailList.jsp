@@ -32,6 +32,14 @@
 							<td class="title"><a
 								href="/myPage/mail/content/${vo.mail_no}"> ${vo.title} </a></td>
 							<td>${vo.reg_date}</td>
+							<c:choose>
+							<c:when test = "${vo.is_checked == 0}">
+							<td>읽지 않음</td>
+							</c:when>
+							<c:otherwise>
+							<td>읽음</td>
+							</c:otherwise>
+							</c:choose>
 						</tr>
 					</c:forEach>
 				</table>
