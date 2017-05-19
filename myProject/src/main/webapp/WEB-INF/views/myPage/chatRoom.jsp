@@ -3,10 +3,38 @@
 <%@include file="../include/header.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<!-- <link href="/resources/css/speech-bubble.css" rel="stylesheet"> -->
+<style>
+.speech-bubble {
+   position: relative;
+   width: 51px;
+   height: 28px;
+   line-height: 28px;
+   color: #FFFFFF;
+   text-align: center;
+   padding: 0px;
+   background: #50c5c9;
+   border-radius: 1%;
+}
+
+.speech-bubble:after {
+   content: '';
+   position: absolute;
+   border-style: solid;
+   border-width: 3px 6px 3px 0;
+   border-color: transparent #50c5c9;
+   display: block;
+   width: 0;
+   z-index: 1;
+   left: -6px;
+   top: 8px;
+}
+
+</style>
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
 	<span id="cno" style="display: none;">${cno}</span>
-
+	<button>test</button>
 	<div id="chatSpace"
 		style="margin: 0 auto; border: 1px solid gray; width: 430px">
 		<div id="chatHeader" style="width: 100%;">
@@ -56,14 +84,22 @@
 		webSocket.onmessage = function(message) {
 			console.log(message.data);
 			var obj = JSON.parse(message.data);
-			var spanNode = document.createElement("span");
-			spanNode.innerHTML = obj.id;
+// 			var spanNode = document.createElement("span");
+// 			spanNode.innerHTML = obj.id;
 			var node = document.createElement("li"); // Create a <li> node
+		
 			node.setAttribute("tabindex", "1");
-			node.appendChild(spanNode);
-			// 			message.data
+			node.setAttribute("class", "callouts--left	");
+// 			node.appendChild(spanNode);
+			// 			message.data	
 			node.innerHTML = node.innerHTML + ":" + "&nbsp&nbsp&nbsp" + obj.msg; // Append the text to <li>
-			document.getElementById("contentWindow").appendChild(node);
+// 			document.getElementById("contentWindow").appendChild(node);
+			var id = '<span>' + obj.id +'</span>';
+			$("#contentWindow").append(id);
+			var item = '&nbsp&nbsp&nbsp&nbsp&nbsp' + '<div class="speech-bubble" style="display:inline">'+ obj.msg +'</div>';
+			$("#contentWindow").append(item);
+			$("#contentWindow").append("<br><br>");
+			
 			
 		};
 		//Send 버튼을 누르면 실행되는 함수

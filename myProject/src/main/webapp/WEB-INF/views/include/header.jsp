@@ -32,6 +32,16 @@
 	rel='stylesheet' type='text/css'>
 <link href="/resources/css/agency.css" rel="stylesheet">
 
+
+<style>
+ .badge-notify{ 
+    background:red; 
+    position:relative; 
+    top: -20px; 
+    left: -35px; 
+ } 
+</style>
+
 </head>
 
 <body id="page-top" class="index">
@@ -41,10 +51,20 @@
 		
 	<c:choose>
 	<c:when test="${not empty sessionScope.login }">
-	<span style="background-color:#E7E7E7;">							
-		<a style="position: relative;">메일</a>
-		<span id="mailCount"></span>
-	</span>
+	
+	<div class="container">
+  <button class="btn btn-default btn-lg btn-link" style="font-size:36px;" onclick="location.href='/myPage/mails'";>
+    <span class="glyphicon glyphicon-comment"></span>
+  </button>
+  <span class="badge badge-notify" id="mailCount"></span>
+</div>
+
+
+<!-- 	<span style="background-color:#E7E7E7;">							 -->
+<!-- 		<a style="position: relative;">메일</a> -->
+<!-- 		<span id="mailCount"></span> -->
+<!-- 	</span> -->
+	
 	</c:when>
 	</c:choose>
 		<div class="container">

@@ -45,7 +45,7 @@
 							<td class="title"><a
 								href="/myPage/chat/chatRoom/${vo.cno}?title=<%=URLEncoder.encode(title,"UTF-8")%>">
 									${vo.title} </a></td>
-
+							<td>${vo.count}</td>
 							<td>${vo.reg_date}</td>
 						</tr>
 					</c:forEach>

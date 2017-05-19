@@ -55,13 +55,19 @@ $("#add").on("click", function() {
 
 // showing not read mails
 
-if ($("#mailCount").is(":visible")) {
-	console.log('visible true');
+//if ($("#mailCount").is(":visible")) {
+//	console.log('visible true');
+//	update();
+//	//5 seconds
+//	interval = setInterval(update, 5000);
+//}
+
+if ($( "#mailCount" ).length) {
+	console.log('length..');
 	update();
 	//5 seconds
 	interval = setInterval(update, 5000);
 }
-
 //$("#mailCount").on("click", function(){
 //	update();
 //})
