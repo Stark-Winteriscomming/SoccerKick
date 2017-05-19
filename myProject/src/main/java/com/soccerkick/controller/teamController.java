@@ -3,6 +3,7 @@ package com.soccerkick.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.dao.TeamCreateDAO;
 import com.soccerkick.vo.TeamVO;
 import com.soccerkick.vo.userVO;
@@ -35,6 +37,19 @@ public class teamController {
 			return "/team/teamCreateForm";
 		}
 		
+	}
+	
+	@RequestMapping(value = "/teamView", method = RequestMethod.GET)
+	public ModelAndView home(Model model) {
+		
+		ModelAndView mv = new ModelAndView();
+		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
+		
+		ArrayList<TeamVO> list = dao.execSelect();
+		mv.addObject("list", list);
+		mv.setViewName("/team/teamView");	
+		
+		return mv;
 	}
 	
 	@RequestMapping(value="/teamCreateForm_check" , method = RequestMethod.POST)

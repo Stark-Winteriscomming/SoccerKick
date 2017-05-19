@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.vo.GboardVO;
@@ -26,9 +27,10 @@ public class gBoardController{
 	}*/
 	
 	@RequestMapping(value="/apply", method=RequestMethod.POST)
-	public String apply(GboardVO vo) throws IOException{
+	public String apply(GboardVO vo, RedirectAttributes rttr) throws IOException{
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
 		dao.insertApply(vo);
+		rttr.addFlashAttribute("msg", "SUCCESS");
 		  
 		return "redirect:/";
 	}

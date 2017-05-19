@@ -40,6 +40,11 @@
     top: -20px; 
     left: -35px; 
  } 
+ </style>
+<style>  
+.btn-g {
+	border-radius: 0;
+}
 </style>
 
 </head>
@@ -88,7 +93,7 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/myPage/chatRoomList">실시간 채팅</a></li>
-								<li><a href="/myPage/mails" />메일함</a></li>
+								<li><a href="/myPage/mails">메일함</a></li>
 								<li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
 								<li><a href="/myPage/modify">수정</a></li>
 							</ul>
@@ -109,11 +114,15 @@
 
 						<div class="btn-group">
 							<a href="/team/teamCreateForm"><button type="button"
-									class="btn btn-default btn-lg">팀 생성</button></a>
+									class="btn btn-default btn-g btn-lg">팀 생성</button></a>
 						</div>
 						<div class="btn-group">
 							<a href="/"><button type="button"
-									class="btn btn-default btn-lg">팀원 모집</button></a>
+									class="btn btn-default btn-g  btn-lg">팀원 모집</button></a>
+						</div>
+						<div class="btn-group">
+							<a href="/team/teamView"><button type="button"
+									class="btn btn-default btn-g  btn-lg">팀 보기</button></a>
 						</div>
 					</div>
 					<c:choose>

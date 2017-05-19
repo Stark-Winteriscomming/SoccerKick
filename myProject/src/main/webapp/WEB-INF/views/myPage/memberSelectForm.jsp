@@ -1,12 +1,9 @@
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.soccerkick.vo.*" %>
-<%@ page import = "java.util.*" %>
- 
-<%@include file="../include/header.jsp"%>
 
+
+<%@include file="../include/header.jsp"%>
 <head>
 <script src="/resources/js/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/table.js" type="text/javascript"></script>
@@ -114,40 +111,36 @@
 			</div>
 			<div class="col-md-6">
 				<div class="alert alert-info" style="width: 800px; float: left;">
-					<!--  <META HTTP-EQUIV="refresh" CONTENT="5"> -->
 					<div align="center">
 						
 						<h1 class="title" align="center">선택 된 선수리스트</h1>  
  <br>  
       <table class="table table-striped">
-           <form name="selectForm" action="" >
+           <form name="selectForm" action="" method="get">
              <thead>    
               <tr>
               <th><input type="checkbox" name="tcheck" id="tcheck"></th>
               <th>이미지</th>
-              <th class="sorting_tno">번호</th>
-              <th class="sorting_name">이름</th>
+              <th class="sorting">번호</th>
+              <th class="sorting">이름</th>
               <th class="sorting">나이</th>
               <th class="sorting">지역</th>
               <th class="sorting">신청포지션</th>
               <th >프로필보기</th>
               </tr>
             </thead>
-                  <c:forEach items="${list}" var="vo">
-               
-	                 <tr>
-	                   <td><input type="checkbox" name="scheck" id="scheck"  ></td>
-	                   <td><img src="http://sstatic.naver.net/people/91/201405301047405271.jpg" /></td>
-	                   <td class="sorting_tno">${vo.rno } </td>
-	                   <td class="sorting_name"> ${vo.apply_name}</td>
-	                   <td> ${vo.age}</td>
-	                   <td> ${vo.region}</td>
-	                   <td> ${vo.apply_position}</td>
-	                   <td><button class="btn btn-default">프로필보기</button></td>
-	                 </tr>
-           
-                </c:forEach> 
-    </form>
+                 <tr>
+                   <td><input type="checkbox" name="scheck" id="scheck" value="" ></td>
+                   <td><img src="http://sstatic.naver.net/people/91/201405301047405271.jpg" /></td>
+                   <td>1</td>
+                   <td>토레스</td>
+                   <td>30</td>
+                   <td>스페인</td>
+                   <td>공격수</td>
+                   <td><button class="btn btn-default">프로필보기</button></td>
+                 </tr>
+      
+    </tbody>
   </table>
   <button class="cselect" style="width: 280px; height: 80px;" align="center">선택 취소</button>  
   <button class="cselect" style="width: 280px; height: 80px;" align="center">선택 완료</button>
