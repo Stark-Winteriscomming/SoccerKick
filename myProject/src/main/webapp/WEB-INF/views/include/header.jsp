@@ -41,10 +41,18 @@
 </head>
 
 <body id="page-top" class="index">
-
 	<!-- Navigation -->
 	<nav id="mainNav"
 		class="navbar navbar-default navbar-custom navbar-fixed-top">
+		
+	<c:choose>
+	<c:when test="${not empty sessionScope.login }">
+	<span style="background-color:#E7E7E7;">							
+		<a style="position: relative;">메일</a>
+		<span id="mailCount"></span>
+	</span>
+	</c:when>
+	</c:choose>
 		<div class="container">
 			<div class="navbar-header page-scroll">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -66,7 +74,7 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/myPage/chatRoomList">실시간 채팅</a></li>
-								<li><a href="/myPage/mails" />메일함</a></li>
+								<li><a href="/myPage/mails">메일함</a></li>
 								<li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
 								<li><a href="/myPage/modify">수정</a></li>
 							</ul>
@@ -94,7 +102,7 @@
 									class="btn btn-default btn-g  btn-lg">팀원 모집</button></a>
 						</div>
 						<div class="btn-group">
-							<a href="/"><button type="button"
+							<a href="/team/teamView"><button type="button"
 									class="btn btn-default btn-g  btn-lg">팀 보기</button></a>
 						</div>
 					</div>
@@ -112,7 +120,6 @@
 									class="btn btn-default btn-md">로그아웃</button></a>
 						</c:when>
 					</c:choose>
-
 				</div>
 			</div>
 		</div>

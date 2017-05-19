@@ -8,7 +8,7 @@
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
 	<div class="content" style="margin: 0 auto; width: 700px">
-		<div class="board alert alert-success">
+		<div class="board alert alert-info">
 			<h1 class="boardtitle" align="center">메일함</h1>
 			<hr>
 			<div class="board_form">
@@ -32,6 +32,14 @@
 							<td class="title"><a
 								href="/myPage/mail/content/${vo.mail_no}"> ${vo.title} </a></td>
 							<td>${vo.reg_date}</td>
+							<c:choose>
+							<c:when test = "${vo.is_checked == 0}">
+							<td>읽지 않음</td>
+							</c:when>
+							<c:otherwise>
+							<td>읽음</td>
+							</c:otherwise>
+							</c:choose>
 						</tr>
 					</c:forEach>
 				</table>

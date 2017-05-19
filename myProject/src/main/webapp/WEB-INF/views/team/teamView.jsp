@@ -8,17 +8,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2 class="section-heading">선수 모집</h2>
+				<h2 class="section-heading">팀 정보</h2>
 				<h3 class="section-subheading text-muted"
 					style="margin-bottom: 20px">-comment-</h3>
-			</div>
-			<div align="right">
-				<div class="btn-group"
-					style="margin-right: 15px; margin-bottom: 50px">
-					<button type="button" class="btn btn-default">인기순</button>
-					<button type="button" class="btn btn-default">최신순</button>
-					<button type="button" class="btn btn-default">마감임박순</button>
-				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -36,6 +28,8 @@
 					<div class="portfolio-caption">
 						<h4>${vo.team_name}</h4>
 						<p class="text-muted">${vo.team_history}</p>
+						<button class="btn btn-primary">상세 보기</button>
+						<button class="btn btn-primary">대결 신청</button>
 					</div>
 				</div>
 			</c:forEach>

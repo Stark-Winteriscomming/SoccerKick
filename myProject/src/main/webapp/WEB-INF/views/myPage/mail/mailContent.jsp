@@ -10,12 +10,6 @@
 		<div class="board alert alert-success">
 			<hr>
 			<div class="board_form">
-				<form class="navbar-form navbar-left" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="search">
-					</div>
-					<button type="submit" class="btn btn-default">검색</button>
-				</form>
 				<br>
 				<table class="table table-hover table-striped">
 					<tr>
@@ -29,12 +23,12 @@
 					<tr>
 						<td>제목</td>
 						<td>${vo.title}</td>
-					</tr>
-					<tr>
-						<td>내용</td>
-						<td class="title">${vo.content}</td>
-					</tr>
+
+					</div>
 				</table>
+				<div style="border:1px solid white;background-color:white;height:100px;color:black;">
+					${vo.content}
+				</div>
 			</div>
 		</div>
 	</div>
