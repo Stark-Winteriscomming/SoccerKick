@@ -34,7 +34,6 @@
 <!--  start of Content  -->
 <section id="portfolio" class="bg-light-gray">
 	<span id="cno" style="display: none;">${cno}</span>
-	<button>test</button>
 	<div id="chatSpace"
 		style="margin: 0 auto; border: 1px solid gray; width: 430px">
 		<div id="chatHeader" style="width: 100%;">
