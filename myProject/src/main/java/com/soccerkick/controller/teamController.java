@@ -47,7 +47,7 @@ public class teamController {
 		
 		ArrayList<TeamVO> list = dao.execSelect();
 		mv.addObject("list", list);
-		mv.setViewName("/team/teamView");	
+		mv.setViewName("/team/teamViewList");	 
 		
 		return mv;
 	}
@@ -63,7 +63,11 @@ public class teamController {
 		}
 		else{
 			String path = request.getSession().getServletContext().getRealPath("/upload");
+<<<<<<< HEAD
 			System.out.println(path);  
+=======
+			System.out.println(path);
+>>>>>>> b5c7e1d6fa708655faee0e1ef9a622a0c23c2077
 			String[] flist = new File(path).list();
 			for (int i = 0; i < flist.length; i++) {
 				System.out.println("ddd:"+flist[i]);
