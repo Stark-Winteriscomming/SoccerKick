@@ -5,8 +5,10 @@
     
 <mapper namespace="com.soccerkick.dao.MailDAO">
 	<select id="execSelectAll" resultType = "com.soccerkick.vo.MailVO">
-			select rownum as rno, mail_no, title, content, send_id, recv_id, to_char(reg_date,'mm-dd hh24:mi') reg_date, is_checked from (
-				select * from mail where recv_id=#{recv_id} order by reg_date desc)
+		select * from 
+			(select rownum as rno, mail_no, title, content, send_id, recv_id, to_char(reg_date,'mm-dd hh24:mi') reg_date, is_checked from (
+				select * from mail where recv_id=#{recv_id} order by reg_date desc))
+				where rno between #{startCount} and #{endCount}
 	</select>
 	<select id="execSelect" parameterType="int" resultType = "com.soccerkick.vo.MailVO">
 		select * from mail where mail_no = #{mail_no}
@@ -14,6 +16,9 @@
 	
 	<select id="getCount" resultType = "int">
 		select count(recv_id) from mail where recv_id = #{id} and is_checked=0
+	</select>
+	<select id="execPageCount" resultType = "int">
+		select count(*) from mail where recv_id = #{id}
 	</select>
 	<insert id="execInsert" parameterType="com.soccerkick.vo.MailVO">
 		insert into mail values(mail_seq.nextval, #{send_id}, #{recv_id}, #{content}, sysdate, 0, #{title}) 		

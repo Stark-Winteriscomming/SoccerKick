@@ -63,12 +63,12 @@ public class teamController {
 		}
 		else{
 			String path = request.getSession().getServletContext().getRealPath("/upload");
-			/*System.out.println(path);*/  
+			System.out.println(path);  
 			String[] flist = new File(path).list();
 			for (int i = 0; i < flist.length; i++) {
 				System.out.println("ddd:"+flist[i]);
 				if (fname.equals(flist[i])) {
-					System.out.println("µ¿ÀÏÆÄÀÏ ÀÖÀ½");
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 					int index = fname.lastIndexOf(".");
 					String tmpext = fname.substring(index);
 					String tmpname = fname.substring(0, index);
@@ -78,7 +78,7 @@ public class teamController {
 				}
 				else{
 					vo.setTeam_logo_file_name(fname);
-					System.out.println("µ¿ÀÏÆÄÀÏ ¾øÀ½");
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 					i = flist.length;
 				}
 			}
