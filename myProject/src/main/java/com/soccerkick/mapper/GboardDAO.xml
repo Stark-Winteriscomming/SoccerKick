@@ -9,7 +9,7 @@
 	</insert>
 	
 	<select id="execSelect"  resultType="com.soccerkick.vo.TeamVO">
-		select * from team2
+		select * from team2 
 	</select>
 	
 	<select id="execContent" resultType="com.soccerkick.vo.TeamVO">

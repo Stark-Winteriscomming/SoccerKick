@@ -81,7 +81,10 @@ function update() {
 		dataType : "text",
 		success : function(result) { // on completion, restart
 			$("#mailCount").text(result);
-			setTimeout(update, 3000); // function refers to itself
+			if(result === 'fail'){
+				console.log('fail')
+				clearInterval(interval);
+			}
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			clearInterval(interval);

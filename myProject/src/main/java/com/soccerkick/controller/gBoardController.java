@@ -47,7 +47,7 @@ public class gBoardController{
 	public void selectPlace(Model model) throws Exception {
 	}
 	
-	@RequestMapping("/read")     
+	@RequestMapping("/read")
 	public ModelAndView board_content(int team_id){
 		ModelAndView mv = new ModelAndView();
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);

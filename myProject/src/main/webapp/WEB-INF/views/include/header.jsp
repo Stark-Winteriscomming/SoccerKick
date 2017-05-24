@@ -121,7 +121,7 @@
 									class="btn btn-default btn-g  btn-lg">팀원 모집</button></a>
 						</div>
 						<div class="btn-group">
-							<a href="/team/teamView"><button type="button"
+							<a href="/team/teamViewList"><button type="button"
 									class="btn btn-default btn-g  btn-lg">팀 보기</button></a>
 						</div>
 					</div>

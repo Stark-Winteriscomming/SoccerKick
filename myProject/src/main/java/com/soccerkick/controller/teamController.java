@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.dao.TeamCreateDAO;
+import com.soccerkick.dao.TeamDAO;
 import com.soccerkick.vo.TeamVO;
 import com.soccerkick.vo.userVO;
 
@@ -39,16 +40,28 @@ public class teamController {
 		
 	}
 	
-	@RequestMapping(value = "/teamView", method = RequestMethod.GET)
-	public ModelAndView home(Model model) {
-		
+	@RequestMapping(value = "/teamViewList", method = RequestMethod.GET)
+	public ModelAndView home(Model model, String keywordInput) {
+		 
 		ModelAndView mv = new ModelAndView();
-		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
+		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
 		
-		ArrayList<TeamVO> list = dao.execSelect();
+		ArrayList<TeamVO> list = dao.execSelect(keywordInput);
 		mv.addObject("list", list);
 		mv.setViewName("/team/teamViewList");	 
 		
+		return mv;
+	}
+	
+	@RequestMapping("/teamView")  
+	public ModelAndView board_content(int team_id){
+		ModelAndView mv = new ModelAndView(); 
+		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
+		TeamVO vo = dao.execContent(team_id);
+  
+		mv.addObject("vo", vo);	
+		mv.setViewName("/team/teamView");
+		  
 		return mv;
 	}
 	
