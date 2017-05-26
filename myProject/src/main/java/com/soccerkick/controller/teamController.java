@@ -57,7 +57,6 @@ public class teamController {
 		ModelAndView mv = new ModelAndView(); 
 		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
 		TeamVO vo = dao.execContent(team_id);
-  
 		mv.addObject("vo", vo);	
 		mv.setViewName("/team/teamView");
 		  
@@ -66,15 +65,13 @@ public class teamController {
 	
 	
 	@RequestMapping(value="/gameMatch" , method = RequestMethod.POST)
-	public String gameMatch(GameVO vo,RedirectAttributes rttr){
-		ModelAndView mv = new ModelAndView();  
+	public String gameMatch(GameVO vo,RedirectAttributes rttr){  
 		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
 		dao.gameMatch(vo);    
-		System.out.println("성공");
-		rttr.addFlashAttribute("msg", "SUCCESS");
-		mv.setViewName("/team/teamView");
-		return "redirect:/";
-	} 
+		System.out.println("성공");   
+		rttr.addFlashAttribute("msg", "SUCCESS"); 
+		return "redirect:/team/teamViewList";  
+	}       
 
 	@RequestMapping(value = "/teamCreateForm_check", method = RequestMethod.POST)
 	public String teamCreateForm(TeamVO vo, HttpServletRequest request,
@@ -88,7 +85,7 @@ public class teamController {
 		} else {
 			String path = request.getSession().getServletContext()
 					.getRealPath("/upload");
-			/* System.out.println(path); */
+			/* System.out.println(path); */  
 			String[] flist = new File(path).list();
 			for (int i = 0; i < flist.length; i++) {
 				System.out.println("ddd:" + flist[i]);

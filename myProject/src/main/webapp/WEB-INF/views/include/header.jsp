@@ -99,7 +99,7 @@
 						 </c:choose>
 					
                 </div>
-            </div>    
+            </div>      
         </div>
     </nav>   
 
@@ -109,6 +109,5 @@
                 <div class="intro-lead-in">It's time to run.</div> 
                 <div class="intro-heading">Soccer Kick !</div> 
             </div>
-        </div>
+        </div>  
     </header>
->>>>>>> e1d932b25caa53469a59c0eb5ce7929f73312da3

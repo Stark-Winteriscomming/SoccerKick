@@ -31,7 +31,7 @@
 			</div>
 			<br>
 			<br>
-
+			
 			<c:if test="${vo.team_formation == '433' }">
 				<%@include file="433.jsp"%>
 			</c:if>
@@ -39,7 +39,7 @@
 				<%@include file="41212.jsp"%>
 			</c:if>
 			<c:if test="${vo.team_formation == '4231' }">
-				<%@include file="4231.jsp"%>
+				<%@include file="4231.jsp"%>  
 			</c:if>
 			
 			

@@ -13,8 +13,7 @@
 		<input type="hidden" name="host" value="${vo.client_id}">  
 		   
 		<input type="hidden" name="a_applicant"
-			value="${sessionScope.login.client_id}"> <input type="hidden"
-			name="a_apy_team" value="${vo.team_id}">
+			value="${sessionScope.login.client_id}"> 
 
 		<div class="container">
 			<div align="center">
@@ -56,7 +55,7 @@
 					</div>
 				</div>
 			</div>
-			<br>
+			<br> 
 		</div>
 
 		<div align="center">
@@ -64,11 +63,5 @@
 		</div>
 	</form>
 </section>
-<script>
- var result = '${msg}';
- 
- if(result == 'SUCCESS'){
-	 alert("신청이 완료되었습니다.")
- }
-</script> 
+
 <%@include file="../include/footer.jsp"%>
