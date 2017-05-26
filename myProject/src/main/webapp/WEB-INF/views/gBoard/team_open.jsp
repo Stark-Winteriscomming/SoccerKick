@@ -19,11 +19,11 @@
 			</div>
 			<form> 
 				<div class="container">
-				<div class="btn-group-vertical navbar-fixed-top"  role="group" aria-label="..." style="top: 550px; left: 30px;"> 
+				<!-- <div class="btn-group-vertical navbar-fixed-top"  role="group" aria-label="..." style="top: 550px; left: 30px;"> 
 					<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 1</button>
 					<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 2</button>
 					<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 3</button>
-				</div>
+				</div> -->
 					<!-- start of team_logo -->
 					<div class="team_logo">
 						<div class="img_area"></div>

@@ -40,7 +40,7 @@
 			<c:if test="${vo.team_formation == '41212' }">
 				<%@include file="41212.jsp"%>
 			</c:if>
-			<c:if test="${vo.team_formation == '4231' }">
+			<c:if test="${vo.team_formation == '4231'}">
 				<%@include file="4231.jsp"%>
 			</c:if>
 			

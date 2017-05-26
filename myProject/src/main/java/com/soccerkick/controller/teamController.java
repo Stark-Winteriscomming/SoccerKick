@@ -28,17 +28,14 @@ import com.soccerkick.vo.userVO;
 public class teamController {
 	@Autowired
 	SqlSessionTemplate sqlSession;
-	
+
 	@RequestMapping("/teamCreateForm")
-	public String teamCreateForm(HttpSession session){
-		
-		if(session.getAttribute("login") == null){
+	public String teamCreateForm(HttpSession session) {
+		if (session.getAttribute("login") == null) {
 			return "/user/login";
-		}
-		else{
+		} else {
 			return "/team/teamCreateForm";
 		}
-		
 	}
 	
 	@RequestMapping(value = "/teamViewList", method = RequestMethod.GET)
@@ -47,7 +44,7 @@ public class teamController {
 		ModelAndView mv = new ModelAndView();
 		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
 		
-		ArrayList<TeamVO> list = dao.execSelect(keywordInput);
+		ArrayList<TeamVO> list = dao.execSelect(keywordInput); 
 		mv.addObject("list", list);
 		
 		mv.setViewName("/team/teamViewList");	 
@@ -73,44 +70,43 @@ public class teamController {
 		ModelAndView mv = new ModelAndView();  
 		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
 		dao.gameMatch(vo);    
-		System.out.println("����");
+		System.out.println("성공");
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		mv.setViewName("/team/teamView");
 		return "redirect:/";
 	} 
-	
-	
-	@RequestMapping(value="/teamCreateForm_check" , method = RequestMethod.POST)
-	public String teamCreateForm(TeamVO vo, HttpServletRequest request, HttpSession session) throws IOException{		
-		ModelAndView mv = new ModelAndView();
-		String sid = ((userVO)session.getAttribute("login")).getClient_id();  
+
+	@RequestMapping(value = "/teamCreateForm_check", method = RequestMethod.POST)
+	public String teamCreateForm(TeamVO vo, HttpServletRequest request,
+			HttpSession session) throws IOException {
+		ModelAndView mv = new ModelAndView(); 
+		String sid = ((userVO) session.getAttribute("login")).getClient_id();
 		vo.setClient_id(sid);
 		String fname = vo.getUploadfile().getOriginalFilename();
-		if(fname.equals("")){
+		if (fname.equals("")) {
 			vo.setTeam_logo_file_name(fname);
-		}
-		else{
-			String path = request.getSession().getServletContext().getRealPath("/upload");
-			System.out.println(path);
+		} else {
+			String path = request.getSession().getServletContext()
+					.getRealPath("/upload");
+			/* System.out.println(path); */
 			String[] flist = new File(path).list();
 			for (int i = 0; i < flist.length; i++) {
-				System.out.println("ddd:"+flist[i]);
+				System.out.println("ddd:" + flist[i]);
 				if (fname.equals(flist[i])) {
-					System.out.println("�������� ����");
+					System.out.println("�룞�씪�뙆�씪�엳�쓬");
 					int index = fname.lastIndexOf(".");
 					String tmpext = fname.substring(index);
 					String tmpname = fname.substring(0, index);
 					fname = tmpname + "_" + i + tmpext;
 					vo.setTeam_logo_file_name(fname);
 					i = flist.length;
-				}
-				else{
+				} else {
 					vo.setTeam_logo_file_name(fname);
-					System.out.println("�������� ����");
+					System.out.println("�룞�씪�뙆�씪 �뾾�쓬");
 					i = flist.length;
 				}
 			}
-			String fpath = path + "\\" +  fname;
+			String fpath = path + "\\" + fname;
 			System.out.println(fpath);
 			FileOutputStream fos = new FileOutputStream(fpath);
 			fos.write(vo.getUploadfile().getBytes());
@@ -125,6 +121,9 @@ public class teamController {
 		}
 		return "redirect:/"; 
 	}
-/*	TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class);
-	int result = dao.execInsert(vo);*/
+	/*
+	 * TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class); int result
+	 * = dao.execInsert(vo);
+	 */
+
 }

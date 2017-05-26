@@ -25,16 +25,12 @@
 			<button type="button" onclick="popup('/myPage/mail/addressBook')"
 				style="float: right;">주소록</button>
 		</div>
-
+					<div class="form-group">
+				<label for="exampleInputEmail1">제목</label> <input type="text" id="title"
+					name="title" class="form-control" placeholder="제목">
+			</div>
 		<form id="transmit" action="/myPage/mail/write" method="post"
 			onsubmit="return false;">
-
-
-			<div class="form-group">
-				<label for="exampleInputEmail1">제목</label> <input type="text"
-					id="title" name="title" class="form-control" placeholder="제목">
-			</div>
-
 
 			<div class="form-group">
 				<label for="exampleInputEmail1">내용</label>
@@ -50,19 +46,19 @@
 </section>
 <%@include file="../../include/footer.jsp"%>
 <script>
-	$("#transmit")
-			.submit(
-					function(eventObj) {
-						$('<input />').attr('type', 'hidden').attr('name',
-								"recv_id").attr('value', $("#recv_id").val())
-								.appendTo('#transmit');
-
-// 						$('<input />').attr('type', 'hidden').attr('name',
-// 								"title").attr('value', $("#title").val())
-// 								.appendTo('#transmit');
-
-						return true;
-					});
+	$("#transmit").submit( function(eventObj) {
+	    $('<input />').attr('type', 'hidden')
+	        .attr('name', "recv_id")
+	        .attr('value', $("#recv_id").val())
+	        .appendTo('#transmit');
+	    
+	    $('<input />').attr('type', 'hidden')
+        .attr('name', "title")
+        .attr('value', $("#title").val())
+        .appendTo('#transmit');
+	    
+	    return true;
+	});
 	$("#submitBtn").on("click", function() {
 		console.log("ccc");
 		$("#transmit").attr("onsubmit", "return true");
@@ -80,10 +76,3 @@
 	}
 </script>
 
-<script>
-	$('#title').on('keypress', function(e) {
-		if (e.keyCode == 13) {
-			e.preventDefault();
-		}
-	})
-</script>

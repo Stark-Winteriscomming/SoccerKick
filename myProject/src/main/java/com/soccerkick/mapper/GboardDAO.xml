@@ -5,8 +5,8 @@
 
 <mapper namespace="com.soccerkick.dao.GboardDAO">
 	<insert id="insertApply">
-	insert into apply(a_applicant, a_apy_position, a_apy_team) values(#{a_applicant},#{a_apy_position}, #{a_apy_team})  
-	</insert> 
+		insert into apply_select select seq_apply.nextval, client_name, client_age, client_region, #{a_apy_position}, #{team_id}, client_id from client where client_id=#{sid}
+	</insert>
 	
 	<select id="execSelect"  resultType="com.soccerkick.vo.TeamVO">
 		select * from team
@@ -15,5 +15,8 @@
 	<select id="execContent" resultType="com.soccerkick.vo.TeamVO">
 		select * from team where team_id=#{team_id}	 
 	</select>
-	 
-</mapper>         
+	
+	<select id="execApplyid" resultType="com.soccerkick.vo.MemberSelectVO">
+		select a_apy_position, apply_id from apply_select where apply_id = #{sid}
+	</select>
+</mapper>     

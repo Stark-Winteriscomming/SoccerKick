@@ -18,75 +18,89 @@ import org.json.simple.parser.ParseException;
 
 import com.soccerkick.vo.userVO;
 
-
 //@ServerEndpoint(value="/room/{cno}")
-@ServerEndpoint(value="/room/{cno}", configurator = GetHttpSessionConfigurator.class)
+@ServerEndpoint(value = "/room/{cno}", configurator = GetHttpSessionConfigurator.class)
 public class Websocket {
 	private Session wsSession;
-    private HttpSession httpSession;
-//    private ArrayList<Session> list = new ArrayList<Session>();
-    private static final HashMap<String, java.util.Set> map = new HashMap<String, java.util.Set>();
-//    private static final java.util.Set<Session> list = java.util.Collections.synchronizedSet(new java.util.HashSet<Session>());
-    private volatile String cno; 
+	private HttpSession httpSession;
+	// private ArrayList<Session> list = new ArrayList<Session>();
+	private static final HashMap<String, java.util.Set> map = new HashMap<String, java.util.Set>();
+	// private static final java.util.Set<Session> list =
+	// java.util.Collections.synchronizedSet(new java.util.HashSet<Session>());
+	private volatile String cno;
+
 	/***
-     * À¥ ¼ÒÄÏÀÌ ¿¬°áµÇ¸é È£ÃâµÇ´Â ÀÌº¥Æ®
-     */
-    @OnOpen
-    public void handleOpen(Session session, EndpointConfig config, @PathParam("cno") String cno){
-        System.out.println("client is now connected...");
-        this.wsSession = session;
-        this.httpSession = (HttpSession) config.getUserProperties()
-                                           .get(HttpSession.class.getName());
-       
-//        java.util.Set<Session> list = java.util.Collections.synchronizedSet(new java.util.HashSet<Session>());
-        this.cno = cno;
-        System.out.println("cno: "+this.cno);
-        SessionInfo.add(cno, session);
-        SessionInfo.printUserSessionList();
-    }
-    /**
-     * À¥ ¼ÒÄÏÀ¸·ÎºÎÅÍ ¸Þ½ÃÁö°¡ ¿À¸é È£ÃâµÇ´Â ÀÌº¥Æ®
-     * @param message
-     * @return
-     * @throws ParseException 
-     */
-    @OnMessage
-    public void handleMessage(String message, Session session) throws ParseException{
-    	JSONObject jsonObj = new JSONObject();
-    	jsonObj.put("id", ((userVO)(this.httpSession.getAttribute("login"))).getClient_id());
-    	jsonObj.put("msg", message);
-    	String sendMsg = jsonObj.toJSONString();
-//    	String jsonString = "";
-//    	jsonString = "{id : " + jsonString + ((userVO)(this.httpSession.getAttribute("login"))).getClient_id() + ", msg : " + message + "}";
-    	System.out.println("cno: "+cno);
-    	for(WSUserSession wsSession:SessionInfo.sessionList){
-    		if(wsSession.getGroupId().equals(cno)){
-	    		try {
+	 * ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ìºï¿½Æ®
+	 */
+	@OnOpen
+	public void handleOpen(Session session, EndpointConfig config,
+			@PathParam("cno") String cno) {
+		System.out.println("client is now connected...");
+		this.wsSession = session;
+		this.httpSession = (HttpSession) config.getUserProperties().get(
+				HttpSession.class.getName());
+
+		// java.util.Set<Session> list =
+		// java.util.Collections.synchronizedSet(new
+		// java.util.HashSet<Session>());
+		this.cno = cno;
+		System.out.println("cno: " + this.cno);
+		SessionInfo.add(cno, session);
+		SessionInfo.printUserSessionList();
+	}
+
+	/**
+	 * ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ìºï¿½Æ®
+	 * 
+	 * @param message
+	 * @return
+	 * @throws ParseException
+	 */
+	@OnMessage
+	public void handleMessage(String message, Session session)
+			throws ParseException {
+		JSONObject jsonObj = new JSONObject();
+		jsonObj.put("id", ((userVO) (this.httpSession.getAttribute("login")))
+				.getClient_id());
+		jsonObj.put("msg", message);
+		String sendMsg = jsonObj.toJSONString();
+		// String jsonString = "";
+		// jsonString = "{id : " + jsonString +
+		// ((userVO)(this.httpSession.getAttribute("login"))).getClient_id() +
+		// ", msg : " + message + "}";
+		System.out.println("cno: " + cno);
+		for (WSUserSession wsSession : SessionInfo.sessionList) {
+			if (wsSession.getGroupId().equals(cno)) {
+				try {
 					wsSession.getSession().getBasicRemote().sendText(sendMsg);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-    		}
-    	}
-    	
-    }
-    /**
-     * À¥ ¼ÒÄÏÀÌ ´ÝÈ÷¸é È£ÃâµÇ´Â ÀÌº¥Æ®
-     */
-    @OnClose
-    public void handleClose(Session session){
-        System.out.println("client is now disconnected...session id: " + session.getId());
-        SessionInfo.removeSession(session.getId());
-        SessionInfo.printUserSessionList();
-    }
-    /**
-     * À¥ ¼ÒÄÏÀÌ ¿¡·¯°¡ ³ª¸é È£ÃâµÇ´Â ÀÌº¥Æ®
-     * @param t
-     */
-    @OnError
-    public void handleError(Throwable t){
-        t.printStackTrace();
-    }
+			}
+		}
+
+	}
+
+	/**
+	 * ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ìºï¿½Æ®
+	 */
+	@OnClose
+	public void handleClose(Session session) {
+		System.out.println("client is now disconnected...session id: "
+				+ session.getId());
+		SessionInfo.removeSession(session.getId());
+		SessionInfo.printUserSessionList();
+	}
+
+	/**
+	 * ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ìºï¿½Æ®
+	 * 
+	 * @param t
+	 */
+	@OnError
+	public void handleError(Throwable t) {
+		t.printStackTrace();
+	}
 
 }

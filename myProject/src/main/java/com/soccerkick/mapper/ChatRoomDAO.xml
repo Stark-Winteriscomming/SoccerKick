@@ -4,24 +4,9 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.soccerkick.dao.ChatRoomDAO">
-	<select id="execPageCount" resultType="int">
-		select count(*) from chat_room
-		<if test="searchText != null">
-			where INSTR(title, #{searchText})  > 0
-		</if>
-		
-	</select>
 	<select id="execSelect" resultType = "com.soccerkick.vo.ChatRoomVO">
-		select * from 
-		(select rownum as rno,cno,title,count,to_char(reg_date,'yyyy-mm-dd') reg_date from (
-			select * from chat_room 
-			<if test="searchText != null">
-			where INSTR(title, #{searchText})  > 0
-			</if>
-			order by reg_date desc)
-			)
-		where rno between #{startCount} and #{endCount}
-		
+		select rownum as rno,cno,title,count,to_char(reg_date,'yyyy-mm-dd') reg_date from (
+			select * from chat_room order by reg_date desc)
 	</select>
 	<insert id="execInsert">
 		insert into chat_room values(chat_room_seq.nextval,#{title},0,sysdate)

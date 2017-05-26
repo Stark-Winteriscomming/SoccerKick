@@ -1,6 +1,9 @@
 package com.soccerkick.controller;
 
-import java.io.IOException;
+import java.io.IOException;  
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.vo.GboardVO;
+import com.soccerkick.vo.MemberSelectVO;
 import com.soccerkick.vo.TeamVO;
+import com.soccerkick.vo.userVO;
 
 @Controller
 @RequestMapping("/gBoard/*")
@@ -27,11 +31,14 @@ public class gBoardController{
 	}*/
 	
 	@RequestMapping(value="/apply", method=RequestMethod.POST)
-	public String apply(GboardVO vo, RedirectAttributes rttr) throws IOException{
+	public String apply(GboardVO vo, HttpSession session, String a_apy_position,
+			int team_id) throws IOException{
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
-		dao.insertApply(vo);
-		rttr.addFlashAttribute("msg", "SUCCESS");
-		  
+		System.out.println("position:" + a_apy_position);
+		System.out.println("team_id:"+team_id);
+		String sid = ((userVO) session.getAttribute("login")).getClient_id();
+		dao.insertApply(vo, sid, a_apy_position, team_id);
+		
 		return "redirect:/";
 	}
 	
@@ -47,15 +54,16 @@ public class gBoardController{
 	public void selectPlace(Model model) throws Exception {
 	}
 	
-	@RequestMapping("/read")
-	public ModelAndView board_content(int team_id){
+
+	@RequestMapping("/read") 
+	public ModelAndView board_content(int team_id, HttpSession session){
+		String sid = ((userVO) session.getAttribute("login")).getClient_id();
+		System.out.println("sid:"+sid);
 		ModelAndView mv = new ModelAndView();
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
 		TeamVO vo = dao.execContent(team_id);
- 
 		mv.addObject("vo", vo);	
-		mv.setViewName("/gBoard/read");
-		  
+		mv.setViewName("/gBoard/read"); 
 		return mv;
 	}
 	

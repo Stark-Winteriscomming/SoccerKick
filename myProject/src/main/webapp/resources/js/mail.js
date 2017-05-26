@@ -1,10 +1,5 @@
 var regListArray = new Array();
 var sendArray = new Array();
-var interval = null;
-//initial page loading --> call update function
-//update();
-
-
 $(".sendedList > li > input").on("click", function(event) {
 	var element = $(event.target).parent();
 	var isChecked = $(event.target).prop("checked");
@@ -24,7 +19,7 @@ $(".sendedList > li > input").on("click", function(event) {
 function check() {
 	console.log("check() start");
 	for (var i = 0; i < regListArray.length; i++) {
-		if (!(typeof regListArray[i] === 'undefined')) {
+		if (!(typeof regListArray[i] === 'undefined')){
 			sendArray.push(regListArray[i]);
 		}
 	}
@@ -34,7 +29,8 @@ $("#add").on("click", function() {
 	// undefine 정제 작업
 	check();
 	var sendData = JSON.stringify(sendArray);
-	//	var jsonArray = JSON.parse(JSON.stringify(sendArray))
+	var obj = { "name":"John", "age":30, "city":"New York"};
+//	var jsonArray = JSON.parse(JSON.stringify(sendArray))
 	console.log(sendData);
 	$.ajax({
 		url : "/myPage/mail/regAddressList",
@@ -42,13 +38,13 @@ $("#add").on("click", function() {
 		data : sendData,
 		dataType : "text",
 		contentType : "application/json; charset=UTF-8",
-		success : function(result) {	
+		success : function(result) {
 			//data - response from server
 			console.log(result);
 			$("#addressList").text(result);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
-
+				
 		}
 	});
 });
