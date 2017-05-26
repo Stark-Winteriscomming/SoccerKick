@@ -77,15 +77,7 @@
 						</div>
 						<div class="btn-group">
 							<a href="/team/teamViewList"><button type="button"
-									class="btn btn-default btn-g  btn-lg">팀 보기</button></a>
-						</div>
-						<div class="btn-group">
-							<a href="/team/teamViewList"><button type="button"
-									class="btn btn-default btn-g  btn-lg">경기 하기</button></a>  
-						</div>
-						<div class="btn-group">
-							<a href="/team/teamViewList"><button type="button"
-									class="btn btn-default btn-g  btn-lg">팀원 충원</button></a>  
+									class="btn btn-default btn-g  btn-lg">경기 매칭</button></a>
 						</div>
 					</div>
 						<c:choose>
