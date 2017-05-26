@@ -6,14 +6,14 @@
 <mapper namespace="com.soccerkick.dao.GboardDAO">
 	<insert id="insertApply">
 	insert into apply(a_applicant, a_apy_position, a_apy_team) values(#{a_applicant},#{a_apy_position}, #{a_apy_team})  
-	</insert>
+	</insert> 
 	
 	<select id="execSelect"  resultType="com.soccerkick.vo.TeamVO">
-		select * from team2 
+		select * from team
 	</select>
 	
 	<select id="execContent" resultType="com.soccerkick.vo.TeamVO">
-		select * from team2 where team_id=#{team_id}	 
+		select * from team where team_id=#{team_id}	 
 	</select>
 	 
-</mapper>       
+</mapper>         

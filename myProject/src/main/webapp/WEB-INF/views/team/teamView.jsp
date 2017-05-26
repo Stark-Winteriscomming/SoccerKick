@@ -7,19 +7,16 @@
 <%@include file="../include/header.jsp"%>
 <link href="/resources/css/4-3-3.css" rel="stylesheet">
 <section id="portfolio" class="bg-light-gray">
-	<form action="/gBoard/apply" method="post">
-
+	<form action="/team/gameMatch" method="post"> 
+		<input type="hidden" name="applicant_id" value="${sessionScope.login.client_id}">
+		<input type="hidden" name="applicant_team" value="${vo.team_name}">
+		<input type="hidden" name="host" value="${vo.client_id}">  
+		   
 		<input type="hidden" name="a_applicant"
-			value="${sessionScope.login.client_id}">
-			
-		<input type="hidden" name="a_apy_team" value="${vo.team_id}">
+			value="${sessionScope.login.client_id}"> <input type="hidden"
+			name="a_apy_team" value="${vo.team_id}">
 
 		<div class="container">
-			<!-- 	<div class="btn-group-vertical navbar-fixed-top"  role="group" aria-label="..." style="top: 550px; left: 30px;"> 
-		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 1</button>
-		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 2</button>
-		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 3</button>
-	</div> -->  
 			<div align="center">
 				<h1>팀명 - ${vo.team_name}</h1>
 			</div>
@@ -28,20 +25,23 @@
 				<div class="col-md-offset-4 col-md-4">
 					<img src="../upload/${vo.team_logo_file_name}" class="img-circle"
 						style="width: 350px; height: 350px;">
+					<c:if test="${vo.team_formation == '433' }">
+						<img src="/resources/img/433.png" style="width: 350px;" />
+					</c:if>
+					<c:if test="${vo.team_formation == '41212' }">
+						<img src="/resources/img/41212.png" style="width: 350px;" />
+					</c:if>
+					<c:if test="${vo.team_formation == '4231' }">
+						<img src="/resources/img/4231.png" style="width: 350px;" />
+					</c:if>
 				</div>
 
 			</div>
-			<br>
-			<br>
+			<br> <br>
 
-			<c:if test="${vo.team_formation == '433' }">
-			</c:if>
-			<c:if test="${vo.team_formation == '41212' }">
-			</c:if>
-			<c:if test="${vo.team_formation == '4231' }">
-			</c:if>
-			
-			
+
+
+
 			<div align="center">
 				<div class="panel panel-info" style="width: 691px">
 					<div class="panel-heading">
@@ -51,20 +51,24 @@
 						</h3>
 					</div>
 					<div class="panel-body">
-					팀이름 - ${vo.team_name}<br>
-					지역 - ${vo.team_region}<br>
-					포메이션 - ${vo.team_formation}<br>
-					소개글 - ${vo.team_history}<br>
+						팀이름 - ${vo.team_name}<br> 지역 - ${vo.team_region}<br>
+						포메이션 - ${vo.team_formation}<br> 소개글 - ${vo.team_history}<br>
 					</div>
-				</div> 
+				</div>
 			</div>
 			<br>
-			<div align="center">
-				<button class="btn btn-info btn-lg"
-					style="width: 300px; height: 70px">대결 신청</button>
-			</div>
+		</div>
 
+		<div align="center">
+			<button class="btn btn-primary btn-lg" style="width: 300px; height: 70px" type="submit">대결 신청</button> 
 		</div>
 	</form>
 </section>
+<script>
+ var result = '${msg}';
+ 
+ if(result == 'SUCCESS'){
+	 alert("신청이 완료되었습니다.")
+ }
+</script> 
 <%@include file="../include/footer.jsp"%>

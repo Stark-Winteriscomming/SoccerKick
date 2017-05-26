@@ -124,6 +124,14 @@
 							<a href="/team/teamViewList"><button type="button"
 									class="btn btn-default btn-g  btn-lg">팀 보기</button></a>
 						</div>
+						<div class="btn-group">
+							<a href="/team/teamViewList"><button type="button"
+									class="btn btn-default btn-g  btn-lg">경기 하기</button></a>  
+						</div>
+						<div class="btn-group">
+							<a href="/team/teamViewList"><button type="button"
+									class="btn btn-default btn-g  btn-lg">팀원 충원</button></a>  
+						</div>
 					</div>
 					<c:choose>
 						<c:when test="${empty sessionScope.login }">
@@ -144,7 +152,7 @@
 		</div>
 	</nav>
 
-	<header>
+	<header>  
 		<div class="container">
 			<div class="intro-text" style="padding-top: 100px">
 				<div class="intro-lead-in">It's time to run.</div>

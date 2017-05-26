@@ -15,10 +15,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.dao.TeamCreateDAO;
 import com.soccerkick.dao.TeamDAO;
+import com.soccerkick.vo.GameVO;
 import com.soccerkick.vo.TeamVO;
 import com.soccerkick.vo.userVO;
 
@@ -48,6 +49,7 @@ public class teamController {
 		
 		ArrayList<TeamVO> list = dao.execSelect(keywordInput);
 		mv.addObject("list", list);
+		
 		mv.setViewName("/team/teamViewList");	 
 		
 		return mv;
@@ -65,10 +67,23 @@ public class teamController {
 		return mv;
 	}
 	
+	
+	@RequestMapping(value="/gameMatch" , method = RequestMethod.POST)
+	public String gameMatch(GameVO vo,RedirectAttributes rttr){
+		ModelAndView mv = new ModelAndView();  
+		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
+		dao.gameMatch(vo);    
+		System.out.println("¼º°ø");
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		mv.setViewName("/team/teamView");
+		return "redirect:/";
+	} 
+	
+	
 	@RequestMapping(value="/teamCreateForm_check" , method = RequestMethod.POST)
 	public String teamCreateForm(TeamVO vo, HttpServletRequest request, HttpSession session) throws IOException{		
 		ModelAndView mv = new ModelAndView();
-		String sid = ((userVO)session.getAttribute("login")).getClient_id();
+		String sid = ((userVO)session.getAttribute("login")).getClient_id();  
 		vo.setClient_id(sid);
 		String fname = vo.getUploadfile().getOriginalFilename();
 		if(fname.equals("")){
@@ -108,7 +123,7 @@ public class teamController {
 		if(result != 0){  
 			mv.setViewName("home");
 		}
-		return "redirect:/";
+		return "redirect:/"; 
 	}
 /*	TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class);
 	int result = dao.execInsert(vo);*/

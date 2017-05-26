@@ -5,7 +5,7 @@
 
 <mapper namespace="com.soccerkick.dao.TeamCreateDAO">
 	<insert id="execInsert">
-		insert into team2 values(team_seq.nextval,#{team_name},#{team_region},
-		#{team_logo_file_name},#{team_history},#{team_formation},0,#{client_id},0)
+		insert into team values(team_seq.nextval,#{team_name},#{team_region},
+		#{team_logo_file_name},#{team_history},#{team_formation},0,#{client_id},0,0) 
 	</insert>
-</mapper>
+</mapper>    

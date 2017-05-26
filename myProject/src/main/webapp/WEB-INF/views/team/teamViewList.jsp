@@ -31,12 +31,12 @@
 					<div class="portfolio-caption">
 						<h4>${vo.team_name}</h4>  
 						<p class="text-muted">${vo.team_history}</p>
-						<a href="/teamView?team_id=${vo.team_id}"><button
+						<a href="/team/teamView?team_id=${vo.team_id}"><button
 								class="btn btn-primary">상세 보기</button></a>
 						<button class="btn btn-primary">대결 신청</button>
 					</div>
-				</div>
-			</c:forEach>
+				</div> 
+			</c:forEach> 
 		</div>
 	</div>
 </section>
@@ -51,9 +51,7 @@
 	$("document").ready(function() { 
 		$('#searchBtn').on("click", function(evt) {
 			self.location = "/team/teamViewList"+"?keywordInput="+ $('#keywordInput').val(); 
-		});
-	 
-
+		}); 
 	}); 
 </script> 
 

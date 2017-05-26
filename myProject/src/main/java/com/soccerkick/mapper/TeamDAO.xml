@@ -5,13 +5,16 @@
 
 <mapper namespace="com.soccerkick.dao.TeamDAO">
 	<select id="execContent" resultType="com.soccerkick.vo.TeamVO">
-		select * from team2 where
+		select * from team where
 		team_id=#{team_id}
 	</select> 
 	<select id="execSelect" resultType="com.soccerkick.vo.TeamVO">
-		select * from team2
+		select * from team
 		<if test="keywordInput != null">
 			where INSTR(team_name, #{keywordInput}) > 0
 		</if>
-	</select>
+	</select> 
+	<insert id="gameMatch">
+		insert into game(host, applicant) values(#{host}, #{applicant_id})
+	</insert>  
 </mapper>
