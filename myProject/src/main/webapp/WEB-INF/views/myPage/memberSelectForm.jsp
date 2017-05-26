@@ -1,27 +1,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ page import="com.soccerkick.vo.*"%>
+<%@ page import="java.util.*"%>
 
 <%@include file="../include/header.jsp"%>
-<head>
+<% 
+	TeamVO vo = (TeamVO)request.getAttribute("vo");
+%>
+
 <script src="/resources/js/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/table.js" type="text/javascript"></script>
 <script>
 	$(document).ready(function() {
-
-		$("#cselect").click(function() {
-
-			if ($("input:checkbox[name='scheck']:checked").length == 0) {
-				alert("선택할 항목을 체크해 주세요~");
-				$("#scheck").focus();
-				return false;
-			}
-
-			selectForm.submit();
-
-		});
-
 		$("#tcheck").click(function() {
 			if ($("#tcheck").is(":checked")) {
 				$("input[name='scheck']").prop("checked", true);
@@ -32,124 +23,45 @@
 
 	});
 </script>
-</head>
 
+<script>
 
+function reloadpage(){
+	location.reload(true);
+}
+</script>
+<style>
+td,th {
+	text-align: center;
+}
+.row{
+	width:1500px;
+	height:100%;
+	background-color: #d9edf7;
+	margin: 0 auto;
+}
+</style>
 <section id="portfolio" class="bg-light-gray">
-	<div class="container">
-
-		<div class="row">    
-			<div class="col-md-6">
-				<div class="alert alert-info"
-					style="width: 800px; float: left; margin-right: 10px;">
-					<div align="center">
-						 <!-- 포메이션 폼 -->
- <h1 class="ftitle" align="center" >포메이션</h1>
- <br>
- 
-
-<div style="position: absolute;">
-<div style="position: relative; top: 120px; left: 85px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;" onClick="javascript:window.open('/myPage/memberSelectPopup','popup','scrollbars=no, resizable=no, width=800,height=600')">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 120px; left: 390px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;" onClick="javascript:window.open('/myPage/ss','popup','scrollbars=no, resizable=no, width=800,height=600')" >
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 300px; left: 20px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 300px; left: 160px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 300px; left: 320px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 300px; left: 460px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-
-<div style="position: absolute;">
-<div style="position: relative; top: 550px; left: 20px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 550px; left: 160px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 550px; left: 320px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 550px; left: 460px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-<div style="position: absolute;">
-<div style="position: relative; top: 700px; left: 240px;">
-<input type="image" src="../../../resources/img/button.png" border="0" style= "width:30%; height:30%;">
-</div>
-</div>
-
-<img src="../../../resources/img/formation.jpg"></img>
-					</div>
-				</div>  
-			</div>
-			<div class="col-md-6">
-				<div class="alert alert-info" style="width: 800px; float: left;">
-					<div align="center">
-						
-						<h1 class="title" align="center">선택 된 선수리스트</h1>  
- <br>  
-      <table class="table table-striped">
-           <form name="selectForm" action="" method="get">
-             <thead>    
-              <tr>
-              <th><input type="checkbox" name="tcheck" id="tcheck"></th>
-              <th>이미지</th>
-              <th class="sorting">번호</th>
-              <th class="sorting">이름</th>
-              <th class="sorting">나이</th>
-              <th class="sorting">지역</th>
-              <th class="sorting">신청포지션</th>
-              <th >프로필보기</th>
-              </tr>
-            </thead>
-                 <tr>
-                   <td><input type="checkbox" name="scheck" id="scheck" value="" ></td>
-                   <td><img src="http://sstatic.naver.net/people/91/201405301047405271.jpg" /></td>
-                   <td>1</td>
-                   <td>토레스</td>
-                   <td>30</td>
-                   <td>스페인</td>
-                   <td>공격수</td>
-                   <td><button class="btn btn-default">프로필보기</button></td>
-                 </tr>
-      
-    </tbody>
-  </table>
-  <button class="cselect" style="width: 280px; height: 80px;" align="center">선택 취소</button>  
-  <button class="cselect" style="width: 280px; height: 80px;" align="center">선택 완료</button>
-
-					</div>
-				</div>
-			</div>
+	
+		<div class="row">			
+				<%
+					if (vo.getTeam_formation().equals("433")) {
+				%>
+					<%@include file="../position/433.jsp"%>
+				<%
+					} else if (vo.getTeam_formation().equals("4231")) {
+				%>
+					<%@include file="../position/4231.jsp"%>
+				<%
+					} else {
+				%>
+					<%@include file="../position/41212.jsp"%>
+				<%
+					}
+				%>
+			
 		</div>
-</div>
+
 
 </section>
 <%@include file="../include/footer.jsp"%>

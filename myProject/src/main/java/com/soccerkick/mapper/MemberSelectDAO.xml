@@ -5,7 +5,7 @@
 
 <mapper namespace="com.soccerkick.dao.MemberSelectDAO">
 	<!--  <insert id="execInsert">
-		insert into team2 values(team_seq.nextval,#{team_name},#{team_region},
+		insert into team values(team_seq.nextval,#{team_name},#{team_region},
 		#{team_logo_file_name},#{team_history},#{team_formation},0,#{client_id},0)
 	</insert> -->
 	
@@ -13,21 +13,32 @@
 		select * from apply_select
 	</select> -->
 	
-	  <select id="execSelect" resultType="com.soccerkick.vo.MemberSelectVO">
-		select rownum as rno, no, apply_name, age, region, apply_position
+	<select id="execSelect" resultType="com.soccerkick.vo.MemberSelectVO">
+		select rownum as rno, no, apply_name, age, region, a_apy_position
 				 from 
-				 (select no, apply_name, age, region, apply_position 
-				 	from apply_select order by age) 
+				 (select no, apply_name, age, region, a_apy_position 
+				 	from apply_select where team_id = #{team_id} and a_apy_position = #{position} order by age) 
 	</select> 
 	<select id="execSelectt" resultType="com.soccerkick.vo.MemberSelectVO">
-		select rownum as rno, no, apply_name, age, region, apply_position
+		select rownum as rno, no, apply_name, age, region, a_apy_position, apply_id, team_id
 				 from 
-				 (select no, apply_name, age, region, apply_position 
-				 	from apply_select2 order by age)
+				 (select no, apply_name, age, region, a_apy_position, apply_id, team_id
+				 	from selected_member order by age)
 	</select>  
-	<insert id="execInsert">
-		insert into apply_select2 values(sequ_apply_select.nextval,
-					#{apply_name},#{age},#{region}, #{apply_position})
-	</insert>
 	
+	<insert id="execInsert">
+		INSERT INTO selected_member SELECT * FROM apply_select
+			where no = #{no}
+	</insert>
+	<select id="execFormation" resultType="com.soccerkick.vo.TeamVO">
+		select team_id, team_formation from team where CLIENT_ID = #{sid}
+	</select>
+	
+	<select id="execPosition" resultType="com.soccerkick.vo.MemberSelectVO">
+		select no,a_apy_position from selected_member where no = #{no}
+	</select>
+
+	<delete id="execDelete">
+		delete from selected_member where no=#{no}
+	</delete>
 </mapper>

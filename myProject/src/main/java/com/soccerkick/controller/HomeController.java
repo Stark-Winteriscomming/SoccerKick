@@ -16,20 +16,32 @@ import com.soccerkick.vo.TeamVO;
 
 @Controller
 public class HomeController {
-	
+
 	@Autowired
 	SqlSessionTemplate sqlSession;
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(Model model) {
-		
+
 		ModelAndView mv = new ModelAndView();
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
-		
 		ArrayList<TeamVO> list = dao.execSelect();
 		mv.addObject("list", list);
-		mv.setViewName("/home");	
-		
+		mv.setViewName("/home");
+
 		return mv;
+	}
+	@RequestMapping("/arraymain.do")
+	public String arraymain(){
+		
+		return "/array";
+	}
+	
+	@RequestMapping("/array.do")
+	public ModelAndView array(String[] name){
+		for (String str : name) {
+			System.out.println(str);
+		}
+		return null;
 	}
 }
