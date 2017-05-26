@@ -1,13 +1,8 @@
 <%@page import="com.soccerkick.vo.MemberSelectVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	MemberSelectVO mvo = (MemberSelectVO)request.getAttribute("mvo");
-	out.println("1111:"+mvo.getApply_id());
-	out.println("2222:"+mvo.getA_apy_position());
-%>
-<input type="hidden" name="position" value="<%=mvo.getA_apy_position() %>"/>
-<input type="hidden" name="id" value="<%=mvo.getApply_id()%>"/>
+
+
 <div align="center">
 	<h1>4-3-3</h1>
 	<div class="formation">

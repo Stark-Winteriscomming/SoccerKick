@@ -32,25 +32,14 @@ public class gBoardController{
 	
 	@RequestMapping(value="/apply", method=RequestMethod.POST)
 	public String apply(GboardVO vo, HttpSession session, String a_apy_position,
-			int team_id,String position, String id) throws IOException{
+			int team_id) throws IOException{
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
-		String dir ="";
 		System.out.println("position:" + a_apy_position);
 		System.out.println("team_id:"+team_id);
-		System.out.println("position:"+ position);
-		System.out.println("id:"+id);
 		String sid = ((userVO) session.getAttribute("login")).getClient_id();
-		if(a_apy_position.equals(position) && id.equals(sid))
-		{
-			System.out.println("실패");
-			/*dir = "redirect:/gBoard/read";*/
-		}
-		else
-		{
-			dao.insertApply(vo, sid, a_apy_position, team_id);
-			dir = "redirect:/";
-		}
-		return dir;
+		dao.insertApply(vo, sid, a_apy_position, team_id);
+		
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/team_open", method = RequestMethod.GET)
@@ -72,9 +61,7 @@ public class gBoardController{
 		ModelAndView mv = new ModelAndView();
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
 		TeamVO vo = dao.execContent(team_id);
-		MemberSelectVO mvo = dao.execApplyid(sid);
 		mv.addObject("vo", vo);	
-		mv.addObject("mvo",mvo);
 		mv.setViewName("/gBoard/read"); 
 		return mv;
 	}
