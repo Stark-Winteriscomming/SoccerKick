@@ -93,14 +93,14 @@ public class meberSelectController {
 
 		JSONArray jsonArray = (JSONArray) jsonObj.get("client");
 		
-		Formation_433VO vo = new Formation_433VO();  
+//		Formation_433VO vo = new Formation_433VO();  
 		for (int i = 0; i < jsonArray.size(); i++) {
 			JSONObject obj = (JSONObject) jsonArray.get(i);
 			String client_id = (String)obj.get("id");
 			String position = (String)obj.get("position");
 			int team_id	= Integer.parseInt((String)obj.get("tid"));
 			String formation = (String)obj.get("formation");
-			
+		
 			dao.execUpdate(formation, team_id, position, client_id);
 		}
 		

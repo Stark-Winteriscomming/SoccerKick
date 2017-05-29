@@ -117,7 +117,7 @@ public class teamController {
 		System.out.println("team id: "+vo.getTeam_id());
 		System.out.println("formation: "+vo.getTeam_formation());
 		System.out.println("seq: " + seq);
-		dao.insertIntoformation(seq, vo.getTeam_formation());
+		dao.insertIntoFormation(seq, vo.getTeam_formation());
 		
 		if(result != 0){  
 			mv.setViewName("home");

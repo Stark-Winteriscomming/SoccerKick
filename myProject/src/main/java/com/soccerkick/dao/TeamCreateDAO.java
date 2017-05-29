@@ -13,5 +13,5 @@ public interface TeamCreateDAO {
 	public int getCurrentSeq();
 	
 	//put team _id into appropriate table
-	public void insertIntoformation(@Param("team_id") int team_id, @Param("formation") String formation);
+	public void insertIntoFormation(@Param("team_id") int team_id, @Param("formation") String formation);
 }

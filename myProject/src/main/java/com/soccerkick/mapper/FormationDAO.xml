@@ -8,7 +8,7 @@
 		update
 		<choose>
 			<when test="formation.equals('433')">
-			formation_433 set 
+				formation_433 set 
 				<choose>
 					<when test="position.equals('LWF')">
 						lwf = #{client_id}
@@ -44,12 +44,85 @@
 						gk = #{client_id}
 					</when>
 				</choose>
-				where team_id = #{team_id}				
 			</when>
-			<when test="formation.equals('4231')">formation_4231</when>
-			<when test="formation.equals('41212')">formation_41212</when>
-			<when test=""></when>
+			<when test="formation.equals('4231')">
+				formation_4231 set 
+				<choose>
+					<when test="position.equals('LM')">
+						lm = #{client_id}
+					</when>
+					<when test="position.equals('ST')">
+						st = #{client_id}
+					</when>
+					<when test="position.equals('CAM')">
+						cam = #{client_id}
+					</when>
+					<when test="position.equals('RM')">
+						rm = #{client_id}
+					</when>
+					<when test="position.equals('CDM1')">
+						cdm1 = #{client_id}
+					</when>
+					<when test="position.equals('CDM2')">
+						cdm2 = #{client_id}
+					</when>
+					<when test="position.equals('LB')">
+						lb = #{client_id}
+					</when>
+					<when test="position.equals('CB1')">
+						cb1 = #{client_id}
+					</when>
+					<when test="position.equals('CB2')">
+						cb2 = #{client_id}
+					</when>
+					<when test="position.equals('RB')">
+						rb = #{client_id}
+					</when>
+					<when test="position.equals('GK')">
+						gk = #{client_id}
+					</when>
+				</choose>
+			</when>
+			<when test="formation.equals('41212')">
+				formation_41212 set 
+				<choose>
+					<when test="position.equals('LS')">
+						ls = #{client_id}
+					</when>
+					<when test="position.equals('RS')">
+						rs = #{client_id}
+					</when>
+					<when test="position.equals('CAM')">
+						cam = #{client_id}
+					</when>
+					<when test="position.equals('LM')">
+						lm = #{client_id}
+					</when>
+					<when test="position.equals('RM')">
+						rm = #{client_id}
+					</when>
+					<when test="position.equals('CDM')">
+						cdm = #{client_id}
+					</when>
+					<when test="position.equals('LB')">
+						lb = #{client_id}
+					</when>
+					<when test="position.equals('CB1')">
+						cb1 = #{client_id}
+					</when>
+					<when test="position.equals('CB2')">
+						cb2 = #{client_id}
+					</when>
+					<when test="position.equals('RB')">
+						rb = #{client_id}
+					</when>
+					<when test="position.equals('GK')">
+						gk = #{client_id}
+					</when>
+				</choose>
+			</when>
 			<when test=""></when>
 		</choose>
+		where team_id = #{team_id}
 	</update>
 </mapper>

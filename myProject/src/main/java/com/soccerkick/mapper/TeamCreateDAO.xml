@@ -11,7 +11,7 @@
 	
 	
 	<!-- 일단 sample 3개 -->
-	<insert id="insertIntoformation">
+	<insert id="insertIntoFormation">
 		insert into
 		<choose>
 			<when test="formation.equals('433')">

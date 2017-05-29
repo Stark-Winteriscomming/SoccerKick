@@ -30,15 +30,17 @@ import com.soccerkick.vo.userVO;
 @Controller
 @RequestMapping("/myPage/*")
 public class myPageController {
+
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-	@RequestMapping("/modify")
-	public String modify(){
-		return "/myPage/modify";
-	}
+
 	@RequestMapping(value = "/chatRoomList", method = RequestMethod.GET)
-	public ModelAndView chatRoomList(HttpSession session) throws Exception {
+	public ModelAndView chatRoomList(HttpSession session, String page, String searchText) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		if(searchText != null){
+//			System.out.println("searchText: "+ searchText);
+		}
+		ChatRoomDAO dao = sqlSession.getMapper(ChatRoomDAO.class);
 		if (session.getAttribute("login") == null) {
 			System.out.println("session: login is null...");
 
@@ -46,31 +48,46 @@ public class myPageController {
 			mv.setViewName("/user/login");
 			return mv;
 		} else {
-			ChatRoomDAO dao = sqlSession.getMapper(ChatRoomDAO.class);
-			ArrayList<ChatRoomVO> list = dao.execSelect();
+			int startCount = 0;
+			int endCount = 0;
+			int pageSize = 5; // �� �������� �Խù� ��
+			int grpSize = 3; // �׷��� ũ��
+			int reqPage = 1; // ��û ������ : linkPage ��
+			int pageCount = 1; // ��ü ������ ��
+			int dbCount = dao.execPageCount(searchText); // DB���� ������ ��ü �� ��
+
+			// �� �������� ���
+			if (dbCount % pageSize == 0) {
+				pageCount = dbCount / pageSize;
+			} else {
+				pageCount = dbCount / pageSize + 1;
+			}
+
+			// ��û ������ ������ ���
+			if (page != null) {
+				reqPage = Integer.parseInt(page);
+				startCount = (reqPage - 1) * pageSize + 1; // 3������
+															// ������:(3-1)*5+1
+															// =11
+				endCount = reqPage * pageSize; // 3������ ������:3*5 = 15
+			} else {
+				startCount = 1;
+				endCount = 5;
+			}
+
+			
+			ArrayList<ChatRoomVO> list = dao.execSelect(startCount, endCount, searchText);
 			mv.addObject("list", list);
+			mv.addObject("tcount", dbCount);
 			mv.setViewName("/myPage/chatRoomList");
 			return mv;
 		}
 	}
-
-	/*
-	 * @RequestMapping(value = "/ss", method = RequestMethod.GET) public void
-	 * ss(Model model) throws Exception { }
-	 */
-
-	/*
-	 * @RequestMapping(value = "/modify", method = RequestMethod.GET) public
-	 * void modify(Model model) throws Exception { }
-	 */
-
 	// /myPage/chat/chatRoom/
 	@RequestMapping(value = "/chat/chatRoom/{cno}", method = RequestMethod.GET)
-	public ModelAndView chatRoom(@PathVariable("cno") String cno, String title)
-			throws Exception {
-
+	public ModelAndView chatRoom(@PathVariable("cno") String cno, String title) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("t: " + title);
+//		System.out.println("t: " + title);
 		mv.addObject("cno", cno);
 		mv.addObject("title", title);
 		mv.setViewName("/myPage/chatRoom");
@@ -91,8 +108,9 @@ public class myPageController {
 
 	// ���� ����Ʈ
 	@RequestMapping(value = "/mails", method = RequestMethod.GET)
-	public ModelAndView mails(HttpSession session) throws Exception {
+	public ModelAndView mails(HttpSession session, String page) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		MailDAO dao = sqlSession.getMapper(MailDAO.class);
 		Object sessionObj = session.getAttribute("login");
 		if (sessionObj == null) {
 			System.out.println("session: login is null...");
@@ -101,21 +119,51 @@ public class myPageController {
 			mv.setViewName("/user/login");
 			return mv;
 		}
+		else{
+			int startCount = 0;
+			int endCount = 0;
+			int pageSize = 5; // �� �������� �Խù� ��
+			int grpSize = 3; // �׷��� ũ��
+			int reqPage = 1; // ��û ������ : linkPage ��
+			int pageCount = 1; // ��ü ������ ��
+			int dbCount = dao.execPageCount(((userVO) sessionObj).getClient_id()); // DB���� ������ ��ü �� ��
+//			System.out.println("dbCount: " +dbCount);
+			// �� �������� ���
+			if (dbCount % pageSize == 0) {
+				pageCount = dbCount / pageSize;
+			} else {
+				pageCount = dbCount / pageSize + 1;
+			}
 
-		MailDAO dao = sqlSession.getMapper(MailDAO.class);
-		ArrayList<MailVO> list = dao.execSelectAll(((userVO) sessionObj)
-				.getClient_id());
-		mv.addObject("list", list);
-		mv.setViewName("/myPage/mail/mailList");
-		return mv;
+			// ��û ������ ������ ���
+			if (page != null) {
+				reqPage = Integer.parseInt(page);
+				startCount = (reqPage - 1) * pageSize + 1; // 3������
+															// ������:(3-1)*5+1
+															// =11
+				endCount = reqPage * pageSize; // 3������ ������:3*5 = 15
+			} else {
+				startCount = 1;
+				endCount = 5;
+			}
+			
+			
+			ArrayList<MailVO> list = dao.execSelectAll(startCount, endCount, ((userVO) sessionObj).getClient_id());
+			mv.addObject("list", list);
+			mv.addObject("tcount", dbCount);
+			mv.setViewName("/myPage/mail/mailList");
+			return mv;
+		}
 	}
 
 	// ���� ������
 	@RequestMapping(value = "/mail/content/{mail_no}", method = RequestMethod.GET)
-	public ModelAndView mailContent(@PathVariable("mail_no") int mail_no)
-			throws Exception {
+	public ModelAndView mailContent(@PathVariable("mail_no") int mail_no) throws Exception {
 		MailDAO dao = sqlSession.getMapper(MailDAO.class);
 		MailVO vo = dao.execSelect(mail_no);
+
+		// update isChecked
+		dao.updateRead(mail_no);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("vo", vo);
 		mv.setViewName("/myPage/mail/mailContent");
@@ -174,8 +222,7 @@ public class myPageController {
 	@ResponseBody
 	public String regAddressList(@RequestBody String msg, HttpSession session) {
 		try {
-			String send_id = ((userVO) (session.getAttribute("login")))
-					.getClient_id();
+			String send_id = ((userVO) (session.getAttribute("login"))).getClient_id();
 			System.out.println("send_id is " + send_id);
 			AddressBookDAO abDao = sqlSession.getMapper(AddressBookDAO.class);
 			JSONParser jsonParser = new JSONParser();
@@ -195,8 +242,7 @@ public class myPageController {
 	// �ּҷ�
 	@RequestMapping(value = "/mail/addressBook", method = RequestMethod.GET)
 	public ModelAndView addressBook(MailVO vo, HttpSession session) {
-		String my_id = ((userVO) (session.getAttribute("login")))
-				.getClient_id();
+		String my_id = ((userVO) (session.getAttribute("login"))).getClient_id();
 		AddressBookDAO abDao = sqlSession.getMapper(AddressBookDAO.class);
 		List list = abDao.getAddress(my_id);
 		ArrayList<String> arrayList = new ArrayList<>();
@@ -209,4 +255,28 @@ public class myPageController {
 		mv.setViewName("/myPage/mail/addressBook");
 		return mv;
 	}
+
+	@RequestMapping(value = "/mail/readCount", method = RequestMethod.GET)
+	@ResponseBody
+	public String readCount(HttpSession session) {
+		try {
+			if ((userVO) (session.getAttribute("login")) == null) {
+				System.out.println("no client session...");
+				return "fail";
+			} else {
+				String id = ((userVO) (session.getAttribute("login"))).getClient_id();
+				// System.out.println("session id is " + id);
+
+				MailDAO dao = sqlSession.getMapper(MailDAO.class);
+				int result = dao.getCount(id);
+				return "" + result;
+			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "fail";
+		}
+	}
+
 }
