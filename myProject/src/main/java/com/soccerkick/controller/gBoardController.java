@@ -1,6 +1,6 @@
 package com.soccerkick.controller;
 
-import java.io.IOException;
+import java.io.IOException;  
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -54,16 +54,17 @@ public class gBoardController{
 	public void selectPlace(Model model) throws Exception {
 	}
 	
-	@RequestMapping("/read") 
+
+	@RequestMapping("/read")   
 	public ModelAndView board_content(int team_id, HttpSession session){
-		String sid = ((userVO) session.getAttribute("login")).getClient_id();
-		System.out.println("sid:"+sid);
+		/*String sid = ((userVO) session.getAttribute("login")).getClient_id();
+		System.out.println("sid:"+sid); */
 		ModelAndView mv = new ModelAndView();
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
 		TeamVO vo = dao.execContent(team_id);
-		mv.addObject("vo", vo);	
+		mv.addObject("vo", vo);	  
 		mv.setViewName("/gBoard/read"); 
 		return mv;
-	}
+	}  
 	
 }

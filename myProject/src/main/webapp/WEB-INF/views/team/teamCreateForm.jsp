@@ -106,7 +106,7 @@ input[type=radio]:checked{
 <section id="portfolio" class="bg-light-gray">
 	<div class="team_create">
 		<h1 class="boardtitle">팀 생성하기</h1>
-		
+		  
 		<hr>
 		<div class="team_create_form">
 			<form name="teamcreateform" action="teamCreateForm_check"
