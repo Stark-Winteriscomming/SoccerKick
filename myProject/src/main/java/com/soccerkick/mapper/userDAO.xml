@@ -7,5 +7,9 @@
 	<select id="userCheck"  resultType="int">
 		select count(client_id) from client
 			where client_id = #{client_id}
+	</select>
+	<select id="getClient"  resultType="com.soccerkick.vo.userVO">
+		select * from client
+			where client_id = #{client_id}
 	</select> 
 </mapper>    

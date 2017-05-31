@@ -8,13 +8,13 @@
 			<div class="positon_fw" style="margin-bottom: 30px; height: 180px;">
 				<div class="position_wrap">
 					<input type="radio" id="fw1" class="fw" name="a_apy_position"
-						value="lf" style="width: 40px; height: 40px;"> <label
+						value="lf" style="width: 40px; height: 40px;" > <label
 						for="fw1"></label> <label class="position_fw_txt">공격수</label>
 				</div>
 				<div class="position_wrap" style="margin-top: 100px;">
 					<input type="radio" id="fw2" name="a_apy_position" value="cf"
 						style="width: 40px; height: 40px;"> <label for="fw2"></label>
-					<label class="position_fw_txt">공격수</label>
+					<label class="position_fw_txt">공격수공격수공격수</label>
 				</div>
 				<div class="position_wrap">
 					<input type="radio" id="fw3" name="a_apy_position" value="rf"
@@ -22,7 +22,6 @@
 					<label class="position_fw_txt">공격수</label>
 				</div>
 			</div>
-
 			<div class="position_mid" style="margin-bottom: 100px;">
 				<div class="position_wrap">
 					<input type="radio" id="mid1" class="mid" name="a_apy_position"

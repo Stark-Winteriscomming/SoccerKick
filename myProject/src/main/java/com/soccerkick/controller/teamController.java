@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.soccerkick.dao.FormationDAO;
 import com.soccerkick.dao.TeamCreateDAO;
 import com.soccerkick.dao.TeamDAO;
+import com.soccerkick.vo.Formation_41212VO;
+import com.soccerkick.vo.Formation_4231VO;
+import com.soccerkick.vo.Formation_433VO;
 import com.soccerkick.vo.GameVO;
 import com.soccerkick.vo.TeamVO;
 import com.soccerkick.vo.userVO;
@@ -37,56 +41,79 @@ public class teamController {
 			return "/team/teamCreateForm";
 		}
 	}
-	
+
 	@RequestMapping(value = "/teamViewList", method = RequestMethod.GET)
 	public ModelAndView home(Model model, String keywordInput) {
-		 
+
 		ModelAndView mv = new ModelAndView();
 		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
-		
-		ArrayList<TeamVO> list = dao.execSelect(keywordInput); 
-		mv.addObject("list", list);
-		
-		mv.setViewName("/team/teamViewList");	 
-		
-		return mv;
-	}
-	
-	@RequestMapping("/teamView")  
-	public ModelAndView board_content(int team_id){
-		ModelAndView mv = new ModelAndView(); 
-		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
-		TeamVO vo = dao.execContent(team_id);
-		mv.addObject("vo", vo);	
-		mv.setViewName("/team/teamView");
-		  
-		return mv;
-	}
-	
-	
-	@RequestMapping(value="/gameMatch" , method = RequestMethod.POST)
-	public String gameMatch(GameVO vo,RedirectAttributes rttr){  
-		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
-		dao.gameMatch(vo);    
-		System.out.println("성공");   
-		rttr.addFlashAttribute("msg", "SUCCESS"); 
-		return "redirect:/team/teamViewList";  
-	}       
 
-	//create team
+		ArrayList<TeamVO> list = dao.execSelect(keywordInput);
+		mv.addObject("list", list);
+
+		mv.setViewName("/team/teamViewList");
+
+		return mv;
+	}
+
+	@RequestMapping("/teamView")
+	public ModelAndView board_content(int team_id) {
+		ModelAndView mv = new ModelAndView();
+		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
+		// formation dao
+		FormationDAO fdao = sqlSession.getMapper(FormationDAO.class);
+
+		TeamVO vo = dao.execContent(team_id);
+
+		if (vo.getTeam_formation().equals("433")) {
+			System.out.println("433 selected");
+
+			Formation_433VO fvo = fdao.execSelectFormation_433(team_id);
+			mv.addObject("fvo", fvo);
+
+		} else if (vo.getTeam_formation().equals("4231")) {
+			System.out.println("4231 selected");
+
+			Formation_4231VO fvo = fdao.execSelectFormation_4231(team_id);
+			mv.addObject("fvo", fvo);
+		}
+		else if(vo.getTeam_formation().equals("41212")){
+			System.out.println("41212 selected");
+
+			Formation_41212VO fvo = fdao.execSelectFormation_41212(team_id);
+			mv.addObject("fvo", fvo);
+		}
+
+		// get team position by team_id
+
+		// get team players
+		mv.addObject("vo", vo);
+		mv.setViewName("/team/teamView");
+
+		return mv;
+	}
+
+	@RequestMapping(value = "/gameMatch", method = RequestMethod.POST)
+	public String gameMatch(GameVO vo, RedirectAttributes rttr) {
+		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
+		dao.gameMatch(vo);
+		System.out.println("성공");
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		return "redirect:/team/teamViewList";
+	}
+
+	// create team
 	@RequestMapping(value = "/teamCreateForm_check", method = RequestMethod.POST)
-	public String teamCreateForm(TeamVO vo, HttpServletRequest request,
-			HttpSession session) throws IOException {
-		ModelAndView mv = new ModelAndView(); 
+	public String teamCreateForm(TeamVO vo, HttpServletRequest request, HttpSession session) throws IOException {
+		ModelAndView mv = new ModelAndView();
 		String sid = ((userVO) session.getAttribute("login")).getClient_id();
 		vo.setClient_id(sid);
 		String fname = vo.getUploadfile().getOriginalFilename();
 		if (fname.equals("")) {
 			vo.setTeam_logo_file_name(fname);
 		} else {
-			String path = request.getSession().getServletContext()
-					.getRealPath("/upload");
-			/* System.out.println(path); */  
+			String path = request.getSession().getServletContext().getRealPath("/upload");
+			/* System.out.println(path); */
 			String[] flist = new File(path).list();
 			for (int i = 0; i < flist.length; i++) {
 				System.out.println("ddd:" + flist[i]);
@@ -114,15 +141,15 @@ public class teamController {
 		TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class);
 		int result = dao.execInsert(vo);
 		int seq = dao.getCurrentSeq();
-		System.out.println("team id: "+vo.getTeam_id());
-		System.out.println("formation: "+vo.getTeam_formation());
+		System.out.println("team id: " + vo.getTeam_id());
+		System.out.println("formation: " + vo.getTeam_formation());
 		System.out.println("seq: " + seq);
 		dao.insertIntoFormation(seq, vo.getTeam_formation());
-		
-		if(result != 0){  
+
+		if (result != 0) {
 			mv.setViewName("home");
 		}
-		return "redirect:/"; 
+		return "redirect:/";
 	}
 	/*
 	 * TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class); int result

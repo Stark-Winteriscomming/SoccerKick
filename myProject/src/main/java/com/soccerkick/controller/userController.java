@@ -11,8 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
 import com.soccerkick.dao.JoinDAO;
 import com.soccerkick.dao.userDAO;
 import com.soccerkick.vo.JoinVO;
@@ -81,6 +83,19 @@ public class userController {
 		}	
 		
 		return resPage;	
+		
+	}
+	@RequestMapping(value="/getClient", method=RequestMethod.GET)
+	@ResponseBody
+	public String getClient(String id) throws Exception{
+		userVO vo = new userVO();
+		System.out.println("id : " + id);
+		userVO resultVO = (userVO)dao.getClient(id);
+		
+		System.out.println("name: " + resultVO.getClient_name());
+		Gson gson = new Gson();
+		String jsonString = gson.toJson(resultVO);
+		return jsonString;
 		
 	}
 

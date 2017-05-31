@@ -4,6 +4,16 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.soccerkick.dao.FormationDAO">
+
+	<select id="execSelectFormation_433" resultType="com.soccerkick.vo.Formation_433VO">
+		select * from formation_433 where team_id=#{team_id}
+	</select>
+	<select id="execSelectFormation_4231" resultType="com.soccerkick.vo.Formation_4231VO">
+		select * from formation_4231 where team_id=#{team_id}
+	</select>
+		<select id="execSelectFormation_41212" resultType="com.soccerkick.vo.Formation_41212VO">
+		select * from formation_41212 where team_id=#{team_id}
+	</select>
 	<update id="execUpdate">
 		update
 		<choose>
