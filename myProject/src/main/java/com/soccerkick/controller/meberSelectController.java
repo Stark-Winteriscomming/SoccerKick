@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.soccerkick.dao.FormationDAO;
 import com.soccerkick.dao.MemberSelectDAO;
 import com.soccerkick.dao.TeamCreateDAO;
+import com.soccerkick.vo.Formation_433VO;
 import com.soccerkick.vo.MemberSelectVO;
 import com.soccerkick.vo.TeamVO;
 import com.soccerkick.vo.userVO;
@@ -44,8 +46,7 @@ public class meberSelectController {
 			MemberSelectDAO mdao = sqlSession.getMapper(MemberSelectDAO.class);
 			TeamVO vo = dao.execFormation(sid);
 			TeamVO tvo = dao.execTeamid(sid);
-			ArrayList<MemberSelectVO> list = mdao.execSelectt(no);
-
+			ArrayList<MemberSelectVO> list = mdao.execSelectt(tvo.getTeam_id());
 			mv.addObject("vo", vo);
 			mv.addObject("list", list);
 			mv.addObject("tvo", tvo);
@@ -65,24 +66,6 @@ public class meberSelectController {
 		return mv;
 	}
 
-	/*
-	 * @RequestMapping("/memberSelectPopup") public ModelAndView
-	 * memberSelectPopup(HttpSession session){ //String sid
-	 * =(String)session.getAttribute("sid"); ModelAndView mv = new
-	 * ModelAndView(); MemberSelectDAO dao =
-	 * sqlSession.getMapper(MemberSelectDAO.class);
-	 * 
-	 * ArrayList<MemberSelectVO> list = dao.execSelect();
-	 * 
-	 * mv.addObject("list", list); mv.setViewName("/myPage/MemberSelectPopup");
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * return mv; }
-	 */
-
 	@RequestMapping(value = "/memberSelect_save.do", method = RequestMethod.POST)
 	public String memberSelect_save(String no, HttpSession session)
 			throws IOException {
@@ -91,7 +74,7 @@ public class meberSelectController {
 
 		dao.execInsert(no);
 		TeamVO vo = dao.execFormation(sid);
-		ArrayList<MemberSelectVO> list = dao.execSelectt(no);
+//		ArrayList<MemberSelectVO> list = dao.execSelectt(no);
 
 		System.out.println("save..");
 		return "redirect:/myPage/memberSelectForm";
@@ -101,6 +84,8 @@ public class meberSelectController {
 	@RequestMapping(value = "/complete_team", method = RequestMethod.POST)
 	@ResponseBody
 	public String complete_team(@RequestBody String msg) throws ParseException {
+		FormationDAO dao = sqlSession.getMapper(FormationDAO.class);
+	
 		System.out.println("received data: " + msg);
 
 		JSONParser jsonParser = new JSONParser();
@@ -108,16 +93,18 @@ public class meberSelectController {
 
 		JSONArray jsonArray = (JSONArray) jsonObj.get("client");
 		
+//		Formation_433VO vo = new Formation_433VO();  
 		for (int i = 0; i < jsonArray.size(); i++) {
 			JSONObject obj = (JSONObject) jsonArray.get(i);
-			System.out.println(obj.get("id"));
-			System.out.println(obj.get("position"));
-			System.out.println(obj.get("tid"));
-			System.out.println(obj.get("formation"));
+			String client_id = (String)obj.get("id");
+			String position = (String)obj.get("position");
+			int team_id	= Integer.parseInt((String)obj.get("tid"));
+			String formation = (String)obj.get("formation");
+		
+			dao.execUpdate(formation, team_id, position, client_id);
 		}
 		
 		return "successed";
-		// return "redirect:/myPage/memberSelectForm";
 	}
 
 	@RequestMapping("/delete_member")

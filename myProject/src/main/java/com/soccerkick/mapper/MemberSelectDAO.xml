@@ -23,7 +23,7 @@
 		select rownum as rno, no, apply_name, age, region, a_apy_position, apply_id, team_id
 				 from 
 				 (select no, apply_name, age, region, a_apy_position, apply_id, team_id
-				 	from selected_member order by age)
+				 	from selected_member where team_id = #{team_id} order by age)
 	</select>  
 	
 	<insert id="execInsert">

@@ -78,6 +78,7 @@ public class teamController {
 		return "redirect:/team/teamViewList";  
 	}       
 
+	//create team
 	@RequestMapping(value = "/teamCreateForm_check", method = RequestMethod.POST)
 	public String teamCreateForm(TeamVO vo, HttpServletRequest request,
 			HttpSession session) throws IOException {
@@ -118,6 +119,11 @@ public class teamController {
 		}
 		TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class);
 		int result = dao.execInsert(vo);
+		int seq = dao.getCurrentSeq();
+		System.out.println("team id: "+vo.getTeam_id());
+		System.out.println("formation: "+vo.getTeam_formation());
+		System.out.println("seq: " + seq);
+		dao.insertIntoFormation(seq, vo.getTeam_formation());
 		
 		if(result != 0){  
 			mv.setViewName("home");

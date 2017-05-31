@@ -9,6 +9,24 @@
 		#{team_logo_file_name},#{team_history},#{team_formation},0,#{client_id},0,0)
 	</insert>
 	
+	
+	<!-- 일단 sample 3개 -->
+	<insert id="insertIntoFormation">
+		insert into
+		<choose>
+			<when test="formation.equals('433')">
+				 formation_433
+			</when>
+			<when test="formation.equals('4231')">
+				 formation_4231
+			</when>
+			<when test="formation.equals('41212')">
+				 formation_41212
+			</when>
+		</choose>
+		(team_id) values(#{team_id})
+	</insert>
+	
 	<select id="execFormation" resultType="com.soccerkick.vo.TeamVO">
 		select team_id, team_formation from team where CLIENT_ID = #{sid}
 	</select>
@@ -16,4 +34,8 @@
 	<select id="execTeamid" resultType="com.soccerkick.vo.TeamVO">
 		select team_id,team_formation from team where CLIENT_ID = #{sid}
 	</select>
+	<select id="getCurrentSeq" resultType="int">
+		select team_seq.currval from dual
+	</select>
+	
 </mapper>

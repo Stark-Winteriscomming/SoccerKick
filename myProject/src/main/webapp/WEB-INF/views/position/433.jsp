@@ -7,180 +7,196 @@
 	ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute("list");
 	TeamVO tvo = (TeamVO)request.getAttribute("tvo");
 %>
-	<style>
-		#content_wrap{
-			width:1200px;
-			height:800px;
-			margin:0 auto;
-		}
-		.wrap_formation{
-			width:500px;
-			height:800px;
-			float:left;
-			
-		}
-		.ftitle{
-			width:500px;
-			text-align: center;
-		}
-		.ftitle2{
-			width:650px;
-			text-align: center;
-		}
-		.formation_433{
-			width: 500px;
-			height: 655px;
-			background: url("/resources/img/POSITION/formation.jpg");
-			background-size:500px;
-			padding-top: 70px;
-			
-		}
-		.formation_wrap{
-			width:100%;
-			height:100%;
-			margin-top: 30px;
-		}
-		#selected_member{
-			width:650px;
-			float:left;
-			margin-left: 50px;
-		}
-		.fw,.mid,.df{
-			width:72%;
-			margin:0 auto;
-		}
-		.fw{
-			margin-bottom: 145px;
-		}
-		.mid{
-			margin-bottom:85px;
-		}
-		#lwf,#lm{
-			margin-right: 70px;
-		}
-		#st,#cm{
-			margin-right: 65px;
-		}
-		#lb,#cb1,#cb2{
-			margin-right: 21px;
-		}
-		#lb,#rb{
-			margin-bottom: 60px;
-		}
-		.gk{
-			width:70px;
-			margin:0 auto;
-			margin-top: 5px;
-		}
-		img{
-			cursor:pointer;
-		}
-		#btn_group{
-			text-align: center;
-		}
-		
-	</style>
+<style>
+#content_wrap {
+	width: 1200px;
+	height: 800px;
+	margin: 0 auto;
+}
 
-	<div id="content_wrap">
-		<Div class="wrap_formation">
-			<h1 class="ftitle">포메이션</h1>
-			<div class="formation_433">
-				
-					<div class="fw">
-						<img src="/resources/img/POSITION/LWF.png" width="70px" height="70px;" id="lwf"
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LWF','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
-						<img src="/resources/img/POSITION/ST.png" width="70px" height="70px;" id="st" 
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=ST','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
-						<img src="/resources/img/POSITION/RWF.png" width="70px" height="70px;" id="rwf"
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RWF','popup','scrollbars=no, resizable=no, width=800,height=600')"/>		
-					</div>
-					
-					<div class="mid">
-						<img src="/resources/img/POSITION/LM.png" width="70px" height="70px;" id="lm"
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LM','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
-						<img src="/resources/img/POSITION/CM.png" width="70px" height="70px;" id="cm"
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=CM','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
-						<img src="/resources/img/POSITION/RM.png" width="70px" height="70px;" id="rm"
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RM','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
-					</div>
-					
-					<div class="df">
-						<img src="/resources/img/POSITION/LB.png" width="70px" height="70px;" id="lb"
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LB','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
-						<img src="/resources/img/POSITION/CB.png" width="70px" height="70px;" id="cb1"
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LCB','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
-						<img src="/resources/img/POSITION/CB.png" width="70px" height="70px;" id="cb2"
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RCB','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
-						<img src="/resources/img/POSITION/RB.png" width="70px" height="70px;" id="rb"
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RB','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
-					</div>
-					
-					<div class="gk">
-						<img src="/resources/img/POSITION/GK.png" width="70px" height="70px;" id="gk"
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=GK','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
-					</div>
-				
+.wrap_formation {
+	width: 500px;
+	height: 800px;
+	float: left;
+}
+
+.ftitle {
+	width: 500px;
+	text-align: center;
+}
+
+.ftitle2 {
+	width: 650px;
+	text-align: center;
+}
+
+.formation_433 {
+	width: 500px;
+	height: 655px;
+	background: url("/resources/img/POSITION/formation.jpg");
+	background-size: 500px;
+	padding-top: 70px;
+}
+
+.formation_wrap {
+	width: 100%;
+	height: 100%;
+	margin-top: 30px;
+}
+
+#selected_member {
+	width: 650px;
+	float: left;
+	margin-left: 50px;
+}
+
+.fw, .mid, .df {
+	width: 72%;
+	margin: 0 auto;
+}
+
+.fw {
+	margin-bottom: 145px;
+}
+
+.mid {
+	margin-bottom: 85px;
+}
+
+#lwf, #lm {
+	margin-right: 70px;
+}
+
+#st, #cm {
+	margin-right: 65px;
+}
+
+#lb, #cb1, #cb2 {
+	margin-right: 21px;
+}
+
+#lb, #rb {
+	margin-bottom: 60px;
+}
+
+.gk {
+	width: 70px;
+	margin: 0 auto;
+	margin-top: 5px;
+}
+
+img {
+	cursor: pointer;
+}
+
+#btn_group {
+	text-align: center;
+}
+</style>
+
+<div id="content_wrap">
+	<Div class="wrap_formation">
+		<h1 class="ftitle">포메이션</h1>
+		<div class="formation_433">
+
+			<div class="fw">
+				<img src="/resources/img/POSITION/LWF.png" width="70px"
+					height="70px;" id="lwf"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LWF','popup','scrollbars=no, resizable=no, width=800,height=600')" />
+				<img src="/resources/img/POSITION/ST.png" width="70px"
+					height="70px;" id="st"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=ST','popup','scrollbars=no, resizable=no, width=800,height=600')" />
+				<img src="/resources/img/POSITION/RWF.png" width="70px"
+					height="70px;" id="rwf"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RWF','popup','scrollbars=no, resizable=no, width=800,height=600')" />
 			</div>
-		</Div>
-		
-		<div id="selected_member">
-			<h1 class="ftitle2">선택 된 선수리스트</h1>
-			<br>
-			
-		<form name="selectForm" action="/myPage/complete_team" method="post">
-				
-				<table class="table table-striped" id="tList">
-					<thead>
-						<tr>
-							<th><input type="checkbox" name="tcheck" id="tcheck"></th>
-							<th>이미지</th>
-							<th class="sorting_tno">번호</th>
-							<th class="sorting_name">이름</th>
-							<th class="sorting">나이</th>
-							<th class="sorting">지역</th>
-							<th class="sorting">신청포지션</th>
-							<th>비고</th>
-						</tr>
-					</thead>
-					<%for(MemberSelectVO mvo : list) {%>
-					<tr class="info">
-						<td class="Id" style="display:none;"><%= mvo.getApply_id() %></td>
-						<td class="tId" style="display:none;"><%= mvo.getTeam_id() %></td>
-						<td class="formation" style="display:none;"><%= tvo.getTeam_formation() %></td>
-						<td>
-							<input type="checkbox" name="no" id="scheck"
-							value=<%= mvo.getNo() %> />
-						</td>
-						<td><img
-							src="http://sstatic.naver.net/people/91/201405301047405271.jpg" /></td>
-						<td><%= mvo.getRno() %></td>
-						<td><%= mvo.getApply_name() %></td>
-						<td><%= mvo.getAge() %></td>
-						<td><%= mvo.getRegion() %></td>
-						<td class="position"><%= mvo.getA_apy_position() %></td>
-						<td>
-							<a>
-								<button type="button" class="btn btn-default">프로필보기</button>
-							</a>
-							<br>
-							<a href="/myPage/delete_member?no=<%=mvo.getNo()%>">
-								<button type="button" class="btn btn-default">삭제</button>
-							</a>
-						</td>
-					</tr>
-					<%} %>
-				</table>
-				<div id="btn_group">
-				<!-- <button class="cselect" style="width: 280px; height: 80px;">선택 취소</button> -->
-				<button id="cselect" style="width: 280px; height: 80px;">선택 완료</button>
+
+			<div class="mid">
+				<img src="/resources/img/POSITION/LM.png" width="70px"
+					height="70px;" id="lm"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LM','popup','scrollbars=no, resizable=no, width=800,height=600')" />
+				<img src="/resources/img/POSITION/CM.png" width="70px"
+					height="70px;" id="cm"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=CM','popup','scrollbars=no, resizable=no, width=800,height=600')" />
+				<img src="/resources/img/POSITION/RM.png" width="70px"
+					height="70px;" id="rm"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RM','popup','scrollbars=no, resizable=no, width=800,height=600')" />
 			</div>
- 			</form> 
-<!-- 			<form name="selectForm" action="/myPage/complete_team" method="post"> -->
-				
-<!-- 			</form> -->
+
+			<div class="df">
+				<img src="/resources/img/POSITION/LB.png" width="70px"
+					height="70px;" id="lb"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LB','popup','scrollbars=no, resizable=no, width=800,height=600')" />
+				<img src="/resources/img/POSITION/CB.png" width="70px"
+					height="70px;" id="cb1"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LCB','popup','scrollbars=no, resizable=no, width=800,height=600')" />
+				<img src="/resources/img/POSITION/CB.png" width="70px"
+					height="70px;" id="cb2"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RCB','popup','scrollbars=no, resizable=no, width=800,height=600')" />
+				<img src="/resources/img/POSITION/RB.png" width="70px"
+					height="70px;" id="rb"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RB','popup','scrollbars=no, resizable=no, width=800,height=600')" />
+			</div>
+
+			<div class="gk">
+				<img src="/resources/img/POSITION/GK.png" width="70px"
+					height="70px;" id="gk"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=GK','popup','scrollbars=no, resizable=no, width=800,height=600')" />
+			</div>
+
 		</div>
+	</Div>
+
+	<div id="selected_member">
+		<h1 class="ftitle2">선택 된 선수리스트</h1>
+		<br>
+		<table class="table table-striped" id="tList">
+			<thead>
+				<tr>
+					<th><input type="checkbox" name="tcheck" id="tcheck"></th>
+					<th>이미지</th>
+					<th class="sorting_tno">번호</th>
+					<th class="sorting_name">이름</th>
+					<th class="sorting">나이</th>
+					<th class="sorting">지역</th>
+					<th class="sorting">신청포지션</th>
+					<th>비고</th>
+				</tr>
+			</thead>
+			<%for(MemberSelectVO mvo : list) {%>
+			<tr class="info">
+				<td class="Id" style="display: none;"><%= mvo.getApply_id() %></td>
+				<td class="tId" style="display: none;"><%= mvo.getTeam_id() %></td>
+				<td class="formation" style="display: none;"><%= tvo.getTeam_formation() %></td>
+				<td><input type="checkbox" name="no" id="scheck"
+					value=<%= mvo.getNo() %> /></td>
+				<td><img
+					src="http://sstatic.naver.net/people/91/201405301047405271.jpg" /></td>
+				<td><%= mvo.getRno() %></td>
+				<td><%= mvo.getApply_name() %></td>
+				<td><%= mvo.getAge() %></td>
+				<td><%= mvo.getRegion() %></td>
+				<td class="position"><%= mvo.getA_apy_position() %></td>
+				<td><a>
+						<button type="button" class="btn btn-default">프로필보기</button>
+				</a> <br> <a href="/myPage/delete_member?no=<%=mvo.getNo()%>">
+						<button type="button" class="btn btn-default">삭제</button>
+				</a></td>
+			</tr>
+			<%} %>
+		</table>
+		<div id="btn_group">
+			<!-- <button class="cselect" style="width: 280px; height: 80px;">선택 취소</button> -->
+			<button id="cselect" style="width: 280px; height: 80px;">선택
+				완료</button>
+		</div>
+		<!-- 			<form name="selectForm" action="/myPage/complete_team" method="post"> -->
+
+		<!-- 			</form> -->
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</div>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 		var cArray = new Array();
 		$("#cselect").on("click", function(){
@@ -214,5 +230,5 @@
 				
 			});
 		});
-	</script> 
+	</script>
 
