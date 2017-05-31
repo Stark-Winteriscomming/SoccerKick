@@ -12,7 +12,6 @@ import org.json.simple.parser.JSONParser;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +21,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.AddressBookDAO;
 import com.soccerkick.dao.ChatRoomDAO;
+import com.soccerkick.dao.GameMatchDAO;
 import com.soccerkick.dao.MailDAO;
+import com.soccerkick.dao.TeamDAO;
 import com.soccerkick.vo.ChatRoomVO;
+import com.soccerkick.vo.GameVO;
 import com.soccerkick.vo.MailVO;
+import com.soccerkick.vo.TeamVO;
 import com.soccerkick.vo.userVO;
 
 @Controller
@@ -89,7 +92,7 @@ public class myPageController {
 		return "redirect:/myPage/chatRoomList";
 	}
 
-	// ���� ����Ʈ
+	// 占쏙옙占쏙옙 占쏙옙占쏙옙트
 	@RequestMapping(value = "/mails", method = RequestMethod.GET)
 	public ModelAndView mails(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -110,7 +113,7 @@ public class myPageController {
 		return mv;
 	}
 
-	// ���� ������
+	// 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙
 	@RequestMapping(value = "/mail/content/{mail_no}", method = RequestMethod.GET)
 	public ModelAndView mailContent(@PathVariable("mail_no") int mail_no)
 			throws Exception {
@@ -122,13 +125,13 @@ public class myPageController {
 		return mv;
 	}
 
-	// ���� �ۼ� ��
+	// 占쏙옙占쏙옙 占쌜쇽옙 占쏙옙
 	@RequestMapping(value = "/mail/form", method = RequestMethod.GET)
 	public String mailForm() {
 		return "/myPage/mail/mailForm";
 	}
 
-	// ���� �ۼ�
+	// 占쏙옙占쏙옙 占쌜쇽옙
 	@RequestMapping(value = "/mail/write", method = RequestMethod.POST)
 	public ModelAndView mailWrite(MailVO vo, HttpSession session) {
 		String send_id = "";
@@ -155,7 +158,7 @@ public class myPageController {
 					if (abDao.isMatched(send_id, recv_id) == 0)
 						recv_idList.add(recv_id);
 				}
-				// ���� ���� ���̵� ����Ʈ
+				// 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占싱듸옙 占쏙옙占쏙옙트
 				mv.addObject("list", recv_idList);
 				mv.setViewName("/myPage/mail/sendSuccessed");
 			} catch (Exception e) {
@@ -169,7 +172,7 @@ public class myPageController {
 
 	}
 
-	// �ּҷ� ���
+	// 占쌍소뤄옙 占쏙옙占�
 	@RequestMapping(value = "/mail/regAddressList", method = RequestMethod.POST)
 	@ResponseBody
 	public String regAddressList(@RequestBody String msg, HttpSession session) {
@@ -192,7 +195,7 @@ public class myPageController {
 		}
 	}
 
-	// �ּҷ�
+	// 占쌍소뤄옙
 	@RequestMapping(value = "/mail/addressBook", method = RequestMethod.GET)
 	public ModelAndView addressBook(MailVO vo, HttpSession session) {
 		String my_id = ((userVO) (session.getAttribute("login")))
@@ -209,4 +212,55 @@ public class myPageController {
 		mv.setViewName("/myPage/mail/addressBook");
 		return mv;
 	}
+	
+	@RequestMapping(value = "/gameMatch", method = RequestMethod.GET)
+	public ModelAndView gameMatch(HttpSession session){  
+		ModelAndView mv = new ModelAndView();
+		if (session.getAttribute("login") == null) {
+			mv.setViewName("/user/login");
+		}
+		else{
+		String sid = ((userVO) (session.getAttribute("login"))).getClient_id();
+		GameMatchDAO dao = sqlSession.getMapper(GameMatchDAO.class);
+		ArrayList<GameVO> list = dao.execSelect(sid);
+		mv.addObject("list",list);
+		mv.setViewName("/myPage/gameMatch");}
+		return mv;  
+		
+	}
+	
+	@RequestMapping(value = "/admit", method = RequestMethod.GET)
+	public String admit(HttpSession session, String applicant, String host){
+		ModelAndView mv = new ModelAndView();
+		GameMatchDAO dao = sqlSession.getMapper(GameMatchDAO.class);
+		dao.gameMatchOk(applicant, host);
+		mv.addObject("msg","SUCCESS");
+		return "redirect:/myPage/schedule";   
+	}
+	
+	@RequestMapping("/teamView")  
+	public ModelAndView board_content(String client_id){
+		ModelAndView mv = new ModelAndView(); 
+		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
+		TeamVO vo = dao.teamView(client_id);
+		mv.addObject("vo", vo);  	    
+		mv.setViewName("/team/teamView2");
+		  
+		return mv;
+	}
+	
+	@RequestMapping("/schedule")  
+	public ModelAndView schedule(HttpSession session){
+		ModelAndView mv = new ModelAndView();
+		String sid = ((userVO) (session.getAttribute("login"))).getClient_id();  
+		GameMatchDAO dao = sqlSession.getMapper(GameMatchDAO.class);
+		ArrayList<GameVO> list = dao.execSchedule(sid);
+		mv.addObject("list",list);   
+		mv.setViewName("/myPage/schedule");
+		return mv;
+	}
+	
+	
+	
+	    
 }

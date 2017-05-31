@@ -34,7 +34,7 @@ public class meberSelectController {
 	public ModelAndView memberSelectForm(HttpSession session, String no) {
 		String sid = ((userVO) session.getAttribute("login")).getClient_id();
 		System.out.println("sid:" + sid);
-
+  
 		ModelAndView mv = new ModelAndView();
 		if (sid == null) {
 			mv.setViewName("/user/login");

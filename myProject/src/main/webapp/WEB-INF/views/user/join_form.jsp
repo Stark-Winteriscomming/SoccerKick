@@ -5,7 +5,7 @@
 
 <%@include file="../include/header.jsp" %>
 <link href="/resources/css/joinform.css" rel="stylesheet">
-
+ 
     <!-- Portfolio Grid Section -->
     <section id="portfolio" class="bg-light-gray" style="height:100%;">
     	<div class="content">
@@ -13,8 +13,8 @@
 			   <h1>회원가입</h1>
 		  </div>
 	      <article class="container">
-	        <div class="col-md-6 col-md-offset-3">
-	          <form role="form" method="post" action="join.do">
+	        <div class="col-md-6 col-md-offset-3">  
+	          <form action="join.do" method="post" enctype="multipart/form-data"> 
 	            <div class="form-group">
 	              <label for="InputEmail">아이디</label>
 	              <input type="text" class="form-control" id="id" name="client_id" placeholder="아이디를 입력해 주세요">
@@ -22,7 +22,16 @@
 	            <div class="form-group">
 	              <label for="InputEmail">닉네임</label>
 	              <input type="text" class="nickname" id="nickname" placeholder="닉네임을 입력해 주세요">
-	            </div> 
+	            </div>
+	            <div>
+	           
+						<label>첨부파일</label>
+						<input type="file" name="file" id="file">
+	            
+	            </div>
+	               
+	            
+	            
 	            <div class="form-group">
 	              <label for="InputPassword1">비밀번호</label>
 	              <input type="password" class="form-control" id="pass" name="pw" placeholder="비밀번호를 입력해 주세요">
@@ -81,13 +90,13 @@
 	              </div>
 	            </div>
 	            <div class="form-group text-center">
-	              <button type="submit" class="btn btn-info">회원가입<i class="fa fa-check spaceLeft"></i></button>
-	              <button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
+	              <button type="submit" class="btn">회원가입<i class="fa fa-check spaceLeft"></i></button>  
+	              <!-- <button type="cancel" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button> -->
 	            </div>
 	          </form>
 	        </div>
 	      </article>
-        </div>
-    </section>
+        </div>  
+    </section> 
 
 <%@include file="../include/footer.jsp" %>

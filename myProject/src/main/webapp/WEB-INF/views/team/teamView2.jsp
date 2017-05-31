@@ -13,7 +13,7 @@
 		<input type="hidden" name="host" value="${vo.client_id}">    
 		   
 		<input type="hidden" name="a_applicant"
-			value="${sessionScope.login.client_id}"> 
+			value="${sessionScope.login.client_id}">     
 
 		<div class="container">
 			<div align="center">
@@ -58,8 +58,8 @@
 			<br> 
 		</div>
 
-		<div align="center">
-			<button class="btn btn-primary btn-lg" style="width: 300px; height: 70px" type="submit">대결 신청</button> 
+		<div align="center">  
+			<button class="btn btn-primary btn-lg" style="width: 300px; height: 70px" type="submit">수락 하기</button> 
 		</div>
 	</form>
 </section>

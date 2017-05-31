@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.soccerkick.dao.GameMatchDAO;
 import com.soccerkick.dao.TeamCreateDAO;
 import com.soccerkick.dao.TeamDAO;
 import com.soccerkick.vo.GameVO;
@@ -63,13 +64,17 @@ public class teamController {
 		return mv;
 	}
 	
+	  
 	
 	@RequestMapping(value="/gameMatch" , method = RequestMethod.POST)
-	public String gameMatch(GameVO vo,RedirectAttributes rttr){  
+	public String gameMatch(GameVO vo,RedirectAttributes rttr, HttpSession session){
 		TeamDAO dao = sqlSession.getMapper(TeamDAO.class);
 		dao.gameMatch(vo);    
-		System.out.println("성공");   
+		System.out.println("성공");    
 		rttr.addFlashAttribute("msg", "SUCCESS"); 
+		if (session.getAttribute("login") == null) {
+			return "redirect:/";   
+		}
 		return "redirect:/team/teamViewList";  
 	}       
 
@@ -80,6 +85,7 @@ public class teamController {
 		String sid = ((userVO) session.getAttribute("login")).getClient_id();
 		vo.setClient_id(sid);
 		String fname = vo.getUploadfile().getOriginalFilename();
+		
 		if (fname.equals("")) {
 			vo.setTeam_logo_file_name(fname);
 		} else {

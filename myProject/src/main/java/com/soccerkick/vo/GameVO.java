@@ -1,9 +1,37 @@
 package com.soccerkick.vo;
 
 public class GameVO {
-	String host, applicant_id;
+	String host, applicant,result, gameday, place;
 
-	public String getHost() {
+	   
+	
+	
+	
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public String getGameday() {
+		return gameday;
+	}
+
+	public void setGameday(String gameday) {
+		this.gameday = gameday;
+	}
+
+	public String getHost() {  
 		return host;
 	}
 
@@ -11,14 +39,13 @@ public class GameVO {
 		this.host = host;
 	}
 
-	public String getApplicant_id() {
-		return applicant_id;
+	public String getApplicant() {
+		return applicant;
 	}
 
-	public void setApplicant_id(String applicant_id) {
-		this.applicant_id = applicant_id;
+	public void setApplicant(String applicant) {
+		this.applicant = applicant;
 	}
-	
 	
 
 }
