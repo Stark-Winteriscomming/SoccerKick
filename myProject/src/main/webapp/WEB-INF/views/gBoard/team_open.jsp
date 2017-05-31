@@ -6,13 +6,20 @@
 	<link rel="stylesheet"
 	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<link href="/resources/css/team_open.css" rel="stylesheet">
-	<style>
-		.carousel-inner>.item>img, .carousel-inner>.item>a>img {
-			width: 70%;
-			margin: auto;
-		}
-	</style>
-	<section id="portfolio" class="bg-light-gray">
+
+
+<style>
+	#selected_place{
+		display:none;
+	}
+	h3{
+		text-align: center;
+	}
+	.thumbnail{
+		height:300px;
+	}
+</style>
+<section id="portfolio" class="bg-light-gray">
 		<div class="content">
 			<div class="pageTitle">
 				<h1>팀 개설하기</h1>
@@ -25,10 +32,7 @@
 					<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 3</button>
 				</div> -->
 					<!-- start of team_logo -->
-					<div class="team_logo">
-						<div class="img_area"></div>
-						<button class="btn_img" type="button">추천 이미지 보기</button>
-					</div>
+				
 					<!-- end of team_logo -->
 
 					<!-- start of team_title -->
@@ -156,86 +160,118 @@
 
 					<!-- start of formation -->
 					<div class="formation">
-						<h4 class="webFont">포메이션</h4>
-						<div id="myCarousel" class="carousel slide" data-ride="carousel"
-							data-interval="false">
-
-							<!-- Wrapper for slides -->
-							<div class="carousel-inner" role="listbox">
-
-								<div class="item active">
-									<img src="/resources/img/1.jpg" alt="Chania">
-
-								</div>
-
-								<div class="item">
-									<img src="/resources/img/1.jpg" alt="Chania">
-
-								</div>
-
-								<div class="item">
-									<img src="/resources/img/1.jpg" alt="Flower">
-
-								</div>
-
-								<div class="item">
-									<img src="/resources/img/1.jpg" alt="Flower">
-
-								</div>
-
+						<h4 class="webFont">장소선택</h4>
+						<div class="container2">
+						  <input type="hidden" name="place" id="place" value="" />
+						  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">장소 선택</button>
+						  <div class="modal fade" id="myModal" role="dialog">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          <h4 class="modal-title">장소 선택</h4>
+						        </div>
+						        <div class="modal-body">
+						          <div class="container_place">
+									<div class="row">
+								  <div class="col-sm-6 col-md-4" id="seongbuk">
+								    <div class="thumbnail">
+								      <img src="../resources/ground/1.jpg" alt="...">
+								      <div class="caption">
+								        <h3>성북 경기장</h3>
+								                     
+								        <p><a href="#place" class="btn btn-primary" role="button" id="btn_seongbuk">선택하기</a></p>
+								      </div>
+								    </div>   
+								  </div>
+								  <div class="col-sm-6 col-md-4">
+								    <div class="thumbnail">
+								      <img src="../resources/ground/2.jpg" alt="...">
+								      <div class="caption">
+								        <h3>강남 경기장</h3>
+								        <p><a href="#place" class="btn btn-primary" role="button" id="btn_gangnam">선택하기</a></p>
+								      </div>
+								    </div>
+								  </div>
+								  <div class="col-sm-6 col-md-4">
+								    <div class="thumbnail">
+								      <img src="../resources/ground/3.jpg" alt="...">
+								      <div class="caption">
+								        <h3>동대문<br>경기장</h3>
+								        
+								        <p><a href="#place" class="btn btn-primary" role="button" id="btn_dongdaemun">선택하기</a></p>
+								      </div>
+								    </div>
+								  </div> 
+								  <div class="col-sm-6 col-md-4">
+								    <div class="thumbnail">
+								      <img src="../resources/ground/2.jpg" alt="...">
+								      <div class="caption">
+								        <h3>광진 경기장</h3>
+								         
+								        <p><a href="#place" class="btn btn-primary" role="button" id="btn_gwangjin">선택하기</a></p>
+								      </div>
+								    </div>
+								  </div>
+								  <div class="col-sm-6 col-md-4">
+								    <div class="thumbnail">
+								      <img src="../resources/ground/5.jpg" alt="...">
+								      <div class="caption">
+								        <h3>서초 경기장</h3>
+								        <p><a href="#place" class="btn btn-primary" role="button" id="btn_seocho">선택하기</a></p>
+								      </div>
+								    </div> 
+								  </div>
+								  
+								</div>  
+									</div>  
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+						  
+						 	<div id="selected_place">
+								 <div class="col-sm-6 col-md-4" id="selected_seongbuk">
+								      <img src="../resources/ground/1.jpg" alt="..." id="img_seongbuk">
+								      <div class="caption">
+								        <h3>성북 경기장</h3>           
+								      </div>
+								  </div>
+								   <div class="col-sm-6 col-md-4" id="selected_gangnam">
+								      <img src="../resources/ground/2.jpg" alt="..." id="img_gangnam">
+								      <div class="caption">
+								        <h3>강남 경기장</h3>
+								      </div>
+								  </div>
+								  
+								  <div class="col-sm-6 col-md-4" id="selected_dongdaemun">
+								      <img src="../resources/ground/3.jpg" alt="..." id="img_dongdaemun">
+								      <div class="caption">
+								        <h3>동대문 경기장</h3>
+								      </div>
+								    
+								  </div>
+								   <div class="col-sm-6 col-md-4" id="selected_gwangjin">
+								      <img src="../resources/ground/2.jpg" alt="..." id="img_gwangjin">
+								      <div class="caption">
+								        <h3>광진 경기장</h3>
+								      </div>
+								  </div>
+								  <div class="col-sm-6 col-md-4" id="selected_seocho">
+								      <img src="../resources/ground/5.jpg" alt="..." id="img_seocho">
+								      <div class="caption">
+								        <h3>서초 경기장</h3>
+								      </div>
+								  </div> 
 							</div>
-
-							<!-- Left and right controls -->
-							<a class="left carousel-control" href="#myCarousel" role="button"
-								data-slide="prev"> <span
-								class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-								<span class="sr-only">Previous</span>
-							</a> <a class="right carousel-control" href="#myCarousel"
-								role="button" data-slide="next"> <span
-								class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-								<span class="sr-only">Next</span>
-							</a>
 						</div>
+						
+						
 					</div>
 					<!-- end of formation -->
-					
-					<div class="team_establish">
-						<h4 class="webFont">모임 설정</h4>
-						<div class="establish">
-							<div class="parsleyGroupValidate">
-								<table>
-									<thead>
-										<tr>
-											<td>참가인원</td>
-											<td>참가비용</td>
-											<td>선정방법</td>
-											<td>동반인원</td>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>
-												<input type="text" class="people"/>명
-											</td>
-											<td>
-												<input type="text" class="money"/>원
-											</td>
-											<td>
-												<select>
-													<option>선착순</option>
-													<option>개설자 선정</option>
-												</select>
-											</td>
-											<td>
-												자신포함
-												<input type="text" class="people"/>명
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
 					
 					<!-- start of team_comment -->
 					<div class="team_comment">
@@ -305,8 +341,8 @@
 	
 	
 	<%@include file="../include/footer.jsp" %>
-	
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
 	<script>
 		$(function() {
 		  $( "#datepicker1, #datepicker2" ).datepicker({
@@ -323,5 +359,81 @@
 		    changeYear: true,
 		    yearSuffix: '년'
 		  });
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			
+		    $("#btn_seongbuk").click(function(){
+		    	$(".formation").css('height','500px');
+		    	$("#selected_place").css('display','block').css('width','783px')
+		    	.css('height','400px').css('margin-top','30px')
+		    	.css('margin-left','0px');
+		    	$("#selected_seongbuk").css('padding-left','0px')
+		    	.css('display','block').css('width','100%');
+		    	$("#img_seongbuk").css('width','100%').css('height','300px');
+		    	
+		    	$("#selected_gangnam").css('display','none');
+		    	$("#selected_dongdaemun").css('display','none');
+		    	$("#selected_gwangjin").css('display','none');
+		    	$("#selected_seocho").css('display','none');
+		    });
+		    
+		    $("#btn_gangnam").click(function(){
+		    	$(".formation").css('height','500px');
+		    	$("#selected_place").css('display','block').css('width','783px')
+		    	.css('height','400px').css('margin-top','30px')
+		    	.css('margin-left','0px');
+		    	$("#selected_gangnam").css('padding-left','0px').css('display','block').css('width','100%');
+		    	$("#img_gangnam").css('width','100%').css('height','300px');
+		    	
+		    	$("#selected_seongbuk").css('display','none');
+		    	$("#selected_dongdaemun").css('display','none');
+		    	$("#selected_gwangjin").css('display','none');
+		    	$("#selected_seocho").css('display','none');
+		    });
+		    $("#btn_dongdaemun").click(function(){
+		    	$(".formation").css('height','500px');
+		    	$("#selected_place").css('display','block').css('width','783px')
+		    	.css('height','400px').css('margin-top','30px')
+		    	.css('margin-left','0px');
+		    	$("#selected_dongdaemun").css('padding-left','0px').css('display','block').css('width','100%');
+		    	$("#img_dongdaemun").css('width','100%').css('height','300px');
+		    	
+		    	$("#selected_seongbuk").css('display','none');
+		    	$("#selected_gangnam").css('display','none');
+		    	$("#selected_gwangjin").css('display','none');
+		    	$("#selected_seocho").css('display','none');
+		    });
+		    
+		    $("#btn_gwangjin").click(function(){
+		    	$(".formation").css('height','500px');
+		    	$("#selected_place").css('display','block').css('width','783px')
+		    	.css('height','400px').css('margin-top','30px')
+		    	.css('margin-left','0px');
+		    	$("#selected_gwangjin").css('padding-left','0px').css('display','block').css('width','100%');
+		    	$("#img_gwangjin").css('width','100%').css('height','300px');
+		    	
+		    	$("#selected_gangnam").css('display','none');
+		    	$("#selected_seongbuk").css('display','none');
+		    	$("#selected_dongdaemun").css('display','none');
+		    	$("#selected_seocho").css('display','none');
+		    	
+		    });
+		    $("#btn_seocho").click(function(){
+		    	$(".formation").css('height','500px');
+		    	$("#selected_place").css('display','block').css('width','783px')
+		    	.css('height','400px').css('margin-top','30px')
+		    	.css('margin-left','0px');
+		    	$("#selected_seocho").css('padding-left','0px').css('display','block').css('width','100%');
+		    	$("#img_seocho").css('width','100%').css('height','300px');
+		    	
+		    	$("#selected_gangnam").css('display','none');
+		    	$("#selected_seongbuk").css('display','none');
+		    	$("#selected_dongdaemun").css('display','none');
+		    	$("#selected_gwangjin").css('display','none');
+		    });
+		    
 		});
 	</script>

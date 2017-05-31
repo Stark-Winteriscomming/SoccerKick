@@ -75,6 +75,9 @@
 		img{
 			cursor:pointer;
 		}
+		img:HOVER{
+			opacity:0.9;
+		}
 		#btn_group{
 			text-align: center;
 		}
