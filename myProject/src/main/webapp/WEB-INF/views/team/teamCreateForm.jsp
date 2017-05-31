@@ -55,7 +55,7 @@ input[type='file'] {
 	padding: 4px 10px;
 }
 
-span.btn_create,span.btn_cancel {
+span.btn_create, span.btn_cancel {
 	display: inline-block;
 	width: 100px;
 	padding: 10px 15px 20px 15px;
@@ -96,17 +96,17 @@ label.upload-text {
 	opacity: 0;
 	position: relative;
 }
-input[type=radio]:checked{
-	opacity:0;
-}
 
+input[type=radio]:checked {
+	opacity: 0;
+}
 </style>
 <link href="/resources/css/4-3-3.css" rel="stylesheet">
 <link href="/resources/css/formation_select.css" rel="stylesheet">
 <section id="portfolio" class="bg-light-gray">
 	<div class="team_create">
 		<h1 class="boardtitle">팀 생성하기</h1>
-		  
+
 		<hr>
 		<div class="team_create_form">
 			<form name="teamcreateform" action="teamCreateForm_check"
@@ -114,31 +114,39 @@ input[type=radio]:checked{
 				<ul class="formation_ul">
 					<li><label class="label2">팀명</label> <input type="text"
 						name="team_name" id="teamName" placeholder="팀이름"></li>
-					<li>
-						<label class="label2" id="#label2">포메이션</label><br><br>
+					<li><label class="label2" id="#label2">포메이션</label><br>
+					<br>
 						<div id="wrap">
-							<div id="position1" style="background: url('/resources/img/433.png'); background-size: 500px;">
-								<input type="radio" name="team_formation"  value="433" id="chk1" checked="checked">
-								<a href="#label2" id="left" class="btn2" role="button"><span class="glyphicon glyphicon-chevron-left" style="vertical-align:middle;"></span></a>
-								<a href="#label2" id="right" class="btn2" role="button"><span class="glyphicon glyphicon-chevron-right"></span></a>
+							<div id="position1"
+								style="background: url('/resources/img/433.png'); background-size: 500px;">
+								<input type="radio" name="team_formation" value="433" id="chk1"
+									checked="checked"> <a href="#label2" id="left"
+									class="btn2" role="button"><span
+									class="glyphicon glyphicon-chevron-left"
+									style="vertical-align: middle;"></span></a> <a href="#label2"
+									id="right" class="btn2" role="button"><span
+									class="glyphicon glyphicon-chevron-right"></span></a>
 							</div>
-							<div id="position2" style="background: url('/resources/img/4231.png'); background-size: 500px;">
+							<div id="position2"
+								style="background: url('/resources/img/4231.png'); background-size: 500px;">
 								<input type="radio" name="team_formation" value="4231" id="chk2">
-								<a href="#label2" id="left" class="btn2" role="button"><span class="glyphicon glyphicon-chevron-left"></span></a>
-								<a href="#label2" id="right" class="btn2" role="button"><span class="glyphicon glyphicon-chevron-right"></span></a>
-								
+								<a href="#label2" id="left" class="btn2" role="button"><span
+									class="glyphicon glyphicon-chevron-left"></span></a> <a
+									href="#label2" id="right" class="btn2" role="button"><span
+									class="glyphicon glyphicon-chevron-right"></span></a>
+
 							</div>
-							<div id="position3" style="background: url('/resources/img/41212.png'); background-size: 500px;">
-								<input type="radio" name="team_formation" value="41212" id="chk3">
-								<a id="left" class="btn2" href="#label2" role="button">
-									<span class="glyphicon glyphicon-chevron-left"></span>
-								</a>
-								<a id="right" class="btn2" href="#label2" role="button">
-									<span class="glyphicon glyphicon-chevron-right"></span>
+							<div id="position3"
+								style="background: url('/resources/img/41212.png'); background-size: 500px;">
+								<input type="radio" name="team_formation" value="41212"
+									id="chk3"> <a id="left" class="btn2" href="#label2"
+									role="button"> <span
+									class="glyphicon glyphicon-chevron-left"></span>
+								</a> <a id="right" class="btn2" href="#label2" role="button"> <span
+									class="glyphicon glyphicon-chevron-right"></span>
 								</a>
 							</div>
-						</div>
-					</li>
+						</div></li>
 					<li class="team_comment"><label class="label2">팀설명</label> <textarea
 							rows="10" cols="50" name="team_history" id="content"></textarea></li>
 					<li class="filebox"><label class="label2">팀로고 등록</label> <input
@@ -160,8 +168,9 @@ input[type=radio]:checked{
 
 					<li class="sending"><span class="btn_create" id="createCheck">팀
 							생성 &nbsp;<!-- <img src="../css/image/tick.png"> -->
-					</span>&nbsp;&nbsp; <span class="btn_cancel" id="createCancle">취소 &nbsp;<!-- <img src="../css/image/cross.png">--></span>
-					</li>
+					</span>&nbsp;&nbsp; <span class="btn_cancel" id="createCancle">취소
+							&nbsp;<!-- <img src="../css/image/cross.png">-->
+					</span></li>
 
 					<button id="btn">팀생성</button>
 				</ul>

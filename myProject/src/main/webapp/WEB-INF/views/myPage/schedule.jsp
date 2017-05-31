@@ -8,25 +8,20 @@
 <div class="row">
 	<div class="col-md-offset-3 col-md-3"> 
 	<br><br>  
-	<div class="alert alert-info">
+	<div class="alert alert-success">
 		<table class="table table-stripped">
 			<tr>
-				<th>host</th>
-				<th>applicant</th>
-				<th>수락</th>
-				<th>팀정보</th>
-				<th></th>
-			</tr>
+				<th>상대팀</th>
+				<th>경기날짜</th>  
+				<th>장소</th>
+			</tr>  
 			<c:forEach items="${list}" var="vo">
 				<tr>     
-					<td>${vo.host}</td>
 					<td>${vo.applicant}</td>
-					<td><a href="/myPage/admit?host=${vo.host}&applicant=${vo.applicant}">수락</a></td>
-					<td>     
-					<a href="/myPage/teamView?client_id=${vo.applicant}">팀정보</a>      
-					</td>
+  					<td>${vo.gameday}</td>
+					<td>${vo.place}</td>         
 				<tr>
-			</c:forEach>
+			</c:forEach>  
 		</table>  
 		</div>
 </div>

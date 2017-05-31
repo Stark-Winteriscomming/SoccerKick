@@ -6,12 +6,12 @@
   					alert("아이디를 입력하세요");
   					$("#id").focus();
   					return false;
-  				}else if($("#nickname").val() == ""){
+  				}else if($("#nickname").val() == ""){ 
   					alert("닉네임을 입력하세요");
   					$("#nickname").focus();
   					return false;
   				}else if($("#pass").val() == ""){
-  					alert("비밀번호를 입력하세요");
+  					alert("비밀번호를 입력하세요"); 
   					$("#pass").focus();
   					return false;
   				}else if($("#cpass").val() == ""){
@@ -20,7 +20,7 @@
   					return false;
   				}else if($("#name").val() == ""){
   					alert("이름을 입력하세요");
-  					$("#name").focus();
+  					$("#name").focus(); 
   					return false;
   				}else if($("#birth").val() == ""){
   					alert("생년월일을 입력하세요");
@@ -59,7 +59,6 @@
   						$(".help-block").text("비밀번호가 동일하지 않습니다. 다시 입력해 주세요");
   					}
   				}
-  				
   			});
   			/* 회원가입 폼 reset */
   			$(".btn-warning").click(function(){
@@ -72,6 +71,6 @@
   				$("#region").val("");
   				$("#cphone").val("");
   				$("#history").val("");
-  				$("#agree").prop("checked", false);				
+  				$("#agree").prop("checked", false);			
   			});
   		});
