@@ -48,3 +48,44 @@ $("#add").on("click", function() {
 		}
 	});
 });
+
+// showing not read mails
+
+//if ($("#mailCount").is(":visible")) {
+//	console.log('visible true');
+//	update();
+//	//5 seconds
+//	interval = setInterval(update, 5000);
+//}
+
+if ($( "#mailCount" ).length) {
+	console.log('length..');
+	update();
+	//5 seconds
+	interval = setInterval(update, 5000);
+}
+//$("#mailCount").on("click", function(){
+//	update();
+//})
+
+
+function update() {
+	$.ajax({
+		url : "/myPage/mail/readCount",
+		type : "GET",
+		data : "",
+		dataType : "text",
+		success : function(result) { // on completion, restart
+			$("#mailCount").text(result);
+			if(result === 'fail'){
+				console.log('fail')
+				clearInterval(interval);
+			}
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			clearInterval(interval);
+			//prevent update function 
+			window.update=function(){return false;};
+		}
+	})
+};

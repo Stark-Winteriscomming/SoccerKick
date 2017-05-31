@@ -11,5 +11,5 @@
 		<a href="/gBoard/selectPlace"><button class="btn btn-lg btn-success">장소 선택하기</button></a>
 	</div>
 	</div>    
-</section>        
+</section>                   
 <%@include file="../include/footer.jsp" %>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.soccerkick.dao.GameMatchDAO">
+	<select id="execSelect"  resultType="com.soccerkick.vo.GameVO">
+		select * from game where host = #{sid} 
+	</select>
+	<select id="execSchedule"  resultType="com.soccerkick.vo.GameVO">
+		select * from game where host = #{sid} and result='1' 
+	</select>
+	<select id="execApplyList"  resultType="com.soccerkick.vo.GameVO">
+		select * from game where applicant = #{sid}
+	</select>  
+	
+	<update id="gameMatchOk">
+		update game set result='1' where host=#{host} and applicant = #{applicant}
+	</update>    
+</mapper>      

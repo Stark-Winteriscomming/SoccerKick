@@ -12,8 +12,10 @@
 			height:100%;
 			margin:0 auto;
 			padding-top: 134px;
+			/* ë°°ê²½ */
+			
 		}	
-		.checks input[type="checkbox"] {  /* ½ÇÁ¦ Ã¼Å©¹Ú½º´Â È­¸é¿¡¼­ ¼û±è */
+		.checks input[type="checkbox"] {  /* ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ È­ï¿½é¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 		  position: absolute;
 		  width: 1px;
 		  height: 1px;
@@ -31,12 +33,12 @@
 		  -moz-user-select: none;
 		  -ms-user-select: none;
 		}
-		.checks .positon_fw input[type="checkbox"] + label:before {  /* °¡Â¥ Ã¼Å©¹Ú½º */
+		.checks .positon_fw input[type="checkbox"] + label:before {  /* ï¿½ï¿½Â¥ Ã¼Å©ï¿½Ú½ï¿½ */
 		  content: ' ';
 		  display: inline-block;
-		  width: 21px;  /* Ã¼Å©¹Ú½ºÀÇ ³Êºñ¸¦ ÁöÁ¤ */
-		  height: 21px;  /* Ã¼Å©¹Ú½ºÀÇ ³ôÀÌ¸¦ ÁöÁ¤ */
-		  line-height: 21px; /* ¼¼·ÎÁ¤·ÄÀ» À§ÇØ ³ôÀÌ°ª°ú ÀÏÄ¡ */
+		  width: 21px;  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Êºï¿½ ï¿½ï¿½ï¿½ï¿½ */
+		  height: 21px;  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+		  line-height: 21px; /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ */
 		  margin: -2px 8px 0 0;
 		  text-align: center; 
 		  vertical-align: middle;
@@ -45,12 +47,12 @@
 		  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
 		}
 		
-		.checks .position_mid input[type="checkbox"] + label:before {  /* °¡Â¥ Ã¼Å©¹Ú½º */
+		.checks .position_mid input[type="checkbox"] + label:before {  /* ï¿½ï¿½Â¥ Ã¼Å©ï¿½Ú½ï¿½ */
 		  content: ' ';
 		  display: inline-block;
-		  width: 21px;  /* Ã¼Å©¹Ú½ºÀÇ ³Êºñ¸¦ ÁöÁ¤ */
-		  height: 21px;  /* Ã¼Å©¹Ú½ºÀÇ ³ôÀÌ¸¦ ÁöÁ¤ */
-		  line-height: 21px; /* ¼¼·ÎÁ¤·ÄÀ» À§ÇØ ³ôÀÌ°ª°ú ÀÏÄ¡ */
+		  width: 21px;  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Êºï¿½ ï¿½ï¿½ï¿½ï¿½ */
+		  height: 21px;  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+		  line-height: 21px; /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ */
 		  margin: -2px 8px 0 0;
 		  text-align: center; 
 		  vertical-align: middle;
@@ -59,12 +61,12 @@
 		  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
 		}
 		
-		.checks .position_df input[type="checkbox"] + label:before {  /* °¡Â¥ Ã¼Å©¹Ú½º */
+		.checks .position_df input[type="checkbox"] + label:before {  /* ï¿½ï¿½Â¥ Ã¼Å©ï¿½Ú½ï¿½ */
 		  content: ' ';
 		  display: inline-block;
-		  width: 21px;  /* Ã¼Å©¹Ú½ºÀÇ ³Êºñ¸¦ ÁöÁ¤ */
-		  height: 21px;  /* Ã¼Å©¹Ú½ºÀÇ ³ôÀÌ¸¦ ÁöÁ¤ */
-		  line-height: 21px; /* ¼¼·ÎÁ¤·ÄÀ» À§ÇØ ³ôÀÌ°ª°ú ÀÏÄ¡ */
+		  width: 21px;  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Êºï¿½ ï¿½ï¿½ï¿½ï¿½ */
+		  height: 21px;  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+		  line-height: 21px; /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ */
 		  margin: -2px 8px 0 0;
 		  text-align: center; 
 		  vertical-align: middle;
@@ -73,12 +75,12 @@
 		  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
 		}
 		
-		.checks .position_gk input[type="checkbox"] + label:before {  /* °¡Â¥ Ã¼Å©¹Ú½º */
+		.checks .position_gk input[type="checkbox"] + label:before {  /* ï¿½ï¿½Â¥ Ã¼Å©ï¿½Ú½ï¿½ */
 		  content: ' ';
 		  display: inline-block;
-		  width: 21px;  /* Ã¼Å©¹Ú½ºÀÇ ³Êºñ¸¦ ÁöÁ¤ */
-		  height: 21px;  /* Ã¼Å©¹Ú½ºÀÇ ³ôÀÌ¸¦ ÁöÁ¤ */
-		  line-height: 21px; /* ¼¼·ÎÁ¤·ÄÀ» À§ÇØ ³ôÀÌ°ª°ú ÀÏÄ¡ */
+		  width: 21px;  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Êºï¿½ ï¿½ï¿½ï¿½ï¿½ */
+		  height: 21px;  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+		  line-height: 21px; /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ */
 		  margin: -2px 8px 0 0;
 		  text-align: center; 
 		  vertical-align: middle;
@@ -90,29 +92,29 @@
 		.checks input[type="checkbox"]:checked + label:active:before {
 		  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
 		}
-		.checks input[type="checkbox"]:checked + label:before {  /* Ã¼Å©¹Ú½º¸¦ Ã¼Å©ÇßÀ»¶§ */ 
-		  content: '\2714';  /* Ã¼Å©Ç¥½Ã À¯´ÏÄÚµå »ç¿ë */
+		.checks input[type="checkbox"]:checked + label:before {  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */ 
+		  content: '\2714';  /* Ã¼Å©Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ */
 		  color: #000000;
 		  text-shadow: 1px 1px #fff;
 		  background: #FF0000;
 		  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
 		}
-		.checks .position_mid input[type="checkbox"]:checked + label:before {  /* Ã¼Å©¹Ú½º¸¦ Ã¼Å©ÇßÀ»¶§ */ 
-		  content: '\2714';  /* Ã¼Å©Ç¥½Ã À¯´ÏÄÚµå »ç¿ë */
+		.checks .position_mid input[type="checkbox"]:checked + label:before {  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */ 
+		  content: '\2714';  /* Ã¼Å©Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ */
 		  color: #000000;
 		  text-shadow: 1px 1px #fff;
 		  background: #1DDB16;
 		  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
 		}
-		.checks .position_df input[type="checkbox"]:checked + label:before {  /* Ã¼Å©¹Ú½º¸¦ Ã¼Å©ÇßÀ»¶§ */ 
-		  content: '\2714';  /* Ã¼Å©Ç¥½Ã À¯´ÏÄÚµå »ç¿ë */
+		.checks .position_df input[type="checkbox"]:checked + label:before {  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */ 
+		  content: '\2714';  /* Ã¼Å©Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ */
 		  color: #000000;
 		  text-shadow: 1px 1px #fff;
 		  background: #0054FF;
 		  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
 		}
-		.checks .position_gk input[type="checkbox"]:checked + label:before {  /* Ã¼Å©¹Ú½º¸¦ Ã¼Å©ÇßÀ»¶§ */ 
-		  content: '\2714';  /* Ã¼Å©Ç¥½Ã À¯´ÏÄÚµå »ç¿ë */
+		.checks .position_gk input[type="checkbox"]:checked + label:before {  /* Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */ 
+		  content: '\2714';  /* Ã¼Å©Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ */
 		  color: #000000;
 		  text-shadow: 1px 1px #fff;
 		  background: #FFBB00;
@@ -133,6 +135,7 @@
 		.position_wrap{
 			float:left;  
 			width:50px;
+/* 			width:100px; */
 			text-align: center;
 		}
 		.position_mid .position_wrap{

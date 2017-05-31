@@ -11,7 +11,7 @@ public interface MemberSelectDAO {
 
 	public ArrayList<MemberSelectVO> execSelect(@Param("team_id") String team_id, @Param("position")String position);
 
-	public ArrayList<MemberSelectVO> execSelectt(String no);
+	public ArrayList<MemberSelectVO> execSelectt(@Param("team_id") int team_id);
 
 	public int execInsert(String no);
 	

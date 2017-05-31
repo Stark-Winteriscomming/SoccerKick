@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.soccerkick.dao.FormationDAO">
+
+	<select id="execSelectFormation_433" resultType="com.soccerkick.vo.Formation_433VO">
+		select * from formation_433 where team_id=#{team_id}
+	</select>
+	<select id="execSelectFormation_4231" resultType="com.soccerkick.vo.Formation_4231VO">
+		select * from formation_4231 where team_id=#{team_id}
+	</select>
+		<select id="execSelectFormation_41212" resultType="com.soccerkick.vo.Formation_41212VO">
+		select * from formation_41212 where team_id=#{team_id}
+	</select>
+	<update id="execUpdate">
+		update
+		<choose>
+			<when test="formation.equals('433')">
+				formation_433 set 
+				<choose>
+					<when test="position.equals('LWF')">
+						lwf = #{client_id}
+					</when>
+					<when test="position.equals('ST')">
+						st = #{client_id}
+					</when>
+					<when test="position.equals('RWF')">
+						rwf = #{client_id}
+					</when>
+					<when test="position.equals('LM')">
+						lm = #{client_id}
+					</when>
+					<when test="position.equals('CM')">
+						cm = #{client_id}
+					</when>
+					<when test="position.equals('RM')">
+						rm = #{client_id}
+					</when>
+					<when test="position.equals('LB')">
+						lb = #{client_id}
+					</when>
+					<when test="position.equals('LCB')">
+						lcb = #{client_id}
+					</when>
+					<when test="position.equals('RCB')">
+						rcb = #{client_id}
+					</when>
+					<when test="position.equals('RB')">
+						rb = #{client_id}
+					</when>
+					<when test="position.equals('GK')">
+						gk = #{client_id}
+					</when>
+				</choose>
+			</when>
+			<when test="formation.equals('4231')">
+				formation_4231 set 
+				<choose>
+					<when test="position.equals('LM')">
+						lm = #{client_id}
+					</when>
+					<when test="position.equals('ST')">
+						st = #{client_id}
+					</when>
+					<when test="position.equals('CAM')">
+						cam = #{client_id}
+					</when>
+					<when test="position.equals('RM')">
+						rm = #{client_id}
+					</when>
+					<when test="position.equals('CDM1')">
+						cdm1 = #{client_id}
+					</when>
+					<when test="position.equals('CDM2')">
+						cdm2 = #{client_id}
+					</when>
+					<when test="position.equals('LB')">
+						lb = #{client_id}
+					</when>
+					<when test="position.equals('CB1')">
+						cb1 = #{client_id}
+					</when>
+					<when test="position.equals('CB2')">
+						cb2 = #{client_id}
+					</when>
+					<when test="position.equals('RB')">
+						rb = #{client_id}
+					</when>
+					<when test="position.equals('GK')">
+						gk = #{client_id}
+					</when>
+				</choose>
+			</when>
+			<when test="formation.equals('41212')">
+				formation_41212 set 
+				<choose>
+					<when test="position.equals('LS')">
+						ls = #{client_id}
+					</when>
+					<when test="position.equals('RS')">
+						rs = #{client_id}
+					</when>
+					<when test="position.equals('CAM')">
+						cam = #{client_id}
+					</when>
+					<when test="position.equals('LM')">
+						lm = #{client_id}
+					</when>
+					<when test="position.equals('RM')">
+						rm = #{client_id}
+					</when>
+					<when test="position.equals('CDM')">
+						cdm = #{client_id}
+					</when>
+					<when test="position.equals('LB')">
+						lb = #{client_id}
+					</when>
+					<when test="position.equals('CB1')">
+						cb1 = #{client_id}
+					</when>
+					<when test="position.equals('CB2')">
+						cb2 = #{client_id}
+					</when>
+					<when test="position.equals('RB')">
+						rb = #{client_id}
+					</when>
+					<when test="position.equals('GK')">
+						gk = #{client_id}
+					</when>
+				</choose>
+			</when>
+			<when test=""></when>
+		</choose>
+		where team_id = #{team_id}
+	</update>
+</mapper>

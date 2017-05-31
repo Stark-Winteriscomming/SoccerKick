@@ -1,5 +1,9 @@
 package com.soccerkick.vo;
 
+import java.util.ArrayList;
+
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 public class userVO {
 	private String client_id;
 	private String client_name;
@@ -11,6 +15,17 @@ public class userVO {
 	private String client_prifile_name;
 	private String client_phone;
 	private Integer pw;
+	CommonsMultipartFile uploadfile;
+  
+	
+
+	public CommonsMultipartFile getUploadfile() {
+		return uploadfile;
+	}
+
+	public void setUploadfile(CommonsMultipartFile uploadfile) {
+		this.uploadfile = uploadfile;
+	}
 
 	public Integer getPw() {
 		return pw;

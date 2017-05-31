@@ -1,10 +1,37 @@
 package com.soccerkick.vo;
 
+import java.util.Random;
+
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 public class JoinVO {
-	private String client_id;
+	private String client_id, fname;
 	private String client_name;
 	private String client_phone;
 	private Integer pw;
+	CommonsMultipartFile file;
+	
+  
+	
+	
+	
+
+
+	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+	public CommonsMultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(CommonsMultipartFile file) {
+		this.file = file;
+	}
 
 	public String getClient_id() {
 		return client_id;
