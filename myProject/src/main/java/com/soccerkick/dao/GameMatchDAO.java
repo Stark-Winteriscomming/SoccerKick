@@ -12,5 +12,9 @@ public interface GameMatchDAO {
 	
 	public ArrayList<GameVO> execSchedule(String sid);
 	
+	public ArrayList<GameVO> execApplyList(String sid);
+	
 	public void gameMatchOk(@Param("applicant") String applicant, @Param("host") String host);
+	
+	
 }
