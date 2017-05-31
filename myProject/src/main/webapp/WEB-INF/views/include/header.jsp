@@ -52,7 +52,7 @@
 								<li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
 								<li><a href="/myPage/modify">수정</a></li>
 								<li><a href="/myPage/gameMatch">게임 매칭 내역</a></li>
-								
+								<li><a href="/myPage/schedule">경기 일정</a></li>
 							</ul>
 						</div>
 

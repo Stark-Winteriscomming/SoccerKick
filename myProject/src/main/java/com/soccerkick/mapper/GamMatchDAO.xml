@@ -9,7 +9,10 @@
 	</select>
 	<select id="execSchedule"  resultType="com.soccerkick.vo.GameVO">
 		select * from game where host = #{sid} and result='1' 
-	</select> 
+	</select>
+	<select id="execApplyList"  resultType="com.soccerkick.vo.GameVO">
+		select * from game where applicant = #{sid}
+	</select>  
 	
 	<update id="gameMatchOk">
 		update game set result='1' where host=#{host} and applicant = #{applicant}

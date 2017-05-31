@@ -269,7 +269,9 @@ public class myPageController {
 		String sid = ((userVO) (session.getAttribute("login"))).getClient_id();
 		GameMatchDAO dao = sqlSession.getMapper(GameMatchDAO.class);
 		ArrayList<GameVO> list = dao.execSelect(sid);
+		ArrayList<GameVO> list2 = dao.execApplyList(sid);
 		mv.addObject("list",list);
+		mv.addObject("list2",list2);
 		mv.setViewName("/myPage/gameMatch");}
 		return mv;  
 		
