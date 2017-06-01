@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.GboardDAO;
+import com.soccerkick.dao.MatchingDAO;
 import com.soccerkick.vo.GboardVO;
+import com.soccerkick.vo.MatchingVO;
 import com.soccerkick.vo.MemberSelectVO;
 import com.soccerkick.vo.TeamVO;
 import com.soccerkick.vo.userVO;
@@ -42,9 +44,29 @@ public class gBoardController{
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/team_open", method = RequestMethod.GET)
-	public void teamOpen(Model model) throws Exception {
+	@RequestMapping("/team_open")
+	public String team_open(){
+		
+		return "/gBoard/team_open";
 	}
+	
+	@RequestMapping("/matching_controller")
+	public String matching_controller(MatchingVO vo, HttpSession session, String startday, String endday,
+			String phone1, String phone2, String phone3, String email1, String email2){
+		String sid = ((userVO) session.getAttribute("login")).getClient_id();
+		MatchingDAO  dao = sqlSession.getMapper(MatchingDAO.class);
+		String gameday = startday + " ~ " + endday;
+		String phone = phone1 + "-" + phone2 + "-" + phone3;
+		String email = email1 + "@" + email2;
+		System.out.println("sid:"+sid);
+		vo.setHost(sid);
+		vo.setGameday(gameday);
+		vo.setPhone(phone);
+		vo.setEmail(email);
+		dao.execInsert(vo);
+		return "redirect:/gBoard/team_open";
+	}
+	
 	
 	@RequestMapping(value = "/place", method = RequestMethod.GET)
 	public void place(Model model) throws Exception {
