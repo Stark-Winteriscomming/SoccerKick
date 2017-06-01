@@ -3,7 +3,6 @@
 	pageEncoding="UTF-8"%>
 
 <%@include file="../include/header.jsp"%>
-
 <section id="portfolio" class="bg-light-gray">
 	<div class="container">
 		<div class="row">
@@ -25,11 +24,11 @@
 							<div class="portfolio-hover-content">
 								<i class="fa fa-plus fa-3x"></i>
 							</div>
-						</div> <img src="/upload/${vo.team_logo_file_name}"
+						</div> <img src="/upload/${vo.team_logo_file_name}" style="width:100%;height:100%;"
 						class="img-responsive" alt="">
 					</a>
 					<div class="portfolio-caption">
-						<h4>${vo.team_name}</h4>  
+						<h4>${vo.team_name}</h4> 	 
 						<p class="text-muted">${vo.team_history}</p>
 						<a href="/team/teamView?team_id=${vo.team_id}"><button
 								class="btn btn-primary">상세 보기</button></a>
@@ -40,7 +39,6 @@
 		</div>
 	</div>
 </section>
-
 
 
 
