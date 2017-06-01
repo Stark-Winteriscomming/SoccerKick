@@ -130,7 +130,7 @@
 			<h1 class="ftitle2">선택 된 선수리스트</h1>
 			<br>
 			
-		<form name="selectForm" action="/myPage/complete_team" method="post">
+		<!-- <form name="selectForm action="/myPage/complete_team" method="post"> -->
 				
 				<table class="table table-striped" id="tList">
 					<thead>
@@ -177,7 +177,7 @@
 				<!-- <button class="cselect" style="width: 280px; height: 80px;">선택 취소</button> -->
 				<button id="cselect" style="width: 280px; height: 80px;">선택 완료</button>
 			</div>
- 			</form> 
+ 			<!-- </form>  -->
 <!-- 			<form name="selectForm" action="/myPage/complete_team" method="post"> -->
 				
 <!-- 			</form> -->
