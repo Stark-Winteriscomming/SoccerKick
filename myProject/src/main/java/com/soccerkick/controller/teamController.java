@@ -117,10 +117,12 @@ public class teamController {
 		String fname = vo.getUploadfile().getOriginalFilename();
 		
 		if (fname.equals("")) {
-			vo.setTeam_logo_file_name(fname);
+//			vo.setTeam_logo_file_name(fname);
+			vo.setTeam_logo_file_name("no-image.jpg");
 		} else {
 			String path = request.getSession().getServletContext().getRealPath("/upload");
-			/* System.out.println(path); */
+			System.out.println(path); 
+
 			String[] flist = new File(path).list();
 			for (int i = 0; i < flist.length; i++) {
 				System.out.println("ddd:" + flist[i]);
