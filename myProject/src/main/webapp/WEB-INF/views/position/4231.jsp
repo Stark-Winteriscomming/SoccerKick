@@ -5,6 +5,7 @@
 <%@ page import="java.util.*"%>
 <%
 	ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute("list");
+	TeamVO tvo = (TeamVO)request.getAttribute("tvo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -98,29 +99,40 @@
 			<h1 class="ftitle">포메이션</h1>
 			<div class="formation_4231">
 		<div class="fw">
-			<img src="/resources/img/POSITION/ST.png" width="70px" height="70px;" id="st"/>	
+			<img src="/resources/img/POSITION/ST.png" width="70px" height="70px;" id="st"
+				onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=ST','popup','scrollbars=no, resizable=no, width=800,height=600')"/>	
 		</div>
 		
 		<div class="cam">
-			<img src="/resources/img/POSITION/LM.png" width="70px" height="70px;" id="lm"/>
-			<img src="/resources/img/POSITION/CAM.png" width="70px" height="70px;" id="cam"/>
-			<img src="/resources/img/POSITION/RM.png" width="70px" height="70px;" id="rm"/>
+			<img src="/resources/img/POSITION/LM.png" width="70px" height="70px;" id="lm"
+				onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LM','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
+			<img src="/resources/img/POSITION/CAM.png" width="70px" height="70px;" id="cam"
+				onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=CAM','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
+			<img src="/resources/img/POSITION/RM.png" width="70px" height="70px;" id="rm"
+				onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RM','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
 		</div>
 		
 		<div class="cdm">
-			<img src="/resources/img/POSITION/CDM.png" width="70px" height="70px;" id="cdm1"/>
-			<img src="/resources/img/POSITION/CDM.png" width="70px" height="70px;" id="cdm2"/>
+			<img src="/resources/img/POSITION/CDM.png" width="70px" height="70px;" id="cdm1"
+				onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LCDM','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
+			<img src="/resources/img/POSITION/CDM.png" width="70px" height="70px;" id="cdm2"
+				onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RCDM','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
 		</div>
 		
 		<div class="df">
-				<img src="/resources/img/POSITION/LB.png" width="70px" height="70px;" id="lb"/>
-				<img src="/resources/img/POSITION/CB.png" width="70px" height="70px;" id="cb1"/>
-				<img src="/resources/img/POSITION/CB.png" width="70px" height="70px;" id="cb2"/>
-				<img src="/resources/img/POSITION/RB.png" width="70px" height="70px;" id="rb"/>
+				<img src="/resources/img/POSITION/LB.png" width="70px" height="70px;" id="lb"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LB','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
+				<img src="/resources/img/POSITION/CB.png" width="70px" height="70px;" id="cb1"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LCB','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
+				<img src="/resources/img/POSITION/CB.png" width="70px" height="70px;" id="cb2"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RCB','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
+				<img src="/resources/img/POSITION/RB.png" width="70px" height="70px;" id="rb"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RB','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
 		</div>
 		
 		<div class="gk">
-				<img src="/resources/img/POSITION/GK.png" width="70px" height="70px;" id="gk"/>
+				<img src="/resources/img/POSITION/GK.png" width="70px" height="70px;" id="gk"
+					onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=GK','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
 		</div>
 	</div>
 		</Div>

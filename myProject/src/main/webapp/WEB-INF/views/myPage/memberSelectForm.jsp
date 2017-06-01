@@ -34,7 +34,7 @@ function reloadpage(){
 td,th {
 	text-align: center;
 }
-.row{
+.wrap_memberselectform{
 	width:1500px;
 	height:100%;
 	background-color: #d9edf7;
@@ -43,7 +43,7 @@ td,th {
 </style>
 <section id="portfolio" class="bg-light-gray">
 	
-		<div class="row">			
+		<div class="wrap_memberselectform">			
 				<%
 					if (vo.getTeam_formation().equals("433")) {
 				%>

@@ -361,9 +361,9 @@ section h3.section-subheading {
   font-size: 16px;
   margin: 0;
 }
-#portfolio * {
+/* #portfolio * {
   z-index: 2;
-}
+} */ 
 @media (min-width: 767px) {
   #portfolio .portfolio-item {
     margin: 0 0 30px;
@@ -710,9 +710,9 @@ ul.social-buttons li a:active {
   background-color: #222222;
   transform: rotate(45deg);
   -ms-transform: rotate(45deg);
-  /* IE 9 */
+  IE 9
   -webkit-transform: rotate(45deg);
-  /* Safari and Chrome */
+  Safari and Chrome
   z-index: 1051;
 }
 .portfolio-modal .close-modal .lr .rl {
@@ -721,15 +721,16 @@ ul.social-buttons li a:active {
   background-color: #222222;
   transform: rotate(90deg);
   -ms-transform: rotate(90deg);
-  /* IE 9 */
+  IE 9
   -webkit-transform: rotate(90deg);
-  /* Safari and Chrome */
+  Safari and Chrome
   z-index: 1052;
 }
-.portfolio-modal .modal-backdrop {
+.portfolio-modal .
+-backdrop {
   opacity: 0;
   display: none;
-}
+} 
 ::-moz-selection {
   text-shadow: none;
   background: #fed136;

@@ -94,7 +94,7 @@
     				</div>
     			</div>
     			<div align="center">
-    				<button type="button" class="btn_modify">수정완료</button>
+    			    	<button type="button" class="btn_modify">수정완료</button>
     				<button type="button" class="btn_cancel">취소</button>
     			</div>
     		</div>
