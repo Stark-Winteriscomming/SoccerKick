@@ -42,7 +42,7 @@ public class myPageController {
 		ModelAndView mv = new ModelAndView();
 		if(searchText != null){
 //			System.out.println("searchText: "+ searchText);
-		}
+		} 
 		ChatRoomDAO dao = sqlSession.getMapper(ChatRoomDAO.class);
 		if (session.getAttribute("login") == null) {
 			System.out.println("session: login is null...");

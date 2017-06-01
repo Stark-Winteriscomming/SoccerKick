@@ -27,10 +27,11 @@ public class HomeController {
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
 		ArrayList<TeamVO> list = dao.execSelect();
 		mv.addObject("list", list);
-		mv.setViewName("/home");
+		mv.setViewName("/home"); 
 
 		return mv;
 	}
+	
 	@RequestMapping("/arraymain.do")
 	public String arraymain(){
 		

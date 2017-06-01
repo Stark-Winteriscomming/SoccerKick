@@ -57,7 +57,7 @@
 							</ul>
 						</div>
 
-
+  
 						<div class="btn-group">
 							<button type="button" class="btn btn-default btn-lg"
 								data-toggle="dropdown">
@@ -78,8 +78,12 @@
 							<a href="/"><button type="button"
 									class="btn btn-default btn-g  btn-lg">팀원 모집</button></a>
 						</div>
-						<div class="btn-group">
+						<div class="btn-group">  
 							<a href="/team/teamViewList"><button type="button"
+									class="btn btn-default btn-g  btn-lg">경기 매칭</button></a>
+						</div>
+						<div class="btn-group">
+							<a href="/gBoard/gameList"><button type="button"  
 									class="btn btn-default btn-g  btn-lg">경기 매칭</button></a>
 						</div>
 					</div>

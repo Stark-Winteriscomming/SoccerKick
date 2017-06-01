@@ -9,6 +9,10 @@
 		team_id=#{team_id}
 	</select> 
 	
+	<select id="execGameInfo"  resultType="com.soccerkick.vo.GameBoardVO">  
+		select * from gameboard, team where gameboard.host = team.client_id   
+	</select> 
+	
 	<select id="teamView" resultType="com.soccerkick.vo.TeamVO">
 		select * from team where
 		client_id=#{client_id}    
