@@ -3,11 +3,14 @@
 	pageEncoding="UTF-8"%>
 
 <%@include file="../include/header.jsp"%>
+<div style="height: 800px;">
 <input type="hidden" name="a_applicant"
 	value="${sessionScope.login.client_id}">
 <div class="row">
-	<div class="col-md-offset-3 col-md-3"> 
-	<br><br>  
+	<div class="col-md-offset-4 col-md-4">   
+	<br><br><br>
+	<h3><span class="label label-success">경기 일정</span></h3>
+	<br>
 	<div class="alert alert-success">
 		<table class="table table-stripped">
 			<tr>
@@ -28,6 +31,6 @@
 </div>
 
 
-
+</div>
 
 <%@include file="../include/footer.jsp"%>

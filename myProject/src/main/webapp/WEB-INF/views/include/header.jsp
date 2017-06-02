@@ -51,23 +51,16 @@
 								<li><a href="/myPage/chatRoomList">실시간 채팅</a></li>
 								<li><a href="/myPage/mails">메일함</a></li>
 								<li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
-								<li><a href="/myPage/modify">수정</a></li>
 								<li><a href="/myPage/gameMatch">게임 매칭 내역</a></li>
 								<li><a href="/myPage/schedule">경기 일정</a></li>
 							</ul>
 						</div>
 
-
+  
+			  
 						<div class="btn-group">
-							<button type="button" class="btn btn-default btn-lg"
-								data-toggle="dropdown">
-								모집 게시판<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" role="menu">
-								<!-- 모임 생성 추가 -->
-								<li><a href="/gBoard/team_open">모임 생성</a></li>
-								<li><a href="/gBoard/place">장소 섭외</a></li>
-							</ul>
+							<a href="/gBoard/team_open"><button type="button"
+									class="btn btn-default btn-g btn-lg">경기 생성</button></a>
 						</div>
 
 						<div class="btn-group">
@@ -76,10 +69,14 @@
 						</div>
 						<div class="btn-group">
 							<a href="/"><button type="button"
-									class="btn btn-default btn-g  btn-lg">팀원 모집</button></a>
+									class="btn btn-default btn-g  btn-lg">입단 신청</button></a>
+						</div>
+						<div class="btn-group">  
+							<a href="/team/teamViewList"><button type="button"
+									class="btn btn-default btn-g  btn-lg">팀 정보</button></a>
 						</div>
 						<div class="btn-group">
-							<a href="/team/teamViewList"><button type="button"
+							<a href="/gBoard/gameList"><button type="button"  
 									class="btn btn-default btn-g  btn-lg">경기 매칭</button></a>
 						</div>
 					</div>
@@ -96,7 +93,7 @@
                 </div>
             </div>      
         </div>
-    </nav>   
+    </nav>     
 
     <header>
         <div class="container">

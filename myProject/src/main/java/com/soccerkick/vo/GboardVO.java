@@ -2,7 +2,7 @@ package com.soccerkick.vo;
 
 public class GboardVO {
 	
-	String a_no, a_applicant, a_apy_team, a_apy_position, a_apy_result, g_board_no;  
+	String a_no, a_applicant, a_apy_team, a_apy_position, a_apy_result, g_board_no, team_logo_file_name;  
 
 	public String getA_no() {
 		return a_no;

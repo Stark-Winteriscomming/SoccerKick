@@ -2,6 +2,8 @@ package com.soccerkick.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,16 +23,24 @@ public class HomeController {
 	SqlSessionTemplate sqlSession;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home(Model model) {
-
+	public ModelAndView home(Model model, HttpSession session) {
+  
 		ModelAndView mv = new ModelAndView();
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
+		if (session.getAttribute("login") == null) {
+			System.out.println("session: login is null...");
+
+			// return login page
+			mv.setViewName("/user/login");
+			return mv;
+		}
 		ArrayList<TeamVO> list = dao.execSelect();
 		mv.addObject("list", list);
-		mv.setViewName("/home");
+		mv.setViewName("/home"); 
 
 		return mv;
 	}
+	
 	@RequestMapping("/arraymain.do")
 	public String arraymain(){
 		

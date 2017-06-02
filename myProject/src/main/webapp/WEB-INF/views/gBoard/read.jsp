@@ -18,16 +18,17 @@
 		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 2</button>
 		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 3</button>
 	</div> -->
+
 			<div align="center">
-				<h1>팀명 - ${vo.team_name}</h1>
+				<h2 class="section-heading"><span class="label label-primary">팀명</span></h2>
+				<h1>${vo.team_name}</h1>
 			</div>
+			  
 			<br>
 			<div class="row">
 				<div class="col-md-offset-4 col-md-4">
-					<img src="../upload/${vo.team_logo_file_name}" class="img-circle"
-						style="width: 350px; height: 350px;">
+					<img src="../upload/${vo.team_logo_file_name}" class="img-circle" style="width: 350px; height: 350px;">
 				</div>
-
 			</div>
 			<br>
 			<br>
@@ -54,12 +55,11 @@
 					<div class="panel-body">${vo.team_history }</div>
 				</div>
 			</div>
-			<br>
+			<br>  
 			<div align="center">
 				<button class="btn btn-success btn-lg"
 					style="width: 300px; height: 70px">신청 하기</button>
 			</div>
-
 		</div>
 	</form>
 </section>
