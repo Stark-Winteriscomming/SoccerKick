@@ -191,7 +191,7 @@ public class myPageController {
 			return mv;
 		} else {
 			String recv_id;
-			ArrayList<String> recv_idList = new ArrayList<>();
+			ArrayList<String> recv_idList = new ArrayList<String>();
 			AddressBookDAO abDao = sqlSession.getMapper(AddressBookDAO.class);
 			send_id = ((userVO) (session.getAttribute("login"))).getClient_id();
 			vo.setSend_id(send_id);
@@ -248,7 +248,7 @@ public class myPageController {
 		String my_id = ((userVO) (session.getAttribute("login"))).getClient_id();
 		AddressBookDAO abDao = sqlSession.getMapper(AddressBookDAO.class);
 		List list = abDao.getAddress(my_id);
-		ArrayList<String> arrayList = new ArrayList<>();
+		ArrayList<String> arrayList = new ArrayList<String>();
 		ModelAndView mv = new ModelAndView();
 		for (int i = 0; i < list.size(); i++) {
 			HashMap map = (HashMap) list.get(i);

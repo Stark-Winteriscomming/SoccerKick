@@ -7,9 +7,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2 class="section-heading">선수 모집</h2>
+				<h2 class="section-heading">
+					<span class="label label-primary">선수 모집 中</span>  
+				</h2>
 				<h3 class="section-subheading text-muted"
-					style="margin-bottom: 20px">-comment-</h3>
+					style="margin-bottom: 20px">-입단 신청을 할 수 있습니다-</h3>  
 			</div>
 			<div align="right">
 				<div class="btn-group"

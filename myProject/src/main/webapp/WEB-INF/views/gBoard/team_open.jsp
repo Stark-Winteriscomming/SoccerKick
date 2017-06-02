@@ -22,9 +22,9 @@
 <section id="portfolio" class="bg-light-gray">
 		<div class="content">
 			<div class="pageTitle">
-				<h1>팀 개설하기</h1>
+				<h1>경기매칭</h1>
 			</div>
-			<form> 
+			<form name="matching_form" action="matching_controller" method="post"> 
 				<div class="container">
 				<!-- <div class="btn-group-vertical navbar-fixed-top"  role="group" aria-label="..." style="top: 550px; left: 30px;"> 
 					<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 1</button>
@@ -37,122 +37,122 @@
 
 					<!-- start of team_title -->
 					<div class="team_title">
-						<h4 class="webFont">팀 이름</h4>
+						<h4 class="webFont">제목</h4>
 						<div class="edit">
-							<input type="text" placeholder="팀 이름을 입력해 주세요." />
+							<input type="text" placeholder="매칭 제목을 입력해 주세요." name="gametitle"/>
 						</div>
 					</div>
 					<!-- end of team_title -->
 
 					<!-- start of reception -->
 					<div class="reception">
-						<h4 class="webFont">접수기간</h4>
+						<h4 class="webFont">경기신청기간</h4>
 						<div class="start">
-							<input type="text" id="datepicker1" size="12"> <span>
-								<select name="clock" class="time_select">
-									<option value="">오전 0시 00분(자정)</option>
-									<option value="">오전 0시 30분</option>
-									<option value="">오전 1시 00분</option>
-									<option value="">오전 1시 30분</option>
-									<option value="">오전 2시 00분</option>
-									<option value="">오전 2시 30분</option>
-									<option value="">오전 3시 00분</option>
-									<option value="">오전 3시 30분</option>
-									<option value="">오전 4시 00분</option>
-									<option value="">오전 4시 30분</option>
-									<option value="">오전 5시 00분</option>
-									<option value="">오전 5시 30분</option>
-									<option value="">오전 6시 00분</option>
-									<option value="">오전 6시 30분</option>
-									<option value="">오전 7시 00분</option>
-									<option value="">오전 7시 30분</option>
-									<option value="">오전 8시 00분</option>
-									<option value="">오전 8시 30분</option>
-									<option value="">오전 9시 00분</option>
-									<option value="">오전 9시 30분</option>
-									<option value="">오전 10시 00분</option>
-									<option value="">오전 10시 30분</option>
-									<option value="">오전 11시 00분</option>
-									<option value="">오전 11시 30분</option>
-									<option value="">오후 0시 00분(정오)</option>
-									<option value="">오후 0시 30분</option>
-									<option value="">오후 1시 00분</option>
-									<option value="">오후 1시 30분</option>
-									<option value="">오후 2시 00분</option>
-									<option value="">오후 2시 30분</option>
-									<option value="">오후 3시 00분</option>
-									<option value="">오후 3시 30분</option>
-									<option value="">오후 4시 00분</option>
-									<option value="">오후 4시 30분</option>
-									<option value="">오후 5시 00분</option>
-									<option value="">오후 5시 30분</option>
-									<option value="">오후 6시 00분</option>
-									<option value="">오후 6시 30분</option>
-									<option value="">오후 7시 00분</option>
-									<option value="">오후 7시 30분</option>
-									<option value="">오후 8시 00분</option>
-									<option value="">오후 8시 30분</option>
-									<option value="">오후 9시 00분</option>
-									<option value="">오후 9시 30분</option>
-									<option value="">오후 10시 00분</option>
-									<option value="">오후 10시 30분</option>
-									<option value="">오후 11시 00분</option>
-									<option value="">오후 11시 30분</option>
+							<input type="text" id="datepicker1" size="12" name="startday"> <span>
+								<select name="startday" class="time_select">
+									<option value="am12:00">오전 0시 00분(자정)</option>
+									<option value="am12:30">오전 0시 30분</option>
+									<option value="am01:00">오전 1시 00분</option>
+									<option value="am01:30">오전 1시 30분</option>
+									<option value="am02:00">오전 2시 00분</option>
+									<option value="am02:30">오전 2시 30분</option>
+									<option value="am03:00">오전 3시 00분</option>
+									<option value="am03:30">오전 3시 30분</option>
+									<option value="am04:00">오전 4시 00분</option>
+									<option value="am04:30">오전 4시 30분</option>
+									<option value="am05:00">오전 5시 00분</option>
+									<option value="am05:30">오전 5시 30분</option>
+									<option value="am06:00">오전 6시 00분</option>
+									<option value="am06:30">오전 6시 30분</option>
+									<option value="am07:00">오전 7시 00분</option>
+									<option value="am07:30">오전 7시 30분</option>
+									<option value="am08:00">오전 8시 00분</option>
+									<option value="am08:30">오전 8시 30분</option>
+									<option value="am09:00">오전 9시 00분</option>
+									<option value="am09:30">오전 9시 30분</option>
+									<option value="am10:00">오전 10시 00분</option>
+									<option value="am10:30">오전 10시 30분</option>
+									<option value="am11:00">오전 11시 00분</option>
+									<option value="am11:30">오전 11시 30분</option>
+									<option value="pm12:00">오후 0시 00분(정오)</option>
+									<option value="pm12:30">오후 0시 30분</option>
+									<option value="pm01:00">오후 1시 00분</option>
+									<option value="pm01:30">오후 1시 30분</option>
+									<option value="pm02:00">오후 2시 00분</option>
+									<option value="pm02:30">오후 2시 30분</option>
+									<option value="pm03:00">오후 3시 00분</option>
+									<option value="pm03:30">오후 3시 30분</option>
+									<option value="pm04:00">오후 4시 00분</option>
+									<option value="pm04:30">오후 4시 30분</option>
+									<option value="pm05:00">오후 5시 00분</option>
+									<option value="pm05:30">오후 5시 30분</option>
+									<option value="pm06:00">오후 6시 00분</option>
+									<option value="pm06:30">오후 6시 30분</option>
+									<option value="pm07:00">오후 7시 00분</option>
+									<option value="pm07:30">오후 7시 30분</option>
+									<option value="pm08:00">오후 8시 00분</option>
+									<option value="pm08:30">오후 8시 30분</option>
+									<option value="pm09:00">오후 9시 00분</option>
+									<option value="pm09:30">오후 9시 30분</option>
+									<option value="pm10:00">오후 10시 00분</option>
+									<option value="pm10:30">오후 10시 30분</option>
+									<option value="pm11:00">오후 11시 00분</option>
+									<option value="pm11:30">오후 11시 30분</option>
 							</select>
 							</span>
 						</div>
 						<span class="start_txt">~</span>
 						<div class="end">
-							<input type="text" id="datepicker2" size="12"> <select
-								name="clock" class="time_select">
-								<option value="">오전 0시 00분(자정)</option>
-								<option value="">오전 0시 30분</option>
-								<option value="">오전 1시 00분</option>
-								<option value="">오전 1시 30분</option>
-								<option value="">오전 2시 00분</option>
-								<option value="">오전 2시 30분</option>
-								<option value="">오전 3시 00분</option>
-								<option value="">오전 3시 30분</option>
-								<option value="">오전 4시 00분</option>
-								<option value="">오전 4시 30분</option>
-								<option value="">오전 5시 00분</option>
-								<option value="">오전 5시 30분</option>
-								<option value="">오전 6시 00분</option>
-								<option value="">오전 6시 30분</option>
-								<option value="">오전 7시 00분</option>
-								<option value="">오전 7시 30분</option>
-								<option value="">오전 8시 00분</option>
-								<option value="">오전 8시 30분</option>
-								<option value="">오전 9시 00분</option>
-								<option value="">오전 9시 30분</option>
-								<option value="">오전 10시 00분</option>
-								<option value="">오전 10시 30분</option>
-								<option value="">오전 11시 00분</option>
-								<option value="">오전 11시 30분</option>
-								<option value="">오후 0시 00분(정오)</option>
-								<option value="">오후 0시 30분</option>
-								<option value="">오후 1시 00분</option>
-								<option value="">오후 1시 30분</option>
-								<option value="">오후 2시 00분</option>
-								<option value="">오후 2시 30분</option>
-								<option value="">오후 3시 00분</option>
-								<option value="">오후 3시 30분</option>
-								<option value="">오후 4시 00분</option>
-								<option value="">오후 4시 30분</option>
-								<option value="">오후 5시 00분</option>
-								<option value="">오후 5시 30분</option>
-								<option value="">오후 6시 00분</option>
-								<option value="">오후 6시 30분</option>
-								<option value="">오후 7시 00분</option>
-								<option value="">오후 7시 30분</option>
-								<option value="">오후 8시 00분</option>
-								<option value="">오후 8시 30분</option>
-								<option value="">오후 9시 00분</option>
-								<option value="">오후 9시 30분</option>
-								<option value="">오후 10시 00분</option>
-								<option value="">오후 10시 30분</option>
-								<option value="">오후 11시 00분</option>
-								<option value="">오후 11시 30분</option>
+							<input type="text" id="datepicker2" size="12" name="endday"> <select
+								name="endday" class="time_select">
+								<option value="am12:00">오전 0시 00분(자정)</option>
+									<option value="am12:30">오전 0시 30분</option>
+									<option value="am01:00">오전 1시 00분</option>
+									<option value="am01:30">오전 1시 30분</option>
+									<option value="am02:00">오전 2시 00분</option>
+									<option value="am02:30">오전 2시 30분</option>
+									<option value="am03:00">오전 3시 00분</option>
+									<option value="am03:30">오전 3시 30분</option>
+									<option value="am04:00">오전 4시 00분</option>
+									<option value="am04:30">오전 4시 30분</option>
+									<option value="am05:00">오전 5시 00분</option>
+									<option value="am05:30">오전 5시 30분</option>
+									<option value="am06:00">오전 6시 00분</option>
+									<option value="am06:30">오전 6시 30분</option>
+									<option value="am07:00">오전 7시 00분</option>
+									<option value="am07:30">오전 7시 30분</option>
+									<option value="am08:00">오전 8시 00분</option>
+									<option value="am08:30">오전 8시 30분</option>
+									<option value="am09:00">오전 9시 00분</option>
+									<option value="am09:30">오전 9시 30분</option>
+									<option value="am10:00">오전 10시 00분</option>
+									<option value="am10:30">오전 10시 30분</option>
+									<option value="am11:00">오전 11시 00분</option>
+									<option value="am11:30">오전 11시 30분</option>
+									<option value="pm12:00">오후 0시 00분(정오)</option>
+									<option value="pm12:30">오후 0시 30분</option>
+									<option value="pm01:00">오후 1시 00분</option>
+									<option value="pm01:30">오후 1시 30분</option>
+									<option value="pm02:00">오후 2시 00분</option>
+									<option value="pm02:30">오후 2시 30분</option>
+									<option value="pm03:00">오후 3시 00분</option>
+									<option value="pm03:30">오후 3시 30분</option>
+									<option value="pm04:00">오후 4시 00분</option>
+									<option value="pm04:30">오후 4시 30분</option>
+									<option value="pm05:00">오후 5시 00분</option>
+									<option value="pm05:30">오후 5시 30분</option>
+									<option value="pm06:00">오후 6시 00분</option>
+									<option value="pm06:30">오후 6시 30분</option>
+									<option value="pm07:00">오후 7시 00분</option>
+									<option value="pm07:30">오후 7시 30분</option>
+									<option value="pm08:00">오후 8시 00분</option>
+									<option value="pm08:30">오후 8시 30분</option>
+									<option value="pm09:00">오후 9시 00분</option>
+									<option value="pm09:30">오후 9시 30분</option>
+									<option value="pm10:00">오후 10시 00분</option>
+									<option value="pm10:30">오후 10시 30분</option>
+									<option value="pm11:00">오후 11시 00분</option>
+									<option value="pm11:30">오후 11시 30분</option>
 							</select>
 						</div>
 					</div>
@@ -162,7 +162,7 @@
 					<div class="formation">
 						<h4 class="webFont">장소선택</h4>
 						<div class="container2">
-						  <input type="hidden" name="place" id="place" value="" />
+						  <input type="hidden" name="place" id="place" />
 						  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">장소 선택</button>
 						  <div class="modal fade" id="myModal" role="dialog">
 						    <div class="modal-dialog">
@@ -180,7 +180,7 @@
 								      <div class="caption">
 								        <h3>성북 경기장</h3>
 								                     
-								        <p><a href="#place" class="btn btn-primary" role="button" id="btn_seongbuk">선택하기</a></p>
+								        <p><a href="#btn" class="btn btn-primary" role="button" id="btn_seongbuk">선택하기</a></p>
 								      </div>
 								    </div>   
 								  </div>
@@ -189,7 +189,7 @@
 								      <img src="../resources/ground/2.jpg" alt="...">
 								      <div class="caption">
 								        <h3>강남 경기장</h3>
-								        <p><a href="#place" class="btn btn-primary" role="button" id="btn_gangnam">선택하기</a></p>
+								        <p><a href="#btn" class="btn btn-primary" role="button" id="btn_gangnam">선택하기</a></p>
 								      </div>
 								    </div>
 								  </div>
@@ -199,7 +199,7 @@
 								      <div class="caption">
 								        <h3>동대문<br>경기장</h3>
 								        
-								        <p><a href="#place" class="btn btn-primary" role="button" id="btn_dongdaemun">선택하기</a></p>
+								        <p><a href="#btn" class="btn btn-primary" role="button" id="btn_dongdaemun">선택하기</a></p>
 								      </div>
 								    </div>
 								  </div> 
@@ -209,7 +209,7 @@
 								      <div class="caption">
 								        <h3>광진 경기장</h3>
 								         
-								        <p><a href="#place" class="btn btn-primary" role="button" id="btn_gwangjin">선택하기</a></p>
+								        <p><a href="#btn" class="btn btn-primary" role="button" id="btn_gwangjin">선택하기</a></p>
 								      </div>
 								    </div>
 								  </div>
@@ -218,7 +218,7 @@
 								      <img src="../resources/ground/5.jpg" alt="...">
 								      <div class="caption">
 								        <h3>서초 경기장</h3>
-								        <p><a href="#place" class="btn btn-primary" role="button" id="btn_seocho">선택하기</a></p>
+								        <p><a href="#btn" class="btn btn-primary" role="button" id="btn_seocho">선택하기</a></p>
 								      </div>
 								    </div> 
 								  </div>
@@ -275,9 +275,9 @@
 					
 					<!-- start of team_comment -->
 					<div class="team_comment">
-						<h4 class="webFont">모임소개</h4>
+						<h4 class="webFont">팀 소개</h4>
 						<div class="comment">
-							<textarea cols="95" rows="5"></textarea>
+							<textarea cols="95" rows="5" name="content"></textarea>
 						</div>
 					</div>
 					<!-- end of team_comment -->
@@ -290,7 +290,7 @@
 							<div class="contact">
 								<div class="phone">
 									<span>전화번호 입력</span>
-									<select class="ownerphone_head">
+									<select class="ownerphone_head" name="phone1">
 										<option selected="selected" value="010">010</option>
 										<option value="011">011</option>
 										<option value="015">015</option>
@@ -319,20 +319,20 @@
 										<option value="064">064</option>
 										<option value="070">070</option>
 									</select>
-									<input type="text" size="4" />
-									<input type="text" size="4" />
+									<input type="text" size="4" name="phone2"/>
+									<input type="text" size="4" name="phone3"/>
 								</div>
 								<div class="email">
 									<span>이메일 입력</span>
-									<input type="text" />@
-									<input type="text" />
+									<input type="text" name="email1" />@
+									<input type="text" name="email2"/>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="btn_group">
-						<input type="submit" class="btn_open" value="개설하기"/>
-						<input type="submit" class="btn_cancel"value="취소"/>
+						<button type="button" class="btn_open">개설하기</button>
+						<button type="button" class="btn_cancel">취소</button>
 					</div>
 				</div>
 			</form>
@@ -373,6 +373,7 @@
 		    	$("#selected_seongbuk").css('padding-left','0px')
 		    	.css('display','block').css('width','100%');
 		    	$("#img_seongbuk").css('width','100%').css('height','300px');
+		    	$("#place").val('성북');
 		    	
 		    	$("#selected_gangnam").css('display','none');
 		    	$("#selected_dongdaemun").css('display','none');
@@ -387,6 +388,7 @@
 		    	.css('margin-left','0px');
 		    	$("#selected_gangnam").css('padding-left','0px').css('display','block').css('width','100%');
 		    	$("#img_gangnam").css('width','100%').css('height','300px');
+		    	$("#place").val('강남');
 		    	
 		    	$("#selected_seongbuk").css('display','none');
 		    	$("#selected_dongdaemun").css('display','none');
@@ -400,6 +402,7 @@
 		    	.css('margin-left','0px');
 		    	$("#selected_dongdaemun").css('padding-left','0px').css('display','block').css('width','100%');
 		    	$("#img_dongdaemun").css('width','100%').css('height','300px');
+		    	$("#place").val('동대문');
 		    	
 		    	$("#selected_seongbuk").css('display','none');
 		    	$("#selected_gangnam").css('display','none');
@@ -414,6 +417,7 @@
 		    	.css('margin-left','0px');
 		    	$("#selected_gwangjin").css('padding-left','0px').css('display','block').css('width','100%');
 		    	$("#img_gwangjin").css('width','100%').css('height','300px');
+		    	$("#place").val('광진');
 		    	
 		    	$("#selected_gangnam").css('display','none');
 		    	$("#selected_seongbuk").css('display','none');
@@ -428,6 +432,7 @@
 		    	.css('margin-left','0px');
 		    	$("#selected_seocho").css('padding-left','0px').css('display','block').css('width','100%');
 		    	$("#img_seocho").css('width','100%').css('height','300px');
+		    	$("#place").val('서초');
 		    	
 		    	$("#selected_gangnam").css('display','none');
 		    	$("#selected_seongbuk").css('display','none');
@@ -435,5 +440,8 @@
 		    	$("#selected_gwangjin").css('display','none');
 		    });
 		    
+		    $(".btn_open").click(function(){
+		    	matching_form.submit();
+		    });
 		});
 	</script>

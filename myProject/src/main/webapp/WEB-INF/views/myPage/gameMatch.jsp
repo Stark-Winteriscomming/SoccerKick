@@ -6,12 +6,15 @@
 <input type="hidden" name="a_applicant"
 	value="${sessionScope.login.client_id}">
 <div class="row">
-	<div class="col-md-offset-3 col-md-3">
+	<div class="col-md-offset-4 col-md-4">
 		<br>
 		<br>
+		
+		
+		<h3><span class="label label-primary">들어온 신청</span></h3>
 		<div class="alert alert-info">
 
-			들어온 신청
+			
 			<table class="table table-stripped">
 				<tr>
 					<th>host</th>
@@ -43,8 +46,10 @@
 			<br>
 			<br>
 		</div>
+		
+		<h3><span class="label label-primary">신청한 대결</span></h3>  
 		<div class="alert alert-info">
-			내가 신청한 대결
+			
 			<table class="table table-stripped">
 				<tr>
 					<th>팀이름</th>

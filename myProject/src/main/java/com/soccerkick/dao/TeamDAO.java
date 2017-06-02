@@ -13,7 +13,7 @@ public interface TeamDAO {
 	
 	public TeamVO teamView(String client_id); 
 	
-	public GameBoardVO execGameInfo(@Param("client_id") String client_id);
+	public GameBoardVO execGameInfo(@Param("client_id") String client_id,@Param("gameno") int gameno);
 	 
 	public ArrayList<TeamVO> execSelect(@Param("keywordInput") String keywordInput);
 	

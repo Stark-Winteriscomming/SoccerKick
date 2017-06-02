@@ -1,7 +1,7 @@
 package com.soccerkick.vo;
 
 public class GameBoardVO {
-	String host, place, content, email, gametitle, phone, gameday, team_logo_file_name, team_name;  
+	String host, place, content, email, gametitle, phone, gameday, team_logo_file_name, team_name, client_id;  
 	int gameno, team_id;   
 	public String getHost() {     
 		return host;
@@ -70,9 +70,15 @@ public class GameBoardVO {
 	public void setTeam_id(int team_id) {
 		this.team_id = team_id;
 	}
+	public String getClient_id() {
+		return client_id;
+	}
+	public void setClient_id(String client_id) {
+		this.client_id = client_id;
+	}
 	
 	
-   
+     
 	
             
 	  
