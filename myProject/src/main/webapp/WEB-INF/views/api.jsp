@@ -5,15 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Document</title>
+
+<style>
+li {
+	color: gray;
+	margin-top: 10px;
+}
+
+a {
+	color: black;
+	text-decoration: none !important;
+}
+</style>
+<link href="/resources/css/button.arrow.css" rel="stylesheet">
 </head>
 <body>
-	<button id="btn1">button</button>
-	<button id="btn2">button2</button>
+
+	<div class="content">
+		<ul class="news-list">
+		</ul>
+	</div>
+	<button class="nav" id="left">left</button>
+	<button class="nav" id="right">right</button>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<script>
-    $('#btn1').on('click', function(){
+	//inital value
+	var checkNum = 1;
+	// 
+	var maxNum = 3;
+	
       $.ajax({
         url : 'http://172.16.13.19:8088/api/get',
         type : 'get',
@@ -21,28 +43,61 @@
         success : function(jsonObj){
         	var items = jsonObj.items;
         	for(i in items){
-        		console.log(items[i].title);
+        		$('.news-list').append('<li>'+ '<a target="_blank" href=' + items[i].originallink +'>'+ items[i].title + '</a>' +'</li>')
+//         		items[i].originallink
+//         		console.log(items[i].title);
         	}
+        	var list = $('.news-list li');
+        	for(var i=0; i<list.length; i++){
+				if(i < 5){
+					$(list[i]).show();
+				}
+				else{
+					$(list[i]).hide();
+				}
+			}
         }
       })
-    })
     
-    var params="soccer"; 
-    var url = "https://openapi.naver.com/v1/search/news.json";
-    $('#btn2').on('click', function(){
-      $.ajax({
-        url : url,
-        type : 'get',
-        data : 'query=' + params,
-        dataType : 'json',
-        beforeSend : function(xhr){
-            xhr.setRequestHeader("X-Naver-Client-Id", "33LMl0JgAo0yy9hGL4Zk");
-            xhr.setRequestHeader("X-Naver-Client-Secret","21TsOqNdqW");
-        },
-        success : function(data){
-        	alert(data);
-        }
-      });
+    $('.nav').on('click', function(){
+    	if(this.id == 'right') checkNum++;
+    	else if(this.id == 'left') checkNum--;
+    	if(checkNum > maxNum) checkNum = 1;
+    	else if(checkNum < 1) checkNum = maxNum;
+    	console.log(checkNum);
+//     	$('ul li:nth-child(n+)').css('color','green');
+		var list = $('.news-list li');
+		if(checkNum == 1){
+			for(var i=0; i<list.length; i++){
+				if(i < 5){
+					$(list[i]).show();
+				}
+				else{
+					$(list[i]).hide();
+				}
+			}			
+		}
+		else if(checkNum == 2){
+			for(var i=0; i<list.length; i++){
+				if(i >= 5 && i < 10){
+					$(list[i]).show();
+				}
+				else{
+					$(list[i]).hide();
+				}
+			}
+		}
+		else if(checkNum == 3){
+			for(var i=0; i<list.length; i++){
+				if(i >= 10 && i < 15){
+					$(list[i]).show();
+				}
+				else{
+					$(list[i]).hide();
+				}
+			}
+		}
+
     })
   </script>
 </body>

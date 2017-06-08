@@ -73,7 +73,8 @@ public class HomeController {
 		String clientSecret = "21TsOqNdqW";// 애플리케이션 클라이언트 시크릿값";
 		try {
 			String text = URLEncoder.encode("축구", "UTF-8");
-			String apiURL = "https://openapi.naver.com/v1/search/news.json?query=" + text;
+			String display = URLEncoder.encode("15", "UTF-8");
+			String apiURL = "https://openapi.naver.com/v1/search/news.json?query=" + text + "&display=" + display;
 			URL url = new URL(apiURL);
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
 			con.setRequestMethod("GET");
