@@ -50,7 +50,7 @@ h6 {
   margin: 0 auto;
 }
 .bg-light-gray {
-  background-color: #ffffff;  
+  background-color: rgba(50, 126, 226, 0.29);  
 }
 .bg-darkest-gray {
   background-color: #222222;

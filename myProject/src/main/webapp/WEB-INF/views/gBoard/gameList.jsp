@@ -13,6 +13,9 @@
 					<br><br>
 			</div>
 		</div>
+		<div align="right">  
+		<a href="/gBoard/team_open"><button class="btn btn-info btn-lg">경기 주최하기</button></a> 
+		</div>
 
 		<div class="row">
 				<c:forEach items="${list}" var="vo">  
