@@ -68,11 +68,6 @@ public class HomeController {
 	}
 
 	// news api test
-	@RequestMapping("/api")
-	public String api() {
-		return "api";
-	}
-
 	@RequestMapping(value="/api/get",produces = "application/json; charset=utf8")
 	@ResponseBody
 	public String apiGet() {
