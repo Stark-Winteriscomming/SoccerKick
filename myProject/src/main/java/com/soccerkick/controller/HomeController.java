@@ -23,6 +23,13 @@ public class HomeController {
 	SqlSessionTemplate sqlSession;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView index(Model model, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/index");    
+		return mv;  
+	}   
+	
+	@RequestMapping(value = "/enter", method = RequestMethod.GET)
 	public ModelAndView home(Model model, HttpSession session) {
   
 		ModelAndView mv = new ModelAndView();

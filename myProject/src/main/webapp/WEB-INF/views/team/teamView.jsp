@@ -7,46 +7,60 @@
 <%@include file="../include/header.jsp"%>
 <link href="/resources/css/4-3-3.css" rel="stylesheet">
 <section id="portfolio" class="bg-light-gray">
-	<div style="margin: 0 auto; width: 1200px; border: 1px solid red;">
+	<div style="margin: 0 auto; width: 1200px; border: 1px solid black;">
 		<form action="/team/gameMatch" method="post">
 			<input type="hidden" name="applicant"
 				value="${sessionScope.login.client_id}"> <input
 				type="hidden" name="applicant_team" value="${vo.team_name}">
 			<input type="hidden" name="host" value="${vo.client_id}"> <input
 				type="hidden" name="a_applicant"
-				value="${sessionScope.login.client_id}">
-
-			<br>
-			<div style="margin: 0 auto; width: 50%; border: 1px solid blue;">
-				<h1>팀명 - ${vo.team_name}</h1>
+				value="${sessionScope.login.client_id}"> <br>
+			<div align="center">
+				<h2 class="section-heading">
+					<span class="label label-primary">팀명</span>
+				</h2>
+				<h2>${vo.team_name}</h2>
 				<div>
 					<img src="../upload/${vo.team_logo_file_name}" class="img-circle"
-						style="width: 50%; margin: 0 auto; display: block;">
+						style="width: 300px; height: 300px;">
 				</div>
-
 			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div>
+				<!-- formation choice -->
+				<c:if test="${vo.team_formation == '433' }">
+					<!-- 						<img src="/resources/img/433.png" style="width: 350px;" /> -->
+					<%-- 						<jsp:include page="completedTeamFormation_433.jsp" /> --%>
+					<div style="width: 50%; float: left">
+						<%@include file="completedTeamFormation_433.jsp"%>
+					</div>
+				</c:if>
+				<c:if test="${vo.team_formation == '41212' }">
+					<div style="width: 50%; float: left">
+						<%@include file="completedTeamFormation_41212.jsp"%>
+					</div>
+				</c:if>
+				<c:if test="${vo.team_formation == '4231' }">
+					<div style="width: 50%; float: left">
+						<%@include file="completedTeamFormation_4231.jsp"%>
+					</div>
+				</c:if>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
 
-			<!-- formation choice -->
-			<c:if test="${vo.team_formation == '433' }">
-				<!-- 						<img src="/resources/img/433.png" style="width: 350px;" /> -->
-				<%-- 						<jsp:include page="completedTeamFormation_433.jsp" /> --%>
-				<div style="width: 50%; float: left">
-					<%@include file="completedTeamFormation_433.jsp"%>
-				</div>
-			</c:if>
-			<c:if test="${vo.team_formation == '41212' }">
-				<div style="width: 50%; float: left">
-					<%@include file="completedTeamFormation_41212.jsp"%>
-				</div>
-			</c:if>
-			<c:if test="${vo.team_formation == '4231' }">
-				<div style="width: 50%; float: left">
-					<%@include file="completedTeamFormation_4231.jsp"%>
-				</div>
-			</c:if>
+
 
 			<div style="float: right; width: 50%;">
-				<div class="checks" style="border: 1px solid yellow;">
+				<div class="checks" align="center">
+					<h3>
+						<span class="label label-primary">선수 정보</span>
+					</h3>
 					<div style="width: 50%; margin: 0 auto; border: 1px solid gray;">
 						<img
 							src="http://sstatic.naver.net/people/91/201405301047405271.jpg"
@@ -61,6 +75,9 @@
 			</div>
 			<br> <br> <br>
 			<!--  -->
+			<br>
+			<br>
+			<br>
 			<div style="clear: both; margin: 0 auto; width: 50%;">
 				<div class="panel panel-info">
 					<div class="panel-heading">
