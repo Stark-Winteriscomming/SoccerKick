@@ -1,6 +1,7 @@
 package com.soccerkick.controller;
 
 import java.io.IOException;  
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -53,6 +54,11 @@ public class gBoardController{
 	@RequestMapping("/matching_controller")
 	public String matching_controller(MatchingVO vo, HttpSession session, String startdate, String startclock,String enddate, String endclock,
 			String phone1, String phone2, String phone3, String email1, String email2){
+		Calendar c = Calendar.getInstance();
+		String ntime = new String();
+		ntime = String.valueOf(c.get(Calendar.YEAR));
+		ntime += String.valueOf(c.get(Calendar.MONTH));
+		ntime += String.valueOf(c.get(Calendar.DATE));
 		String sid = ((userVO) session.getAttribute("login")).getClient_id();
 		MatchingDAO  dao = sqlSession.getMapper(MatchingDAO.class);
 		String phone = phone1 + "-" + phone2 + "-" + phone3;

@@ -45,6 +45,7 @@ public class HomeController {
 			
 		return mv;
 	}
+	@RequestMapping("/index")
 	public ModelAndView index(Model model, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/index");    
