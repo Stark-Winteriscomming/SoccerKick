@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.dao.MatchingDAO;
+import com.soccerkick.dao.TeamCreateDAO;
 import com.soccerkick.vo.GboardVO;
 import com.soccerkick.vo.MatchingVO;
 import com.soccerkick.vo.MemberSelectVO;
@@ -45,7 +46,7 @@ public class gBoardController{
 		return "redirect:/";
 	}
 	
-	@RequestMapping("/team_open")
+	@RequestMapping("/gameList")
 	public String team_open(){
 		
 		return "/gBoard/team_open";
@@ -54,13 +55,10 @@ public class gBoardController{
 	@RequestMapping("/matching_controller")
 	public String matching_controller(MatchingVO vo, HttpSession session, String startdate, String startclock,String enddate, String endclock,
 			String phone1, String phone2, String phone3, String email1, String email2){
-		Calendar c = Calendar.getInstance();
-		String ntime = new String();
-		ntime = String.valueOf(c.get(Calendar.YEAR));
-		ntime += String.valueOf(c.get(Calendar.MONTH));
-		ntime += String.valueOf(c.get(Calendar.DATE));
 		String sid = ((userVO) session.getAttribute("login")).getClient_id();
 		MatchingDAO  dao = sqlSession.getMapper(MatchingDAO.class);
+		TeamCreateDAO tdao = sqlSession.getMapper(TeamCreateDAO.class);
+		TeamVO tvo = tdao.execTeamid(sid);
 		String phone = phone1 + "-" + phone2 + "-" + phone3;
 		String email = email1 + "@" + email2;
 		String startday = startdate+" "+startclock;
@@ -73,6 +71,7 @@ public class gBoardController{
 		vo.setEmail(email);
 		vo.setStartday(startday);
 		vo.setEndday(endday);
+		vo.setTeam_id(tvo.getTeam_id());
 		dao.execInsert(vo);
 		return "redirect:/gBoard/team_open";
 	}

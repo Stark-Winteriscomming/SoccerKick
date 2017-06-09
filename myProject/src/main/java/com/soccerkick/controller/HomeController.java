@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 
 
+
+
 import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.GboardDAO;
+import com.soccerkick.dao.MatchingDAO;
+import com.soccerkick.vo.MatchingVO;
 import com.soccerkick.vo.TeamVO;
 import com.soccerkick.vo.userVO;
 
@@ -48,6 +52,9 @@ public class HomeController {
 	@RequestMapping("/index")
 	public ModelAndView index(Model model, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		MatchingDAO dao = sqlSession.getMapper(MatchingDAO.class);
+		ArrayList<TeamVO> list = dao.execSelect();
+		mv.addObject("list",list);
 		mv.setViewName("/index");    
 		return mv;  
 	}   

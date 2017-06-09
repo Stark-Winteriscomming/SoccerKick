@@ -4,9 +4,13 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
     <mapper namespace="com.soccerkick.dao.MatchingDAO">
-    
-    	<insert id="execInsert">	
+    	<insert id="execInsert">
     		insert into gameboard 
-    		values(#{host}, #{place}, #{content}, SEQ_GAMEBOARD.nextval, #{phone}, #{email} , #{gametitle}, TO_DATE(#{startday},'YYYY-MM-DD HH24:MI:SS'), TO_DATE(#{endday},'YYYY-MM-DD HH24:MI:SS'))
+    		values(#{host}, #{place}, #{content}, SEQ_GAMEBOARD.nextval, #{phone}, #{email} , #{gametitle}, TO_DATE(#{startday},'YYYY-MM-DD HH24:MI:SS'), TO_DATE(#{endday},'YYYY-MM-DD HH24:MI:SS'), #{team_id})
     	</insert>
+    	<select id="execSelect" resultType="com.soccerkick.vo.TeamVO">
+    		<![CDATA[rownum<=10 ]]>
+    		select * from team where <![CDATA[rownum <= 10 ]]> and 
+			team_id = (select team_id from gameboard where endday = TO_DATE(#{endday},'YYYY-MM-DD HH24:MI:SS'))
+    	</select>
     </mapper>
