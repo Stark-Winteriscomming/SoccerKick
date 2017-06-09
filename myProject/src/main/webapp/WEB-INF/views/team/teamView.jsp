@@ -15,15 +15,16 @@
 			<input type="hidden" name="host" value="${vo.client_id}"> <input
 				type="hidden" name="a_applicant"
 				value="${sessionScope.login.client_id}"> <br>
-			<div align="center">
-				<h2 class="section-heading">
-					<span class="label label-primary">팀명</span>
-				</h2>
-				<h2>${vo.team_name}</h2>
+			<div align="center">   
+				<div align="center">
+				<h2 class="section-heading"><span class="label label-primary">팀명</span></h2>
+				<h2>${vo.team_name}</h2>     
+			</div>
 				<div>
 					<img src="../upload/${vo.team_logo_file_name}" class="img-circle"
-						style="width: 300px; height: 300px;">
+						style="width: 200px; height: 200px; margin: 0 auto; display: block;">
 				</div>
+
 			</div>
 			<br>
 			<br>

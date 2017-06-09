@@ -12,6 +12,10 @@
 		select * from team
 	</select>
 	
+	<select id="execSelectRank"  resultType="com.soccerkick.vo.TeamVO">
+		select * from team
+	</select>
+	
 	<select id="execGameList"  resultType="com.soccerkick.vo.GameBoardVO">
 		select * from gameboard, team where gameboard.host = team.client_id   
 	</select>   

@@ -16,15 +16,15 @@
 				type="hidden" name="a_applicant"
 				value="${sessionScope.login.client_id}">  
 
-			<br>
+			<br>  
 			<div align="center">   
 				<div align="center">
 				<h2 class="section-heading"><span class="label label-primary">팀명</span></h2>
-				<h1>${vo.team_name}</h1>
+				<h2>${vo.team_name}</h2>     
 			</div>
 				<div>
 					<img src="../upload/${vo.team_logo_file_name}" class="img-circle"
-						style="width: 300px; height: 300px; margin: 0 auto; display: block;">
+						style="width: 200px; height: 200px; margin: 0 auto; display: block;">
 				</div>
 
 			</div>
@@ -34,17 +34,17 @@
 			<c:if test="${vo.team_formation == '433' }">
 				<!-- 						<img src="/resources/img/433.png" style="width: 350px;" /> -->
 				<%-- 						<jsp:include page="completedTeamFormation_433.jsp" /> --%>
-				<div style="width: 50%;">
+				<div>
 					<%@include file="../team/completedTeamFormation_433.jsp"%>
 				</div>
 			</c:if>
 			<c:if test="${vo.team_formation == '41212' }">
-				<div style="width: 50%;">
+				<div>
 					<%@include file="../team/completedTeamFormation_41212.jsp"%>
 				</div>
 			</c:if>
 			<c:if test="${vo.team_formation == '4231' }">
-				<div style="width: 50%;">
+				<div>
 					<%@include file="../team/completedTeamFormation_4231.jsp"%>
 				</div>
 			</c:if>

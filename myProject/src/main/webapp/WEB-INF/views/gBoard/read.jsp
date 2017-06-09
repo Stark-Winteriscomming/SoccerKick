@@ -19,16 +19,16 @@
 		<button class="btn btn-primary btn-lg" style="width: 300px; border-color: white;">메뉴 3</button>
 	</div> -->
 
-			<div align="center">
+			<div align="center">   
+				<div align="center">  
 				<h2 class="section-heading"><span class="label label-primary">팀명</span></h2>
-				<h1>${vo.team_name}</h1>
+				<h2>${vo.team_name}</h2>     
 			</div>
-			  
-			<br>
-			<div class="row">
-				<div class="col-md-offset-4 col-md-4">
-					<img src="../upload/${vo.team_logo_file_name}" class="img-circle" style="width: 350px; height: 350px;">
+				<div>
+					<img src="../upload/${vo.team_logo_file_name}" class="img-circle"
+						style="width: 200px; height: 200px; margin: 0 auto; display: block;">
 				</div>
+
 			</div>
 			<br>
 			<br>

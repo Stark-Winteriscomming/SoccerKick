@@ -15,6 +15,8 @@ public interface GboardDAO {
 
 	public ArrayList<TeamVO> execSelect();
 	
+	public ArrayList<TeamVO> execSelectRank();
+	
 	public ArrayList<GameBoardVO> execGameList();
 
 	public TeamVO execContent(@Param("team_id") int team_id);

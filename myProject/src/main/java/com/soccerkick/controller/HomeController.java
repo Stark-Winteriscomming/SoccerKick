@@ -30,7 +30,10 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(Model model, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/index");    
+		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
+		mv.setViewName("/index");   
+		ArrayList<TeamVO> list = dao.execSelectRank();
+		mv.addObject("list", list);
 		return mv;  
 	}   
 	
