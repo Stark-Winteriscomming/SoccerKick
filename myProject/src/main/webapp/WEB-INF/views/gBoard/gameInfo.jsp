@@ -62,7 +62,7 @@
 					</div>  
 					<div class="panel-body">
 						<h4><span class="label label-primary">경기 장소</span>  ${gvo.place}</h4><br> 
-						<h4><span class="label label-primary">경기 일자</span>  ${gvo.gameday}</h4><br>
+						<h4><span class="label label-primary">경기 일자</span>  ${gvo.startday}</h4><br>    
 						   
 					</div>
 				</div>

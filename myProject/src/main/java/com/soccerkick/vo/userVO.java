@@ -86,7 +86,7 @@ public class userVO {
 	public String getClient_history() {
 		return client_history;
 	}
-
+  
 	public void setClient_history(String client_history) {
 		this.client_history = client_history;
 	}
