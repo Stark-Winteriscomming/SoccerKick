@@ -41,6 +41,7 @@
 
 
 <c:forEach items="${list}" var="vo">
+${vo.team_name }
 </c:forEach>
 
 
