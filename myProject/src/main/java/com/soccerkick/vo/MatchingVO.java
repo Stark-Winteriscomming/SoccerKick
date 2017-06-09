@@ -1,7 +1,11 @@
 package com.soccerkick.vo;
 
+/**
+ * @author Administrator
+ *
+ */
 public class MatchingVO {
-	String host, place, startgameday, endgameday, content, phone, gameday, email, gametitle;
+	String host, place, startgameday, endgameday, content, phone, startday, endday, email, gametitle;
 	int gameno;
 	public String getHost() {
 		return host;
@@ -14,12 +18,6 @@ public class MatchingVO {
 	}
 	public void setPlace(String place) {
 		this.place = place;
-	}
-	public String getGameday() {
-		return gameday;
-	}
-	public void setGameday(String gameday) {
-		this.gameday = gameday;
 	}
 	public String getContent() {
 		return content;
@@ -50,6 +48,30 @@ public class MatchingVO {
 	}
 	public void setGameno(int gameno) {
 		this.gameno = gameno;
+	}
+	public String getStartgameday() {
+		return startgameday;
+	}
+	public void setStartgameday(String startgameday) {
+		this.startgameday = startgameday;
+	}
+	public String getEndgameday() {
+		return endgameday;
+	}
+	public void setEndgameday(String endgameday) {
+		this.endgameday = endgameday;
+	}
+	public String getStartday() {
+		return startday;
+	}
+	public void setStartday(String startday) {
+		this.startday = startday;
+	}
+	public String getEndday() {
+		return endday;
+	}
+	public void setEndday(String endday) {
+		this.endday = endday;
 	}
 	
 	

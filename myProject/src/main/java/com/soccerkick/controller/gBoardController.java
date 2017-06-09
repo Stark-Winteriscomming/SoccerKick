@@ -2,6 +2,7 @@ package com.soccerkick.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpSession;
 
@@ -68,18 +69,27 @@ public class gBoardController {
 	}
 
 	@RequestMapping("/matching_controller")
-	public String matching_controller(MatchingVO vo, HttpSession session, String startday, String endday, String phone1,
-			String phone2, String phone3, String email1, String email2) {
+	public String matching_controller(MatchingVO vo, HttpSession session, String startdate, String startclock,String enddate, String endclock,
+			String phone1, String phone2, String phone3, String email1, String email2){
+		Calendar c = Calendar.getInstance();
+		String ntime = new String();
+		ntime = String.valueOf(c.get(Calendar.YEAR));
+		ntime += String.valueOf(c.get(Calendar.MONTH));
+		ntime += String.valueOf(c.get(Calendar.DATE));
 		String sid = ((userVO) session.getAttribute("login")).getClient_id();
-		MatchingDAO dao = sqlSession.getMapper(MatchingDAO.class);
-		String gameday = startday + " ~ " + endday;
+		MatchingDAO  dao = sqlSession.getMapper(MatchingDAO.class);
 		String phone = phone1 + "-" + phone2 + "-" + phone3;
 		String email = email1 + "@" + email2;
-		System.out.println("sid:" + sid);
+		String startday = startdate+" "+startclock;
+		String endday = enddate+" "+endclock;
+		System.out.println("startday:"+startdate+" "+startclock);
+		System.out.println("endday:"+enddate+" "+endclock);
+		System.out.println("sid:"+sid);
 		vo.setHost(sid);
-		vo.setGameday(gameday);
 		vo.setPhone(phone);
 		vo.setEmail(email);
+		vo.setStartday(startday);
+		vo.setEndday(endday);
 		dao.execInsert(vo);
 		return "redirect:/gBoard/team_open";
 	}
