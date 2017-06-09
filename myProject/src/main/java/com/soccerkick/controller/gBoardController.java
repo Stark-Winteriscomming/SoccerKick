@@ -1,6 +1,7 @@
 package com.soccerkick.controller;
 
 import java.io.IOException;  
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,10 +17,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.dao.MatchingDAO;
+import com.soccerkick.dao.PlaceDAO;
 import com.soccerkick.dao.TeamCreateDAO;
 import com.soccerkick.vo.GboardVO;
 import com.soccerkick.vo.MatchingVO;
 import com.soccerkick.vo.MemberSelectVO;
+import com.soccerkick.vo.PlaceVO;
 import com.soccerkick.vo.TeamVO;
 import com.soccerkick.vo.userVO;
 
@@ -81,9 +84,7 @@ public class gBoardController{
 	public void place(Model model) throws Exception {
 	}
 	
-	@RequestMapping(value = "/selectPlace", method = RequestMethod.GET)
-	public void selectPlace(Model model) throws Exception {
-	}
+	
 	
 
 	@RequestMapping("/read")   
@@ -97,5 +98,36 @@ public class gBoardController{
 		mv.setViewName("/gBoard/read"); 
 		return mv;
 	}  
+	
+	@RequestMapping("/selectPlace")
+	public ModelAndView selectPlace(){
+		
+		ModelAndView mv = new ModelAndView();
+		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
+		ArrayList<PlaceVO> list = dao.execSelect();
+			
+			mv.addObject("list", list);
+			mv.setViewName("/gBoard/selectPlace");
+			return mv;
+			
+		}
+	
+	@RequestMapping("/place_content")
+	public ModelAndView place_content(String no, String rno){
+		ModelAndView mv = new ModelAndView();
+		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
+		PlaceVO vo = dao.execContent(no);
+		//ArrayList<String> imgList = vo.getPfnameList();
+				
+		//mv.addObject("imgList",imgList);
+		mv.addObject("vo", vo);	
+		mv.addObject("rno", rno);
+		mv.setViewName("/gBoard/place_content");
+		
+		return mv;
+	}
+
+
+	
 	
 }

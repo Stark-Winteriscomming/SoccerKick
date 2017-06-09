@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.soccerkick.dao.PlaceDAO">
+	<select id="execSelect" resultType="com.soccerkick.vo.PlaceVO">
+	select * from 
+			(select rownum as rno, no, title, content, intro, phone, fname, pfname
+			from (select no, title, content, intro, phone, fname, pfname 
+					from place order by no desc))
+			
+	</select>
+	
+	<insert id="execInsert">
+		insert into place values(
+				sequ_place.nextval,#{title},#{content},#{intro},#{phone},#{fname},#{pfname})
+	</insert>
+	<select id="execContent" resultType="com.soccerkick.vo.PlaceVO">
+		select * from place where no = #{no}
+	</select>
+		
+	<delete id="execDelete">
+		delete from place where no = #{no}
+	</delete>
+	
+	
+	<update id="execUpdate">
+		update place set title=#{title}, content=#{content}, intro=#{intro}, phone=#{phone}, fname=#{fname} ,pfname=#{pfname}
+					where no=#{no}
+	</update>
+	
+	
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
