@@ -23,6 +23,7 @@ import com.soccerkick.dao.AddressBookDAO;
 import com.soccerkick.dao.ChatRoomDAO;
 import com.soccerkick.dao.GameMatchDAO;
 import com.soccerkick.dao.MailDAO;
+import com.soccerkick.dao.ModifyDAO;
 import com.soccerkick.dao.TeamDAO;
 import com.soccerkick.vo.ChatRoomVO;
 import com.soccerkick.vo.GameVO;
@@ -330,5 +331,21 @@ public class myPageController {
 			return "fail";
 		}
 	}
-
+	
+	@RequestMapping("/modify")
+	public ModelAndView modify(HttpSession session){
+		String sid = ((userVO) (session.getAttribute("login"))).getClient_id();  
+		ModelAndView mv = new ModelAndView();
+		ModifyDAO dao = sqlSession.getMapper(ModifyDAO.class);
+		userVO vo = dao.execSelect(sid);
+		mv.addObject("vo",vo);
+		mv.setViewName("/myPage/modify");
+		return mv;
+	}
+	
+	@RequestMapping("/modify_update")
+	public ModelAndView modify_update(){
+		ModelAndView mv = new ModelAndView();
+		return mv;
+	}
 }

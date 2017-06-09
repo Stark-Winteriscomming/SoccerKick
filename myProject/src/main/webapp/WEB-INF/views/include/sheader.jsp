@@ -51,7 +51,6 @@
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/myPage/chatRoomList">실시간 채팅</a></li>
 								<li><a href="/myPage/mails">메일함</a></li>
-								<li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
 								<li><a href="/myPage/modify">수정</a></li>
 								<li><a href="/myPage/gameMatch">게임 매칭 내역</a></li>
 								<li><a href="/myPage/schedule">경기 일정</a></li>

@@ -7,6 +7,6 @@
     
     	<insert id="execInsert">	
     		insert into gameboard 
-    		values(#{host}, #{place}, #{gameday}, #{content}, SEQ_GAMEBOARD.nextval, #{phone}, #{email} , #{gametitle})
+    		values(#{host}, #{place}, #{content}, SEQ_GAMEBOARD.nextval, #{phone}, #{email} , #{gametitle}, TO_DATE(#{startday},'YYYY-MM-DD HH24:MI:SS'), TO_DATE(#{endday},'YYYY-MM-DD HH24:MI:SS'))
     	</insert>
     </mapper>

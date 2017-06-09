@@ -17,4 +17,6 @@ public interface GboardDAO {
 	public TeamVO execContent(int team_id);
 	
 	public MemberSelectVO execApplyid(String sid);
+	
+	public String execClientid(String sid);
 }

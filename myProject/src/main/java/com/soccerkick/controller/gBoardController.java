@@ -51,18 +51,22 @@ public class gBoardController{
 	}
 	
 	@RequestMapping("/matching_controller")
-	public String matching_controller(MatchingVO vo, HttpSession session, String startday, String endday,
+	public String matching_controller(MatchingVO vo, HttpSession session, String startdate, String startclock,String enddate, String endclock,
 			String phone1, String phone2, String phone3, String email1, String email2){
 		String sid = ((userVO) session.getAttribute("login")).getClient_id();
 		MatchingDAO  dao = sqlSession.getMapper(MatchingDAO.class);
-		String gameday = startday + " ~ " + endday;
 		String phone = phone1 + "-" + phone2 + "-" + phone3;
 		String email = email1 + "@" + email2;
+		String startday = startdate+" "+startclock;
+		String endday = enddate+" "+endclock;
+		System.out.println("startday:"+startdate+" "+startclock);
+		System.out.println("endday:"+enddate+" "+endclock);
 		System.out.println("sid:"+sid);
 		vo.setHost(sid);
-		vo.setGameday(gameday);
 		vo.setPhone(phone);
 		vo.setEmail(email);
+		vo.setStartday(startday);
+		vo.setEndday(endday);
 		dao.execInsert(vo);
 		return "redirect:/gBoard/team_open";
 	}

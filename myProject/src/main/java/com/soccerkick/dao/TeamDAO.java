@@ -17,6 +17,11 @@ public interface TeamDAO {
 	
 	public void gameMatch(GameVO vo);
 	
+	public int execUpdate(@Param("count")int count,@Param("team_id")int team_id);
+	
+	public int execCount(int team_id);
+	
+
 	
 } 
    

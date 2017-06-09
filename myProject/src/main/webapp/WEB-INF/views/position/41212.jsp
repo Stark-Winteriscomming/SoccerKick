@@ -7,11 +7,7 @@
 ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute("list");
 	TeamVO tvo = (TeamVO)request.getAttribute("tvo");
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
 	<style>
 		#content_wrap{
 			width:1200px;
@@ -143,7 +139,7 @@ ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute
 		<div id="selected_member">
 			<h1 class="ftitle2">선택 된 선수리스트</h1>
 			<br>
-			<form name="selectForm" action="">
+
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -172,12 +168,45 @@ ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute
 					</tr>
 					<%} %>
 				</table>
-			</form>
+
 			<div id="btn_group">
-				<button class="cselect" style="width: 280px; height: 80px;">선택 취소</button>
-				<button class="cselect" style="width: 280px; height: 80px;">선택 완료</button>
+				
+				<button id="cselect" style="width: 280px; height: 80px;">선택 완료</button>
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+			var cArray = new Array();
+			$("#cselect").on("click", function(){
+				console.log('click');
+				$('#tList tr.info').each(function() {
+					var id = $(this).children('.Id').html();
+					var position = $(this).children('.position').html();
+					var tid = $(this).children('.tId').html();
+					var formation = $(this).children('.formation').html();
+					
+					var obj = new Object();
+					obj.id = id;
+					obj.position = position;
+					obj.tid = tid;
+					obj.formation = formation;
+					cArray.push(obj);
+					
+				});
+				var sendObj = new Object();
+				sendObj.client = cArray;
+				
+				$.ajax({
+					url : 'complete_team',
+					type : 'post',
+					data : JSON.stringify(sendObj),
+					dataType : "text",
+					contentType : "application/json; charset=UTF-8",
+					success : function(result){
+						console.log(result);
+					}
+					
+				});
+			});
+		</script> 

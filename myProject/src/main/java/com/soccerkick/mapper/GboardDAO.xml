@@ -9,7 +9,7 @@
 	</insert>
 	
 	<select id="execSelect"  resultType="com.soccerkick.vo.TeamVO">
-		select * from team
+		select * from team where <![CDATA[team_member_count < 11 ]]>
 	</select>
 	
 	<select id="execContent" resultType="com.soccerkick.vo.TeamVO">
@@ -19,4 +19,8 @@
 	<select id="execApplyid" resultType="com.soccerkick.vo.MemberSelectVO">
 		select a_apy_position, apply_id from apply_select where apply_id = #{sid}
 	</select>
+	
+	<select id="execClientid" resultType="String">
+		select client_id from team where client_id = #{sid}
+	</select>  
 </mapper>     

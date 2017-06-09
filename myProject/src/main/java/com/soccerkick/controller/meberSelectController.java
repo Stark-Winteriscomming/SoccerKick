@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.soccerkick.dao.FormationDAO;
 import com.soccerkick.dao.MemberSelectDAO;
 import com.soccerkick.dao.TeamCreateDAO;
+import com.soccerkick.dao.TeamDAO;
 import com.soccerkick.vo.Formation_433VO;
 import com.soccerkick.vo.MemberSelectVO;
 import com.soccerkick.vo.TeamVO;
@@ -83,9 +84,18 @@ public class meberSelectController {
 	// 최종
 	@RequestMapping(value = "/complete_team", method = RequestMethod.POST)
 	@ResponseBody
-	public String complete_team(@RequestBody String msg) throws ParseException {
+	public String complete_team(@RequestBody String msg, HttpSession session) throws ParseException {
+		String sid = ((userVO) session.getAttribute("login")).getClient_id();
 		FormationDAO dao = sqlSession.getMapper(FormationDAO.class);
-	
+		MemberSelectDAO mdao = sqlSession.getMapper(MemberSelectDAO.class);
+		TeamDAO tdao = sqlSession.getMapper(TeamDAO.class);
+		
+		TeamVO vo = mdao.execFormation(sid);
+		int mcount = mdao.execCount(vo.getTeam_id(), vo.getTeam_formation());
+		tdao.execUpdate(mcount, vo.getTeam_id());
+		int tcount = tdao.execCount(vo.getTeam_id());
+		System.out.println("result:"+mcount);
+		System.out.println("result2:"+tcount);
 		System.out.println("received data: " + msg);
 
 		JSONParser jsonParser = new JSONParser();

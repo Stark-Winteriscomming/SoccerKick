@@ -21,5 +21,5 @@ public interface MemberSelectDAO {
 	
 	public MemberSelectVO execPosition(String[] no);
 	
-	
+	public int execCount(@Param("team_id")int team_id, @Param("formation")String formation);
 }

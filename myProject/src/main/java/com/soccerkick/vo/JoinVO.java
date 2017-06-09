@@ -10,13 +10,6 @@ public class JoinVO {
 	private String client_phone;
 	private Integer pw;
 	CommonsMultipartFile file;
-	
-  
-	
-	
-	
-
-
 	public String getFname() {
 		return fname;
 	}
