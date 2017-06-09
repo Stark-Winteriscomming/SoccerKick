@@ -12,6 +12,10 @@
 		select * from team where <![CDATA[team_member_count < 11 ]]>
 	</select>
 	
+	<select id="execGameList"  resultType="com.soccerkick.vo.GameBoardVO">
+		select * from gameboard, team where gameboard.host = team.client_id   
+	</select>   
+	
 	<select id="execContent" resultType="com.soccerkick.vo.TeamVO">
 		select * from team where team_id=#{team_id}	 
 	</select>

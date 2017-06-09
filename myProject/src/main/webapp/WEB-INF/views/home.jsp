@@ -19,9 +19,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2 class="section-heading">선수 모집</h2>
+				<h2 class="section-heading">
+					<span class="label label-primary">선수 모집 中</span>  
+				</h2>
 				<h3 class="section-subheading text-muted"
-					style="margin-bottom: 20px">-comment-</h3>
+					style="margin-bottom: 20px">-입단 신청을 할 수 있습니다-</h3>  
 			</div>
 			<div align="right">
 				<div class="btn-group"
@@ -50,104 +52,6 @@
 				</div>
 		</c:forEach>
 		</div>
-
-		<!-- <div class="row">
-			<div class="col-md-4 col-sm-6 portfolio-item">
-				<a href="gBoard/read" class="portfolio-link" data-toggle="modal">
-					<div class="portfolio-hover">
-						<div class="portfolio-hover-content">
-							<i class="fa fa-plus fa-3x"></i>
-						</div>
-					</div> <img src="resources/img/portfolio/1.png" class="img-responsive"
-					alt="">
-				</a>
-				<div class="portfolio-caption">
-					<h4>팀 명</h4>
-					<p class="text-muted">팀 소개</p>
-				</div>
-			</div>
-
-			<div class="col-md-4 col-sm-6 portfolio-item">
-				<a href="#portfolioModal1" class="portfolio-link"
-					data-toggle="modal">
-					<div class="portfolio-hover">
-						<div class="portfolio-hover-content">
-							<i class="fa fa-plus fa-3x"></i>
-						</div>
-					</div> <img src="resources/img/portfolio/2.png" class="img-responsive"
-					alt="">
-				</a>
-				<div class="portfolio-caption">
-					<h4>팀 명</h4>
-					<p class="text-muted">팀 소개</p>
-				</div>
-			</div>
-
-
-			<div class="col-md-4 col-sm-6 portfolio-item">
-				<a href="#portfolioModal1" class="portfolio-link"
-					data-toggle="modal">
-					<div class="portfolio-hover">
-						<div class="portfolio-hover-content">
-							<i class="fa fa-plus fa-3x"></i>
-						</div>
-					</div> <img src="resources/img/portfolio/3.png" class="img-responsive"
-					alt="">
-				</a>
-				<div class="portfolio-caption">
-					<h4>팀 명</h4>
-					<p class="text-muted">팀 소개</p>
-				</div>
-			</div>
-
-			<div class="col-md-4 col-sm-6 portfolio-item">
-				<a href="#portfolioModal1" class="portfolio-link"
-					data-toggle="modal">
-					<div class="portfolio-hover">
-						<div class="portfolio-hover-content">
-							<i class="fa fa-plus fa-3x"></i>
-						</div>
-					</div> <img src="resources/img/portfolio/3.png" class="img-responsive"
-					alt="">
-				</a>
-				<div class="portfolio-caption">
-					<h4>팀 명</h4>
-					<p class="text-muted">팀 소개</p>
-				</div>
-			</div>
-
-			<div class="col-md-4 col-sm-6 portfolio-item">
-				<a href="#portfolioModal1" class="portfolio-link"
-					data-toggle="modal">
-					<div class="portfolio-hover">
-						<div class="portfolio-hover-content">
-							<i class="fa fa-plus fa-3x"></i>
-						</div>
-					</div> <img src="resources/img/portfolio/1.png" class="img-responsive"
-					alt="">
-				</a>
-				<div class="portfolio-caption">
-					<h4>팀 명</h4>
-					<p class="text-muted">팀 소개</p>
-				</div>
-			</div>
-
-			<div class="col-md-4 col-sm-6 portfolio-item">
-				<a href="#portfolioModal1" class="portfolio-link"
-					data-toggle="modal">
-					<div class="portfolio-hover">
-						<div class="portfolio-hover-content">
-							<i class="fa fa-plus fa-3x"></i>
-						</div>
-					</div> <img src="resources/img/portfolio/2.png" class="img-responsive"
-					alt="">
-				</a>
-				<div class="portfolio-caption">
-					<h4>팀 명</h4>
-					<p class="text-muted">팀 소개</p>
-				</div>
-			</div>
-		</div> -->
 
 	</div>
 </section>

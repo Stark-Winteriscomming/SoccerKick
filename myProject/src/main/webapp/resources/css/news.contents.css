@@ -1,0 +1,14 @@
+li {
+	color: gray;
+	margin-top: 10px;
+}
+
+a {
+	color: black;
+	text-decoration: none !important;
+}
+
+.news-contents {
+	border : 1px solid gray;
+}
+

@@ -14,81 +14,56 @@
 				type="hidden" name="applicant_team" value="${vo.team_name}">
 			<input type="hidden" name="host" value="${vo.client_id}"> <input
 				type="hidden" name="a_applicant"
-				value="${sessionScope.login.client_id}"> <br>
-			<div align="center">
-				<h2 class="section-heading">
-					<span class="label label-primary">팀명</span>
-				</h2>
-				<h2>${vo.team_name}</h2>
+				value="${sessionScope.login.client_id}">  
+
+			<br>
+			<div align="center">   
+				<div align="center">
+				<h2 class="section-heading"><span class="label label-primary">팀명</span></h2>
+				<h1>${vo.team_name}</h1>
+			</div>
 				<div>
 					<img src="../upload/${vo.team_logo_file_name}" class="img-circle"
-						style="width: 300px; height: 300px;">
+						style="width: 300px; height: 300px; margin: 0 auto; display: block;">
 				</div>
+
 			</div>
-			<br>
-			<br>
-			<br>
-			<br>
-			<div>
-				<!-- formation choice -->
-				<c:if test="${vo.team_formation == '433' }">
-					<!-- 						<img src="/resources/img/433.png" style="width: 350px;" /> -->
-					<%-- 						<jsp:include page="completedTeamFormation_433.jsp" /> --%>
-					<div style="width: 50%; float: left">
-						<%@include file="completedTeamFormation_433.jsp"%>
-					</div>
-				</c:if>
-				<c:if test="${vo.team_formation == '41212' }">
-					<div style="width: 50%; float: left">
-						<%@include file="completedTeamFormation_41212.jsp"%>
-					</div>
-				</c:if>
-				<c:if test="${vo.team_formation == '4231' }">
-					<div style="width: 50%; float: left">
-						<%@include file="completedTeamFormation_4231.jsp"%>
-					</div>
-				</c:if>
-			</div>
-			<br>
-			<br>
-			<br>
-			<br>
-
-
-
-			<div style="float: right; width: 50%;">
-				<div class="checks" align="center">
-					<h3>
-						<span class="label label-primary">선수 정보</span>
-					</h3>
-					<div style="width: 50%; margin: 0 auto; border: 1px solid gray;">
-						<img
-							src="http://sstatic.naver.net/people/91/201405301047405271.jpg"
-							style="display: block; margin: 0 auto;" />
-						<div style="padding: 20px;">
-							이름 <label id="name"> changho232 </label><br> 지역<label
-								id="region"> 서울 </label><br> 나이<label id="age"> 23
-							</label><br> 히스토리<label id="history"> 대학교 졸업 </label>
-						</div>
-					</div>
+			
+			<div align="center">
+			<!-- formation choice -->
+			<c:if test="${vo.team_formation == '433' }">
+				<!-- 						<img src="/resources/img/433.png" style="width: 350px;" /> -->
+				<%-- 						<jsp:include page="completedTeamFormation_433.jsp" /> --%>
+				<div style="width: 50%;">
+					<%@include file="../team/completedTeamFormation_433.jsp"%>
 				</div>
+			</c:if>
+			<c:if test="${vo.team_formation == '41212' }">
+				<div style="width: 50%;">
+					<%@include file="../team/completedTeamFormation_41212.jsp"%>
+				</div>
+			</c:if>
+			<c:if test="${vo.team_formation == '4231' }">
+				<div style="width: 50%;">
+					<%@include file="../team/completedTeamFormation_4231.jsp"%>
+				</div>
+			</c:if>
 			</div>
+			
 			<br> <br> <br>
 			<!--  -->
-			<br>
-			<br>
-			<br>
 			<div style="clear: both; margin: 0 auto; width: 50%;">
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<h3 class="panel-title" id="panel-title">
-							팀 소개<a class="anchorjs-link" href="#panel-title"><span
+							경기 정보<a class="anchorjs-link" href="#panel-title"><span
 								class="anchorjs-icon"></span></a>
 						</h3>
-					</div>
+					</div>  
 					<div class="panel-body">
-						팀이름 - ${vo.team_name}<br> 지역 - ${vo.team_region}<br>
-						포메이션 - ${vo.team_formation}<br> 소개글 - ${vo.team_history}<br>
+						<h4><span class="label label-primary">경기 장소</span>  ${gvo.place}</h4><br> 
+						<h4><span class="label label-primary">경기 일자</span>  ${gvo.gameday}</h4><br>
+						   
 					</div>
 				</div>
 			</div>
