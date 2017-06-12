@@ -22,4 +22,14 @@ public interface GboardDAO {
 	public TeamVO execContent(@Param("team_id") int team_id);
 	  
 	public MemberSelectVO execApplyid(String sid);
+	
+	//???
+	public String execClientid(String sid);
+	
+	
+	// from sangho
+	
+
+	  
 }
+

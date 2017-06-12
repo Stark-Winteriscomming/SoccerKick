@@ -37,8 +37,27 @@
 	<select id="execPosition" resultType="com.soccerkick.vo.MemberSelectVO">
 		select no,a_apy_position from selected_member where no = #{no}
 	</select>
-
+	
+	<select id="execCount" resultType="int">
+		select 
+		<choose>
+			<when test="formation.equals('433')">
+				count(lwf)+count(rwf)+count(st)+count(lm)+count(cm)+count(rm)+count(lb)+
+				count(lcb)+count(rcb)+count(rb)+count(gk) from formation_433
+			</when>
+			<when test="formation.equals('4231')">
+				count(st)+count(lm)+count(cam)+count(rm)+count(cdm1)+count(cdm2)+count(lb)+
+				count(lcb)+count(rcb)+count(rb)+count(gk) from formation_4231
+			</when>
+			<when test="formation.equals('41212')">
+				count(ls)+count(rs)+count(cam)+count(lm)+count(rm)+count(cdm)+count(lb)+
+				count(lcb)+count(rcb)+count(rb)+count(gk) from formation_41212
+			</when>
+		</choose>
+		 where team_id=#{team_id}
+	</select>
 	<delete id="execDelete">
 		delete from selected_member where no=#{no}
 	</delete>
+
 </mapper>

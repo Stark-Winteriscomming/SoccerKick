@@ -1,8 +1,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page session="true"%>
+<%
+	String sid = (String)request.getAttribute("sid");
+	String client_id = (String)request.getAttribute("client_id");
+%>
 
 <%@include file="include/header.jsp"%>
+
 <section id="portfolio" class="bg-light-gray">
 	<div class="container">
 		<div class="row">

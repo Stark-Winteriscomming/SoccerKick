@@ -9,6 +9,11 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
+
+
+
+
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,14 +24,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.GboardDAO;
+import com.soccerkick.dao.MatchingDAO;
+import com.soccerkick.vo.MatchingVO;
 import com.soccerkick.vo.TeamVO;
+import com.soccerkick.vo.userVO;
 
 @Controller
 public class HomeController {
 
 	@Autowired
 	SqlSessionTemplate sqlSession;
-
+	
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(Model model, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -35,8 +44,8 @@ public class HomeController {
 		ArrayList<TeamVO> list = dao.execSelectRank();
 		mv.addObject("list", list);
 		return mv;  
-	}   
-	
+	} 
+
 	@RequestMapping(value = "/enter", method = RequestMethod.GET)
 	public ModelAndView home(Model model, HttpSession session) {
 
@@ -55,21 +64,6 @@ public class HomeController {
 
 		return mv;
 	}
-
-	@RequestMapping("/arraymain.do")
-	public String arraymain() {
-
-		return "/array";
-	}
-
-	@RequestMapping("/array.do")
-	public ModelAndView array(String[] name) {
-		for (String str : name) {
-			System.out.println(str);
-		}
-		return null;
-	}
-
 	// news api test
 	@RequestMapping(value="/api/get",produces = "application/json; charset=utf8")
 	@ResponseBody

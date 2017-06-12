@@ -6,7 +6,7 @@ import com.soccerkick.vo.TeamVO;
 
 public interface TeamCreateDAO {
 	
-	public int execInsert(TeamVO vo);
+	public int execInsert(@Param("vo")TeamVO vo, @Param("count")int count);
 	public TeamVO execFormation(String sid);
 	public TeamVO execTeamid(String sid);
 	// get a sequence

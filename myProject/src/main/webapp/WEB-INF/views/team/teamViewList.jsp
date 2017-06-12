@@ -41,8 +41,7 @@
 					<div class="portfolio-caption">
 						<h4>${vo.team_name}</h4>
 						<p class="text-muted">${vo.team_history}</p>
-						<a href="/team/teamView?team_id=${vo.team_id}"><button
-								class="btn btn-primary">상세 보기</button></a>
+						<a href="/team/teamView?team_id=${vo.team_id}"><button class="btn btn-primary">상세 보기</button></a>
 					</div>
 				</div>
 			</c:forEach>

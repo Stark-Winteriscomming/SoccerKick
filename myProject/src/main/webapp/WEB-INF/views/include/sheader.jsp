@@ -62,7 +62,6 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/team/teamCreateForm">팀 생성</a></li>
-								<li><a href="/myPage/memberSelectForm">선수 셀렉트</a></li>
 								<li><a href="/myPage/gameMatch">게임 매칭 내역</a></li>
 								<li><a href="/myPage/schedule">경기 일정</a></li>
 							</ul>
@@ -73,16 +72,8 @@
 									class="btn btn-default btn-g  btn-lg">입단하기</button></a>
 						</div>
 						<div class="btn-group">  
-							<a href="/gBoard/selectPlace"><button type="button"
-									class="btn btn-default btn-g  btn-lg">장소정보</button></a>
-						</div>
-						<div class="btn-group">  
 							<a href="/team/teamViewList"><button type="button"
 									class="btn btn-default btn-g  btn-lg">팀 정보</button></a>
-						</div>
-						<div class="btn-group">
-							<a href="/gBoard/gameList"><button type="button"  
-									class="btn btn-default btn-g  btn-lg">경기 매칭</button></a>
 						</div>
 					</div>
 						<c:choose>

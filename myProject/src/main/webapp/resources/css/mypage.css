@@ -1,6 +1,6 @@
 .content{
 	width:1000px;
-	height:800px;
+	height:auto;
 	margin: 0 auto;
 }
 .innerborder{
@@ -18,8 +18,8 @@
 	padding:10px;
 }
 .core2{
+	display:inline-block;
 	width:100%;
-	height:200px;
 	border:1px solid lightgray;
 	border-radius:5px;
 	border-style:outset;
@@ -41,11 +41,19 @@
 	margin:0 auto;
 	margin-top: 15px;
 }
-.btn_img{
+div.btn_img{
 	width:170px;
 	height:25px;
 	margin:0 auto;
 	margin-top: 15px;
+	
+}
+button.btn_img{
+	width:170px;
+	height:25px;
+
+	display: inline-block;
+	position: absolute;
 }
 .list{     
 	width:768px;
@@ -54,7 +62,6 @@
 	padding-left:20px;
 	padding-right:20px;
 	float: left;
-	
 }
 .account{
 	height:40px;
@@ -77,7 +84,7 @@
 	float:left;
 }
 ul li{
-	margin-top: 5px;
+	margin-top: 11px;
 }
 label{
 	width:50px;
@@ -92,7 +99,7 @@ label{
 	text-align: center;
 	font-size: 0.8em;
 }
-}
+
 .inlineBlock{
 	border:none;
 	background-color: #e6efd1;
@@ -188,4 +195,21 @@ center{
 }
 .btn_cancel{
 	background-color:#999999;
+}
+.upload-hidden {
+	display: inline-block;
+	opacity: 0;
+	position: relative;
+	width: 170px;
+	margin-top: 15px;
+	cursor: pointer;
+}
+#blah{
+	width:160px;
+	height: 160px;
+	opacity:0;
+}
+hr{
+	background-color: #d2d2d2;
+	height:1px;
 }

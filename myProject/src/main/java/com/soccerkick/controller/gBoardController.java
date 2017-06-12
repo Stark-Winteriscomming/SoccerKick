@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.soccerkick.dao.FormationDAO;
 import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.dao.MatchingDAO;
+import com.soccerkick.dao.PlaceDAO;
 import com.soccerkick.dao.TeamCreateDAO;
 import com.soccerkick.dao.TeamDAO;
 import com.soccerkick.vo.Formation_41212VO;
@@ -24,21 +25,33 @@ import com.soccerkick.vo.Formation_433VO;
 import com.soccerkick.vo.GameBoardVO;
 import com.soccerkick.vo.GboardVO;
 import com.soccerkick.vo.MatchingVO;
+import com.soccerkick.vo.PlaceVO;
 import com.soccerkick.vo.TeamVO;
 import com.soccerkick.vo.userVO;
 
 @Controller
 @RequestMapping("/gBoard/*")
-public class gBoardController {
-
+public class gBoardController{
+	
 	@Autowired
 	SqlSessionTemplate sqlSession;
-
-	/*
-	 * @RequestMapping(value = "/read", method = RequestMethod.GET) public void
-	 * read(Model model) throws Exception { }
-	 */
-
+	
+/*	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public void read(Model model) throws Exception {
+	}*/
+	
+	@RequestMapping(value="/apply", method=RequestMethod.POST)
+	public String apply(GboardVO vo, HttpSession session, String a_apy_position,
+			int team_id) throws IOException{
+		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
+		System.out.println("position:" + a_apy_position);
+		System.out.println("team_id:"+team_id);
+		String sid = ((userVO) session.getAttribute("login")).getClient_id();
+		dao.insertApply(vo, sid, a_apy_position, team_id);
+		
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value = "/gameList", method = RequestMethod.GET)
 	public ModelAndView home(Model model) {
 
@@ -50,24 +63,13 @@ public class gBoardController {
 
 		return mv;
 	}
-
-	@RequestMapping(value = "/apply", method = RequestMethod.POST)
-	public String apply(GboardVO vo, HttpSession session, String a_apy_position, int team_id) throws IOException {
-		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
-		System.out.println("position:" + a_apy_position);
-		System.out.println("team_id:" + team_id);
-		String sid = ((userVO) session.getAttribute("login")).getClient_id();
-		dao.insertApply(vo, sid, a_apy_position, team_id);
-
-		return "redirect:/";
-	}
-
+	
 	@RequestMapping("/team_open")
 	public String team_open() {
 
 		return "/gBoard/team_open";
 	}
-
+	
 	@RequestMapping("/matching_controller")
 	public String matching_controller(MatchingVO vo, HttpSession session, String startdate, String startclock,String enddate, String endclock,
 			String phone1, String phone2, String phone3, String email1, String email2){
@@ -91,26 +93,52 @@ public class gBoardController {
 		dao.execInsert(vo);
 		return "redirect:/gBoard/team_open";
 	}
-
+	
+	
 	@RequestMapping(value = "/place", method = RequestMethod.GET)
 	public void place(Model model) throws Exception {
 	}
+	
+	
+	
 
-	@RequestMapping(value = "/selectPlace", method = RequestMethod.GET)
-	public void selectPlace(Model model) throws Exception {
-	}
-
-	@RequestMapping("/read")
-	public ModelAndView board_content(int team_id, HttpSession session) {
-		/*
-		 * String sid = ((userVO) session.getAttribute("login")).getClient_id();
-		 * System.out.println("sid:"+sid);
-		 */
+	@RequestMapping("/read")   
+	public ModelAndView board_content(int team_id, HttpSession session){
+		/*String sid = ((userVO) session.getAttribute("login")).getClient_id();
+		System.out.println("sid:"+sid); */
 		ModelAndView mv = new ModelAndView();
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
 		TeamVO vo = dao.execContent(team_id);
-		mv.addObject("vo", vo);
-		mv.setViewName("/gBoard/read");
+		mv.addObject("vo", vo);	  
+		mv.setViewName("/gBoard/read"); 
+		return mv;
+	}  
+	
+	@RequestMapping("/selectPlace")
+	public ModelAndView selectPlace(){
+		
+		ModelAndView mv = new ModelAndView();
+		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
+		ArrayList<PlaceVO> list = dao.execSelect();
+			
+			mv.addObject("list", list);
+			mv.setViewName("/gBoard/selectPlace");
+			return mv;
+			
+		}
+	
+	@RequestMapping("/place_content")
+	public ModelAndView place_content(String no, String rno){
+		ModelAndView mv = new ModelAndView();
+		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
+		PlaceVO vo = dao.execContent(no);
+		//ArrayList<String> imgList = vo.getPfnameList();
+				
+		//mv.addObject("imgList",imgList);
+		mv.addObject("vo", vo);	
+		mv.addObject("rno", rno);
+		mv.setViewName("/gBoard/place_content");
+		
 		return mv;
 	}
 
@@ -151,5 +179,6 @@ public class gBoardController {
 
 		return mv;
 	}
-
+	
+	
 }

@@ -17,9 +17,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
+import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.dao.JoinDAO;
 import com.soccerkick.dao.userDAO;
 import com.soccerkick.vo.JoinVO;
@@ -38,9 +40,8 @@ public class userController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
-
 		if (session.getAttribute("login") != null) {
-			return "redirect:/";
+			return "redirect:/home";
 		} else
 			return "/user/login";
 	}
@@ -51,6 +52,7 @@ public class userController {
 		session.invalidate();
 		return "redirect:/";
 	}
+
 
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
 	public String loginCheck(Model model, userVO vo, RedirectAttributes rttr, HttpServletRequest request,

@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.soccerkick.dao.FormationDAO;
 import com.soccerkick.dao.GameMatchDAO;
+import com.soccerkick.dao.MemberSelectDAO;
 import com.soccerkick.dao.TeamCreateDAO;
 import com.soccerkick.dao.TeamDAO;
 import com.soccerkick.vo.Formation_41212VO;
@@ -148,7 +149,12 @@ public class teamController {
 			System.out.println("fname : " + vo.getTeam_logo_file_name());
 		}
 		TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class);
-		int result = dao.execInsert(vo);
+		MemberSelectDAO mdao = sqlSession.getMapper(MemberSelectDAO.class);
+		
+		TeamVO tvo = mdao.execFormation(sid);
+		int count = mdao.execCount(tvo.getTeam_id(), tvo.getTeam_formation());
+		
+		int result = dao.execInsert(vo, count);
 		int seq = dao.getCurrentSeq();
 		System.out.println("team id: " + vo.getTeam_id());
 		System.out.println("formation: " + vo.getTeam_formation());

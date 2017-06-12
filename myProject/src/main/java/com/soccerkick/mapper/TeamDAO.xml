@@ -22,10 +22,22 @@
 	<select id="execSelect" resultType="com.soccerkick.vo.TeamVO">
 		select * from team
 		<if test="keywordInput != null">
-			where INSTR(team_name, #{keywordInput}) > 0
+			where INSTR(team_name, #{keywordInput}) > 0  and 
+			  <![CDATA[team_member_count < 11 ]]>
 		</if>
-	</select>  
+		<if test="keywordInput == null">
+			where <![CDATA[team_member_count < 11 ]]>
+		</if>
+
+	</select>
+	<select id="execCount" resultType="int">
+		select team_member_count from team where team_id = #{team_id}
+	</select>
+
 	<insert id="gameMatch">
 		insert into game(host, applicant) values(#{host}, #{applicant})  
 	</insert>  
+	<update id="execUpdate">
+		update team set team_member_count = #{count} where team_id=#{team_id}
+	</update>
 </mapper>
