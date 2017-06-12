@@ -40,10 +40,36 @@
 	</div>
 
 
-<c:forEach items="${list}" var="vo">
-${vo.team_name }
-</c:forEach>
 
+
+
+
+	<div align="center">  
+	<div class="panel panel-primary" style="width: 500px">
+		<div class="panel-heading">
+			<h3 class="panel-title" id="panel-title">
+				Panel title<a class="anchorjs-link" href="#panel-title"><span
+					class="anchorjs-icon"></span></a>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<table class="table table-stripped">
+				<tr>
+					<th>순위</th>
+					<th>팀이름</th>
+					<th>팀포인트</th>
+				</tr>
+				<c:forEach items="${list}" var="vo">
+					<tr>
+						<td>${vo.rownum }</td>
+						<td><img src="upload/${vo.team_logo_file_name}" style="width: 50px; height: 50px;"> ${vo.team_name }</td>
+						<td>${vo.team_point }</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+	</div>
+	</div>
 
 
 </section>

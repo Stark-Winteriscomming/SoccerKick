@@ -12,8 +12,8 @@
 		select * from team
 	</select>
 	
-	<select id="execSelectRank"  resultType="com.soccerkick.vo.TeamVO">
-		select * from team
+	<select id="execSelectRank"  resultType="com.soccerkick.vo.TeamVO"> 
+		select rownum, team_name, team_logo_file_name, team_point from (select rownum, team_name, team_logo_file_name, team_point from team order by team_point desc)       
 	</select>
 	
 	<select id="execGameList"  resultType="com.soccerkick.vo.GameBoardVO">
