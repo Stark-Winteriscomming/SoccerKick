@@ -34,7 +34,7 @@
 						<br><br>   
 					<div align="center">
 					<span class="label label-primary label-lg">장소</span> <br>${vo.place} <br>        
-					<span class="label label-primary label-lg">경기 일자</span> <br> ${vo.gameday}    
+					<span class="label label-primary label-lg">경기 일자</span> <br> ${vo.startday}    
 					</div>
 					</div>  
 					</div>

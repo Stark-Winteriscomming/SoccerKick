@@ -34,40 +34,34 @@ public class HomeController {
 
 	@Autowired
 	SqlSessionTemplate sqlSession;
-
+	
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home(String sid,String client_id,HttpSession session) {
-		ModelAndView mv = new ModelAndView();
-		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
-		ArrayList<TeamVO> list = dao.execSelect();
-		System.out.println("sid:"+sid);
-		System.out.println("client_id:"+client_id);
-		mv.addObject("list", list);
-		mv.addObject("sid",sid);
-		mv.addObject("client_id",client_id);
-		mv.setViewName("/home");
-			
-		return mv;
-	}
-	@RequestMapping("/index")
 	public ModelAndView index(Model model, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		MatchingDAO dao = sqlSession.getMapper(MatchingDAO.class);
-		ArrayList<TeamVO> list = dao.execSelect();
-		mv.addObject("list",list);
-		mv.setViewName("/index");    
+		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
+		mv.setViewName("/index");   
+		ArrayList<TeamVO> list = dao.execSelectRank();
+		mv.addObject("list", list);
 		return mv;  
-	}   
-	
+	} 
+
 	@RequestMapping(value = "/enter", method = RequestMethod.GET)
 	public ModelAndView home(Model model, HttpSession session) {
+
 		ModelAndView mv = new ModelAndView();
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
 		if (session.getAttribute("login") == null) {
 			System.out.println("session: login is null...");
+
 			// return login page
 			mv.setViewName("/user/login");
+			return mv;
 		}
+		ArrayList<TeamVO> list = dao.execSelect();
+		mv.addObject("list", list);
+		mv.setViewName("/home");
+
 		return mv;
 	}
 	// news api test

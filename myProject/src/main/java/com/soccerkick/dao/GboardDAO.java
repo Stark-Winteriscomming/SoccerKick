@@ -21,5 +21,17 @@ public interface GboardDAO {
 	  
 	public MemberSelectVO execApplyid(String sid);
 	
+	//???
 	public String execClientid(String sid);
+	
+	
+	// from sangho
+	
+
+	
+	public ArrayList<TeamVO> execSelectRank();
+	
+
+	  
 }
+

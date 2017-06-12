@@ -162,7 +162,7 @@
 					<div class="formation">
 						<h4 class="webFont">장소선택</h4>
 						<div class="container2">
-						  <input type="hidden" name="place" id="place" />
+						  <input type="hidden" name="place" id="place" value="${vo.title }"/>
 						  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">장소 선택</button>
 						  <div class="modal fade" id="myModal" role="dialog">
 						    <div class="modal-dialog">

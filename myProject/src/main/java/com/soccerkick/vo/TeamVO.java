@@ -4,9 +4,18 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class TeamVO {
 	String team_name, team_region, team_logo_file_name, team_history, team_formation, client_id;
-	int team_id,team_member_count,team_point;
+	int team_id,team_member_count,team_point,rownum;
 	CommonsMultipartFile uploadfile;
 	
+	
+	
+	
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
 	public String getTeam_name() {
 		return team_name;
 	}

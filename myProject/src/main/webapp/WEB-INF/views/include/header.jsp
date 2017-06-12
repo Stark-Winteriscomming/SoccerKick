@@ -73,6 +73,10 @@
 									class="btn btn-default btn-g  btn-lg">입단하기</button></a>
 						</div>
 						<div class="btn-group">  
+							<a href="/gBoard/selectPlace"><button type="button"
+									class="btn btn-default btn-g  btn-lg">장소정보</button></a>
+						</div>
+						<div class="btn-group">  
 							<a href="/team/teamViewList"><button type="button"
 									class="btn btn-default btn-g  btn-lg">팀 정보</button></a>
 						</div>
