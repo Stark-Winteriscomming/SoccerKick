@@ -47,11 +47,16 @@ public class gBoardController{
 	}
 	
 	@RequestMapping("/gameList")
+	public String gameList(){
+		
+		return "/gBoard/gameList";
+	}
+	
+	@RequestMapping("/team_open")
 	public String team_open(){
 		
 		return "/gBoard/team_open";
 	}
-	
 	@RequestMapping("/matching_controller")
 	public String matching_controller(MatchingVO vo, HttpSession session, String startdate, String startclock,String enddate, String endclock,
 			String phone1, String phone2, String phone3, String email1, String email2){
