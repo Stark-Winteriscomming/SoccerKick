@@ -1,8 +1,19 @@
 package com.soccerkick.vo;
 
 public class GameBoardVO {
-	String host, place, content, email, gametitle, phone, gameday, team_logo_file_name, team_name, client_id;  
+	String host, place, content, email, gametitle, phone, gameday, team_logo_file_name, team_name, client_id, startday;  
 	int gameno, team_id;   
+	
+	  
+	
+	
+	
+	public String getStartday() {
+		return startday;
+	}
+	public void setStartday(String startday) {
+		this.startday = startday;
+	}
 	public String getHost() {     
 		return host;
 	}

@@ -7,13 +7,7 @@
 	String client_id = (String)request.getAttribute("client_id");
 %>
 
-<%if(sid == null && client_id == null){ %>
-	<c:import url="include/sheader.jsp" />
-<%} else if(!sid.equals(client_id)){%>
-	<c:import url="include/sheader.jsp" />
-<%} else if(sid.equals(client_id)){%>
-	<c:import url="include/header.jsp" />
-<%}%>
+<%@include file="include/header.jsp"%>
 
 <section id="portfolio" class="bg-light-gray">
 	<div class="container">
