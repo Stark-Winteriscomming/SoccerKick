@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ page import="java.util.*" %>
 <%@ page import = "com.soccerkick.vo.PlaceVO" %>
@@ -12,20 +12,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>°ü¸®ÀÚ ÆäÀÌÁö ÀÔ´Ï´Ù.</h3>
+	<h3>ê´€ë¦¬ì í˜ì´ì§€ ì…ë‹ˆë‹¤.</h3>
 	<hr>	
-	<h4>Àå¼Ò ³»¿ë º¸±â</h4>
+	<h4>ì¥ì†Œ ë‚´ìš© ë³´ê¸°</h4>
 	<ul>
-		<li>Á¦¸ñ : ${vo.title}</li>
-		<li>¼Ò°³±Û : ${vo.intro }</li>
-		<li>³»¿ë : ${vo.content }</li>
-		<li>ÀüÈ­¹øÈ£ : ${vo.phone}</li>
-		<li>°æ±âÀå »çÁø: </li>
+		<li>ì œëª© : ${vo.title}</li>
+		<li>ì†Œê°œê¸€ : ${vo.intro }</li>
+		<li>ë‚´ìš© : ${vo.content }</li>
+		<li>ì „í™”ë²ˆí˜¸ : ${vo.phone}</li>
+		<li>ê²½ê¸°ì¥ ì‚¬ì§„: </li>
 		<img src="http://localhost:9090/resources/ground/${vo.pfname}" width="299" height="168" /> 
 	</ul>
-	<a href="admin_place_update_form?no=${vo.no} ">¼öÁ¤</a>&nbsp;&nbsp;&nbsp;
-	<a href="admin_place_delete?no=${vo.no}">»èÁ¦</a>&nbsp;&nbsp;&nbsp;	
-	<a href="admin_place_list"><span>¸ŞÀÎÀÌµ¿</span></a>
+	<a href="admin_place_update_form?no=${vo.no} ">ìˆ˜ì •</a>&nbsp;&nbsp;&nbsp;
+	<a href="admin_place_delete?no=${vo.no}">ì‚­ì œ</a>&nbsp;&nbsp;&nbsp;	
+	<a href="admin_place_list"><span>ë©”ì¸ì´ë™</span></a>
 </body>
 </html>
 

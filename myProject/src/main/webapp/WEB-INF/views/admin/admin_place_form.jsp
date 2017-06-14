@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
 <title>Insert title here</title>
 	<style>
 		li { margin:20px; 
@@ -26,7 +26,7 @@
 		$(document).ready(function(){
 			$("#btnSave").click(function(){
 				if($("#title").val() == ""){
-					alert("Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä");
+					alert("ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”");
 					$("#title").focus();
 					return false;
 				}
@@ -37,34 +37,34 @@
 	</script>
 </head>
 <body>
-	<h3>°ü¸®ÀÚ ÆäÀÌÁö > Àå¼Ò ÀÔ·Â Æû</h3>
+	<h3>ê´€ë¦¬ì í˜ì´ì§€ > ì¥ì†Œ ì…ë ¥ í¼</h3>
 	<hr>
 	<form name="noticeForm" action="admin_place_save.do" method="post" enctype="multipart/form-data">
 		<ul>
 			<li>
-				<label>Á¦¸ñ</label>
+				<label>ì œëª©</label>
 				<input type="text" name="title" id="title">
 			</li>
 			<li>
-				<label>°æ±âÀå ¼Ò°³±Û</label>
+				<label>ê²½ê¸°ì¥ ì†Œê°œê¸€</label>
 				<textarea rows=2 cols=50 name="intro" id="intro"></textarea>
 			</li>
 			<li>
-				<label>°æ±âÀå ÀüÈ­¹øÈ£</label>
+				<label>ê²½ê¸°ì¥ ì „í™”ë²ˆí˜¸</label>
 				<textarea rows=1 cols=50 name="phone" id="phone"></textarea>
 			</li>
 			
 			<li>
-				<label>°æ±âÀå Á¤º¸</label>
+				<label>ê²½ê¸°ì¥ ì •ë³´</label>
 				<textarea rows=10 cols=50 name="content" id="content"></textarea>
 			</li>
 			<li>
-				<label>°æ±âÀå »çÁø</label>
+				<label>ê²½ê¸°ì¥ ì‚¬ì§„</label>
 				<input type="file" name="file" id="file" >
 			</li>
 			<li class="button">
-				<button type="button" id="btnSave">ÀúÀå</button>
-				<button type="reset">Ãë¼Ò</button>
+				<button type="button" id="btnSave">ì €ì¥</button>
+				<button type="reset">ì·¨ì†Œ</button>
 			</li>
 		</ul>
 		
