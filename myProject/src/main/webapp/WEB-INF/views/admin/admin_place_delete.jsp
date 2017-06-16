@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ page import="java.util.*" %>
 <%@ page import = "com.soccerkick.vo.PlaceVO" %>
@@ -21,11 +21,11 @@
 
 </head>
 <body>
-	<h1>Á¤¸»·Î »èÁ¦ ÇÏ½Ã°Ú½À´Ï±î?</h1>
+	<h1>ì •ë§ë¡œ ì‚­ì œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?</h1>
 	
 	<button type="button" id="btnDelete">
-	<a href="admin_place_delete_complete?no=${no}">»èÁ¦</a></button>
-	<button type="reset">Ãë¼Ò</button>
+	<a href="admin_place_delete_complete?no=${no}">ì‚­ì œ</a></button>
+	<button type="reset">ì·¨ì†Œ</button>
 </body>
 </html>
 

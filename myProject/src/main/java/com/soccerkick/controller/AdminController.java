@@ -23,6 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
+
+
 import com.soccerkick.dao.*;
 import com.soccerkick.vo.*;
 
@@ -101,7 +103,10 @@ public class AdminController {
 				CommonsMultipartFile file=vo.getFile();
 				fos.write(file.getBytes());
 				fos.close();				
-					
+				System.out.println(vo.getTitle());
+				System.out.println(vo.getPhone());
+				System.out.println(vo.getIntro());
+				System.out.println(vo.getContent());
 				
 		int result = dao.execInsert(vo);
 		return "redirect:/admin/admin_index";
@@ -113,6 +118,8 @@ public class AdminController {
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
 		
 		ArrayList<PlaceVO> list = dao.execSelect();
+		
+		
 		
 		mv.addObject("list", list);
 		mv.setViewName("/admin/admin_place_list");
@@ -175,7 +182,8 @@ public class AdminController {
 	
 		return "redirect:/admin/admin_place_list";
 	}
-
+	
+	
 	
 	/*
 	
