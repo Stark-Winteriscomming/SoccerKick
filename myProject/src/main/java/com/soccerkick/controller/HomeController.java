@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 
 
+
 import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.dao.MatchingDAO;
+import com.soccerkick.vo.GameBoardVO;
 import com.soccerkick.vo.MatchingVO;
 import com.soccerkick.vo.TeamVO;
 import com.soccerkick.vo.userVO;
@@ -40,20 +42,25 @@ public class HomeController {
 	public ModelAndView index(Model model, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
-		mv.setViewName("/index");   
+		MatchingDAO mdao = sqlSession.getMapper(MatchingDAO.class);
+		GameBoardVO gvo = mdao.execItemactive();
 		ArrayList<TeamVO> list = dao.execSelectRank();
+		ArrayList<GameBoardVO> glist = mdao.execItem();
+		
 		mv.addObject("list", list);
+		mv.addObject("glist",glist);
+		mv.addObject("gvo",gvo);
+		
+		mv.setViewName("/index");
 		return mv;  
 	} 
 
 	@RequestMapping(value = "/enter", method = RequestMethod.GET)
 	public ModelAndView home(Model model, HttpSession session) {
-
 		ModelAndView mv = new ModelAndView();
 		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
 		if (session.getAttribute("login") == null) {
 			System.out.println("session: login is null...");
-
 			// return login page
 			mv.setViewName("/user/login");
 			return mv;

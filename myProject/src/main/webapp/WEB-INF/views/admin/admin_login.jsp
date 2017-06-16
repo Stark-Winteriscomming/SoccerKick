@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,17 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>°ü¸®ÀÚ ÆäÀÌÁö ÀÔ´Ï´Ù.</h3>
+	<h3>ê´€ë¦¬ìž íŽ˜ì´ì§€ ìž…ë‹ˆë‹¤.</h3>
 	<hr>
 	<h4>
 		<form action="/admin/admin_login.do" method="post">
 		
-			<h3>°ü¸®ÀÚ ·Î±×ÀÎ</h3>
+			<h3>ê´€ë¦¬ìž ë¡œê·¸ì¸</h3>
 			<p>
-			<input type="text" name="id" placeholder="¾ÆÀÌµð ÀÔ·Â">
-			<input type="password" name="pass" placeholder="ºñ¹Ð¹øÈ£ ÀÔ·Â">
+			<input type="text" name="id" placeholder="ì•„ì´ë”” ìž…ë ¥">
+			<input type="password" name="pass" placeholder="ë¹„ë°€ë²ˆí˜¸ ìž…ë ¥">
 			</p>
-			<button>·Î±×ÀÎ</button>	
+			<button>ë¡œê·¸ì¸</button>	
 		</form>
 	</h4>
 </body>

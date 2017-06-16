@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.soccerkick.vo.GameBoardVO;
 import com.soccerkick.vo.GboardVO;
+import com.soccerkick.vo.MatchingVO;
 import com.soccerkick.vo.MemberSelectVO;
 import com.soccerkick.vo.TeamVO;
 
@@ -28,7 +29,6 @@ public interface GboardDAO {
 	
 	
 	// from sangho
-	
 
 	  
 }

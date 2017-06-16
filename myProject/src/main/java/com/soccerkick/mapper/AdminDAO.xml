@@ -9,6 +9,12 @@
  select client_id, pw from client where client_id= #{client_id}
  </select>
  
+ <select id="execSelect" resultType="int">
+     select count(client_id) from client
+              where client_id = #{client_id} and pass= #{pass}
+
+ </select>
+ 
  <select id="execSelectt" resultType="com.soccerkick.vo.AdminVO">
 		select * from client
 	</select>

@@ -6,11 +6,21 @@
     <mapper namespace="com.soccerkick.dao.MatchingDAO">
     	<insert id="execInsert">
     		insert into gameboard 
-    		values(#{host}, #{place}, #{content}, SEQ_GAMEBOARD.nextval, #{phone}, #{email} , #{gametitle}, TO_DATE(#{startday},'YYYY-MM-DD HH24:MI:SS'), TO_DATE(#{endday},'YYYY-MM-DD HH24:MI:SS'), #{team_id})
+    		values(#{host}, #{place}, #{content}, SEQ_GAMEBOARD.nextval, #{phone}, #{email} , #{gametitle}, TO_DATE(#{startday},'YYYY-MM-DD HH24:MI:SS'), TO_DATE(#{endday},'YYYY-MM-DD HH24:MI:SS'), #{team_id}, sysdate)
     	</insert>
  	<select id="execSelect" resultType="com.soccerkick.vo.TeamVO">
     		<![CDATA[rownum<=10 ]]>
     		select * from team where <![CDATA[rownum <= 10 ]]> and 
 			team_id = (select team_id from gameboard where endday = TO_DATE(#{endday},'YYYY-MM-DD HH24:MI:SS'))
+			</select>
+    	
+    	<select id="execItemactive" resultType="com.soccerkick.vo.GameBoardVO">
+    		select * from (select rownum as rno , host, place, gameno, gametitle, startday , team_logo_file_name,team_id
+from (select * from gameboard, team where gameboard.g_team_id = team.team_id and <![CDATA[gameboard.endday < sysdate ]]> order by gameboard.endday desc))where rno = 1
+    	</select>
+    	
+    	<select id="execItem" resultType="com.soccerkick.vo.GameBoardVO">
+    		select * from (select rownum as rno , host, place, gameno, gametitle, startday , team_logo_file_name,team_id
+from (select * from gameboard, team where <![CDATA[rownum <= 10 ]]> and gameboard.g_team_id = team.team_id and <![CDATA[gameboard.endday < sysdate ]]> order by gameboard.endday desc))where rno > 1
     	</select>
     </mapper>

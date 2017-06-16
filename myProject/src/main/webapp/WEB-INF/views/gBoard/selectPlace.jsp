@@ -6,6 +6,44 @@
   
   
 <%@include file="../include/header.jsp" %>
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+
+$(document).ready(function(){
+    $("button").click(function(){
+        var no = $(this).attr("value");
+    	
+    	 $.ajax({
+   		  url : 'http://172.16.13.8:9090/gBoard/place_content_detail',
+   		   type : 'GET',
+		   data : 'no='+no,
+   		  dataType : "json",
+   		  success : function(data) {				
+   			
+   			if(data.length !=0){  
+   				
+   				$("#mtitle").text(data[0].title);
+   				$("#mphone").text(data[0].phone);
+   				$("#mcontent").text(data[0].content);
+   				
+   				$("#mpfname").attr("src", "http://172.16.13.8:9090/resources/ground/" + data[0].pfname );
+   				
+   			}
+   		  }
+   	  });
+    	
+    	//$("#myModal").modal();
+    	
+    });
+});
+</script>
+</head>
+<body>
 <section id="portfolio" class="bg-light-gray">
 	<div class="container">
 	<div class="row">
@@ -15,66 +53,50 @@
 	<div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <!--  <img src= "../resources/ground/1.jpgame} alt="..." > -->
-        <img src="http://localhost:9090/resources/ground/${vo.pfname}" width="299" height="168" />
+        <img src="http://172.16.13.8:9090/resources/ground/${vo.pfname}" width="299" height="168" />
         
       <div class="caption">
-        <h3 class="title"><a href="/gBoard/place_content?no=${vo.no }&rno=${rno}">${vo.title}</a></h3>
-        <p class="no">${vo.no}</p>
-        <p class="tno">${vo.rno}</p>
-        <p class="phone">${vo.phone}</p>
-        <p class="intro">${vo.intro}</p>              
-        <p><a href="#" class="btn btn-primary" role="button">선택하기</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <h3 class="title">${vo.title}</h3>
+        <h5 class="phone">전화 : ${vo.phone}</h5>
+        <h5 class="intro">정보 : ${vo.intro}</h5>  
+         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" value="${vo.no }">상세 정보</button>
       </div>
     </div>   
   </div>
 	
   </c:forEach>	
-  <!--  
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="../resources/ground/2.jpg" alt="...">
-      <div class="caption">
-        <h3>강남 경기장</h3>
-        <p>...</p> 
-        <p><a href="#" class="btn btn-primary" role="button">선택하기</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="../resources/ground/3.jpg" alt="...">
-      <div class="caption">
-        <h3>동대문 경기장</h3>
-        <p>...</p> 
-        <p><a href="#" class="btn btn-primary" role="button">선택하기</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-  </div>
  
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="../resources/ground/2.jpg" alt="...">
-      <div class="caption">  
-        <h3>광진 경기장</h3>
-        <p>...</p> 
-        <p><a href="#" class="btn btn-primary" role="button">선택하기</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" id="mtitle" align="center"></h4>
+      </div>
+      <div class="modal-body">
+        <img src="" width="560" height="300" id="mpfname" align="center"/>
+        <h3 id="mphone"></h3>
+        <p id="mcontent"></p>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
+
   </div>
- 
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="../resources/ground/5.jpg" alt="...">
-      <div class="caption">
-        <h3>서초 경기장</h3>
-        <p>...</p> 
-        <p><a href="#" class="btn btn-primary" role="button">선택하기</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div> 
-  </div>-->
+</div>
   
 </div>  
 	</div>  
-</section>        
+</section> 
+
+
+
+</body>
+</html>       
 <%@include file="../include/footer.jsp" %>
+
