@@ -87,6 +87,17 @@ ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute
 		img{
 			cursor:pointer;
 		}
+		#cselect{
+			background-color: #337ab7;
+			border:none;
+		}
+		#cselect:HOVER {
+			background-color: #286090;
+		}
+		#select_comment{
+			text-align: center;
+			color: gray;
+		}
 	</style>
 </head>
 <body>
@@ -168,10 +179,11 @@ ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute
 					</tr>
 					<%} %>
 				</table>
-
+				<div id="select_comment">
+					현재 선택된 선수가 없습니다.
+				</div>
 			<div id="btn_group">
-				
-				<button id="cselect" style="width: 280px; height: 80px;">선택 완료</button>
+				<button id="cselect" class="btn btn-primary btn-lg btn-block">선택 완료</button>
 			</div>
 		</div>
 	</div>
@@ -208,5 +220,18 @@ ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute
 					}
 					
 				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				if($("#tList tr").length == 1){
+					$("#cselect").hide();
+				}
+				else if($("#tList tr").length > 1){
+					$("#cselect").show();
+					$("#cselect").css('opacity',1);
+					$("#select_comment").hide();
+					$("#select_comment").css('opacity',0);
+				}
 			});
 		</script> 

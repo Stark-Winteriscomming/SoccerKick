@@ -31,4 +31,7 @@
 	<select id="execClientid" resultType="String">
 		select client_id from team where client_id = #{sid}
 	</select>  
+	<select id="execGameboard" resultType="com.soccerkick.vo.MatchingVO">
+		select * from gameboard where host='p3'
+	</select>
 </mapper>     

@@ -90,6 +90,17 @@
 		img{
 			cursor:pointer;
 		}
+		#cselect{
+			background-color: #337ab7;
+			border:none;
+		}
+		#cselect:HOVER {
+			background-color: #286090;
+		}
+		#select_comment{
+			text-align: center;
+			color: gray;
+		}
 	</style>
 </head>
 <body>
@@ -169,12 +180,62 @@
 					</tr>
 					<%} %>
 				</table>
+				<div id="select_comment">
+					현재 선택된 선수가 없습니다.
+				</div>
 			</form>
 			<div id="btn_group">
-				<button class="cselect" style="width: 280px; height: 80px;">선택 취소</button>
-				<button class="cselect" style="width: 280px; height: 80px;">선택 완료</button>
+				<button id="cselect" class="btn btn-primary btn-lg btn-block">선택 완료</button>
 			</div>
 		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+			var cArray = new Array();
+			$("#cselect").on("click", function(){
+				console.log('click');
+				$('#tList tr.info').each(function() {
+					var id = $(this).children('.Id').html();
+					var position = $(this).children('.position').html();
+					var tid = $(this).children('.tId').html();
+					var formation = $(this).children('.formation').html();
+					
+					var obj = new Object();
+					obj.id = id;
+					obj.position = position;
+					obj.tid = tid;
+					obj.formation = formation;
+					cArray.push(obj);
+					
+				});
+				var sendObj = new Object();
+				sendObj.client = cArray;
+				
+				$.ajax({
+					url : 'complete_team',
+					type : 'post',
+					data : JSON.stringify(sendObj),
+					dataType : "text",
+					contentType : "application/json; charset=UTF-8",
+					success : function(result){
+						console.log(result);
+					}
+					
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				if($("#tList tr").length == 1){
+					$("#cselect").hide();
+				}
+				else if($("#tList tr").length > 1){
+					$("#cselect").show();
+					$("#cselect").css('opacity',1);
+					$("#select_comment").hide();
+					$("#select_comment").css('opacity',0);
+				}
+			});
+		</script>
 </body>
 </html>
