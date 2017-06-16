@@ -39,9 +39,12 @@
 						</div>  
 						<img src="upload/${vo.team_logo_file_name}" class="img-responsive" alt="" style="width:400px;height:300px;"> 
 					</a>
-					<div class="portfolio-caption">
-						<h4> ${vo.team_name} </h4>
-						<p class="text-muted"> ${vo.team_history} </p>
+					<div class="portfolio-caption"> 
+					<div align="left">
+					<h4><span class="label label-primary">팀명</span>   ${vo.team_name}</h4><br>
+					<h4><span class="label label-primary">지역</span>   ${vo.team_region}</h4><br>    
+					<h4><span class="label label-primary">포메이션</span>   ${vo.team_formation}</h4>      
+					</div>    
 					</div>
 				</div>
 		</c:forEach>

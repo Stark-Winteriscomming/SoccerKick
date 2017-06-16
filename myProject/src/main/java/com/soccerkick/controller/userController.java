@@ -41,7 +41,7 @@ public class userController {
 	public String login(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("login") != null) {
-			return "redirect:/home";
+			return "redirect:/";  
 		} else
 			return "/user/login";
 	}

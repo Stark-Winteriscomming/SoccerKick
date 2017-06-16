@@ -107,65 +107,60 @@ public class teamController {
 			return "redirect:/";   
 		}
 		return "redirect:/team/teamViewList";  
-	}       
+	}         
 
 	// create team
-	@RequestMapping(value = "/teamCreateForm_check", method = RequestMethod.POST)
-	public String teamCreateForm(TeamVO vo, HttpServletRequest request, HttpSession session) throws IOException {
-		ModelAndView mv = new ModelAndView();
-		String sid = ((userVO) session.getAttribute("login")).getClient_id();
-		vo.setClient_id(sid);
-		String fname = vo.getUploadfile().getOriginalFilename();
-		
-		if (fname.equals("")) {
-//			vo.setTeam_logo_file_name(fname);
-			vo.setTeam_logo_file_name("no-image.jpg");
-		} else {
-			String path = request.getSession().getServletContext().getRealPath("/upload");
-			System.out.println(path); 
+		@RequestMapping(value = "/teamCreateForm_check", method = RequestMethod.POST)
+		public String teamCreateForm(TeamVO vo, HttpServletRequest request, HttpSession session) throws IOException {
+			ModelAndView mv = new ModelAndView();
+			String sid = ((userVO) session.getAttribute("login")).getClient_id();
+			vo.setClient_id(sid);
+			String fname = vo.getUploadfile().getOriginalFilename();
+			
+			if (fname.equals("")) {
+//				vo.setTeam_logo_file_name(fname);
+				vo.setTeam_logo_file_name("no-image.jpg");
+			} else {
+				String path = request.getSession().getServletContext().getRealPath("/upload");
+				System.out.println(path); 
 
-			String[] flist = new File(path).list();
-			for (int i = 0; i < flist.length; i++) {
-				System.out.println("ddd:" + flist[i]);
-				if (fname.equals(flist[i])) {
-					System.out.println("�룞�씪�뙆�씪�엳�쓬");
-					int index = fname.lastIndexOf(".");
-					String tmpext = fname.substring(index);
-					String tmpname = fname.substring(0, index);
-					fname = tmpname + "_" + i + tmpext;
-					vo.setTeam_logo_file_name(fname);
-					i = flist.length;
-				} else {
-					vo.setTeam_logo_file_name(fname);
-					System.out.println("�룞�씪�뙆�씪 �뾾�쓬");
-					i = flist.length;
+				String[] flist = new File(path).list();
+				for (int i = 0; i < flist.length; i++) {
+					System.out.println("ddd:" + flist[i]);
+					if (fname.equals(flist[i])) {
+						System.out.println("�룞�씪�뙆�씪�엳�쓬");
+						int index = fname.lastIndexOf(".");
+						String tmpext = fname.substring(index);
+						String tmpname = fname.substring(0, index);
+						fname = tmpname + "_" + i + tmpext;
+						vo.setTeam_logo_file_name(fname);
+						i = flist.length;
+					} else {
+						vo.setTeam_logo_file_name(fname);
+						System.out.println("�룞�씪�뙆�씪 �뾾�쓬");
+						i = flist.length;
+					}
 				}
+				String fpath = path + "\\" + fname;
+				System.out.println(fpath);
+				FileOutputStream fos = new FileOutputStream(fpath);
+				fos.write(vo.getUploadfile().getBytes());
+				fos.close();
+				System.out.println("fname : " + vo.getTeam_logo_file_name());
 			}
-			String fpath = path + "\\" + fname;
-			System.out.println(fpath);
-			FileOutputStream fos = new FileOutputStream(fpath);
-			fos.write(vo.getUploadfile().getBytes());
-			fos.close();
-			System.out.println("fname : " + vo.getTeam_logo_file_name());
-		}
-		TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class);
-		MemberSelectDAO mdao = sqlSession.getMapper(MemberSelectDAO.class);
-		
-		TeamVO tvo = mdao.execFormation(sid);
-		int count = mdao.execCount(tvo.getTeam_id(), tvo.getTeam_formation());
-		
-		int result = dao.execInsert(vo, count);
-		int seq = dao.getCurrentSeq();
-		System.out.println("team id: " + vo.getTeam_id());
-		System.out.println("formation: " + vo.getTeam_formation());
-		System.out.println("seq: " + seq);
-		dao.insertIntoFormation(seq, vo.getTeam_formation());
+			TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class);
+			int result = dao.execInsert(vo);
+			int seq = dao.getCurrentSeq();
+			System.out.println("team id: " + vo.getTeam_id());
+			System.out.println("formation: " + vo.getTeam_formation());
+			System.out.println("seq: " + seq);
+			dao.insertIntoFormation(seq, vo.getTeam_formation());
 
-		if (result != 0) {
-			mv.setViewName("home");
+			if (result != 0) {
+				mv.setViewName("home");
+			}
+			return "redirect:/";
 		}
-		return "redirect:/";
-	}
 	/*
 	 * TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class); int result
 	 * = dao.execInsert(vo);
