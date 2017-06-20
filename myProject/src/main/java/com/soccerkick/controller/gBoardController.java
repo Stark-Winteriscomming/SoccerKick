@@ -106,7 +106,7 @@ public class gBoardController{
 		vo.setEndday(endday);
 		vo.setTeam_id(tvo.getTeam_id());
 		dao.execInsert(vo);
-		return "redirect:/gBoard/team_open";
+		return "redirect:/gBoard/gameList";   
 	}
 	
 	
