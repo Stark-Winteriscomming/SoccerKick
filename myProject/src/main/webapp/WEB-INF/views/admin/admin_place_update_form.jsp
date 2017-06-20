@@ -24,6 +24,28 @@
 			width:250px;
 			padding:5px;
 		}
+		 .upload-file {
+			display:block;
+			width:40%;
+			padding:4px 10px;
+			margin-right:5px;	
+			float:left;		
+		}
+		label.upload-text {
+			display: inline-block;
+			width:10%;
+			color: black;
+			padding:5px 10px;
+			border-radius: 4px;
+			background-color:white;
+			position: absolute;
+		}
+		.upload-hidden{
+			display: inline-block;
+			width:20%;
+			opacity:0;
+			position: relative;
+		} 	
 	</style>
 	<script src="../../resources/js/jquery-3.1.1.min.js" ></script>
 	<%--<script src="http://code.jquery.com/jquery-min.js" ></script> --%>
@@ -36,7 +58,7 @@
 					return false;
 				}
 				
-				noticeForm.submit();				
+				placeForm.submit();				
 			});				
 		});	
 	</script>
@@ -63,16 +85,23 @@
 				<label>경기장 정보</label>
 				<textarea rows=10 cols=50 name="content" >${vo.content}</textarea>
 			</li>
-			<li>
+			<!--  <li>
 				<label>경기장 사진</label>
 				<input type="file" name="file" id="file" value="${vo.fname}">
-			</li>
+			</li> -->
+			<li class="filebox">
+						<label>첨부파일</label>
+						<input type="text" name="fname" id="fname" class="upload-file" value="${vo.fname }"> 
+						<label class="upload-text" id="btnUpload">업로드</label> 
+						<input type="file" name="file" id="file" class="upload-hidden">
+					</li>
 			<li class="button">
 				<button type="button" id="btnSave">저장</button>
 				<button type="reset">취소</button>
 			</li>
 		</ul>
 		
+		<input type="hidden" name="pfname" value="${vo.pfname }">
 	</form>
 </body>
 </html>
