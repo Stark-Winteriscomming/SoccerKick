@@ -42,6 +42,13 @@ $(document).ready(function(){
     });
 });
 </script>
+<style>
+#btn_cancle{
+  background-color: #5bc0de;
+    border-color: #46b8da;
+
+}
+</style>
 </head>
 <body>
 <section id="portfolio" class="bg-light-gray">
@@ -83,7 +90,7 @@ $(document).ready(function(){
         <p id="mcontent"></p>
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn_cancle">Close</button>
       </div>
     </div>
 

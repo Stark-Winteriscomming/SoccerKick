@@ -91,7 +91,13 @@
 						 	</c:when>
 						 	
 						 	<c:when test="${not empty sessionScope.login }">
+						 		<c:if test="${sessionScope.login.client_id eq 'admin'}">
+						 		<a href="/admin/admin_index"><button type="button" class="btn btn-default btn-md">관리자페이지</button></a>
 						 		<a href="/user/logout"><button type="button" class="btn btn-default btn-md">로그아웃</button></a>
+						 		</c:if>
+						 		<c:if test="${sessionScope.login.client_id ne 'admin'}">
+						 		<a href="/user/logout"><button type="button" class="btn btn-default btn-md">로그아웃</button></a>
+						 		</c:if>
 						 	</c:when>
 						 </c:choose>
 					
