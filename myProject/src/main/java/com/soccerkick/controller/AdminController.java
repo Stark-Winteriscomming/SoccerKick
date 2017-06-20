@@ -12,17 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
-
-
-
-
-
-
-
-
-
-
 import com.soccerkick.dao.*;
 import com.soccerkick.vo.*;
 
@@ -41,27 +30,32 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/admin_login.do", method=RequestMethod.POST)
-	public String admin_login(AdminVO vo){
+	public String admin_login(userVO vo) throws Exception{
+		System.out.println("111111111");
 		AdminDAO dao = sqlSession.getMapper(AdminDAO.class);
+		System.out.println("111111111222");
 		String result ="";
 		
-		if("admin".equals(vo.getClient_id())&&
-				"1234".equals(vo.getPw())){
-				
-			    int val = dao.execSelect(vo);
-			    
-			    
-			    if(val ==1){
-			    	
-			result ="/admin/admin_index";
-			    }
-			    
+		System.out.println("id=" + vo.getClient_id());
+		System.out.println("pass="+vo.getPw());
+		System.out.println("11111111133");
+		
+		if("admin".equals(vo.getClient_id()) && "1234".equals(String.valueOf(vo.getPw()))){		
+			System.out.println("111111111");
+			    int val = dao.userCheck(vo);  
+			    System.out.println("111111111222");
+			    if(val ==1){	
+			    	System.out.println("11111111133");
+			    	System.out.println("로그인 성공");
+			    	result ="/admin/admin_index";			    	    
 			    }else{
 					//로그인 실패
+			    	System.out.println("로그인 실패");
+			    	result ="/admin/admin_login";	
 				}
-		return result;
-		//로그인 처리
+		}
 		
+		return result;
 		
 	}
 	
@@ -101,7 +95,10 @@ public class AdminController {
 				CommonsMultipartFile file=vo.getFile();
 				fos.write(file.getBytes());
 				fos.close();				
-					
+				System.out.println(vo.getTitle());
+				System.out.println(vo.getPhone());
+				System.out.println(vo.getIntro());
+				System.out.println(vo.getContent());
 				
 		int result = dao.execInsert(vo);
 		return "redirect:/admin/admin_index";
@@ -113,6 +110,8 @@ public class AdminController {
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
 		
 		ArrayList<PlaceVO> list = dao.execSelect();
+		
+		
 		
 		mv.addObject("list", list);
 		mv.setViewName("/admin/admin_place_list");
@@ -154,13 +153,14 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/admin_place_update_form")
-	public ModelAndView admin_place_update_form(String no){
+	public ModelAndView admin_place_update_form(String no, String rno){
 		ModelAndView mv = new ModelAndView();
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
 		PlaceVO vo = dao.execContent(no);
 		
 		
 		mv.addObject("vo", vo);
+		mv.addObject("rno",rno);
 		mv.setViewName("/admin/admin_place_update_form");
 		
 		return mv;
@@ -175,7 +175,8 @@ public class AdminController {
 	
 		return "redirect:/admin/admin_place_list";
 	}
-
+	
+	
 	
 	/*
 	

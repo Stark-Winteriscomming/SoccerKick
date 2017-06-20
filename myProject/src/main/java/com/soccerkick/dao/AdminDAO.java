@@ -10,5 +10,7 @@ public interface AdminDAO {
    public int execSelect(AdminVO vo);
    public AdminVO execSelectAdmin(AdminVO vo);
    public ArrayList<AdminVO> execSelectt();
+   public int userCheck(userVO vo);
+	  
 
 }

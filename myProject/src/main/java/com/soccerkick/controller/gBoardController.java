@@ -5,14 +5,19 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.soccerkick.dao.FormationDAO;
 import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.dao.MatchingDAO;
@@ -52,6 +57,16 @@ public class gBoardController{
 		return "redirect:/";
 	}
 	
+
+	@RequestMapping("/gameList")
+	public String gameList(){
+		
+		return "/gBoard/gameList";
+	}
+	
+	
+		
+
 	@RequestMapping(value = "/gameList", method = RequestMethod.GET)
 	public ModelAndView home(Model model) {
 
@@ -67,9 +82,9 @@ public class gBoardController{
 	@RequestMapping("/team_open")
 	public String team_open() {
 
+
 		return "/gBoard/team_open";
 	}
-	
 	@RequestMapping("/matching_controller")
 	public String matching_controller(MatchingVO vo, HttpSession session, String startdate, String startclock,String enddate, String endclock,
 			String phone1, String phone2, String phone3, String email1, String email2){
@@ -140,6 +155,29 @@ public class gBoardController{
 		mv.setViewName("/gBoard/place_content");
 		
 		return mv;
+	}
+	
+	@RequestMapping("/place_content_detail")
+	@ResponseBody
+	public JSONArray place_content_detail(String no){
+		JSONArray place_detail = new JSONArray();
+		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
+		PlaceVO vo = dao.execContent(no);
+		
+		System.out.println(vo.getTitle());
+		System.out.println(vo.getPhone());
+		System.out.println(vo.getContent());
+		System.out.println(vo.getPfname());
+		
+		JSONObject obj = new JSONObject();
+		obj.put("title", vo.getTitle());
+		obj.put("phone", vo.getPhone());
+		obj.put("content", vo.getContent());
+		obj.put("pfname", vo.getPfname());
+		
+		place_detail.add(obj);
+		
+		return place_detail;
 	}
 
 	@RequestMapping("/gameInfo")

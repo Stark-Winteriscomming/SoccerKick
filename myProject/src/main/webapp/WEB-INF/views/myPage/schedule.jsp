@@ -9,7 +9,9 @@
 <div class="row">
 	<div class="col-md-offset-4 col-md-4">   
 	<br><br><br>
-	<h3><span class="label label-success">경기 일정</span></h3>
+	<div align="center">  
+	<h2><span class="label label-success">경기 일정</span></h2>
+	</div>
 	<br>
 	<div class="alert alert-success">
 		<table class="table table-stripped">

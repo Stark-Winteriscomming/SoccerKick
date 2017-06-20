@@ -128,30 +128,33 @@
 									class="btn btn-default btn-g  btn-lg">경기 매칭</button></a>
 						</div>
 					</div>
-					<c:choose>
-						<c:when test="${empty sessionScope.login }">
-							<a href="/user/login"><button type="button"
-									class="btn btn-default btn-md">
-									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-									로그인
-								</button></a>
-						</c:when>
 
-						<c:when test="${not empty sessionScope.login }">
-							<a href="/user/logout"><button type="button"
-									class="btn btn-default btn-md">로그아웃</button></a>
-						</c:when>
-					</c:choose>
-				</div>
-			</div>
-		</div>
-	</nav>
+						<c:choose>
+						 	<c:when test="${empty sessionScope.login }">
+						 		<a href="/user/login"><button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 로그인</button></a>
+						 	</c:when>
+						 	
+						 	<c:when test="${not empty sessionScope.login }">
+						 		<c:if test="${sessionScope.login.client_id eq 'admin'}">
+						 		<a href="/admin/admin_index"><button type="button" class="btn btn-default btn-md">관리자페이지</button></a>
+						 		<a href="/user/logout"><button type="button" class="btn btn-default btn-md">로그아웃</button></a>
+						 		</c:if>
+						 		<c:if test="${sessionScope.login.client_id ne 'admin'}">
+						 		<a href="/user/logout"><button type="button" class="btn btn-default btn-md">로그아웃</button></a>
+						 		</c:if>
+						 	</c:when>
+						 </c:choose>
+					
+                </div>
+            </div>      
+        </div>
+    </nav>     
 
-	<header>
-		<div class="container">
-			<div class="intro-text" style="padding-top: 100px">
-				<div class="intro-lead-in">It's time to run.</div>
-				<div class="intro-heading">Soccer Kick !</div>
-			</div>
-		</div>
-	</header>
+    <header>
+        <div class="container">
+            <div class="intro-text" style="padding-top: 100px"> 
+                <div class="intro-lead-in">It's time to run.</div> 
+                <div class="intro-heading">Soccer Kick !</div> 
+            </div>
+        </div>  
+    </header>

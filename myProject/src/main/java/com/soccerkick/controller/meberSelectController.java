@@ -56,6 +56,8 @@ public class meberSelectController {
 		return mv;
 	}
 
+	
+	
 	@RequestMapping("/memberSelectPopup")
 	public ModelAndView memberSelectPopup(String team_id, String position) {
 		ModelAndView mv = new ModelAndView();

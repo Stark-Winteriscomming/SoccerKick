@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,15 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>°ü¸®ÀÚ ÆäÀÌÁö ÀÔ´Ï´Ù.</h3>
+	<h3>ê´€ë¦¬ìž íŽ˜ì´ì§€ ìž…ë‹ˆë‹¤.</h3>
 	<hr>
 	<h4>
 		<ul>
-			<li><a href="admin_member_list">È¸¿ø¸®½ºÆ®</a></li>
-			<li><a href="admin_place_form">Àå¼Ò ÀÔ·ÂÆû</a></li>
-			<li><a href="admin_place_list">Àå¼Ò ¸®½ºÆ®</a></li>
-			<!--  <li><a href="admin_notice_list.do">°øÁö»çÇ× ¸®½ºÆ®</a></li>
-			<li><a href="admin_notice_form.do">°øÁö»çÇ× ÀÔ·Â</a></li> -->
+			<li><a href="admin_member_list">íšŒì›ë¦¬ìŠ¤íŠ¸</a></li>
+			<li><a href="admin_place_form">ìž¥ì†Œ ìž…ë ¥í¼</a></li>
+			<li><a href="admin_place_list">ìž¥ì†Œ ë¦¬ìŠ¤íŠ¸</a></li>
+			<!--  <li><a href="admin_notice_list.do">ê³µì§€ì‚¬í•­ ë¦¬ìŠ¤íŠ¸</a></li>
+			<li><a href="admin_notice_form.do">ê³µì§€ì‚¬í•­ ìž…ë ¥</a></li> -->
 		</ul>	
 	</h4>
 </body>

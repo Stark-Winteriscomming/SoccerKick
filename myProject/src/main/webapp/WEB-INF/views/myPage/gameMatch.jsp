@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@include file="../include/header.jsp"%>
+<div style="height: 800px;">
 <input type="hidden" name="a_applicant"
 	value="${sessionScope.login.client_id}">
 <div class="row">
@@ -17,15 +18,13 @@
 			
 			<table class="table table-stripped">
 				<tr>
-					<th>host</th>
-					<th>applicant</th>
+					<th>지원자</th>
 					<th>수락</th>
 					<th>팀정보</th>
 					<th></th>
 				</tr>
 				<c:forEach items="${list}" var="vo">
 					<tr>
-						<td>${vo.host}</td>
 						<td>${vo.applicant}</td>
 						<c:choose>
 							<c:when test="${vo.result!='1'}">
@@ -52,7 +51,7 @@
 			
 			<table class="table table-stripped">
 				<tr>
-					<th>팀이름</th>
+					<th>주최자</th>
 					<th>수락</th>
 					<th>팀정보</th>
 					<th></th>
@@ -78,6 +77,6 @@
 </div>
 
 
-
+</div>
 
 <%@include file="../include/footer.jsp"%>

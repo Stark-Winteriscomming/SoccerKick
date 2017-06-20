@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ page import="java.util.*" %>
 <%@ page import = "com.soccerkick.vo.PlaceVO" %>
@@ -20,7 +20,7 @@
 			//$("input[name='scheck']").prop('checked', false)
 			
 			if($("input:checkbox[name='scheck']:checked").length == 0 ){
-				alert("¼±ÅÃÇÒ Ç×¸ñÀ» Ã¼Å©ÇØ ÁÖ¼¼¿ä~");
+				alert("ì„ íƒí•  í•­ëª©ì„ ì²´í¬í•´ ì£¼ì„¸ìš”~");
 				$("#scheck").focus();
 				return false;
 			}	
@@ -43,19 +43,19 @@
 </script>
 </head>
 <body>
-	<h3>°ü¸®ÀÚ ÆäÀÌÁö ÀÔ´Ï´Ù.</h3>
+	<h3>ê´€ë¦¬ì í˜ì´ì§€ ì…ë‹ˆë‹¤.</h3>
 	<hr>	
-	<h4>Àå¼Ò ¸®½ºÆ®</h4>
-	<span id="cdelete"><a href="admin_place_delete?no=${vo.no}&rno=${vo.rno}">»èÁ¦</a></span>
-	<span><a href="admin_place_form">Àå¼Ò ÀÔ·Â</a></span>
+	<h4>ì¥ì†Œ ë¦¬ìŠ¤íŠ¸</h4>
+	<span id="cdelete"><a href="admin_place_delete?no=${vo.no}&rno=${vo.rno}">ì‚­ì œ</a></span>
+	<span><a href="admin_place_form">ì¥ì†Œ ì…ë ¥</a></span>
 	<form name="listForm" action=""
 	 method="get">
 	<table border=1>
 		<tr>
 			<td><input type="checkbox" name="tcheck" id="tcheck"></td>
-			<td>¹øÈ£</td>
-			<td>Á¦¸ñ</td>			
-			<td>ÀüÈ­¹øÈ£</td>
+			<td>ë²ˆí˜¸</td>
+			<td>ì œëª©</td>			
+			<td>ì „í™”ë²ˆí˜¸</td>
 		</tr>
 		<c:forEach items="${list }" var="vo">
 				<tr>

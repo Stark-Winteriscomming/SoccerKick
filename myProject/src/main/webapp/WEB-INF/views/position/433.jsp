@@ -81,7 +81,18 @@
 		#btn_group{
 			text-align: center;
 		}
-		
+		#cselect{
+			background-color: #337ab7;
+			border:none;
+			opacity:0;
+		}
+		#cselect:HOVER {
+			background-color: #286090;
+		}
+		#select_comment{
+			text-align: center;
+			color: gray;
+		}
 	</style>
 
 	<div id="content_wrap">
@@ -90,8 +101,10 @@
 			<div class="formation_433">
 				
 					<div class="fw">
+						
 						<img src="/resources/img/POSITION/LWF.png" width="70px" height="70px;" id="lwf"
 							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LWF','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
+						
 						<img src="/resources/img/POSITION/ST.png" width="70px" height="70px;" id="st" 
 							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=ST','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
 						<img src="/resources/img/POSITION/RWF.png" width="70px" height="70px;" id="rwf"
@@ -162,10 +175,6 @@
 						<td><%= mvo.getRegion() %></td>
 						<td class="position"><%= mvo.getA_apy_position() %></td>
 						<td>
-							<a>
-								<button type="button" class="btn btn-default">프로필보기</button>
-							</a>
-							<br>
 							<a href="/myPage/delete_member?no=<%=mvo.getNo()%>">
 								<button type="button" class="btn btn-default">삭제</button>
 							</a>
@@ -173,49 +182,65 @@
 					</tr>
 					<%} %>
 				</table>
+				<div id="select_comment">
+					현재 선택된 선수가 없습니다.
+				</div>
 				<div id="btn_group">
 				<!-- <button class="cselect" style="width: 280px; height: 80px;">선택 취소</button> -->
-				<button id="cselect" style="width: 280px; height: 80px;">선택 완료</button>
+				<button id="cselect" class="btn btn-primary btn-lg btn-block">선택 완료</button>
 			</div>
  			<!-- </form>  -->
 <!-- 			<form name="selectForm" action="/myPage/complete_team" method="post"> -->
 				
 <!-- 			</form> -->
 		</div>
+		
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-		var cArray = new Array();
-		$("#cselect").on("click", function(){
-			console.log('click');
-			$('#tList tr.info').each(function() {
-				var id = $(this).children('.Id').html();
-				var position = $(this).children('.position').html();
-				var tid = $(this).children('.tId').html();
-				var formation = $(this).children('.formation').html();
+	<script>
+			var cArray = new Array();
+			$("#cselect").on("click", function(){
+				console.log('click');
+				$('#tList tr.info').each(function() {
+					var id = $(this).children('.Id').html();
+					var position = $(this).children('.position').html();
+					var tid = $(this).children('.tId').html();
+					var formation = $(this).children('.formation').html();
+					
+					var obj = new Object();
+					obj.id = id;
+					obj.position = position;
+					obj.tid = tid;
+					obj.formation = formation;
+					cArray.push(obj);
+					
+				});
+				var sendObj = new Object();
+				sendObj.client = cArray;
 				
-				var obj = new Object();
-				obj.id = id;
-				obj.position = position;
-				obj.tid = tid;
-				obj.formation = formation;
-				cArray.push(obj);
-				
+				$.ajax({
+					url : 'complete_team',
+					type : 'post',
+					data : JSON.stringify(sendObj),
+					dataType : "text",
+					contentType : "application/json; charset=UTF-8",
+					success : function(result){
+						console.log(result);
+					}
+					
+				});
 			});
-			var sendObj = new Object();
-			sendObj.client = cArray;
-			
-			$.ajax({
-				url : 'complete_team',
-				type : 'post',
-				data : JSON.stringify(sendObj),
-				dataType : "text",
-				contentType : "application/json; charset=UTF-8",
-				success : function(result){
-					console.log(result);
+		</script>
+		<script>
+			$(document).ready(function(){
+				if($("#tList tr").length == 1){
+					$("#cselect").hide();
+		 		}
+				else if($("#tList tr").length > 1){
+					$("#cselect").show();
+					$("#cselect").css('opacity',1);
+					$("#select_comment").hide();
+					$("#select_comment").css('opacity',0);
 				}
-				
 			});
-		});
-	</script> 
-
+		</script>

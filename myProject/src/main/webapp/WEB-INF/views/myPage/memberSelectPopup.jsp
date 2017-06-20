@@ -8,8 +8,23 @@
 	ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute("list");
 %>
 <head>
+<!-- <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="/resources/js/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/table.js" type="text/javascript"></script>
+<style>
+	body{
+		background-color: #dff0d8;
+	}
+	#cselect{
+		width:200px;
+		height:50px;
+	}
+	#select_comment{
+			text-align: center;
+			color: gray;
+	}
+</style>
 <script>
 	$(document).ready(function() {
 		$("#tcheck").click(function(){
@@ -46,11 +61,10 @@
 			
 		});
 		// end of onclick
-		
 	});
 </script>
 </head>
-
+<body onresize="parent.resizeTo(800,9999)" onload="parent.resizeTo(800,9999)">
 <section id="portfolio" class="bg-light-gray">
 	<div align="center">
 		<div class="alert alert-success" style="width: 800px; float: left;">
@@ -60,7 +74,7 @@
 
 			<!--<form name="selectForm" action="/myPage/memberSelect_save.do" method="post" enctype="multipart/form-data"> -->
 			<form name="selectForm" id="selectForm" method="post" action="/myPage/memberSelect_save.do" >
-				<table class="table table-striped">
+				<table class="table table-striped" id="tList">
 					<thead>
 						<tr>
 							<th><input type="checkbox" name="tcheck" id="tcheck"></th>
@@ -89,11 +103,25 @@
 						</tr>
 					</c:forEach>	
 				</table>
-				<button class="cselect" style="width: 280px; height: 80px;"
-						id="cselect" align="center">선발 완료</button>
+				<div id="select_comment">
+					현재 신청한 선수가 없습니다.
+				</div>
+				<button id="cselect" class="btn btn-success">선발 완료</button>
 			</form>
 		</div>
 	</div>
 </section>
-
-
+<script>
+			$(document).ready(function(){
+				if($("#tList tr").length == 1){
+					$("#cselect").hide();
+				}
+				else if($("#tList tr").length > 1){
+					$("#cselect").show();
+					$("#cselect").css('opacity',1);
+					$("#select_comment").hide();
+					$("#select_comment").css('opacity',0);
+				}
+			});
+</script>
+</body>
