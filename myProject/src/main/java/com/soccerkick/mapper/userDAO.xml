@@ -14,6 +14,6 @@
 	</select> 
 	
 	 <select id="execSelectAdmin" resultType="com.soccerkick.vo.userVO">
-           select client_id, pw from client where client_id= #{client_id}
+           select * from client
  </select>
 </mapper>    

@@ -60,6 +60,7 @@
 		<c:forEach items="${list }" var="vo">
 				<tr>
 					<td><input type="checkbox" name="scheck" id="scheck" value="${vo.no}" ></td>
+
 					<td class="tno">${vo.rno }</td>
 					<td class="title">					
 						<a href="admin_place_content?no=${vo.no}&rno=${vo.rno}">
