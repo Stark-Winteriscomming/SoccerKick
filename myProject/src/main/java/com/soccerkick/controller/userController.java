@@ -57,18 +57,26 @@ public class userController {
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
 	public String loginCheck(Model model, userVO vo, RedirectAttributes rttr, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+		
 		HttpSession session = request.getSession();
+		String re = "";
 
 		int result = dao.userCheck(vo);
-
 		if (result == 1) {
 			session.setAttribute("login", vo);
-			String referer = request.getHeader("Referer");
-			return "redirect:" + referer;
-		} else
-			return "redirect:/user/login";
+			/*String referer = request.getHeader("Referer");*/
+			String sid = ((userVO) session.getAttribute("login")).getClient_id();
+			GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
+			String client_id = dao.execClientid(sid);
+			System.out.println("client:"+client_id);
+			re =  "redirect:/?sid="+sid+"&client_id="+client_id;
+			/*return "redirect:" + referer;*/
+		} else{
+			re =  "redirect:/user/login";
+		}
+		return re;
 	}
+
 
 	@RequestMapping(value = "/join_form", method = RequestMethod.GET)
 	public void joinForm(Model model) throws Exception {
