@@ -80,3 +80,7 @@
 </div>
 
 <%@include file="../include/footer.jsp"%>
+
+<script>  
+swal("들어온 대결 신청을 수락할 수 있습니다.")
+</script> 

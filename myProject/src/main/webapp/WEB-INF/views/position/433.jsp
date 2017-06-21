@@ -228,7 +228,7 @@
 						console.log(result);  
 						
 						if(result == 'successed'){
-							alert("멤버 선택이 완료됐습니다.");
+							alert("멤버 선택이 완료됐습니다.");  
 							location.href="/team/teamView?team_id=${tvo.team_id}";
 
 						}

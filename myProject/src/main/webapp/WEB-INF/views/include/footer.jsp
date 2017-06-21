@@ -55,6 +55,7 @@
 	
 	
 	<script src="/resources/js/bootstrap-tagsinput.min.js"></script> 
+	<script src="/resources/js/sweetalert.min.js"></script>   
 </body>
 
 </html>

@@ -58,7 +58,9 @@
 	if (result == 'SUCCESS') {
 		alert("신청이 완료되었습니다.")
 	}
+</script>  
+<script>  
+swal("경기를 주최하고, 대결 신청을 할 수 있습니다.")
 </script>
-
 
 

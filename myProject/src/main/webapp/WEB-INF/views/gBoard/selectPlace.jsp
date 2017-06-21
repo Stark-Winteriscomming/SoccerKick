@@ -109,3 +109,7 @@ $(document).ready(function(){
 });
 </script>
 
+<script>  
+swal("경기 장소 정보를 볼 수 있습니다.")
+</script>
+
