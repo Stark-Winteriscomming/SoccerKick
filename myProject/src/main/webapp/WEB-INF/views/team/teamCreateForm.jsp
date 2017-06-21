@@ -175,11 +175,11 @@ input[type=radio]:checked {
 						</div></li>
 					<li class="team_comment"><label class="label2">팀설명</label> <textarea
 							rows="10" cols="50" name="team_history" id="content"></textarea></li>
-					<li class="filebox"><label class="label2">팀로고 등록</label> <input
-						type="text" name="team_logo_file_name" id="fname"
-						class="upload-file" placeholder="파일선택"> 
-						<label class="upload-text" id="btnUpload">업로드</label> <input type="file"
-						name="uploadfile" class="upload-hidden"></li>
+					<li class="filebox">
+					<label class="label2">팀로고 등록</label> 
+					<input type="text" name="team_logo_file_name" id="fname" class="upload-file" placeholder="파일선택"> 
+						<label class="upload-text" id="btnUpload">업로드</label> 
+						<input type="file" name="uploadfile" class="upload-hidden"></li>
 					<li><label class="label2">지역</label> <select
 						name="team_region">
 							<option value="서울">서울</option>

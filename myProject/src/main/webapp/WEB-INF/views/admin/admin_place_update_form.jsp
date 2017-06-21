@@ -59,7 +59,28 @@
 				}
 				
 				placeForm.submit();				
-			});				
+			});
+			
+			/* 업로드 버튼 클릭 */
+  	  		var fileTarget=$('.filebox .upload-hidden');
+  	  		
+  	  		fileTarget.on('change',function(){
+  	  			//var id = $(this).attr("id");
+  	  		
+  	  			if(window.FileReader){
+  	  				//modern browser
+  	  				var filename = $(this)[0].files[0].name;
+  	  			$("#fname").val(filename);
+  	  			
+  	  		
+  	   				
+  	  			}else{
+  	  				//old IE
+  	  				var filename = $(this).val().split('/').pop().split('\\').pop();
+  	  				$("#fname").val(filename);
+  	   			}
+  	  		});  		
+			
 		});	
 	</script>
 </head>
