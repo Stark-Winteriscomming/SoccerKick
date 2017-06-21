@@ -63,7 +63,7 @@
 		width:30px;
 		height:30px;
 	}
-	.glyphicon {
+	.glyphicon:not(.except) {
 	    position: absolute;
 		top: 50%;
 		z-index: 5;

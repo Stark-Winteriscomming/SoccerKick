@@ -69,6 +69,7 @@ span.btn_create, span.btn_cancel {
 	border-radius: 5px;
 	text-align: center;
 }
+
 #btn_save{
 display: block;
 	width: 17%;
@@ -205,4 +206,9 @@ input[type=radio]:checked {
 
 <%@include file="../include/footer.jsp"%>
 <script type="text/javascript" src="/resources/js/formation_select.js"></script>
+
+<script>  
+swal("팀을 생성 할 수 있습니다.")
+</script> 
+
 

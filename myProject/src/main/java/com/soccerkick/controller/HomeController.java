@@ -102,7 +102,7 @@ public class HomeController {
 				response.append(inputLine);
 			}
 			br.close();
-			System.out.println(response.toString());
+//			System.out.println(response.toString());
 			return response.toString();
 		} catch (Exception e) {
 			System.out.println(e);

@@ -52,8 +52,13 @@
 
 	</div>
 </section>
+ 
 
 <%@include file="include/footer.jsp"%>
+
+<script>  
+swal("팀에 입단 신청을 할 수 있습니다.")
+</script> 
 
 
 

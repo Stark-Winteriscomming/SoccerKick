@@ -35,13 +35,13 @@ public class meberSelectController {
 
 	@RequestMapping("/memberSelectForm")
 	public ModelAndView memberSelectForm(HttpSession session, String no) {
-		String sid = ((userVO) session.getAttribute("login")).getClient_id();
-		System.out.println("sid:" + sid);
-  
 		ModelAndView mv = new ModelAndView();
-		if (sid == null) {
+		if(session.getAttribute("login") == null){
 			mv.setViewName("/user/login");
-		} else {
+		}
+		else{
+			String sid = ((userVO) session.getAttribute("login")).getClient_id();
+//			System.out.println("sid:" + sid);
 			mv.setViewName("/myPage/memberSelectForm");
 			TeamCreateDAO dao = sqlSession.getMapper(TeamCreateDAO.class);
 			MemberSelectDAO mdao = sqlSession.getMapper(MemberSelectDAO.class);
@@ -51,12 +51,9 @@ public class meberSelectController {
 			mv.addObject("vo", vo);
 			mv.addObject("list", list);
 			mv.addObject("tvo", tvo);
-
 		}
 		return mv;
 	}
-
-	
 	
 	@RequestMapping("/memberSelectPopup")
 	public ModelAndView memberSelectPopup(String team_id, String position) {
