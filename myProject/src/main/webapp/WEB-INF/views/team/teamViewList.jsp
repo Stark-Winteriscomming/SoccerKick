@@ -38,10 +38,12 @@
 						</div> <img src="/upload/${vo.team_logo_file_name}"
 						style="width: 100%; height: 100%;" class="img-responsive" alt="">
 					</a>
-					<div class="portfolio-caption">
-						<h4>${vo.team_name}</h4>
-						<p class="text-muted">${vo.team_history}</p>
-						<a href="/team/teamView?team_id=${vo.team_id}"><button class="btn btn-primary">상세 보기</button></a>
+					<div class="portfolio-caption"> 
+					<div align="left">
+					<h4><span class="label label-primary">팀명</span>   ${vo.team_name}</h4><br>
+					<h4><span class="label label-primary">지역</span>   ${vo.team_region}</h4><br>    
+					<h4><span class="label label-primary">포메이션</span>   ${vo.team_formation}</h4>      
+					</div> 
 					</div>
 				</div>
 			</c:forEach>
@@ -73,6 +75,9 @@
 	if (result == 'SUCCESS') {
 		alert("신청이 완료되었습니다.")
 	}
+</script>
+<script>  
+swal("팀 정보를 볼 수 있습니다.")
 </script>
 
 

@@ -18,7 +18,11 @@ public class userDAO {
 	
 	public int userCheck(userVO vo) throws Exception {
 	    return session.selectOne(namespace + ".userCheck", vo);
-	  }
+	 };
+	  
+	public userVO execSelectAdmin(@Param("client_id")String client_id) throws Exception{
+		return session.selectOne(namespace + ".getClient", client_id);
+	};
 	
 	//get client by id
 	public userVO getClient(@Param("client_id")String client_id) throws Exception{

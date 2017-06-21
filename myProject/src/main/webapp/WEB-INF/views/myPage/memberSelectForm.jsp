@@ -65,3 +65,7 @@ td,th {
 
 </section>
 <%@include file="../include/footer.jsp"%>
+
+<script>  
+swal("신청 인원 중 멤버를 선발하여 팀을 구성할 수 있습니다.")
+</script> 

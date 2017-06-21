@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp"%>
+
 <style>
 div.team_create {
 	width: 68%;
@@ -42,11 +43,15 @@ h1.boardtitle {
 	display: block;
 	width: 17%;
 	text-align: center;
-	background: gray;
+	
 	color: white;
 	padding: 4px 10px;
 	float: left;
 	margin-right: 10px;
+	
+    background-color: #5bc0de;
+    border-color: #46b8da;
+
 }
 
 input[type='file'] {
@@ -65,13 +70,35 @@ span.btn_create, span.btn_cancel {
 	text-align: center;
 }
 
-span.btn_create {
-	background: rgb(155, 189, 70);
+#btn_save{
+display: block;
+	width: 17%;
+	text-align: center;
+	
+	color: white;
+	padding: 4px 10px;
+	float: left;
+	margin-right: 10px;
+	
+    background-color: #5bc0de;
+    border-color: #46b8da;
+
+}
+#btn_cancle{
+display: block;
+	width: 17%;
+	text-align: center;
+	
+	color: white;
+	padding: 4px 10px;
+	float: left;
+	margin-right: 10px;
+	
+    background-color: #5bc0de;
+    border-color: #46b8da;
+
 }
 
-span.btn_cancel {
-	background: gray;
-}
 
 .upload-file {
 	display: block;
@@ -106,7 +133,7 @@ input[type=radio]:checked {
 <section id="portfolio" class="bg-light-gray">
 	<div class="team_create">
 		<h1 class="boardtitle">팀 생성하기</h1>
-
+             
 		<hr>
 		<div class="team_create_form">
 			<form name="teamcreateform" action="teamCreateForm_check"
@@ -149,11 +176,11 @@ input[type=radio]:checked {
 						</div></li>
 					<li class="team_comment"><label class="label2">팀설명</label> <textarea
 							rows="10" cols="50" name="team_history" id="content"></textarea></li>
-					<li class="filebox"><label class="label2">팀로고 등록</label> <input
-						type="text" name="team_logo_file_name" id="fname"
-						class="upload-file" placeholder="파일선택"> 
-						<label class="upload-text" id="btnUpload">업로드</label> <input type="file"
-						name="uploadfile" class="upload-hidden"></li>
+					<li class="filebox">
+					<label class="label2">팀로고 등록</label> 
+					<input type="text" name="team_logo_file_name" id="fname" class="upload-file" placeholder="파일선택"> 
+						<label class="upload-text" id="btnUpload">업로드</label> 
+						<input type="file" name="uploadfile" class="upload-hidden"></li>
 					<li><label class="label2">지역</label> <select
 						name="team_region">
 							<option value="서울">서울</option>
@@ -166,13 +193,10 @@ input[type=radio]:checked {
 					</select></li>
 
 
-					<li class="sending"><span class="btn_create" id="createCheck">팀
-							생성 &nbsp;<!-- <img src="../css/image/tick.png"> -->
-					</span>&nbsp;&nbsp; <span class="btn_cancel" id="createCancle">취소
-							&nbsp;<!-- <img src="../css/image/cross.png">-->
-					</span></li>
 
-					<button id="btn">팀생성</button>
+
+					<button id="btn_save">팀생성</button>
+					<button type="reset" id= "btn_cancle">취소</button>
 				</ul>
 
 			</form>
@@ -182,4 +206,9 @@ input[type=radio]:checked {
 
 <%@include file="../include/footer.jsp"%>
 <script type="text/javascript" src="/resources/js/formation_select.js"></script>
+
+<script>  
+swal("팀을 생성 할 수 있습니다.")
+</script> 
+
 

@@ -17,9 +17,9 @@
 				<!-- 			<a href="http://localhost:8000/Moving/board/board_form.jsp"> -->
 				<form class="navbar-form navbar-left" role="search" action="/myPage/chatRoomList">
 					<div class="form-group">
-						<input type="text" name="searchText" class="form-control" placeholder="search">
+						<input type="text" name="searchText" class="form-control" placeholder="제목으로 검색">
 					</div>
-					<button type="submit" class="btn btn-default">검색</button>
+					<button type="submit" class="btn btn-default">찾기</button>
 				</form>
 				<div align="right">
 					<button type="button"

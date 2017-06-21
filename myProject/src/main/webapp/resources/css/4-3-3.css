@@ -126,8 +126,10 @@
 			background: url("/resources/img/formation.jpg");
 			background-repeat: no-repeat;
 		}
+/* 		modify css */
+/* opacity: 0; -> opacity: 1; */
 		.btn span.glyphicon {    			
-			opacity: 0;				
+			opacity: 1;				
 		}
 		.btn.active span.glyphicon {				
 			opacity: 1;				
