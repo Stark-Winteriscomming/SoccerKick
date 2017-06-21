@@ -38,12 +38,12 @@
 </head>
 
 <style>
- .badge-notify{ 
-    background:red; 
-    position:relative; 
-    top: -20px; 
-    left: -35px; 
- } 
+.badge-notify {
+	background: red;
+	position: relative;
+	top: -20px;
+	left: -35px;
+}
 </style>
 
 <body id="page-top" class="index">
@@ -51,24 +51,18 @@
 	<nav id="mainNav"
 		class="navbar navbar-default navbar-custom navbar-fixed-top">
 
-		<!--  -->
+		<!-- mail count -->
 		<c:choose>
 			<c:when test="${not empty sessionScope.login }">
-
 				<div class="container">
-					<button class="btn btn-default btn-lg btn-link"
-						style="font-size: 36px;" onclick="location.href='/myPage/mails'";>
-						<span class="glyphicon glyphicon-comment"></span>
-					</button>
-					<span class="badge badge-notify" id="mailCount"></span>
+					<div class="mail">
+						<button class="btn btn-default btn-lg btn-link" id="except"
+							style="font-size: 36px;" onclick="location.href='/myPage/mails'";>
+							<span class="glyphicon glyphicon-comment except"></span>
+						</button>
+						<span class="badge badge-notify" id="mailCount"></span>
+					</div>
 				</div>
-
-
-				<!-- 	<span style="background-color:#E7E7E7;">							 -->
-				<!-- 		<a style="position: relative;">메일</a> -->
-				<!-- 		<span id="mailCount"></span> -->
-				<!-- 	</span> -->
-
 			</c:when>
 		</c:choose>
 		<div class="container">
@@ -129,32 +123,39 @@
 						</div>
 					</div>
 
-						<c:choose>
-						 	<c:when test="${empty sessionScope.login }">
-						 		<a href="/user/login"><button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 로그인</button></a>
-						 	</c:when>
-						 	
-						 	<c:when test="${not empty sessionScope.login }">
-						 		<c:if test="${sessionScope.login.client_id eq 'admin'}">
-						 		<a href="/admin/admin_index"><button type="button" class="btn btn-default btn-md">관리자페이지</button></a>
-						 		<a href="/user/logout"><button type="button" class="btn btn-default btn-md">로그아웃</button></a>
-						 		</c:if>
-						 		<c:if test="${sessionScope.login.client_id ne 'admin'}">
-						 		<a href="/user/logout"><button type="button" class="btn btn-default btn-md">로그아웃</button></a>
-						 		</c:if>
-						 	</c:when>
-						 </c:choose>
-					
-                </div>
-            </div>      
-        </div>
-    </nav>     
+					<c:choose>
+						<c:when test="${empty sessionScope.login }">
+							<a href="/user/login"><button type="button"
+									class="btn btn-default btn-md">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									로그인
+								</button></a>
+						</c:when>
 
-    <header>
-        <div class="container">
-            <div class="intro-text" style="padding-top: 100px"> 
-                <div class="intro-lead-in">It's time to run.</div> 
-                <div class="intro-heading">Soccer Kick !</div> 
-            </div>
-        </div>  
-    </header>
+						<c:when test="${not empty sessionScope.login }">
+							<c:if test="${sessionScope.login.client_id eq 'admin'}">
+								<a href="/admin/admin_index"><button type="button"
+										class="btn btn-default btn-md">관리자페이지</button></a>
+								<a href="/user/logout"><button type="button"
+										class="btn btn-default btn-md">로그아웃</button></a>
+							</c:if>
+							<c:if test="${sessionScope.login.client_id ne 'admin'}">
+								<a href="/user/logout"><button type="button"
+										class="btn btn-default btn-md">로그아웃</button></a>
+							</c:if>
+						</c:when>
+					</c:choose>
+
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<header>
+		<div class="container">
+			<div class="intro-text" style="padding-top: 100px">
+				<div class="intro-lead-in">It's time to run.</div>
+				<div class="intro-heading">Soccer Kick !</div>
+			</div>
+		</div>
+	</header>
