@@ -40,10 +40,13 @@ public class userController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
+		String repath="";
 		if (session.getAttribute("login") != null) {
-			return "redirect:/";  
-		} else
-			return "/user/login";
+			repath= "redirect:/";  
+		} else{
+			repath= "/user/login";
+		}
+		return repath;
 	}
 
 	@RequestMapping("/logout")
@@ -56,18 +59,21 @@ public class userController {
 
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
 	public String loginCheck(Model model, userVO vo, RedirectAttributes rttr, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+			HttpServletResponse response, HttpSession session) throws Exception {
 
-		HttpSession session = request.getSession();
-
+		//HttpSession session = request.getSession();
+		String repath="";
 		int result = dao.userCheck(vo);
 
 		if (result == 1) {
 			session.setAttribute("login", vo);
+			session.setAttribute("sid", vo.getClient_id());
 			String referer = request.getHeader("Referer");
-			return "redirect:" + referer;
-		} else
-			return "redirect:/user/login";
+			repath =  "redirect:" + referer;
+		} else{
+			repath = "redirect:/user/login";
+		}
+		return repath;
 	}
 
 	@RequestMapping(value = "/join_form", method = RequestMethod.GET)

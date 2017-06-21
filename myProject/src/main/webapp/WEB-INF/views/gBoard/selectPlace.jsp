@@ -10,38 +10,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<!--   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
-$(document).ready(function(){
-    $("button").click(function(){
-        var no = $(this).attr("value");
-    	
-    	 $.ajax({
-   		  url : 'http://172.16.13.8:9090/gBoard/place_content_detail',
-   		   type : 'GET',
-		   data : 'no='+no,
-   		  dataType : "json",
-   		  success : function(data) {				
-   			
-   			if(data.length !=0){  
-   				
-   				$("#mtitle").text(data[0].title);
-   				$("#mphone").text(data[0].phone);
-   				$("#mcontent").text(data[0].content);
-   				
-   				$("#mpfname").attr("src", "http://172.16.13.8:9090/resources/ground/" + data[0].pfname );
-   				
-   			}
-   		  }
-   	  });
-    	
-    	//$("#myModal").modal();
-    	
-    });
-});
-</script>
+<style>
+#btn_cancle{
+  background-color: #5bc0de;
+    border-color: #46b8da;
+
+}
+</style>
 </head>
 <body>
 <section id="portfolio" class="bg-light-gray">
@@ -83,7 +61,7 @@ $(document).ready(function(){
         <p id="mcontent"></p>
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn_cancle">Close</button>
       </div>
     </div>
 
@@ -99,4 +77,35 @@ $(document).ready(function(){
 </body>
 </html>       
 <%@include file="../include/footer.jsp" %>
+<script>
+
+$(document).ready(function(){
+    $("button").click(function(){
+        var no = $(this).attr("value");
+    	console.log('no: ' + no);
+    	 $.ajax({
+    		url : '/gBoard/place_content_detail',    		 
+//    		  url : 'http://172.16.13.8:9090/gBoard/place_content_detail',
+   		   	type : 'GET',
+		   	data : 'no='+no,
+   		  	dataType : "json",
+   		  	success : function(data) {				
+   			
+   			if(data.length !=0){  
+   				
+   				$("#mtitle").text(data[0].title);
+   				$("#mphone").text(data[0].phone);
+   				$("#mcontent").text(data[0].content);
+   				
+   				$("#mpfname").attr("src", "http://172.16.13.8:9090/resources/ground/" + data[0].pfname );
+   				
+   			}
+   		  }
+   	  });
+    	
+    	//$("#myModal").modal();
+    	
+    });
+});
+</script>
 

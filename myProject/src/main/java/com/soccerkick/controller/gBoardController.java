@@ -136,11 +136,11 @@ public class gBoardController{
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
 		ArrayList<PlaceVO> list = dao.execSelect();
 			
-			mv.addObject("list", list);
+			mv.addObject("list", list);	
 			mv.setViewName("/gBoard/selectPlace");
 			return mv;
 			
-		}
+	}
 	
 	@RequestMapping("/place_content")
 	public ModelAndView place_content(String no, String rno){
