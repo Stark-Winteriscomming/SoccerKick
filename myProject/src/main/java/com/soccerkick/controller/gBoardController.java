@@ -80,10 +80,13 @@ public class gBoardController{
 	}
 	
 	@RequestMapping("/team_open")
-	public String team_open() {
-
-
-		return "/gBoard/team_open";
+	public ModelAndView team_open() {
+		ModelAndView mv = new ModelAndView();
+		GboardDAO dao = sqlSession.getMapper(GboardDAO.class);
+		ArrayList<PlaceVO> list = dao.execPlace();
+		mv.addObject("list",list);
+		mv.setViewName("/gBoard/team_open");
+		return mv;
 	}
 	@RequestMapping("/matching_controller")
 	public String matching_controller(MatchingVO vo, HttpSession session, String startdate, String startclock,String enddate, String endclock,
@@ -163,7 +166,7 @@ public class gBoardController{
 		JSONArray place_detail = new JSONArray();
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
 		PlaceVO vo = dao.execContent(no);
-		
+		System.out.println("no:"+no);
 		System.out.println(vo.getTitle());
 		System.out.println(vo.getPhone());
 		System.out.println(vo.getContent());

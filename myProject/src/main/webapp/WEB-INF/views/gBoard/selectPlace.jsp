@@ -30,7 +30,6 @@ $(document).ready(function(){
    				$("#mtitle").text(data[0].title);
    				$("#mphone").text(data[0].phone);
    				$("#mcontent").text(data[0].content);
-   				
    				$("#mpfname").attr("src", "http://172.16.13.8:9090/resources/ground/" + data[0].pfname );
    				
    			}

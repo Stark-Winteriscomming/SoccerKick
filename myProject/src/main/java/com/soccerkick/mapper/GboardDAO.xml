@@ -34,4 +34,7 @@
 	<select id="execGameboard" resultType="com.soccerkick.vo.MatchingVO">
 		select * from gameboard where host='p3'
 	</select>
+	<select id="execPlace" resultType="com.soccerkick.vo.PlaceVO">
+		select no, title, pfname from place
+	</select>
 </mapper>     

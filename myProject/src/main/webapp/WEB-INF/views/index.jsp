@@ -48,7 +48,7 @@
 						<br><br>   
 					<div align="center">
 					<span class="label label-primary label-lg">장소</span> <br><%=gvo.getPlace() %> <br>        
-					<span class="label label-primary label-lg">경기 일자</span> <br> <%=gvo.getStartday() %>   
+					<span class="label label-primary label-lg">경기 일자</span> <br> <%=gvo.getEndday() %>   
 					</div>
 					</div>  
 					</div>
@@ -69,7 +69,7 @@
 						<br><br>   
 					<div align="center">
 					<span class="label label-primary label-lg">장소</span> <br>${vo.place} <br>        
-					<span class="label label-primary label-lg">경기 일자</span> <br> ${vo.startday}  
+					<span class="label label-primary label-lg">경기 일자</span> <br> ${vo.endday}  
 					</div>
 					</div>  
 					</div>  
@@ -85,6 +85,7 @@
 	      <span class="sr-only">Next</span>
 	    </a>
 	  </div>
+	</div>
 	</div>
 	<div align="center">
 		<div class="panel panel-primary" style="width: 500px">

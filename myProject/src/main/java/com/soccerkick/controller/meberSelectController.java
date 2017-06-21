@@ -1,6 +1,7 @@
 package com.soccerkick.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.JsonArray;
+import com.mysql.fabric.Response;
 import com.soccerkick.dao.FormationDAO;
 import com.soccerkick.dao.MemberSelectDAO;
 import com.soccerkick.dao.TeamCreateDAO;
@@ -57,7 +60,30 @@ public class meberSelectController {
 	}
 
 	
-	
+	@RequestMapping("/memberSelect_Popup")
+	@ResponseBody
+	public JSONArray memberSelect_Popup(String team_id, String position){
+		System.out.println("position:"+position);
+		JSONArray member = new JSONArray();
+		MemberSelectDAO dao = sqlSession.getMapper(MemberSelectDAO.class);
+		ArrayList<MemberSelectVO> list = dao.execSelect(team_id, position);
+		for(MemberSelectVO vo : list){
+			JSONObject obj = new JSONObject();
+			System.out.println("no:"+vo.getNo());
+			System.out.println("name:"+vo.getApply_name());
+			System.out.println("age:"+vo.getAge());
+			System.out.println("region:"+vo.getRegion());
+			System.out.println("position:"+vo.getA_apy_position());
+			obj.put("no", vo.getRno());
+			obj.put("name", vo.getApply_name());
+			obj.put("age", vo.getAge());
+			obj.put("region", vo.getRegion());
+			obj.put("position", vo.getA_apy_position());
+			member.add(obj);
+		}
+		System.out.println("3333");
+		return member;
+	}
 	@RequestMapping("/memberSelectPopup")
 	public ModelAndView memberSelectPopup(String team_id, String position) {
 		ModelAndView mv = new ModelAndView();

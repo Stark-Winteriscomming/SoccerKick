@@ -41,7 +41,7 @@ public class userController {
 	public String login(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("login") != null) {
-			return "redirect:/home";
+			return "redirect:/";
 		} else
 			return "/user/login";
 	}
@@ -65,6 +65,7 @@ public class userController {
 		if (result == 1) {
 			session.setAttribute("login", vo);
 			String referer = request.getHeader("Referer");
+			System.out.println("referer:"+referer);
 			return "redirect:" + referer;
 		} else
 			return "redirect:/user/login";
