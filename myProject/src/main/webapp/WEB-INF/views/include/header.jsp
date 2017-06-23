@@ -34,16 +34,82 @@
 	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
 	rel='stylesheet' type='text/css'>
 <link href="/resources/css/agency.css" rel="stylesheet">
-<link href="/resources/css/sweetalert.css" rel="stylesheet">  
+<link href="/resources/css/sweetalert.css" rel="stylesheet">
 
 </head>
 
 <style>
+
+.btn-o {
+    border-radius: 0px;
+}
+
 .badge-notify {
 	background: red;
 	position: relative;
 	top: -20px;
 	left: -35px;
+}
+
+#login-dp {
+	min-width: 250px;
+	padding: 14px 14px 0;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, .8);
+}
+
+#login-dp .help-block {
+	font-size: 12px
+}
+
+#login-dp .bottom {
+	background-color: rgba(255, 255, 255, .8);
+	border-top: 1px solid #ddd;
+	clear: both;
+	padding: 14px;
+}
+
+#login-dp .social-buttons {
+	margin: 12px 0
+}
+
+#login-dp .social-buttons a {
+	width: 49%;
+}
+
+#login-dp .form-group {
+	margin-bottom: 10px;
+}
+
+.btn-fb {
+	color: #fff;
+	background-color: #3b5998;
+}
+
+.btn-fb:hover {
+	color: #fff;
+	background-color: #496ebc
+}
+
+.btn-tw {
+	color: #fff;
+	background-color: #55acee;
+}
+
+.btn-tw:hover {
+	color: #fff;
+	background-color: #59b5fa;
+}
+
+@media ( max-width :768px) {
+	#login-dp {
+		background-color: inherit;
+		color: #fff;
+	}
+	#login-dp .bottom {
+		background-color: inherit;
+		border-top: 0 none;
+	}
 }
 </style>
 
@@ -52,20 +118,7 @@
 	<nav id="mainNav"
 		class="navbar navbar-default navbar-custom navbar-fixed-top">
 
-		<!-- mail count -->
-		<c:choose>
-			<c:when test="${not empty sessionScope.login }">
-				<div class="container">
-					<div class="mail">
-						<button class="btn btn-default btn-lg btn-link" id="except"
-							style="font-size: 36px;" onclick="location.href='/myPage/mails'";>
-							<span class="glyphicon glyphicon-comment except"></span>
-						</button>
-						<span class="badge badge-notify" id="mailCount"></span>
-					</div>
-				</div>
-			</c:when>
-		</c:choose>
+
 		<div class="container">
 			<div class="navbar-header page-scroll">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -108,29 +161,60 @@
 
 						<div class="btn-group">
 							<a href="/enter"><button type="button"
-									class="btn btn-default btn-g  btn-lg" data-toggle="tooltip" data-placement="bottom" title="팀에 입단 신청을 할 수 있습니다.">입단하기</button></a>
+									class="btn btn-default btn-o  btn-lg" data-toggle="tooltip"
+									data-placement="bottom" title="팀에 입단 신청을 할 수 있습니다.">입단하기</button></a>
 						</div>
 						<div class="btn-group">
 							<a href="/gBoard/selectPlace"><button type="button"
-									class="btn btn-default btn-g  btn-lg" data-toggle="tooltip" data-placement="bottom" title="경기 장소를 확인할 수 있습니다.">장소정보</button></a>
+									class="btn btn-default btn-o  btn-lg" data-toggle="tooltip"
+									data-placement="bottom" title="경기 장소를 확인할 수 있습니다.">장소정보</button></a>
 						</div>
 						<div class="btn-group">
 							<a href="/team/teamViewList"><button type="button"
-									class="btn btn-default btn-g  btn-lg" data-toggle="tooltip" data-placement="bottom" title="팀 정보를 볼 수 있습니다.">팀 정보</button></a>
+									class="btn btn-default btn-o  btn-lg" data-toggle="tooltip"
+									data-placement="bottom" title="팀 정보를 볼 수 있습니다.">팀 정보</button></a>
 						</div>
 						<div class="btn-group">
 							<a href="/gBoard/gameList"><button type="button"
-									class="btn btn-default btn-g  btn-lg" data-toggle="tooltip" data-placement="bottom" title="경기를 주최하고 대결 신청을 할 수 있습니다.">경기 매칭</button></a>
+									class="btn btn-default btn-o  btn-lg" data-toggle="tooltip"
+									data-placement="bottom" title="경기를 주최하고 대결 신청을 할 수 있습니다.">경기
+									매칭</button></a>
 						</div>
 					</div>
 
 					<c:choose>
 						<c:when test="${empty sessionScope.login }">
-							<a href="/user/login"><button type="button"
-									class="btn btn-default btn-md">
-									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-									로그인
-								</button></a>
+							<ul class="nav navbar-nav navbar-right">
+								<li class="dropdown" style="margin-top: -6px;"><a href="#"
+									class="dropdown-toggle" data-toggle="dropdown"><button
+											class="btn btn-primary">로그인</button> <span class="caret"></span></a>
+									<ul id="login-dp" class="dropdown-menu">
+										<li>
+											<div class="row">
+												<div class="col-md-12">
+													<form class="form" role="form" method="post"
+														action="/user/loginCheck" accept-charset="UTF-8"
+														id="login-nav">
+														<div class="form-group">
+															<input type="text" class="form-control" name="client_id"
+																id="exampleInputEmail2" placeholder="아이디">
+														</div>
+														<div class="form-group">
+															<input type="password" class="form-control"
+																name="password" id="exampleInputPassword2"
+																placeholder="비밀번호">
+														</div>
+														<div class="form-group">
+															<button type="submit" class="btn btn-primary btn-block">로그인</button>
+															<a href="/user/join_form"><button type="button"
+																	class="btn btn- btn-block">회원가입</button></a>
+														</div>
+													</form>
+												</div>
+											</div>
+										</li>
+									</ul></li>
+							</ul>
 						</c:when>
 
 						<c:when test="${not empty sessionScope.login }">
@@ -147,6 +231,16 @@
 						</c:when>
 					</c:choose>
 
+					<!-- mail count -->
+					<c:choose>
+						<c:when test="${not empty sessionScope.login }">
+							<button class="btn btn-default btn-lg btn-link" id="except"
+								style="font-size: 36px;" onclick="location.href='/myPage/mails'";>
+								<span class="glyphicon glyphicon-comment except"></span>
+							</button>
+							<span class="badge badge-notify" id="mailCount"></span>
+						</c:when>
+					</c:choose>
 				</div>
 			</div>
 		</div>
@@ -154,7 +248,7 @@
 
 	<header>
 		<div class="container">
-			<div class="intro-text" style="padding-top: 100px">
+			<div class="intro-text" style="padding-top: 150px">
 				<div class="intro-lead-in">It's time to run.</div>
 				<div class="intro-heading">Soccer Kick !</div>
 			</div>
