@@ -89,6 +89,7 @@ public class meberSelectController {
 	public ModelAndView memberSelectPopup(String team_id, String position) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("11111:" + position);
+		System.out.println("2222:"+team_id);
 		MemberSelectDAO dao = sqlSession.getMapper(MemberSelectDAO.class);
 		ArrayList<MemberSelectVO> list = dao.execSelect(team_id, position);
 		mv.addObject("list", list);

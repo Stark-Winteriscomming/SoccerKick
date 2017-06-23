@@ -195,58 +195,6 @@
 <!-- 			<form name="selectForm" action="/myPage/complete_team" method="post"> -->
 				
 <!-- 			</form> -->
-		<%-- <div class="modal fade" id="myModal" role="dialog">
-		    <div class="modal-dialog">
-		    
-		      <!-- Modal content-->
-		      <div class="modal-content">
-		        <div class="modal-header">
-		          <button type="button" class="close" data-dismiss="modal">&times;</button>
-		          <h4 class="modal-title">Modal Header</h4>
-		        </div>
-		        <div class="modal-body">
-				          <form name="selectForm" id="selectForm" method="post" action="/myPage/memberSelect_save.do" >
-						<table class="table table-striped" id="tList">
-							<thead>
-								<tr>
-									<th><input type="checkbox" name="tcheck" id="tcheck"></th>
-									<th>이미지</th>
-									<th class="sorting_tno">번호</th>
-									<th class="sorting_name">이름</th>
-									<th class="sorting">나이</th>
-									<th class="sorting">지역</th>
-									<th class="sorting">신청포지션</th>
-									<th>프로필보기</th>
-								</tr>
-							</thead>
-							
-							
-							<c:forEach items="${list}" var="vo">
-								<tr>
-									<td><input type="checkbox" name="no" id="scheck"
-										value=${vo.no }></td>
-									<td><img src="http://sstatic.naver.net/people/91/201405301047405271.jpg" /></td>
-									<td class="sorting_tno">${vo.rno }</td>
-									<td class="sorting_name">${vo.apply_name}</td>
-									<td class="sorting_age">${vo.age}</td>
-									<td class="sorting_region">${vo.region }</td>
-									<td class="sorting_position">${vo.a_apy_position}</td>
-								</tr>
-							</c:forEach>	
-						</table>
-						<div id="select_comment">
-							현재 신청한 선수가 없습니다.
-						</div>
-						<button id="cselect" class="btn btn-success">선발 완료</button>
-					</form>
-		        </div>
-		        <div class="modal-footer">
-		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        </div>
-		      </div>
-		      
-		    </div>
-		  </div> --%>
 		</div>
 		
 	</div>
@@ -318,6 +266,7 @@
 		</script> -->
 		<script>
 			$(document).ready(function(){
+				
 				if($("#tList tr").length == 1){
 					$("#cselect").hide();
 		 		}
