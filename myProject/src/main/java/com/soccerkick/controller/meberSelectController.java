@@ -60,7 +60,7 @@ public class meberSelectController {
 
 
 	
-	@RequestMapping("/memberSelect_Popup")
+	/*@RequestMapping("/memberSelect_Popup")
 	@ResponseBody
 	public JSONArray memberSelect_Popup(String team_id, String position){
 		System.out.println("position:"+position);
@@ -83,7 +83,7 @@ public class meberSelectController {
 		}
 		System.out.println("3333");
 		return member;
-	}
+	}*/
 
 	@RequestMapping("/memberSelectPopup")
 	public ModelAndView memberSelectPopup(String team_id, String position) {
