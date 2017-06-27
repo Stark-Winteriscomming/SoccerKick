@@ -101,12 +101,14 @@
 			<div class="formation_433">
 				
 					<div class="fw">
-						
-						<img src="/resources/img/POSITION/LWF.png" width="70px" height="70px;" id="lwf"
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LWF','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
-						
-						<img src="/resources/img/POSITION/ST.png" width="70px" height="70px;" id="st" 
-							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=ST','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
+					<!-- <a data-toggle="modal" href="#myModal"> -->	
+						<img src="/resources/img/POSITION/LWF.png" width="70px" height="70px;" id="lwf" value="<%=tvo.getTeam_id() %>"
+							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=LWF','popup','scrollbars=no, resizable=no, width=800,height=600')" />
+					<!-- </a> -->
+					<!-- <a data-toggle="modal" href="#myModal">	 -->
+						<img src="/resources/img/POSITION/ST.png" width="70px" height="70px;" id="st" value="<%=tvo.getTeam_id() %>"
+							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=ST','popup','scrollbars=no, resizable=no, width=800,height=600')" />
+					<!-- </a> -->	
 						<img src="/resources/img/POSITION/RWF.png" width="70px" height="70px;" id="rwf"
 							onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RWF','popup','scrollbars=no, resizable=no, width=800,height=600')"/>		
 					</div>
@@ -237,8 +239,34 @@
 				});
 			});
 		</script>
+		<!-- <script>
+			$(document).ready(function(){
+			    $("img").click(function(){
+			        var team_id = $(this).attr("value");
+			    	var position = $(this).attr("id");
+			    	alert(position);
+			    	 $.ajax({
+			   		  url : 'http://localhost:9090/myPage/memberSelect_Popup',
+			   		   type : 'GET',
+					   data : {team_id:team_id, position:position},
+			   		  dataType : "json",
+			   		  success : function(data) {				
+			   			if(data.length !=0){
+			   				alert("1111");
+			   				$(".sorting_tno").text(data[0].no);
+			   				$(".sorting_name").text(data[0].name);
+			   				$(".sorting_age").text(data[0].age);
+			   				$(".sorting_region").text(data[0].region);
+			   				$(".sorting_position").text(data[0].position);
+			   			}
+			   		  }
+			   	  });
+			    });
+			});
+		</script> -->
 		<script>
 			$(document).ready(function(){
+				
 				if($("#tList tr").length == 1){
 					$("#cselect").hide();
 		 		}
@@ -248,5 +276,8 @@
 					$("#select_comment").hide();
 					$("#select_comment").css('opacity',0);
 				}
+				/* $("img").click(function(){
+					alert($(this).attr("id"));
+				}); */
 			});
 		</script>

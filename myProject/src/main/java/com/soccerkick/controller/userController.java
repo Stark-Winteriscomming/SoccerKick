@@ -42,7 +42,8 @@ public class userController {
 		HttpSession session = request.getSession();
 		String repath="";
 		if (session.getAttribute("login") != null) {
-			repath= "redirect:/";  
+
+			return "redirect:/";
 		} else{
 			repath= "/user/login";
 		}
@@ -69,11 +70,15 @@ public class userController {
 			session.setAttribute("login", vo);
 			session.setAttribute("sid", vo.getClient_id());
 			String referer = request.getHeader("Referer");
-			repath =  "redirect:" + referer;
-		} else{
+
+			System.out.println("referer:"+referer);
+			repath = "redirect:" + referer;
+		} else
+		{
 			repath = "redirect:/user/login";
-		}
+		} 
 		return repath;
+
 	}
 
 	@RequestMapping(value = "/join_form", method = RequestMethod.GET)

@@ -120,7 +120,7 @@
 			<img src="/resources/img/POSITION/CAM.png" width="70px" height="70px;" id="cam"
 				onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=CAM','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
 			<img src="/resources/img/POSITION/RM.png" width="70px" height="70px;" id="rm"
-				onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=RM','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
+				onClick="javascript:window.open('/myPage/memberSelectPopup?team_id=<%=tvo.getTeam_id()%>&position=Rm','popup','scrollbars=no, resizable=no, width=800,height=600')"/>
 		</div>
 		
 		<div class="cdm">
@@ -152,7 +152,7 @@
 			<h1 class="ftitle2">선택 된 선수리스트</h1>
 			<br>
 			<form name="selectForm" action="">
-				<table class="table table-striped">
+				<table class="table table-striped" id="tList">
 					<thead>
 						<tr>
 							<th><input type="checkbox" name="tcheck" id="tcheck"></th>
@@ -176,7 +176,11 @@
 						<td><%= mvo.getAge() %></td>
 						<td><%= mvo.getRegion() %></td>
 						<td><%= mvo.getA_apy_position() %></td>
-						<td><button class="btn btn-default">프로필보기</button></td>
+						<td>
+							<a href="/myPage/delete_member?no=<%=mvo.getNo()%>">
+								<button type="button" class="btn btn-default">삭제</button>
+							</a>
+						</td>
 					</tr>
 					<%} %>
 				</table>

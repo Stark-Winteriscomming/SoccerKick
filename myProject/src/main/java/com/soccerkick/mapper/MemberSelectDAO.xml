@@ -18,7 +18,8 @@
 				 from 
 				 (select no, apply_name, age, region, a_apy_position 
 				 	from apply_select where team_id = #{team_id} and a_apy_position = #{position} order by age) 
-	</select> 
+	</select>
+	 
 	<select id="execSelectt" resultType="com.soccerkick.vo.MemberSelectVO">
 		select rownum as rno, no, apply_name, age, region, a_apy_position, apply_id, team_id
 				 from 

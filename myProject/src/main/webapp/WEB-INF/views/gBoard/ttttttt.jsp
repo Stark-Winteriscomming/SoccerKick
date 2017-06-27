@@ -2,7 +2,7 @@
 <%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<%@include file="../include/header.jsp" %>
+	<%@include file="../include/header.jsp" %>
 	<link rel="stylesheet"
 	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<link href="/resources/css/team_open.css" rel="stylesheet">
@@ -11,17 +11,8 @@
 <style>
 	#selected_place{
 		display:none;
-		width:783px;
-		height:400px;
-		margin-top:30px;
+
 	}
-	#select_place{
-		width:100%;
-	}
-	#img_place{
-		width:100%;
-		height:300px;
-	} 
 	h3{
 		text-align: center;
 	}
@@ -172,7 +163,7 @@
 					<div class="formation">
 						<h4 class="webFont">장소선택</h4>
 						<div class="container2">
-						  <input type="hidden" name="place" id="place" value=""/>
+						  <input type="hidden" name="place" id="place" value="${vo.title }"/>
 						  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">장소 선택</button>
 						  <div class="modal fade" id="myModal" role="dialog">
 						    <div class="modal-dialog">
@@ -184,17 +175,55 @@
 						        <div class="modal-body">
 						          <div class="container_place">
 									<div class="row">
-								  <c:forEach items="${list}" var="vo">
-								  <div class="col-sm-6 col-md-4">
+								  <div class="col-sm-6 col-md-4" id="seongbuk">
 								    <div class="thumbnail">
-								      <img src="http://172.16.13.8:9090/resources/ground/${vo.pfname}" alt="...">
+								      <img src="../resources/ground/1.jpg" alt="...">
 								      <div class="caption">
-								        <h3>${vo.title}</h3>         
-								        <p><button type="button" class="btn btn-primary" name="btn_place" value="${vo.no }">선택하기</button></p>
+								        <h3>성북 경기장</h3>
+								                     
+								        <p><a href="#btn" class="btn btn-primary" role="button" id="btn_seongbuk">선택하기</a></p>
 								      </div>
 								    </div>   
 								  </div>
-								  </c:forEach>
+								  <div class="col-sm-6 col-md-4">
+								    <div class="thumbnail">
+								      <img src="../resources/ground/2.jpg" alt="...">
+								      <div class="caption">
+								        <h3>강남 경기장</h3>
+								        <p><a href="#btn" class="btn btn-primary" role="button" id="btn_gangnam">선택하기</a></p>
+								      </div>
+								    </div>
+								  </div>
+								  <div class="col-sm-6 col-md-4">
+								    <div class="thumbnail">
+								      <img src="../resources/ground/3.jpg" alt="...">
+								      <div class="caption">
+								        <h3>동대문<br>경기장</h3>
+								        
+								        <p><a href="#btn" class="btn btn-primary" role="button" id="btn_dongdaemun">선택하기</a></p>
+								      </div>
+								    </div>
+								  </div> 
+								  <div class="col-sm-6 col-md-4">
+								    <div class="thumbnail">
+								      <img src="../resources/ground/2.jpg" alt="...">
+								      <div class="caption">
+								        <h3>광진 경기장</h3>
+								         
+								        <p><a href="#btn" class="btn btn-primary" role="button" id="btn_gwangjin">선택하기</a></p>
+								      </div>
+								    </div>
+								  </div>
+								  <div class="col-sm-6 col-md-4">
+								    <div class="thumbnail">
+								      <img src="../resources/ground/5.jpg" alt="...">
+								      <div class="caption">
+								        <h3>서초 경기장</h3>
+								        <p><a href="#btn" class="btn btn-primary" role="button" id="btn_seocho">선택하기</a></p>
+								      </div>
+								    </div> 
+								  </div>
+								  
 								</div>  
 									</div>  
 						        </div>
@@ -204,13 +233,40 @@
 						      </div>
 						    </div>
 						  </div>
+						  
 						 	<div id="selected_place">
-								 <div class="col-sm-6 col-md-4" id="select_place">
-								      <img src="" id="img_place">
+								 <div class="col-sm-6 col-md-4" id="selected_seongbuk">
+								      <img src="../resources/ground/1.jpg" alt="..." id="img_seongbuk">
 								      <div class="caption">
-								        <h3 id="mtitle"></h3>           
+								        <h3>성북 경기장</h3>           
 								      </div>
 								  </div>
+								   <div class="col-sm-6 col-md-4" id="selected_gangnam">
+								      <img src="../resources/ground/2.jpg" alt="..." id="img_gangnam">
+								      <div class="caption">
+								        <h3>강남 경기장</h3>
+								      </div>
+								  </div>
+								  
+								  <div class="col-sm-6 col-md-4" id="selected_dongdaemun">
+								      <img src="../resources/ground/3.jpg" alt="..." id="img_dongdaemun">
+								      <div class="caption">
+								        <h3>동대문 경기장</h3>
+								      </div>
+								    
+								  </div>
+								   <div class="col-sm-6 col-md-4" id="selected_gwangjin">
+								      <img src="../resources/ground/2.jpg" alt="..." id="img_gwangjin">
+								      <div class="caption">
+								        <h3>광진 경기장</h3>
+								      </div>
+								  </div>
+								  <div class="col-sm-6 col-md-4" id="selected_seocho">
+								      <img src="../resources/ground/5.jpg" alt="..." id="img_seocho">
+								      <div class="caption">
+								        <h3>서초 경기장</h3>
+								      </div>
+								  </div> 
 							</div>
 						</div>
 						
@@ -276,7 +332,7 @@
 						</div>
 					</div>
 					<div class="btn_group">
-						<button class="btn_open">개설하기</button>
+						<button type="button" class="btn_open">개설하기</button>
 						<button type="button" class="btn_cancel">취소</button>
 					</div>
 				</div>
@@ -306,34 +362,10 @@
 		  });
 		});
 	</script>
+
 	<script>
-			$(document).ready(function(){
-		    $('[name="btn_place"]').click(function(){
-		        var no = $(this).attr("value");
-		        $(".formation").css('height','500px');
-		        $("#selected_place").css('display','block').css('margin-left','0px');
-		    	 $.ajax({
-		    	url : 'http://localhost:9090/gBoard/place_content_detail',
-		   		   type : 'GET',
-				   data : 'no='+no,
-		   		  dataType : "json",
-		   		  success : function(data) {				
-		   			
-		   			if(data.length !=0){
-		   				$("#place").val(data[0].title);
-		   				$("#mtitle").text(data[0].title);
-		   				$("#img_place").attr("src", "http://172.16.13.8:9090/resources/ground/" + data[0].pfname );
-		   			}
-		   		  }
-		   	  });
-		    	//$("#myModal").modal();
-		    	
-		    	
-		    });
-		});
-	</script>
-	<!-- <script>
-		$(document).ready(function(){	
+		$(document).ready(function(){
+			
 		    $("#btn_seongbuk").click(function(){
 		    	$(".formation").css('height','500px');
 		    	$("#selected_place").css('display','block').css('width','783px')
@@ -413,4 +445,4 @@
 		    	matching_form.submit();
 		    });
 		});
-	</script> -->
+	</script>

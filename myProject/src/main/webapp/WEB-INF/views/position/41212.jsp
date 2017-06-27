@@ -175,7 +175,11 @@ ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute
 						<td><%= mvo.getAge() %></td>
 						<td><%= mvo.getRegion() %></td>
 						<td><%= mvo.getA_apy_position() %></td>
-						<td><button class="btn btn-default">프로필보기</button></td>
+						<td>
+							<a href="/myPage/delete_member?no=<%=mvo.getNo()%>">
+								<button type="button" class="btn btn-default">삭제</button>
+							</a>
+						</td>
 					</tr>
 					<%} %>
 				</table>

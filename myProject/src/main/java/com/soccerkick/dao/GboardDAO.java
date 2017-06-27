@@ -8,6 +8,7 @@ import com.soccerkick.vo.GameBoardVO;
 import com.soccerkick.vo.GboardVO;
 import com.soccerkick.vo.MatchingVO;
 import com.soccerkick.vo.MemberSelectVO;
+import com.soccerkick.vo.PlaceVO;
 import com.soccerkick.vo.TeamVO;
 
 public interface GboardDAO {
@@ -29,6 +30,15 @@ public interface GboardDAO {
 	
 	
 	// from sangho
+
+	
+
+	public MatchingVO execGameboard();
+	
+
+	
+	public ArrayList<PlaceVO> execPlace();
+
 
 	  
 }

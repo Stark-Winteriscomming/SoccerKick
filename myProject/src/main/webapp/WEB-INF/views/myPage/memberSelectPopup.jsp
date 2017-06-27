@@ -84,12 +84,21 @@
 							<th class="sorting">나이</th>
 							<th class="sorting">지역</th>
 							<th class="sorting">신청포지션</th>
-							<th>프로필보기</th>
 						</tr>
 					</thead>
-					
-					
-					<c:forEach items="${list}" var="vo">
+					<%for(MemberSelectVO vo:list){%>
+						<tr>
+							<td><input type="checkbox" name="no" id="scheck"
+								value=<%=vo.getNo() %>></td>
+							<td><img src="http://sstatic.naver.net/people/91/201405301047405271.jpg" /></td>
+							<td class="sorting_tno"><%=vo.getRno() %></td>
+							<td class="sorting_name"><%=vo.getApply_name() %></td>
+							<td><%=vo.getAge() %></td>
+							<td><%=vo.getRegion() %></td>
+							<td><%=vo.getA_apy_position() %></td>
+						</tr>
+					<%} %>
+					<%-- <c:forEach items="${list}" var="vo">
 						<tr>
 							<td><input type="checkbox" name="no" id="scheck"
 								value=${vo.no }></td>
@@ -101,7 +110,7 @@
 							<td>${vo.a_apy_position}</td>
 							<td><button class="btn btn-default">프로필보기</button></td>
 						</tr>
-					</c:forEach>	
+					</c:forEach>	 --%>
 				</table>
 				<div id="select_comment">
 					현재 신청한 선수가 없습니다.

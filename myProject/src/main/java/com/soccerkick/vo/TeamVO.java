@@ -7,9 +7,6 @@ public class TeamVO {
 	int team_id,team_member_count,team_point,rownum;
 	CommonsMultipartFile uploadfile;
 	
-	
-	
-	
 	public int getRownum() {
 		return rownum;
 	}
@@ -69,6 +66,13 @@ public class TeamVO {
 		return uploadfile;
 	}
 	public void setUploadfile(CommonsMultipartFile uploadfile) {
+		if(!uploadfile.getOriginalFilename().equals("")){			
+			String filename = uploadfile.getOriginalFilename();	
+			this.uploadfile = uploadfile;
+			setTeam_logo_file_name(uploadfile.getOriginalFilename());		
+		}else{
+			setTeam_logo_file_name("null");
+		}
 		this.uploadfile = uploadfile;
 	}
 	public int getTeam_id() {
