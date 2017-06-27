@@ -36,7 +36,7 @@
 								<i class="fa fa-plus fa-3x"></i>
 							</div>
 						</div> <img src="/upload/${vo.team_logo_file_name}"
-						style="width: 100%; height: 100%;" class="img-responsive" alt="">
+						style="width: 360px; height: 270px;" class="img-responsive" alt="">
 					</a>
 					<div class="portfolio-caption"> 
 					<div align="left">

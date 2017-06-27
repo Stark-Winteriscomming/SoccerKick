@@ -48,10 +48,10 @@
 							placeholder="이름을 입력해 주세요">
 					</div>
 					<div class="form-group">
-						<label for="username">생년월일</label>
+						<label for="username">나이</label>
 						<div class="input-group">
 							<input type="tel" class="birth" id="birth"
-								placeholder="- 없이 입력해 주세요">
+								placeholder="나이를 입력해 주세요.">
 
 						</div>
 					</div>

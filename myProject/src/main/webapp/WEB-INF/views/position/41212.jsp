@@ -151,7 +151,7 @@ ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute
 			<h1 class="ftitle2">선택 된 선수리스트</h1>
 			<br>
 
-				<table class="table table-striped">
+				<table class="table table-striped" id="tList">
 					<thead>
 						<tr>
 							<th><input type="checkbox" name="tcheck" id="tcheck"></th>
@@ -221,7 +221,7 @@ ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute
 							alert("멤버 선택이 완료됐습니다.");
 							location.href="/team/teamView?team_id=${tvo.team_id}";
 					}
-					
+					}	
 				});
 			});
 		</script>
