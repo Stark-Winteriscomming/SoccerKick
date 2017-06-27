@@ -12,36 +12,6 @@
 <head>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <!--   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-
-<<<<<<< HEAD
-$(document).ready(function(){
-    $("button").click(function(){
-        var no = $(this).attr("value");
-    	
-    	 $.ajax({
-   		  url : 'http://172.16.13.8:9090/gBoard/place_content_detail',
-   		   type : 'GET',
-		   data : 'no='+no,
-   		  dataType : "json",
-   		  success : function(data) {				
-   			
-   			if(data.length !=0){  
-   				
-   				$("#mtitle").text(data[0].title);
-   				$("#mphone").text(data[0].phone);
-   				$("#mcontent").text(data[0].content);
-   				$("#mpfname").attr("src", "http://172.16.13.8:9090/resources/ground/" + data[0].pfname );
-   				
-   			}
-   		  }
-   	  });
-    	
-    	//$("#myModal").modal();
-    	
-    });
-});
-</script>
-=======
 <style>
 #btn_cancle{
   background-color: #5bc0de;
@@ -49,7 +19,6 @@ $(document).ready(function(){
 
 }
 </style>
->>>>>>> a318af62d9a88ef125a81b927a21b9cf055a596c
 </head>
 <body>
 <section id="portfolio" class="bg-light-gray">
@@ -67,7 +36,7 @@ $(document).ready(function(){
         <h3 class="title">${vo.title}</h3>
         <h5 class="phone">전화 : ${vo.phone}</h5>
         <h5 class="intro">정보 : ${vo.intro}</h5>  
-         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" value="${vo.no }">상세 정보</button>
+         <button type="button" class="btn btn-info btn-lg detail" data-toggle="modal" data-target="#myModal" value="${vo.no }">상세 정보</button>
       </div>
     </div>   
   </div>
@@ -110,7 +79,7 @@ $(document).ready(function(){
 <script>
 
 $(document).ready(function(){
-    $("button").click(function(){
+    $(".detail").click(function(){
         var no = $(this).attr("value");
     	console.log('no: ' + no);
     	 $.ajax({
@@ -138,8 +107,17 @@ $(document).ready(function(){
     });
 });
 </script>
-
+	
 <script>  
-swal("경기 장소 정보를 볼 수 있습니다.")
+//swal("경기 장소 정보를 볼 수 있습니다.")
+var btn = "button";
+  swal({
+    title: "HTML <small>Consultation Review</small>!",
+    text: '<button type="' + btn + '" id="btnA" >A</button> ' +
+      '<button type="' + btn + '" id="btnB" >B</button> ' +
+      '<button type="' + btn + '" id="btnC" >C</button>',
+    html: true,
+    showConfirmButton: false
+  });
 </script>
 
