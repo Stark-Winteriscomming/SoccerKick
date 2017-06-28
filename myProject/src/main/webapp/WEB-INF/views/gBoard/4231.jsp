@@ -20,7 +20,7 @@
 						for="fw1"></label> <label class="position_fw_txt">공격수</label>
 				</div>
 				<div class="position_wrap">
-					<input type="radio" id="fw2" name="a_apy_position" value="CAM"
+					<input type="radio" id="fw2" name="a_apy_position" value="CM"
 						style="width: 40px; height: 40px;"> <label for="fw2"></label>
 					<label class="position_fw_txt">공격수</label>
 				</div>
@@ -63,7 +63,7 @@
 				</div>
 				<div class="position_wrap">
 					<input type="radio" id="df4" class="mid" name="a_apy_position"
-						value="rb" style="width: 40px; height: 40px;"> <label
+						value="RB" style="width: 40px; height: 40px;"> <label
 						for="df4"></label> <label class="position_df_txt">수비수</label>
 				</div>
 			</div>

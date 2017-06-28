@@ -2,7 +2,9 @@ package com.soccerkick.controller;
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -12,13 +14,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import com.soccerkick.dao.*;
-import com.soccerkick.vo.*;
+
+import com.soccerkick.dao.AdminDAO;
+import com.soccerkick.dao.PlaceDAO;
+import com.soccerkick.dao.userDAO;
+import com.soccerkick.vo.AdminVO;
+import com.soccerkick.vo.PlaceVO;
+import com.soccerkick.vo.userVO;
 
 
 @Controller
 @RequestMapping("/admin/*")
 public class AdminController {
+	
+	@Inject
+	private userDAO udao;
 	
 	@Autowired
 	SqlSessionTemplate sqlSession;
@@ -46,11 +56,11 @@ public class AdminController {
 			    System.out.println("111111111222");
 			    if(val ==1){	
 			    	System.out.println("11111111133");
-			    	System.out.println("·Î±×ÀÎ ¼º°ø");
+			    	System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			    	result ="/admin/admin_index";			    	    
 			    }else{
-					//·Î±×ÀÎ ½ÇÆÐ
-			    	System.out.println("·Î±×ÀÎ ½ÇÆÐ");
+					//ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			    	System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			    	result ="/admin/admin_login";	
 				}
 		}
@@ -67,7 +77,11 @@ public class AdminController {
 	
 	
 	@RequestMapping("/admin_member_list")
-	public ModelAndView  admin_member_list(){
+	public ModelAndView  admin_member_list() throws Exception{
+		List<userVO> uList = udao.getClientList();
+		for(userVO vo : uList){
+			System.out.println(vo.getClient_id());
+		}
 		ModelAndView mv = new ModelAndView();
 		AdminDAO dao = sqlSession.getMapper(AdminDAO.class);
 		
@@ -87,7 +101,7 @@ public class AdminController {
 	public String admin_place_save(PlaceVO vo, HttpServletRequest request) throws Exception{
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
 		
-		//1. vo¿¡ ÀÖ´Â fileList¸¸Å­ ¹Ýº¹ÇÏ¿© upload Æú´õ¿¡ ÀúÀå½ÃÅ²´Ù.
+		//1. voï¿½ï¿½ ï¿½Ö´ï¿½ fileListï¿½ï¿½Å­ ï¿½Ýºï¿½ï¿½Ï¿ï¿½ upload ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
 				String path = request.getSession().getServletContext().getRealPath("/resources/ground");					
 				String fpath = path + "\\" + vo.getPfname();
 				System.out.println("fpath:" +fpath);	

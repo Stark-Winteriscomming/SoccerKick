@@ -36,7 +36,7 @@
 								<i class="fa fa-plus fa-3x"></i>
 							</div>
 						</div> <img src="/upload/${vo.team_logo_file_name}"
-						style="width: 100%; height: 100%;" class="img-responsive" alt="">
+						style="width: 360px; height: 270px;" class="img-responsive" alt="">
 					</a>
 					<div class="portfolio-caption"> 
 					<div align="left">
@@ -77,7 +77,9 @@
 	}
 </script>
 <script>  
-swal("팀 정보를 볼 수 있습니다.")
+	var block = new Block('팀 정보를 볼 수 있습니다.', 'teamViewList');
+	if(getCookie(block.delemeter) !== 'false')
+		block.display();
 </script>
 
 

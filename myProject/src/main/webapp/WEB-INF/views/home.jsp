@@ -56,9 +56,13 @@
 
 <%@include file="include/footer.jsp"%>
 
-<script>  
-swal("팀에 입단 신청을 할 수 있습니다.")
-</script> 
-
+<script>
+	//swal("경기 장소 정보를 볼 수 있습니다.")
+	var block = new Block('팀에 입단 신청을 할 수 있습니다.', 'enter');
+	if(getCookie(block.delemeter) !== 'false')
+		block.display();
+// 	block.display
+	
+</script>
 
 

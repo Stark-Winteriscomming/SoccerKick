@@ -12,7 +12,9 @@
 		select * from client
 			where client_id = #{client_id}
 	</select> 
-	
+	<select id="getClientList"  resultType="com.soccerkick.vo.userVO">
+		select * from client
+	</select> 
 	 <select id="execSelectAdmin" resultType="com.soccerkick.vo.userVO">
            select * from client
  </select>
