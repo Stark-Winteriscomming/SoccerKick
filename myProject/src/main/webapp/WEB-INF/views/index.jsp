@@ -86,13 +86,7 @@
 	  </div>
 	</div>
 	</div>
-<<<<<<< HEAD
-	
-	
-	
-	
-=======
->>>>>>> 5ef98161e97cba8b3674aea197d5eee4b725c45a
+
 	<div align="center">
 		<div class="panel panel-primary" style="width: 500px">
 			<div class="panel-heading">

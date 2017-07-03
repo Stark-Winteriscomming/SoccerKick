@@ -1,9 +1,6 @@
 package com.soccerkick.dao;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 183cf8ea4962fe19cd32a2e03ffbdb4124557fb0
 import java.util.List;
 
 import javax.inject.Inject;
@@ -34,19 +31,12 @@ public class userDAO {
 	public userVO getClient(@Param("client_id")String client_id) throws Exception{
 		return session.selectOne(namespace + ".getClient", client_id);
 	};
-<<<<<<< HEAD
+
    
 	public List<userVO> getClientList() throws Exception{
 		return session.selectList(namespace + ".getClientList");
 	};
 	
 	
-=======
-	
-	//get client by id
-	public List<userVO> getClientList() throws Exception{
-		return session.selectList(namespace + ".getClientList");
-	};
 
->>>>>>> 183cf8ea4962fe19cd32a2e03ffbdb4124557fb0
 }

@@ -15,17 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-<<<<<<< HEAD
+
 import com.soccerkick.dao.*;
 import com.soccerkick.vo.*;
-=======
-import com.soccerkick.dao.AdminDAO;
-import com.soccerkick.dao.PlaceDAO;
-import com.soccerkick.dao.userDAO;
-import com.soccerkick.vo.AdminVO;
-import com.soccerkick.vo.PlaceVO;
-import com.soccerkick.vo.userVO;
->>>>>>> 183cf8ea4962fe19cd32a2e03ffbdb4124557fb0
+
 
 
 @Controller
@@ -37,8 +30,7 @@ public class AdminController {
 	
 	@Autowired
 	SqlSessionTemplate sqlSession;
-	@Inject 
-	private userDAO udao;
+	
 	
 	@RequestMapping("/admin")
     public String admin(){
@@ -63,11 +55,11 @@ public class AdminController {
 			    System.out.println("111111111222");
 			    if(val ==1){	
 			    	System.out.println("11111111133");
-			    	System.out.println("�α��� ����");
+			    	System.out.println("占싸깍옙占쏙옙 占쏙옙占쏙옙");
 			    	result ="/admin/admin_index";			    	    
 			    }else{
-					//�α��� ����
-			    	System.out.println("�α��� ����");
+					//占싸깍옙占쏙옙 占쏙옙占쏙옙
+			    	System.out.println("占싸깍옙占쏙옙 占쏙옙占쏙옙");
 			    	result ="/admin/admin_login";	
 				}
 		}
@@ -136,7 +128,7 @@ public class AdminController {
 	public String admin_place_save(PlaceVO vo, HttpServletRequest request) throws Exception{
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
 		
-		//1. vo�� �ִ� fileList��ŭ �ݺ��Ͽ� upload ������ �����Ų��.
+		//1. vo占쏙옙 占쌍댐옙 fileList占쏙옙큼 占쌥븝옙占싹울옙 upload 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占신뀐옙占�.
 				String path = request.getSession().getServletContext().getRealPath("/resources/ground");					
 				String fpath = path + "\\" + vo.getPfname();
 				System.out.println("fpath:" +fpath);	
@@ -220,7 +212,7 @@ public class AdminController {
 	public String admin_place_update_save(PlaceVO vo, HttpServletRequest request)throws Exception{
 		
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
-		//1. vo�� �ִ� fileList��ŭ �ݺ��Ͽ� upload ������ �����Ų��.
+		//1. vo에 있는 fileList만큼 반복하여 upload 폴더에 저장시킨다.
 		String path = request.getSession().getServletContext().getRealPath("/resources/ground");					
 		String fpath = path + "\\" + vo.getPfname();
 		System.out.println("fpath:" +fpath);	
