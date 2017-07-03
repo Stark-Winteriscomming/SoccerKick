@@ -48,8 +48,13 @@
 					<div class="form-group">
 						<label for="username">나이</label>
 						<div class="input-group">
+<<<<<<< HEAD
 							<input type="tel" class="birth" id="birth" name="client_age"
 								placeholder="나이를 입력해주세요">
+=======
+							<input type="tel" class="birth" id="birth"
+								placeholder="나이를 입력해 주세요.">
+>>>>>>> 183cf8ea4962fe19cd32a2e03ffbdb4124557fb0
 
 						</div>
 					</div>

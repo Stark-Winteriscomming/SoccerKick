@@ -41,6 +41,7 @@
 
     
 	<script src="/resources/js/mail.js"></script>
+	<script src="/resources/js/cookie.js"></script>
     
     <!-- <script src="/resources/js/contact_me.js"></script> -->
 

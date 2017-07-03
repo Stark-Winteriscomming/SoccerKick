@@ -59,7 +59,7 @@
 		<div class="position_gk">
 			<div class="position_wrap">
 				<img src="/resources/img/POSITION/GK.png" style="width: 100%;" /> <label
-					class="name position_df_txt">골키퍼</label>
+					class="name position_df_txt">${fvo.gk}</label>
 			</div>
 		</div>
 	</div>

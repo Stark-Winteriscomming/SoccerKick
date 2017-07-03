@@ -25,12 +25,11 @@
 	}
 </style>
 <section id="portfolio" class="bg-light-gray">
-		<div class="container">
-	  <br>
-	  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+	  <div align="center">
+	  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 500px">
 	    <!-- Indicators -->
 	
-	    <!-- Wrapper for slides -->
+	    <!-- Wrapper for slides -->  
 	    <div class="carousel-inner" role="listbox">
 	
 	      <div class="item active">
@@ -87,6 +86,13 @@
 	  </div>
 	</div>
 	</div>
+<<<<<<< HEAD
+	
+	
+	
+	
+=======
+>>>>>>> 5ef98161e97cba8b3674aea197d5eee4b725c45a
 	<div align="center">
 		<div class="panel panel-primary" style="width: 500px">
 			<div class="panel-heading">
@@ -114,11 +120,12 @@
 			</div>
 		</div>
 	</div>
+	<br>
 	<div align="center">  
 	<div class="panel panel-primary" style="width: 500px">
 		<div class="panel-heading">
 			<h3 class="panel-title" id="panel-title">
-				Panel title<a class="anchorjs-link" href="#panel-title"><span
+				팀 순위<a class="anchorjs-link" href="#panel-title"><span
 					class="anchorjs-icon"></span></a>
 			</h3>
 		</div>

@@ -4,8 +4,8 @@
 <%@ page import="com.soccerkick.vo.*"%>
 <%@ page import="java.util.*"%>
 <%
-	ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>)request.getAttribute("list");
-	TeamVO tvo = (TeamVO)request.getAttribute("tvo");
+	ArrayList<MemberSelectVO> list = (ArrayList<MemberSelectVO>) request.getAttribute("list");
+	TeamVO tvo = (TeamVO) request.getAttribute("tvo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -33,7 +33,11 @@
 	margin-bottom: 70px;
 }
 
+<<<<<<< HEAD
 .cam,.df {
+=======
+.cam, .df {
+>>>>>>> 183cf8ea4962fe19cd32a2e03ffbdb4124557fb0
 	width: 72%;
 	margin: 0 auto;
 }
@@ -68,11 +72,19 @@
 	float: right;
 }
 
+<<<<<<< HEAD
 #lb,#cb1,#cb2 {
 	margin-right: 21px;
 }
 
 #lb,#rb {
+=======
+#lb, #cb1, #cb2 {
+	margin-right: 21px;
+}
+
+#lb, #rb {
+>>>>>>> 183cf8ea4962fe19cd32a2e03ffbdb4124557fb0
 	margin-bottom: 60px;
 }
 
@@ -197,10 +209,20 @@ img {
 						</tr>
 					</thead>
 					<%
+<<<<<<< HEAD
 						for(MemberSelectVO mvo : list) {
 					%>
 					<tr>
 						<td><input type="checkbox" name="scheck" id="scheck"
+=======
+						for (MemberSelectVO mvo : list) {
+					%>
+					<tr class="info">
+						<td class="Id" style="display: none;"><%=mvo.getApply_id()%></td>
+						<td class="tId" style="display: none;"><%=mvo.getTeam_id()%></td>
+						<td class="formation" style="display: none;"><%=tvo.getTeam_formation()%></td>
+						<td><input type="checkbox" name="no" id="scheck"
+>>>>>>> 183cf8ea4962fe19cd32a2e03ffbdb4124557fb0
 							value=<%=mvo.getNo()%> /></td>
 						<td><img
 							src="http://sstatic.naver.net/people/91/201405301047405271.jpg" /></td>
@@ -262,6 +284,10 @@ img {
 							location.href="/team/teamView?team_id=${tvo.team_id}";
 						}
 					}
+<<<<<<< HEAD
+=======
+					}
+>>>>>>> 183cf8ea4962fe19cd32a2e03ffbdb4124557fb0
 				});
 			});//a
 			

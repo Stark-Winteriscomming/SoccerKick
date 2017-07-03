@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Random;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,11 +18,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
-import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.dao.JoinDAO;
 import com.soccerkick.dao.userDAO;
 import com.soccerkick.vo.JoinVO;
@@ -156,5 +155,4 @@ public class userController {
 		return jsonString;
 		
 	}
-
 }

@@ -65,7 +65,7 @@
 				<div class="position_wrap">
 				<img
 					src="/resources/img/POSITION/LWF.png" style="width:100%;"/>
-					 <label class="name">골키퍼</label>
+					 <label class="name">${fvo.gk}</label>
 				</div>
 			</div>
 		</div>

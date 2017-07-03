@@ -15,7 +15,10 @@
 	<select id="getClientList"  resultType="com.soccerkick.vo.userVO">
 		select * from client
 	</select> 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 183cf8ea4962fe19cd32a2e03ffbdb4124557fb0
 	 <select id="execSelectAdmin" resultType="com.soccerkick.vo.userVO">
            select * from client
  	</select>

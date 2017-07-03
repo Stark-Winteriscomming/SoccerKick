@@ -208,7 +208,7 @@ input[type=radio]:checked {
 <script type="text/javascript" src="/resources/js/formation_select.js"></script>
 
 <script>  
-swal("팀을 생성 할 수 있습니다.")
+// swal("팀을 생성 할 수 있습니다.")
 /* 업로드 버튼 클릭 */
   	  		var fileTarget=$('.filebox .upload-hidden');
   	  		
@@ -230,4 +230,11 @@ swal("팀을 생성 할 수 있습니다.")
   	  		});  		
 </script> 
 
-
+<script>
+	//swal("경기 장소 정보를 볼 수 있습니다.")
+	var block = new Block('팀을 생성 할 수 있습니다.', 'teamCreate');
+	if(getCookie(block.delemeter) !== 'false')
+		block.display();
+// 	block.display
+	
+</script>
