@@ -12,7 +12,6 @@
 	<h4>
 		<ul>
 			<li><a href="admin_member_list">회원리스트</a></li>
-			<li><a href="admin_place_form">장소 입력폼</a></li>
 			<li><a href="admin_place_list">장소 리스트</a></li>
 			<!--  <li><a href="admin_notice_list.do">공지사항 리스트</a></li>
 			<li><a href="admin_notice_form.do">공지사항 입력</a></li> -->

@@ -2,7 +2,9 @@ package com.soccerkick.controller;
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.soccerkick.dao.*;
 import com.soccerkick.vo.*;
 
@@ -22,6 +25,8 @@ public class AdminController {
 	
 	@Autowired
 	SqlSessionTemplate sqlSession;
+	@Inject 
+	private userDAO udao;
 	
 	@RequestMapping("/admin")
     public String admin(){
@@ -69,15 +74,43 @@ public class AdminController {
 	@RequestMapping("/admin_member_list")
 	public ModelAndView  admin_member_list(){
 		ModelAndView mv = new ModelAndView();
-		AdminDAO dao = sqlSession.getMapper(AdminDAO.class);
 		
-		ArrayList<AdminVO> list = dao.execSelectt();
 		
-		mv.addObject("list", list);
+		
+		try {
+			List<userVO> list = udao.getClientList();
+            mv.addObject("list", list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+//		mv.addObject("list", list);
 		mv.setViewName("/admin/admin_member_list");
 		
 		return mv;
 	}
+	
+	@RequestMapping("/admin_member_delete")
+	public ModelAndView admin_member_delete(String client_id){
+		ModelAndView mv =new ModelAndView();
+
+		mv.addObject("client_id", client_id);
+		mv.setViewName("/admin/admin_member_delete");
+		
+		return mv;
+	}
+	
+	@RequestMapping("/admin_member_delete_complete")
+	public String admin_member_delete_complete(String client_id){
+		AdminDAO tdao = sqlSession.getMapper(AdminDAO.class);
+		tdao.execDelete(client_id);
+		
+		
+		return "redirect:/admin/admin_member_list";
+	}
+	
 	@RequestMapping("/admin_place_form")
 	public String admin_place_form(){
 		return "/admin/admin_place_form";
@@ -122,7 +155,7 @@ public class AdminController {
 	public ModelAndView admin_place_content(String no, String rno){
 		ModelAndView mv = new ModelAndView();
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
-		PlaceVO vo = dao.execContent(no);
+		PlaceVO vo = dao.execContent(Integer.parseInt(no));
 		//ArrayList<String> imgList = vo.getPfnameList();
 				
 		//mv.addObject("imgList",imgList);
@@ -156,10 +189,11 @@ public class AdminController {
 	public ModelAndView admin_place_update_form(String no, String rno){
 		ModelAndView mv = new ModelAndView();
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
-		PlaceVO vo = dao.execContent(no);
+		PlaceVO vo = dao.execContent(Integer.parseInt(no));
 		
 		
 		mv.addObject("vo", vo);
+		mv.addObject("no",no);
 		mv.addObject("rno",rno);
 		mv.setViewName("/admin/admin_place_update_form");
 		
@@ -167,9 +201,17 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/admin_place_update_save.do", method=RequestMethod.POST)
-	public String admin_place_update_save(PlaceVO vo){
+	public String admin_place_update_save(PlaceVO vo, HttpServletRequest request)throws Exception{
 		
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
+		//1. vo에 있는 fileList만큼 반복하여 upload 폴더에 저장시킨다.
+		String path = request.getSession().getServletContext().getRealPath("/resources/ground");					
+		String fpath = path + "\\" + vo.getPfname();
+		System.out.println("fpath:" +fpath);	
+		FileOutputStream fos = new FileOutputStream(fpath);
+		CommonsMultipartFile file=vo.getFile();
+		fos.write(file.getBytes());
+		fos.close();			
 		dao.execUpdate(vo);
 		
 	

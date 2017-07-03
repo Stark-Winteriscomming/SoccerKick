@@ -5,6 +5,6 @@
 
 <mapper namespace="com.soccerkick.dao.JoinDAO">
 	<insert id="execInsert">
-		insert into client(client_id,client_name,client_phone,pw, fname) values(#{client_id},#{client_name},#{client_phone},#{pw}, #{fname})
+		insert into client(client_id,client_name,position_id,client_region,client_age,client_history,client_profile_name,client_phone,pw, fname) values(#{client_id},#{client_name},#{position_id},#{client_region},#{client_age},#{client_history},#{client_profile_name},#{client_phone},#{pw}, #{fname})
 	</insert>
 </mapper>    

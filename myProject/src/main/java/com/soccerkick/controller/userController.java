@@ -86,8 +86,7 @@ public class userController {
 	}  
 
 	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
-	public String joinProcess(JoinVO vo, HttpServletRequest request) throws IOException {
-		System.out.println("留ㅽ븨 �셿猷�");  
+	public String joinProcess(JoinVO vo, HttpServletRequest request) throws IOException { 
 		// 2. �뙆�씪�쓽 �씠由� 媛��졇�삤湲�
 		String fname = vo.getFile().getOriginalFilename();
 

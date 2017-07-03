@@ -25,7 +25,8 @@
 	</ul>
 	<a href="admin_place_update_form?no=${vo.no} ">수정</a>&nbsp;&nbsp;&nbsp;
 	<a href="admin_place_delete?no=${vo.no}">삭제</a>&nbsp;&nbsp;&nbsp;	
-	<a href="admin_place_list"><span>메인이동</span></a>
+	<a href="admin_place_list"><span>리스트이동</span></a>
+	<a href="admin_index"><span>메인이동</span></a>
 </body>
 </html>
 

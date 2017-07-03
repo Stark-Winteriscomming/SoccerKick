@@ -24,5 +24,11 @@
 			where client_id = #{client_id}
 	</select>
 	
+	<delete id="execDelete"  >
+		
+		delete from client where client_id = #{client_id}
+	
+	</delete>
+	
 	
 </mapper>    

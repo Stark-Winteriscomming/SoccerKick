@@ -1,5 +1,8 @@
 package com.soccerkick.dao;
 
+
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.annotations.Param;
@@ -28,5 +31,10 @@ public class userDAO {
 	public userVO getClient(@Param("client_id")String client_id) throws Exception{
 		return session.selectOne(namespace + ".getClient", client_id);
 	};
-
+   
+	public List<userVO> getClientList() throws Exception{
+		return session.selectList(namespace + ".getClientList");
+	};
+	
+	
 }
