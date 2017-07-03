@@ -88,42 +88,43 @@ public class userController {
 	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
 	public String joinProcess(JoinVO vo, HttpServletRequest request) throws IOException {
 		System.out.println("매핑 완료");  
-		// 1. 경로에서 파일리스트 가져오기
-		String path = request.getSession().getServletContext().getRealPath("/upload");
-		String[] flist = new File(path).list();
-
 		// 2. 파일의 이름 가져오기
 		String fname = vo.getFile().getOriginalFilename();
 
 		// 3. 파일리스트에서 해당 파일의 이름을 중복체크
-		for (int i = 0; i < flist.length; i++) {
+			if (fname.equals("")){
+				vo.setFname("null");
+			}
+			else{
+				String path = request.getSession().getServletContext().getRealPath("/upload");
+				System.out.println("path:"+path); 
+				if (fname.equals(fname)) {
+					int index = fname.lastIndexOf(".");
+					String tmpext = fname.substring(index);
+					String tmpname = fname.substring(0, index);
+					fname = tmpname + "_" + new Random().nextInt(100000000) + tmpext;
+					vo.setFname(fname);
+				}
+				else {
+					System.out.println("동일파일없음");
+					vo.setFname(fname);
+				}
+				String fpath = path + "\\" + fname;
+				System.out.println("fpath=" + fpath);
 
-			if (fname.equals(flist[i])) {
-				System.out.println("동일파일 있음");
-				String fno = String.valueOf(new Random().nextInt(1000));
-				int index = fname.lastIndexOf(".");
-				String tmpext = fname.substring(index);// 확장자 분리저장
-				String tmpname = fname.substring(0, index);// 파일명 분리저장
-				fname = tmpname + "_" + fno + tmpext; // 새로운 파일명 생성
-				System.out.println("tmpname = " + tmpname);
-				vo.setFname(fname);
-				i = flist.length;
-			} else {
+				// 5. FOS를 이용하여 파일 저장하기
+				FileOutputStream fos = new FileOutputStream(fpath);
+				fos.write(vo.getFile().getBytes());
+				fos.close();
+			}	
+			 /*else {
 				vo.setFname(fname);
 				System.out.println("동일파일 없음");
-				i = flist.length;
-			}
-		}
+				
+			}*/
+	
 
 		// 4. DB에 저장되는 이름을 결정 vo.setFname(중복체크된 이름 넣기)
-		String fpath = path + "\\" + fname;
-		System.out.println("fpath=" + fpath);
-
-		// 5. FOS를 이용하여 파일 저장하기
-		FileOutputStream fos = new FileOutputStream(fpath);
-		fos.write(vo.getFile().getBytes());
-		fos.close();
-
 		System.out.println("파일명 : " + vo.getFname());
 		String resPage = "";
 		JoinDAO dao = sqlSession.getMapper(JoinDAO.class);

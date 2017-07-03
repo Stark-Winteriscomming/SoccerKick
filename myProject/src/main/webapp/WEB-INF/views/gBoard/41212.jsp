@@ -6,7 +6,7 @@
 	<div class="formation">
 		<div class="checks">
 			<div class="positon_fw" style="margin-bottom: 30px; height: 180px;">
-				<div class="position_wrap">
+				<div class="position_w     rap">
 					<input type="radio" id="fw1" class="fw" name="a_apy_position"
 						value="LS" style="width: 40px; height: 40px;"> <label
 						for="fw1"></label> <label class="position_fw_txt">공격수</label>

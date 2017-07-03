@@ -14,7 +14,7 @@
 		</div>
 		<article class="container">
 			<div class="col-md-6 col-md-offset-3">
-				<form action="join.do" method="post" enctype="multipart/form-data">
+				<form action="join.do  v " method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="InputEmail">아이디</label> <input type="text"
 							class="form-control" id="id" name="client_id"
@@ -71,7 +71,7 @@
 						<label for="username">지역</label>
 						<div class="input-group">
 							<input type="text" class="region" id="region"
-								placeholder="지역을 입력해 주세요">
+								placeholder="지역을 입력해 주세요 ex)서울, 경기, 인천">
 						</div>
 					</div>
 					<div class="form-group">
@@ -98,10 +98,10 @@
 						</div>
 					</div>
 					<div class="form-group text-center">
-						<button type="submit" class="btn">
+						<button type="submit" class="btn" id="btn_submit">
 							회원가입<i class="fa fa-check spaceLeft"></i>
 						</button>
-						<!-- <button type="cancel" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button> -->
+						<button type="button" class="btn btn-warning" id="btn_calcel">가입취소<i class="fa fa-times spaceLeft"></i></button>
 					</div>
 				</form>
 			</div>
@@ -110,3 +110,8 @@
 </section>
 
 <%@include file="../include/footer.jsp"%>
+<script type="text/javascript" src="/resources/js/join_validation.js"></script>
+<!--
+
+//-->
+
