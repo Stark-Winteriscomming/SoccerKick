@@ -16,7 +16,7 @@
 		insert into place values(
 				sequ_place.nextval,#{title},#{content},#{intro},#{phone},#{fname},#{pfname})
 	</insert>
-	<select id="execContent" resultType="com.soccerkick.vo.PlaceVO">
+	<select id="execContent" resultType="com.soccerkick.vo.PlaceVO" parameterType="int">
 		select * from place where no = #{no}
 	</select>
 		

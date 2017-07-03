@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Random;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,11 +18,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
-import com.soccerkick.dao.GboardDAO;
 import com.soccerkick.dao.JoinDAO;
 import com.soccerkick.dao.userDAO;
 import com.soccerkick.vo.JoinVO;
@@ -86,36 +85,36 @@ public class userController {
 	}  
 
 	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
-	public String joinProcess(JoinVO vo, HttpServletRequest request) throws IOException {
-		System.out.println("매핑 완료");  
-		// 2. 파일의 이름 가져오기
+	public String joinProcess(JoinVO vo, HttpServletRequest request) throws IOException { 
+		// 2. �뙆�씪�쓽 �씠由� 媛��졇�삤湲�
 		String fname = vo.getFile().getOriginalFilename();
 
-		// 3. 파일리스트에서 해당 파일의 이름을 중복체크
-			if (fname.equals("")){
-				vo.setFname("null");
-			}
-			else{
-				String path = request.getSession().getServletContext().getRealPath("/upload");
-				System.out.println("path:"+path); 
+		if (fname.equals("")) {
+//			vo.setTeam_logo_file_name(fname);
+			vo.setFname("null");
+		}else {
+			String path = request.getSession().getServletContext().getRealPath("/upload");
+			System.out.println("path:"+path); 
 				if (fname.equals(fname)) {
 					int index = fname.lastIndexOf(".");
 					String tmpext = fname.substring(index);
 					String tmpname = fname.substring(0, index);
 					fname = tmpname + "_" + new Random().nextInt(100000000) + tmpext;
 					vo.setFname(fname);
+
 				}
 				else {
 					System.out.println("동일파일없음");
 					vo.setFname(fname);
 				}
-				String fpath = path + "\\" + fname;
-				System.out.println("fpath=" + fpath);
-
 				// 5. FOS를 이용하여 파일 저장하기
+				System.out.println("파일명 : " + vo.getFname());
+				String fpath = path + "\\" + fname;
+				System.out.println("fpath:"+fpath);
 				FileOutputStream fos = new FileOutputStream(fpath);
 				fos.write(vo.getFile().getBytes());
 				fos.close();
+				System.out.println("fname : " + vo.getFname());
 			}	
 			 /*else {
 				vo.setFname(fname);
@@ -125,11 +124,12 @@ public class userController {
 	
 
 		// 4. DB에 저장되는 이름을 결정 vo.setFname(중복체크된 이름 넣기)
-		System.out.println("파일명 : " + vo.getFname());
-		String resPage = "";
-		JoinDAO dao = sqlSession.getMapper(JoinDAO.class);
+		
+		
 
-		int result = dao.execInsert(vo);
+		String resPage = "";
+		JoinDAO jdao = sqlSession.getMapper(JoinDAO.class);
+		int result = jdao.execInsert(vo);
 
 		if (result == 1) {
 			resPage = "/user/login";
@@ -138,8 +138,25 @@ public class userController {
 		}
 
 		return resPage;
+		
+		/*if (fname.equals()) {
+		System.out.println("�룞�씪�뙆�씪 �엳�쓬");
+		String fno = String.valueOf(new Random().nextInt(1000));
+		int index = fname.lastIndexOf(".");
+		String tmpext = fname.substring(index);// �솗�옣�옄 遺꾨━���옣
+		String tmpname = fname.substring(0, index);// �뙆�씪紐� 遺꾨━���옣
+		fname = tmpname + "_" + fno + tmpext; // �깉濡쒖슫 �뙆�씪紐� �깮�꽦
+		System.out.println("tmpname = " + tmpname);
+		vo.setFname(fname);
+		i = flist.length;
+	} else {
+		vo.setFname(fname);
+		System.out.println("�룞�씪�뙆�씪 �뾾�쓬");
+		i = flist.length;
+	}*/
 
 	}
+
 	@RequestMapping(value="/getClient", method=RequestMethod.GET)
 	@ResponseBody
 	public String getClient(String id) throws Exception{
@@ -153,5 +170,4 @@ public class userController {
 		return jsonString;
 		
 	}
-
 }

@@ -10,7 +10,7 @@ public class userVO {
 	private String position_id;
 	private String team_id;
 	private String client_region;
-	private Integer client_age;
+	private String client_age;
 	private String client_history;
 	private String client_prifile_name;
 	private String client_phone;
@@ -75,11 +75,11 @@ public class userVO {
 		this.client_region = client_region;
 	}
 
-	public Integer getClient_age() {
+	public String getClient_age() {
 		return client_age;
 	}
 
-	public void setClient_age(Integer client_age) {
+	public void setClient_age(String client_age) {
 		this.client_age = client_age;
 	}
 

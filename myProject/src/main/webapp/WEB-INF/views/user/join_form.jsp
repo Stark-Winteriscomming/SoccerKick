@@ -22,16 +22,14 @@
 					</div>
 					<div class="form-group">
 						<label for="InputEmail">닉네임</label> <input type="text"
-							class="nickname" id="nickname" placeholder="닉네임을 입력해 주세요">
+							class="form-control" id="id" name="client_profile_name"
+							placeholder="닉네임을 입력해 주세요">
 					</div>
 					<div>
 
 						<label>첨부파일</label> <input type="file" name="file" id="file">
 
 					</div>
-
-
-
 					<div class="form-group">
 						<label for="InputPassword1">비밀번호</label> <input type="password"
 							class="form-control" id="pass" name="pw"
@@ -48,10 +46,10 @@
 							placeholder="이름을 입력해 주세요">
 					</div>
 					<div class="form-group">
-						<label for="username">생년월일</label>
+						<label for="username">나이</label>
 						<div class="input-group">
-							<input type="tel" class="birth" id="birth"
-								placeholder="- 없이 입력해 주세요">
+							<input type="tel" class="birth" id="birth" name="client_age"
+								placeholder="나이를 입력해주세요">
 
 						</div>
 					</div>
@@ -61,30 +59,29 @@
 							<input type="tel" class="form-control" id="cphone"
 								name="client_phone" placeholder="- 없이 입력해 주세요"> <span
 								class="input-group-btn">
-								<button class="btn btn-success">
-									인증번호 전송<i class="fa fa-mail-forward spaceLeft"></i>
-								</button>
 							</span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="username">지역</label>
 						<div class="input-group">
-							<input type="text" class="region" id="region"
-								placeholder="지역을 입력해 주세요 ex)서울, 경기, 인천">
+
+							<input type="text" class="region" id="region" name="client_region"
+								placeholder="지역을 입력해 주세요">
+
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="username">포지션</label>
 						<div class="input-group">
-							<input type="text" class="position" id="username"
+							<input type="text" class="position" id="username" name="position_id"
 								placeholder="선호 포지션을 입력해주세요">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="username">소개</label>
 						<div class="input-group">
-							<textarea rows="" cols="" class="history" id="history"
+							<textarea rows="" cols="" class="history" id="history" name="client_history"
 								placeholder="소개를 입력해 주세요"></textarea>
 						</div>
 					</div>

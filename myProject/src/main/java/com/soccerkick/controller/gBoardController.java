@@ -149,7 +149,7 @@ public class gBoardController{
 	public ModelAndView place_content(String no, String rno){
 		ModelAndView mv = new ModelAndView();
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
-		PlaceVO vo = dao.execContent(no);
+		PlaceVO vo = dao.execContent(Integer.parseInt(no));
 		//ArrayList<String> imgList = vo.getPfnameList();
 				
 		//mv.addObject("imgList",imgList);
@@ -165,7 +165,7 @@ public class gBoardController{
 	public JSONArray place_content_detail(String no){
 		JSONArray place_detail = new JSONArray();
 		PlaceDAO dao = sqlSession.getMapper(PlaceDAO.class);
-		PlaceVO vo = dao.execContent(no);
+		PlaceVO vo = dao.execContent(Integer.parseInt(no));
 		System.out.println("no:"+no);
 		System.out.println(vo.getTitle());
 		System.out.println(vo.getPhone());

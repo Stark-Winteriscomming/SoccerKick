@@ -11,6 +11,6 @@ public interface AdminDAO {
    public AdminVO execSelectAdmin(AdminVO vo);
    public ArrayList<AdminVO> execSelectt();
    public int userCheck(userVO vo);
-	  
+   public int execDelete(String client_id);  
 
 }
