@@ -86,8 +86,7 @@
 							var no = $(this).attr("value");
 							console.log('no: ' + no);
 							$.ajax({
-								url : '/gBoard/place_content_detail',
-								//    		  url : 'http://172.16.13.8:9090/gBoard/place_content_detail',
+								url : 'http://172.16.13.8:9090/gBoard/place_content_detail',
 								type : 'GET',
 								data : 'no=' + no,
 								dataType : "json",
